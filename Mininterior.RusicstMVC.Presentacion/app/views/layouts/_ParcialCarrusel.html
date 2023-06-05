@@ -1,0 +1,17 @@
+﻿<!--CARROUSEL-->
+
+<div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" class="slide">
+    <div uib-slide ng-repeat="slide in datosHome.listSlider" index="$index">
+
+        <img ng-src="{{serviceBase}}/api/Sistema/ImagenSL?id={{slide.keyContent}}&type=1"
+             class="img-responsive" id="imgID{{slide.idNum}}" ng-show="slide.type=='I'"
+             style="max-height: 100%; max-width: 100%; margin-left:auto;margin-right:auto;" />
+        <div style="width: 70%; margin-left: auto; margin-right: auto;" ng-show="slide.type=='V'">
+            <video width="100%" height="470" controls id="vidID{{slide.idNum}}">
+                <source ng-src="{{serviceBase}}/api/Sistema/ImagenSL?id={{slide.keyContent}}&type=1" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </div>
+</div>

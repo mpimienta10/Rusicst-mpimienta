@@ -1,0 +1,98 @@
+﻿<form role="form" class="form-horizontal" name="myForm" novalidate>
+    <div class="modal-header  modal-rejilla">
+        <h3 class="text-center" id="modal-title">Actualización de pregunta</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="nombre">Nombre:</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control input-sm" ng-model="pregunta.Nombre" id="nombre" name="nombre" required ng-maxlength="512" ng-disabled="editando"/>
+                <span class="text-danger" ng-show="submitted && myForm.nombre.$error.required">El nombre es obligatorio</span>
+                <span class="text-danger" ng-show="submitted && myForm.nombre.$error.maxlength">El nombre supera los 512 caracteres</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="TipoPregunta">Tipo Pregunta:</label>
+            <div class="col-sm-12">
+                <select id="TipoPregunta" name="TipoPregunta" ng-model="pregunta.IdTipoPregunta" required class="form-control input-sm ng-pristine ng-valid" ng-disabled="editando">
+                    <option ng-repeat="item in tipospregunta" value="{{item.Id}}">{{item.Nombre}}</option>
+                </select>
+                <span class="text-danger" ng-show="submitted && myForm.TipoPregunta.$error.required">El tipo de pregunta es obligatorio</span>
+            </div>
+        </div>
+        <div class="form-group" ng-show="pregunta.TipoPregunta == 'UNICA'">
+            <div class="col-sm-12">
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Opciones de respuesta</div>
+                    <div class="panel-body">
+                        <div> <a id="MainContent_newLink" href="" ng-click="editarOpcion(-1)">Nueva Opción</a></div>
+                        <div class="form-group" ng-show="mostrarCampo">
+                            <label class="col-sm-2 control-label-left" for="Texto">Texto:</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm" ng-model="opcion.Valor" id="Texto" name="Texto" />
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="mostrarCampo">
+                            <div class="col-sm-12">
+                                <button class="btnNew" ng-click="submitted=true;guardarOpcion()">Guardar</button>
+                                <button class="btn btn-default" ng-click="submitted=true;cancelarOpcion()">Cancelar</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="alert alert-success" ng-if="alertaRespuesta" role="alert">{{alertaRespuesta}}</div>
+                                <div class="alert alert-danger" ng-if="errorRespuesta" role="alert">{{errorRespuesta}}</div>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Texto</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="opcion in pregunta.opciones">
+                                    <td>{{opcion.Valor}}</td>
+                                    <td><div class="text-center"><a href="" ng-click="editarOpcion($index)">Editar</a></div></td>
+                                    <td><div class="text-center"><a href="" ng-click="eliminarOpcion($index)">Eliminar</a></div></td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="ayuda">Ayuda:</label>
+            <div class="col-sm-12">
+                <textarea class="form-control input-sm" rows="4" placeholder="" id="ayuda" ng_model="pregunta.Ayuda" name="ayuda" ng-trim="true"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label-left" for="Obligatoria">Obligatoria:</label>
+            <div class="col-sm-10">
+                <input type="checkbox" ng-model="pregunta.EsObligatoria" id="Obligatoria" name="Obligatoria" /><!--checked="pregunta.EsObligatoria"--> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12 control-label-leftl" for="Validacion">Validación:</label>
+            <div class="col-sm-12">
+                <textarea class="form-control input-sm" rows="3" placeholder="" id="Validacion" ng_model="pregunta.SoloSi" name="Validacion" ng-trim="true"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="texto"></label>
+            <div class="col-sm-12">
+                <textarea class="form-control input-sm" rows="3" placeholder="" id="texto" ng_model="pregunta.Texto" name="texto" ng-trim="true"></textarea>
+            </div>
+        </div>
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btnNew" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

@@ -1,0 +1,175 @@
+﻿<form class="" role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">{{textos.Descripcion}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <label class="col-sm-2 control-label"  style="margin-left: 40px; margin-top:15px">Descripción: </label>
+           <div class="sombra panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="well" style="color:black">{{textos.DescripcionDetallada}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <uib-accordion close-others="false">
+
+                 <div uib-accordion-group class="panel-default" is-open="open1">
+                    <uib-accordion-heading>
+                        Gobernación<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': open1, 'glyphicon-chevron-right': !open1}"></i>
+                    </uib-accordion-heading>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">URLS</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">Archivos</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in gobernacionUrls">
+                                        <a href="{{item.ParametroValor}}" target="_blank" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in gobernacionArchivos">
+                                        <a href="" ng-click="descargar(item)" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-12 control-label" style="margin-left: 40px; margin-top:15px">Texto Explicativo</label>
+                            <div class="col-sm-12">
+                                <p class="well" style="color:black">{{textos.TextoExplicativoGOB}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div uib-accordion-group class="panel-default" is-open="open2">
+                    <uib-accordion-heading>
+                        Alcaldía <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': open2, 'glyphicon-chevron-right': !open2}"></i>
+                    </uib-accordion-heading>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">URLS</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">Archivos</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in alcaldiasUrls">
+                                        <a href="{{item.ParametroValor}}" target="_blank" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in alcaldiasArchivos">
+                                        <a href="" ng-click="descargar(item)" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-12 control-label" style="margin-left: 40px; margin-top:15px">Texto Explicativo</label>
+                            <div class="col-sm-12">
+                                <p class="well" style="color:black">{{textos.TextoExplicativoALC}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </uib-accordion>
+
+            <!--<uib-accordion close-others="false" ng-show="isGobernacion">
+
+             
+                <div uib-accordion-group class="panel-default" is-open="open1">
+                    <uib-accordion-heading>
+                        Gobernación <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': open1, 'glyphicon-chevron-right': !open1}"></i>
+                    </uib-accordion-heading>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">URLS</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">Archivos</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in alcaldiasUrls">
+                                        <a href="{{item.ParametroValor}}" target="_blank" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in alcaldiasArchivos">
+                                        <a href="" ng-click="descargar(item)" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-12 control-label" style="margin-left: 40px; margin-top:15px">Texto Explicativo</label>
+                            <div class="col-sm-12">
+                                <p class="well" style="color:black">{{textos.TextoExplicativoALC}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div uib-accordion-group class="panel-default" is-open="open2">
+                    <uib-accordion-heading>
+                        Alcaldías <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">URLS</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-center" style="background-color:darkgrey;color:white;">Archivos</h5>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in gobernacionUrls">
+                                        <a href="{{item.ParametroValor}}" target="_blank" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul>
+                                    <li ng-repeat="item in gobernacionArchivos">
+                                        <a href="" ng-click="descargar(item)" uib-popover="{{item.Descripcion}}" popover-title="Descripción:" popover-trigger="'mouseenter'"> {{item.Texto}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-12 control-label" style="margin-left: 40px; margin-top:15px">Texto Explicativo</label>
+                            <div class="col-sm-12">
+                                <p class="well" style="color:black">{{textos.TextoExplicativoGOB}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </uib-accordion>-->
+
+        </div>
+    </div>
+    <div class="modal-footer">
+       <button class="btn btn-default" type="button" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>
+
+
+

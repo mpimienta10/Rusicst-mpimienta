@@ -1,0 +1,216 @@
+﻿<form class="" role="form" name="myForm">
+    <div class="">
+        <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+        </div>
+        <div class="row" style="margin-bottom: 10px;"> <h2>Plan de Mejoramiento</h2></div>
+        <div class="row" style="margin-bottom: 10px;">
+            <!-- Aca va los botones de exportar-->
+            &nbsp;
+            <div class="col-sm-12">
+                <button class="btn btn-default pull-right" ng-click="exportar()"> Exportar PDF</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        </div>
+
+        <div class="row">
+            <div id="exportthis">
+
+                <!--Se arma los acordeones-->
+                <uib-accordion close-others="false" ng-repeat="seccion in datos" ng-init="outerIndex = $index">
+                    <!--Se arma las secciones - directiva-->
+                    <!--<pintar-secciones seccion="item">-->
+                    <div uib-accordion-group class="panel-default" is-open="seccion.expandido" style="overflow: auto;">
+                        <uib-accordion-heading>
+                            <div class="ui-accordion-header-plan">{{seccion.Titulo}} <i class="pull-right fa" ng-class="{'fa-chevron-down': seccion.expandido, 'fa-chevron-right': !seccion.expandido}"></i></div>
+                        </uib-accordion-heading>
+
+
+                        <table>
+                            <tr>
+                                <th colspan="2"><b>Nivel de Avance</b></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id="advanced" style='background-color: {{seccion.Color}}; margin-right: 15px;'></div>
+                                </td>
+                                <td>
+                                    <h6 style="vertical-align: middle; margin-right: 15px; margin-bottom: 0px;">{{seccion.POrcTotal}} %</h6>
+                                </td>
+                                <td>
+                                    <h2>{{seccion.ObjetivoGeneral}}</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <h6>{{seccion.Ayuda}}</h6>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table id="RecomendaTable" class="tablePlan" style="width: 100%;">
+                            <tr class="trPlan" style="background-color: rgb(231, 230, 230);">
+                                <th class="headerCell">Etapa</th>
+                                <th class="headerCell tdPlan hidePorc" style="width: 150px;">Pregunta</th>
+                                <th class="headerCell">Objetivo por Cumplir</th>
+                                <th class='headerCell {{cssClass}}' id="cllPorc">Porcentaje</th>
+                                <th class="headerCell">Recomendación</th>
+                                <th class="headerCell hidePorc">Opción</th>
+                                <th class="headerCell">Acción para Cumplir con el Objetivo</th>
+                                <th class="headerCell">Responsable de Cumplimiento</th>
+                                <th class="headerCell">Fecha Cumplimiento de la Acción</th>
+                                <th class="headerCell" colspan="2">Recursos para el Cumplimiento de la Acción</th>
+                                <th class="headerCell">Nivel Avance</th>
+                                <th class="headerCell">Auto Evaluación (5 indica Máx. Nivel de Cumplimiento)</th>
+                            </tr>
+
+                            <tr class="trPlan" ng-repeat="recomendacion in seccion.recomendaciones" ng-init="innerIndex = $index">
+                                <!--esto es lo que se repite-->
+                                <td class="tdPlan">
+                                    {{recomendacion.EtapaNombre}}
+                                </td>
+                                <td class="tdPlan hidePorc" style="width: 150px;">
+                                    <div style="width: 100%; overflow: auto;">
+                                        {{recomendacion.NombrePregunta}}
+                                    </div>
+                                </td>
+                                <td class="tdPlan">
+                                    {{recomendacion.ObjetivoEspecifico}}
+                                </td>
+                                <td class="tdPlan {{cssClass}}" id="cllPorc">
+                                    {{recomendacion.PorcentajeObjetivo}}
+                                </td>
+                                <td class="tdPlan">
+                                    {{recomendacion.Recomendacion}}
+                                </td>
+                                <td class="tdPlan hidePorc">
+                                    {{recomendacion.Opcion}}
+                                </td>
+                                <td class="tdPlan">
+                                    <textarea id="txtAccion{{outerIndex}}|{{innerIndex}}" name="txtAccion{{outerIndex}}|{{innerIndex}}"
+                                              class="form-control"
+                                              style="height: 120px; width: 200px; max-width:200px !important; max-height: 250px !important;" rows="5"
+                                              ng-model="recomendacion.Accion" ng-disabled="!activo"></textarea>
+                                </td>
+                                <td class="tdPlan">
+                                    <textarea id="txtResponsable{{outerIndex}}|{{innerIndex}}" name="txtResponsable{{outerIndex}}|{{innerIndex}}"
+                                              class="form-control"
+                                              style="height: 120px; width: 200px; max-width:200px !important; max-height: 250px !important;" rows="5"
+                                              ng-model="recomendacion.AccionResponsable" ng-disabled="!activo"></textarea>
+                                </td>
+                                <td class="tdPlan">
+                                    <input type="date" id="fechaAccion{{outerIndex}}|{{innerIndex}}" name="fechaAccion{{outerIndex}}|{{innerIndex}}"
+                                           class="form-control input-sm"
+                                           ng-model="recomendacion.AccionFecha" ng-disabled="!activo" />
+                                </td>
+                                <td colspan="2" class="tdPlan">
+                                    <table id="recursosTable" class="tablePlan" style="width: 250px;">
+                                        <thead>
+                                            <tr class="trPlan" style="background-color: rgb(231, 230, 230);">
+                                                <th class="headerCellRec">Tipo</th>
+                                                <th class="headerCellRec">Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="recurso in recomendacion.recursos" ng-init="recursoIndex = $index">
+                                                <td class="tdRec">
+                                                    <label style="width: 100px;">
+                                                        <input type="checkbox" id="chkRecurso{{innerIndex}}|{{recursoIndex}}"
+                                                               name="chkRecurso{{innerIndex}}|{{recursoIndex}}"
+                                                               ng-model="recurso.Seleccionado"
+                                                               ng-disabled="!activo" />
+                                                        {{recurso.NombreTipoRecurso}}
+                                                    </label>
+                                                </td>
+                                                <td class="tdRec">
+
+                                                    <div ng-switch on="recurso.Clase">
+
+                                                        <div ng-switch-when="MONEDA">
+                                                            {{recurso.ValorRecurso | currency:"$"}}
+                                                            <input class="estilo-numero full form-control input-sm" type="number"
+                                                                   ng-model="recurso.ValorRecurso" ng-disabled="!recurso.Seleccionado || !activo"
+                                                                   style="width: 150px;" />
+                                                        </div>
+
+                                                        <div ng-switch-when="NUMERO">
+                                                            {{recurso.ValorRecurso | number}}
+                                                            <input class="estilo-numero full form-control input-sm" type="number"
+                                                                   ng-model="recurso.ValorRecurso" ng-disabled="!recurso.Seleccionado || !activo"
+                                                                   style="width: 150px;" />
+                                                        </div>
+
+                                                        <div ng-switch-when="PARAGRAFO">
+                                                            <textarea id="txtResponsable{{outerIndex}}|{{innerIndex}}" name="txtResponsable{{outerIndex}}|{{innerIndex}}"
+                                                                      class="form-control"
+                                                                      style="height: 40px; width: 150px; max-width:150px !important; max-height: 100px !important;" rows="5"
+                                                                      ng-model="recurso.ValorRecurso" ng-disabled="!recurso.Seleccionado || !activo"></textarea>
+                                                        </div>
+
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td class="tdPlan">
+                                    <select id="Avances" name="Avances" ng-model="recomendacion.IdAvance" class="form-control input-sm ng-valid"
+                                            style="width: 80px;"
+                                            ng-options="c.IdAvance as c.Avance for c in listaAvances"></select>
+                                </td>
+                                <td class="tdPlan">
+                                    <select id="Autoeval" name="Autoeval" ng-model="recomendacion.IdAutoEv" class="form-control input-sm ng-valid"
+                                            style="width: 80px;"
+                                            ng-options="c.IdAutoevaluacion as c.Autoevaluacion for c in listaAutoeva"></select>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </uib-accordion>
+
+            </div>
+
+            <uib-accordion close-others="false">
+                <div uib-accordion-group class="panel-default" style="overflow: auto;">
+                    <uib-accordion-heading>
+                        <div class="ui-accordion-header-plan">Adjuntar Archivo <i class="pull-right fa" ng-class="{'fa-chevron-down': openFile, 'fa-chevron-right': !openFile}"></i></div>
+                    </uib-accordion-heading>
+                                        
+                    <input type="file" ngf-select="" ng-model="datos.file" name="filen" id="filen"
+                           ng-show="fileIsVacio"
+                           ngf-validate-fn="validarArchivo($file)"
+                           ngf-model-invalid="errorFile" style="width:100%;" />
+
+                    <div uib-alert class="alert alert-link archivo-alerta" close="cerrar();" ng-show="!fileIsVacio">
+                        <a href="" ng-click="descargar()">{{fileLocation}}</a>
+                    </div>
+
+                </div>
+            </uib-accordion>
+        </div>
+        
+        <div class="form-group">
+            <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+            <label class="text-danger" ng-if="error">{{error}}</label>
+        </div>
+
+        <div class="form-group">
+            <button class="btnNew" type="button" ng-click="submitted=true;aceptar()" ng-show="activo">Guardar</button>
+            <button class="btnNew" type="button" ng-click="submitted=true;enviar()" ng-show="activo">Enviar</button>
+        </div>
+
+        <div class="row">
+            <span class="col-sm-12 rusicst-center" style="font-weight: bold !important; color: #63002D; text-transform: uppercase;margin-bottom: 15px;">NIVEL DE AVANCE</span>
+            <div class="col-sm-2 col-sm-offset-5 rusicst-center">
+                <uib-progressbar animate="false" value="progreso" type="rusicst" max="100"><b>{{progreso}}%</b></uib-progressbar>
+            </div>
+        </div>
+    </div>
+</form>

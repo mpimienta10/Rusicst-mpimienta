@@ -1,0 +1,17 @@
+﻿<form role="form" class="form-horizontal" name="myForm" novalidate>
+    <div class="modal-header" style="background-color:#748595;">
+        <h3 class="text-center" style="color:whitesmoke">Confirmación de eliminación</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-12 text-center" >{{msn}}</label>            
+        </div>
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btnNew" ng-click="submitted=true;aceptar()">Eliminar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

@@ -1,0 +1,521 @@
+﻿<link href="../../../content/ConfiguracionesHomeSistema.css" rel="stylesheet" />
+
+<div data-ng-app="APIModule" id="tblSubs" ng-controller="ConfiguracionSistemaController">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+
+    <a class="btn-floating" ui-sref="Index.Index">
+        <img src="images/home-128.png" width="32" style="left: 8px; position: absolute; top: 8px;" />
+    </a>
+
+    <!--Redes Sociales - Editables -->
+    <div class="row top-social " style="margin-top:0px">
+        <div class="container">
+            <div class="wrap-content  pull-right" style="margin-top:5px">
+                <span style="float:left;margin-top:5px">Síguenos en las redes sociales</span>
+
+                <!--<div style="max-width: 53px; max-height: 40px; float: left;" ng-repeat="item in datosHome.listRS">
+                    <button type="button"
+                            class="btn btn-default"
+                            style="height: 100%"
+                            data-toggle="modal"
+                            data-target="#modalRS"
+                            data-socialName="{{item.Nombre}}"
+                            data-keyURL="{{item.Url}}"
+                            data-keyIMG="{{item.Imagen}}"
+                            data-imgID="{{item.imgID}}"
+                            ng-click="abrirModalModificarRS($index)">
+                        <img src="{{serviceBase}}/api/Sistema/ImagenRS?id={{item.Imagen}}&type=1"
+                             id="{{item.imgID}}" style="width:100%; max-width:100%; max-height: 90%;">
+                    </button>
+                </div>-->
+
+                <button ng-repeat="item in datosHome.listRS"
+                        type="button"
+                        class="btn btn-default"
+                        style="height: 100%"
+                        data-toggle="modal"
+                        data-target="#modalRS"
+                        data-socialName="{{item.Nombre}}"
+                        data-keyURL="{{item.Url}}"
+                        data-keyIMG="{{item.Imagen}}"
+                        data-imgID="{{item.imgID}}"
+                        ng-click="abrirModalModificarRS($index)">
+                    <img data-ng-src="data:image/jpg;base64,{{item.ImageContent}}" 
+                         id="{{item.imgID}}" style="width:100%; max-width:100%; max-height: 90%;"/>
+                    <!--<img src="{{serviceBase}}/api/Sistema/ImagenRS?id={{item.Imagen}}&type=1"
+                         id="{{item.imgID}}" style="width:100%; max-width:100%; max-height: 90%;">-->
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-3 col-lg-offset-1" id="divImgMint">
+                        <div id="overlayMint" ng-show="uploadingMint">
+                            <div class="overlayMint"></div>
+                            <div class="modal-OverlayMint">
+                                <img src="images/loading.gif" />
+                                <br />
+                                Por favor Espere...
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 imagePreviewCell">
+                                <img data-ng-src="data:image/jpg;base64,{{datosHome.ImageMintContent}}"
+                                     class="img-responsive center-block imgCenter" alt="mininterior"
+                                     style="width:90%; max-height: 90%;" id="imgMint" />
+                                <!--<img ng-src="{{serviceBase}}/api/Sistema/ImagenMint?id=HeaderGobierno.LogoMin&type=2"
+                                     class="img-responsive center-block imgCenter" alt="mininterior"
+                                     style="width:90%; max-height: 90%;" id="imgMint" />-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="file" ngf-select ng-model="fileMint" name="fileMint" id="fileMint"
+                                       accept=".png,.jpg,.jpeg" ngf-max-size="4MB" required ngf-model-invalid="errorFile" style="width:100%;" />
+                                <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 4MB</label></div>
+                                <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.fileMint.$error.required">
+                                    {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="button" id="btnMintUp" name="btnMintUp" value="Cargar Imagen" ng-disabled="!fileMint" ng-click="submitted=true;agregarMint(fileMint, 'HeaderGobierno.LogoMin', fileMint.name, 'HeaderGobierno.Login')" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <div id="overlayMint2" ng-show="uploadingMint">
+                            <div class="overlayMint"></div>
+                            <div class="modal-OverlayMint">
+                                <img src="images/loading.gif" />
+                                <br />
+                                Por favor Espere...
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 imagePreviewCell">
+                                <img data-ng-src="data:image/jpg;base64,{{datosHome.ImagePaisContent}}"
+                                     class="img-responsive center-block imgCenter" alt="todos por un nuevo país"
+                                     style="width:90%; max-height: 90%;" id="imgPais" />
+                                <!--<img ng-src="{{serviceBase}}/api/Sistema/ImagenMint?id=HeaderGobierno.LogoPais&type=2"
+                                     class="img-responsive center-block imgCenter" alt="todos por un nuevo país"
+                                     style="width:90%; max-height: 90%;" id="imgPais" />-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="file" ngf-select ng-model="filePais" name="filePais" id="filePais"
+                                       accept=".png,.jpg,.jpeg" ngf-max-size="4MB" required ngf-model-invalid="errorFile" style="width:100%;" />
+                                <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 4MB</label></div>
+                                <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.filePais.$error.required">
+                                    {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="button" id="btnPaisUp" name="btnPaisUp" value="Cargar Imagen" ng-disabled="!filePais" ng-click="submitted=true;agregarMint(filePais, 'HeaderGobierno.LogoPais', filePais.name, 'HeaderGobierno.Login')" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-1">
+                        <div id="overlayMint3" ng-show="uploadingMint">
+                            <div class="overlayMint"></div>
+                            <div class="modal-OverlayMint">
+                                <img src="images/loading.gif" />
+                                <br />
+                                Por favor Espere...
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 imagePreviewCell">
+                                <img data-ng-src="data:image/jpg;base64,{{datosHome.ImageVictContent}}"
+                                      class="img-responsive center-block imgCenter" alt="Unidad para la atención y reparación integral a las víctimas"
+                                     style="width:90%; max-height: 90%;" id="imgVic" />
+                                <!--<img ng-src="{{serviceBase}}/api/Sistema/ImagenMint?id=HeaderGobierno.LogoVict&type=2"
+                                     class="img-responsive center-block imgCenter" alt="Unidad para la atención y reparación integral a las víctimas"
+                                     style="width:90%; max-height: 90%;" id="imgVic" />-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="file" ngf-select ng-model="fileVict" name="fileVict" id="fileVict"
+                                       accept=".png,.jpg,.jpeg" ngf-max-size="4MB" required ngf-model-invalid="errorFile" style="width:100%;" />
+                                <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 4MB</label></div>
+                                <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.fileVict.$error.required">
+                                    {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="button" id="btnVictUp" name="btnVictUp" value="Cargar Imagen" ng-disabled="!fileVict" ng-click="submitted=true;agregarMint(fileVict, 'HeaderGobierno.LogoVict', fileVict.name, 'HeaderGobierno.Login')" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-12">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <div id="overlayMint4" ng-show="uploadingApp">
+                            <div class="overlayMint"></div>
+                            <div class="modal-OverlayMint">
+                                <img src="images/loading.gif" />
+                                <br />
+                                Por favor Espere...
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 imagePreviewCell">
+
+                                <img data-ng-src="data:image/jpg;base64,{{datosHome.ImageAppContent}}" 
+                                     class="img-responsive center-block imgCenter" alt="rusicst"
+                                     style="width:90%; max-height: 90%;" id="imgRus" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="file" ngf-select ng-model="fileRus" name="fileRus" id="fileRus"
+                                       accept=".png,.jpg,.jpeg" ngf-max-size="4MB" required ngf-model-invalid="errorFile" style="width:100%;" />
+                                <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 4MB</label></div>
+                                <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.fileRus.$error.required">
+                                    {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="button" id="btnRusUp" name="btnRusUp" value="Cargar Imagen" ng-disabled="!fileRus" ng-click="submitted=true;agregarApp(fileRus, 'HeaderApp.Logo', fileRus.name, 'HeaderApp.Login')" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+
+    <hr class="line-border" />
+
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <!--Carousel-->
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="{{$index}}" ng-repeat="n in range(0, datosHome.cantidadSlides)" ng-class="{'active': $index == '0'}"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+
+                            <div ng-repeat="item in datosHome.listSlider" class="{{item.cssClass}}" style="width: 960px; height: 470px;">
+                                <img ng-src="{{serviceBase}}/api/Sistema/ImagenSL?id={{item.keyContent}}&type=2"
+                                     class="img-responsive" id="imgID{{item.idNum}}" ng-show="item.type=='I'"
+                                     style="max-height: 100%; max-width: 100%; margin-left:auto;margin-right:auto;" />
+                                <div style="width: 70%; margin-left: auto; margin-right: auto;" ng-show="item.type=='V'">
+                                    <video width="100%" height="470" controls id="vidID{{item.idNum}}">
+                                        <source ng-src="{{serviceBase}}/api/Sistema/ImagenSL?id={{item.keyContent}}&type=2" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <a class="btn-floating2" title="Editar Imagen" ng-click="abrirModalModificarSL($index)">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true" style="left: 12px; position: absolute; top: 8px; font-size: 28px;"></span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="line-border" style="margin-bottom:0px;" />
+
+    <div class="overlay33"></div>
+    <div class="modal-Overlay3">No Editable</div>
+
+    <!--Ingreso-->
+    <div style="background-color:#748595">
+        <div class="container">
+            <form class="row" id="myForm" name="myForm" role="form">
+                <div class="col-sm-3 col-sm-offset-2">
+                    <div class="form-horizontal">
+                        <div class="form-group-sm" style="margin-top:15px;">
+                            <label class="col-sm-5 control-label" for="usuario" style="color:white">Usuario</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="usuario" name="usuario" value="" autocomplete="off"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-horizontal" style="margin-top:15px;">
+                        <div class="form-group-sm" style="padding-bottom:15px">
+                            <label class="col-sm-5 control-label" for="password" style="color:white">Contraseña</label>
+                            <div class="col-sm-7">
+                                <input type="password" class="form-control" id="password" name="password" value="" autocomplete="off"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2" style="padding-right:30px;margin-left:15px">
+                    <button class="btn btn-login center-block" style="width:100%">ENTRAR</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!--Aún no te has registrado-->
+    <div class="login-form line-border">
+        <div class="wrap-content">
+            <span class="side">¿Aún no te has registrado? <a ui-sref="home.registro">Hazlo aquí</a></span>
+            <span class="side -bar-">|</span>
+            <span class="side">¿Olvidó su contraseña? <a href="#">Haz click aquí</a> </span>
+            <span class="side -bar-">|</span>
+            <span class="side"> Ingreso usuarios internos <a href="#">Hazlo aquí</a></span>
+            &nbsp;<span class="report">
+                Si presenta dificultades para ingresar al sistema contáctenos a través del correo: <a href="#">
+                    reporteunificado@mininterior.gov.co
+                </a>
+            </span>
+        </div>
+    </div>
+    
+    <div class="wrap-content">
+        <div class="row">
+            <div class="col-md-11">
+                <div id="overlayBody" ng-show="uploadingText">
+                    <div class="overlayMint"></div>
+                    <div class="modal-OverlayMint">
+                        <img src="~/images/loading.gif" />
+                        <br />
+                        Por favor Espere...
+                    </div>
+                </div>
+
+                <textarea ui-tinymce="tinymceOptions" id="areaBody" ng-model="datosHome.TextHome"></textarea>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" aria-label="Left Align" id="btnSaveBody"
+                        ng-click="submitted=true;modificarFooterHome('Login.BodyText.HTMLCode', datosHome.TextHome, 'Login.BodyText')">
+                    <img src="images/Save.png" />
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <hr class="line-border" />
+
+    <!--creditos-->
+    <div class="container container-fluid">
+        <div>
+            <div class="row">
+                <div class="col-md-3 col-lg-offset-1">
+
+                    <div id="overlayGob" ng-show="uploadingGob">
+                        <div class="overlayMint"></div>
+                        <div class="modal-OverlayMint">
+                            <img src="images/loading.gif" />
+                            <br />
+                            Por favor Espere...
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12 imagePreviewCellGob">
+                            <img data-ng-src="data:image/jpg;base64,{{datosHome.ImageGobContent}}"
+                                 class="img-responsive center-block imgCenter" alt="mininterior"
+                                 style="width:90%; max-height: 90%;" id="imgGob" />
+                            <!--<img ng-src="{{serviceBase}}/api/Sistema/ImagenGob?id=CreditosGobierno.LogoGobierno&type=2"
+                                 class="img-responsive center-block imgCenter" alt="mininterior"
+                                 style="width:90%; max-height: 90%;" id="imgGob" />-->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="file" ngf-select ng-model="fileGob" name="fileGob" id="fileGob"
+                                   accept=".png,.jpg,.jpeg" ngf-max-size="4MB" required ngf-model-invalid="errorFile" style="width:100%;" />
+                            <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 4MB</label></div>
+                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.fileGob.$error.required">
+                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <input type="button" id="btnMintUp" name="btnGobUp" value="Cargar Imagen" ng-disabled="!fileGob" ng-click="submitted=true;agregarGob(fileGob, 'CreditosGobierno.LogoGobierno', fileGob.name, 'CreditosGobierno.Login')" />
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="credits">
+                            <div class="col-md-2">
+                                <div id="overlayLinkList" ng-show="uploadingLinks">
+                                    <div class="overlayMint" style="width: 280px !important;height: 105px;"></div>
+                                    <div class="modal-OverlayMint" style="width: 260px;text-align: center;height: 105px;">
+                                        <img src="images/loading.gif" style="width: 80px;" />
+                                        <br />
+                                        Por favor Espere...
+                                    </div>
+                                </div>
+                                <div style="text-align: center;"><b>&nbsp;</b></div>
+                                <ul style="width: 320px !important; text-align: left; margin: 0px; padding: 0px;" id="ulLinks">
+                                    
+                                    <li ng-repeat="item in datosHome.listLinks">
+                                        <a href="{{item.Url}}" target="_blank" style="text-decoration:none;z-index:-1">
+                                            <span style="background-color: {{item.Color}}"></span>
+                                            <span>{{item.Nombre}}</span>
+                                        </a>
+                                        <img class="delete_btn" src="images/red_cross_mark.gif" ng-click="submitted=true;eliminarLinkGobierno('CreditosGobierno.Login', item.idNum)"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div id="overlayLinks" ng-show="uploadingLinks">
+                        <div class="overlayMint"></div>
+                        <div class="modal-OverlayMint">
+                            <img src="images/loading.gif" style="width: 80px;" />
+                            <br />
+                            Por favor Espere...
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="text-align: center;"><b>Item</b></div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                Color:
+                            </div>
+                            <div class="col-md-5">
+                                <input type="color" ng-model="itemColor" id="itemColor" name="itemColor" value="#000000" style="width: 50%;">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-md-9">
+                                <input type="text" ng-model="newItemUrl" ng-pattern="regexURL" id="itemUrl" name="itemUrl" placeholder="Url del Sitio" required />
+                                <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.newItemUrl.$error.required">
+                                    La URL es requerida <span ng-show="submitted && myForm.newItemUrl.$error.pattern">La URL no es válida</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px;">
+                            <div class="col-md-9">
+                                <input type="text" ng-model="itemText" id="itemText" name="itemText" placeholder="Nombre" required />
+                                <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.itemText.$error.required">
+                                    El nombre del Enlace es requerido
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default" aria-label="Left Align" id="btnAddItem"
+                            ng-click="submitted=true;agregarLinkGobierno('CreditosGobierno.Login')">
+                        <img src="images/add-icon.png" />
+                        <br />
+                        Agregar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr class="line-border" />
+
+    <div class="wrap-content">
+        <div class="row">
+            <div class="col-md-11">
+                <div id="overlayBody" ng-show="uploadingText">
+                    <div class="overlayMint"></div>
+                    <div class="modal-OverlayMint">
+                        <img src="~/images/loading.gif" />
+                        <br />
+                        Por favor Espere...
+                    </div>
+                </div>
+
+                <textarea ui-tinymce="tinymceOptionsFooter" id="areaFooter" ng-model="datosHome.TextFooter"></textarea>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" aria-label="Left Align" id="btnSaveFooter"
+                        ng-click="submitted=true;modificarFooterHome('Footer.HTMLCode', datosHome.TextFooter, 'Footer.Login')">
+                    <img src="images/Save.png" />
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--@*Div de errores y alertas*@-->
+    <div class="form-group col-sm-12">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.carousel-control').click(function (e) {
+            e.stopPropagation();
+            var goTo = $(this).data('slide');
+            if (goTo == "prev") {
+                $('#carousel-example-generic').carousel('prev');
+            } else {
+                $('#carousel-example-generic').carousel('next');
+            }
+        });
+
+    });
+</script>

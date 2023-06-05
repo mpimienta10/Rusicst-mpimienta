@@ -1,0 +1,1103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDC92EC1-C09A-4DB3-88C9-FDC0CBF90E6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mininterior.RusicstMVC.Entidades</RootNamespace>
+    <AssemblyName>Mininterior.RusicstMVC.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C_AccionesPAT_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_AccionesResultado.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_AccionesResultadoInsert.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_AvanceMunicipioWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_AvanceTableroSeguimientoMunicipioWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Buscador_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_CampanaEmail_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClasificadoresBancoPreguntas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ClasificadoresPreguntasBancoPreguntas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ComponentesSeguimientoOtrosDerechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConfiguracionDerechosPAT_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsolidadosMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaInicioSesion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroalimentacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroAnaRecomendacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroDesPreguntasXIdRetro_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroDesPreguntas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroEncuestaNivel_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroEncuestaPreguntaXCodigoArchivoAdmin_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroEncuestaPreguntaXCodigoArchivo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroEncuestaPreguntaXCodigoDesarrollo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroGraficaDesarrollo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroGraficaNivel_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroHistoricoXMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroRevPreguntasXIdRetroMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroRevPreguntasXIdRetroxUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroRevPreguntasXIdRetro_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultaRetroUsuarioDesarrollo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultarRespuestasArchivoFileServer1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ConsultarRespuestasArchivoFileServer_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosConsolidadoMunicipiosGobernacionesWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosConsolidadoMunicipiosSeguimientoGobernacionesWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosDepartamentalesDiligenciadosRCWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosDepartamentalesDiligenciadosRRWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosDepartamentalesSeguimientoODWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosDepartamentalesSeguimientoRCWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosDepartamentalesSeguimientoRRWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosDepartamentalesSeguimientoWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcelSeguimientoAlcaldiasReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcelSeguimientoAlcaldiasRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcelSeguimientoAlcaldias_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcelSeguimientoGobernacionAlcaldiasRC_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcelSeguimientoGobernacionAlcaldiasRR_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcelSeguimientoGobernacionAlcaldias_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcelSeguimientoGobernaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_GobernacionesReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_GobernacionesRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_Gobernaciones_municipios_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_Gobernaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_MunicipiosReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_MunicipiosRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_Municipios_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosExcel_PrecargueEntidadesNacionales_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesAdecuacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesArticulacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesComite_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesDinamica_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesParticipacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesRetorno_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesTerritorial_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosGraficaDesTodo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosMunicipalesDiligenciadosRCWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosMunicipalesDiligenciadosRRWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosMunicipalesDiligenciadosWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosMunicipalesSeguimientoODWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosMunicipalesSeguimientoRCWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosMunicipalesSeguimientoRRWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosMunicipalesSeguimientoWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosPreguntasDepartamentoDiligenciadasWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosPregunta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosRespuestaSeguimientoDepartamento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_datosRespuestaSeguimientoMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosSeccionDescarga1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosSeccionDescarga_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosSeguimientoDepartamentoPorId_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosSeguimientoDepartamentoReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosSeguimientoDepartamentoRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DatosSistema_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DepartamentosXPregunta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DerechosSeguimientoOtrosDerechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DerechosWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Derechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DetallesClasificadoresPreguntasBancoPreguntas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarAutoEvaluacionV11_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarAutoEvaluacionV11_Result1.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarAutoEvaluacionV1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarEncuestaSeccionesSubsecciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarGlosarioTooltip_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarGlosario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarPreguntasSeccionExcel1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarPreguntasSeccionExcel_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarPreguntasSeccion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarSeccionEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_DibujarSeccion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EncuestaConsultar_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EncuestaGrid_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EncuestaSeccionesSubseccionesDraw_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EncuestasXUsuarioCompletadas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EncuestasXUsuarioNoCompletadas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EntidadByUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EntidadesConRespuestaMunicipal_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EnvioTableroPat_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EvaluacionConsolidado_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_EvaluacionSeguimiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ExtensionesTiempo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_FuentePresupuesto1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_FuentePresupuestoPATDiligenciamientoDepartamentos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_FuentePresupuestoPATDiligenciamiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_FuentePresupuesto_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_GlosarioConsultar_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_HistoricoXUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_InformePrecargueRespuestas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_InformeRespuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_InformesAutoevaluacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaCategoryLogOld_Result.cs">
+      <DependentUpon>ModelLogOldContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaCategory_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaDeptosYMunicipios_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListadoAdministracionTableros_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListadoPreguntasSoloSiXIdPregunta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListadoSeguimientoConRespuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListadoTablerosSeguimiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListadoTableros_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListadoUsuariosActivosPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaGrupo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaMunicipiosXUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaRecurso_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaRoles_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaSeccion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaSubRecurso_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaSubSeccion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaTipoEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ListaTipoUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_LogOld_Result.cs">
+      <DependentUpon>ModelLogOldContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_LogXCategoriaExportarOld_Result.cs">
+      <DependentUpon>ModelLogOldContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_LogXCategoriaExportar_Result.cs">
+      <DependentUpon>ModeloContextoLog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_LogXCategoriaOld_Result.cs">
+      <DependentUpon>ModelLogOldContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_LogXCategoria_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_LogXExcepcion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Log_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MapaPoliticaPublicaWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MedidasSeguimientoOtrosDerechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MunicipiosOtrosDerechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MunicipiosReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MunicipiosRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MunicipiosSeguimiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_MunicipiosXPregunta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_NumeroSeguimiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosAccionesSeguimientoPlanV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosActivacionPlanMejoramiento1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosActivacionPlanMejoramiento1_Result1.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosActivacionPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosGuardadoArchivosEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosObjetivosSeguimientoPlanV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosPlanMejoramiento1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerDatosSeguimientoPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerEnvioPlanMejoramientoV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerFinalizacionPlan1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerFinalizacionPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerIdPlanEncuesta1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerIdPlanEncuesta1_Result1.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerIdPlanEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerIdTipoPlanEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionAccionesPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionEstadosAcciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionEstrategiasPlanes_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionObjetivosGeneralesPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionObjetivosPlanes_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionPlanMejoramiento1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionPlanMejoramientoV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionPorcentajeCumplimientoPlan1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionPorcentajeCumplimientoPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionRecomendacionesPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionRecomendaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionSeccionesPlanMejoramiento1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionSeccionesPlanMejoramientoV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionSeccionesPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionSeccionesSeguimientoPlanV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionSeguimientoPlanV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionSeguimientosPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionTareasDiligenciadasPlanMejoramientoV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionTareasPlanes_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionTareasPlanMejoramientoV3_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerInformacionTareasPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerListadoEncuestasPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerListadoEncuestasSinResponder_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerListadoPlanes_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerListadoSeccionesPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerPreguntasPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerRecursosRecomendacion1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerRecursosRecomendacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerRutaSeguimientoPlan_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerSeccionesEncuestasPlanMejoramiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerTiposAutoEvaluacion1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerTiposAutoEvaluacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerTiposAvance1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerTiposAvance_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerTiposRecurso_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerTotalesParaEnviar1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ObtenerTotalesParaEnviar_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_OpcionesMenu_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_OpcionesTipoUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_OpcionesXPregunta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ParametrosSistema_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PermisosUsuarioPorRecurso_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PermisosUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PrecargueEntidadesNacionales_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntaPATPrecargueEntidadesNacionales_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasBancoPreguntas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasPat_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasRCPat_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasReparacionColectivaWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasRetornosReubicacionesWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasRRPat_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasSeccionEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntasWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntaXCodigoSeccion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntaXCodigo_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_PreguntaXDesencadenante_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProgramasDepartamentoPAT_IDS_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProgramasDepartamentoPAT_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProgramasPAT_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProgramasPlaneacionWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProgramasSeguimientoDepartamento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProgramasSeguimientoSIGO_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ProgramasSeguimiento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ReporteConsolidadoDetalle_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ReporteConsolidadoTotales_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ReportesXEntidadesTerritoriales_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_RespuestasEncuestaPorUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_RespuestasEncuestaXUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_RespuestasEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_RespuestaXIdPreguntaUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_RolXEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Salida_Departamental_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Salida_Gobernacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Salida_Municipal_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_SeccionEncuesta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_SeguimientoDepartamentoPorMunicipio1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_SeguimientoDepartamentoPorMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_SeguimientoNacionalPorDepartamento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_SeguimientoNacionalPorMunicipio1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_SeguimientoNacionalPorMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroDepartamentoAvance_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroDepartamentoReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroDepartamentoRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroDepartamento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroMunicipioAvance_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroMunicipioRC_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroMunicipioRR_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroMunicipioTotales_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoConsolidadoDepartamento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoDepartamentoAvance_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoDepartamentoOtrosDerechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoDepartamentoReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoDepartamentoRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoDepartamento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoDetalleConsolidadoDepartamento_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoMunicipioAvance_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoMunicipioOtrosDerechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoMunicipioReparacionColectiva_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoMunicipioRetornosReubicaciones_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroSeguimientoVigencia_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TablerosWebService_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TableroVigencia_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TiposPregunta_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TipoUsuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodasMedidas_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodasUnidadesMedida_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosComponentes_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosDerechos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosDepartamentosCompletos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosDepartamentosPorCompletar_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosMunicipiosCompletos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosMunicipiosPorCompletar_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosPlaneacionActivos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosSeguimientoDepartamentosCompletados_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosSeguimientoDepartamentosPorCompletar_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosSeguimientoMunicipiosCompletados_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosSeguimientoMunicipiosPorCompletar_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosSeguimientosActivos_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTablerosSeguimientosActivos_Result1.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_TodosTableros_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UnoaUnoPrecargueSIGO_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosEnSistema_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosEnviaronReporte_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosGuardaronInformacionAutoevaluacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosGuardaronInformacionSistema_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosHistoricoSolicitudes_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosHistoricoUsuarioSolicitudes_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosPasaronAutoevaluacion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_UsuariosXRol_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Usuario_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ValidarEnvioTableroPat_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_ValidarPermisoGuardadoSeccion_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c_ValidarRespuestasPreguntasObligatorias1_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c_ValidarRespuestasPreguntasObligatorias_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="D_AccesosEfectivosSeguimientoSIGODelete_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="D_NecesidadesSIGODelete_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="D_PlanMejoramientoEstadoAccionDelete_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="D_PlanMejoramientoObjetivoGeneralDelete_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="D_PlanMejoramientoSeguimientoDelete_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="D_PrecargueRespuestasDelete_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="D_PrecargueSegxPreguntaMunicipio_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Genericas\C_LogXCategoria_Result.cs" />
+    <Compile Include="Genericas\C_LogXExcepcion_Result.cs" />
+    <Compile Include="Genericas\C_Usuario_Result.cs" />
+    <Compile Include="I_AccesosEfectivosSeguimientoSIGOInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_AuditoriaConsumoErrorWSInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_AuditoriaConsumoWSInsertUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_CompromisoEntidadNacionalInsertUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_EntidadNacionalInsertUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_EnvioTableroPat_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_NecesdadesPlaneacionSIGOInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_PlanMejoramientoEstadoAccionInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_PlanMejoramientoObjetivoGeneralInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_PlanMejoramientoSeguimientoAccionInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_PlanMejoramientoSeguimientoArchivoInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_PlanMejoramientoSeguimientoInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_PrecargueArchivosSegInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_PrecargueRespuestaInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_ProgramasSeguimientoSIGOInsertUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_RespuestaAccionesDepartamentoInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_RespuestaProgramaDepartamentoInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_RespuestaSeccionInsert_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_SeguimientoEntidadNacionalInsertUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_SeguimientoRCEntidadNacionalInsertUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_SeguimientoRREntidadNacionalInsertUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelLogOldContexto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLogOldContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloContexto.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ModeloContextoLog.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloContextoLog.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="U_ObjetivoGeneralPlanMejoramientoUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="U_PlanMejoramientoEstadoAccionUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="U_PlanMejoramientoSeguimientoUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="U_RespuestaAccionesDepartamentoUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="U_RespuestaProgramaDepartamentoUpdate_Result.cs">
+      <DependentUpon>ModeloContexto.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelLogOldContexto.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelLogOldContexto.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModeloContexto.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloContexto.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModeloContextoLog.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloContextoLog.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

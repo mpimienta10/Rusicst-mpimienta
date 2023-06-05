@@ -1,0 +1,17 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <div class="row">
+            <h3 class="text-center col-sm-10 col-sm-offset-1" id="modal-title">Texto del Mensaje</h3>
+            <div class="col-sm-1"><a class="" href="" ng-click="cancelar()"><i class="fa fa-window-close fa-pull-right icono-close" aria-hidden="true"></i></a></div>
+        </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div ng-bind-html="registro.Mensaje" style="width:inherit; height:inherit"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>
+

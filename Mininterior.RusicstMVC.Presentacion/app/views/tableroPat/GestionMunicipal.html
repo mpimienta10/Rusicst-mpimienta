@@ -1,0 +1,223 @@
+﻿<div class="row">
+    <div class="row"> <h2>Planeación Municipal Vigencia {{tablero.Planeacion}} </h2></div>
+    <div class="row">
+        <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+        </div>
+        <div id="pleaseWaitDialog" class="modal fade" data-backdrop="static" data-keyboard="false">
+            <div class="vertical-alignment-helper">
+                <div class="modal-dialog vertical-align-center">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Por favor espere...</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 sin-padding">
+            <div class="col-sm-8">
+                <h5 class="sin-margin-top">{{Usuario.Municipio}}</h5>
+            </div>
+            <!--<div class="col-sm-4">
+                <h4 class="sin-margin-top">Vigencia: {{vigencias[0].VIGENCIA}}</h4>
+            </div>-->
+        </div>
+        <!--Cuadro de avances-->
+        <div class="col-sm-12 sin-padding" style="padding-left: 0px" ng-show="derechos.length>0">
+            <table class="table table-striped table-bordered table-condensed" ng-if="avance">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle" ng-repeat="item in avance">{{item.DERECHO}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="titulo-tabla-pat" style="vertical-align:middle">Necesidades</td>
+                        <td ng-repeat="item in avance">
+                            <!--<percent-display percent="item.PINDICATIVA" side="60" colors="#C2C2FF #3333FF"></percent-display>-->
+                            <!--<canvas id="item.dataCompromiso" chart-labels="labelsN" class="chart chart-pie chart-pie-pat" chart-data="item.dataCompromiso"  chart-options="options"></canvas>-->
+                            <canvas id="item.dataNecesidad" class="chart chart-doughnut chart-pie-pat" chart-data="item.dataNecesidad" chart-labels="labels" chart-colors="colores"></canvas>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="titulo-tabla-pat" style="vertical-align:middle">Compromisos</td>
+                        <td ng-repeat="item in avance">
+                            <!--<percent-display percent="item.PCOMPROMISO" side="60" colors="#F8D0D8 #DC143C"></percent-display>-->
+                            <!--<canvas id="item.dataNecesidad"  chart-labels="labelsC" class="chart chart-pie chart-pie-pat" chart-data="item.dataNecesidad" chart-options="options" chart-colors="colores"></canvas>-->
+                            <canvas id="item.dataCompromiso" class="chart chart-pie chart-pie-pat" chart-data="item.dataCompromiso" chart-labels="labels" chart-colors="colores"></canvas>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>     
+
+        <div class="form-group sin-margin-bottom">
+            <label class="col-sm-1 control-label" for="Derecho">Derecho</label>
+            <div class="col-sm-3">
+                <select class="form-control input-sm ng-pristine ng-valid" id="busqueda" name="busqueda" ng-model="busqueda">
+                    <option value=''>-Seleccione-</option>
+                    <option ng-selected="{{item.ID == $scope.busqueda}}" ng-repeat="item in derechos" value="{{item.DESCRIPCION}}">{{item.DESCRIPCION}}</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <!--<div class="form-group">
+                    <label class="control-label-left col-sm-7" for="numRegistros"># de registros por página:</label>
+                    <div class="col-sm-5">                     
+                        <select class="form-control input-sm ng-pristine ng-valid" id="numRegistros" name="numRegistros"
+                                ng-options="option.name for option in listaNumRegistros.availableOptions track by option.id"
+                                ng-model="listaNumRegistros.selectedOption"></select>
+                    </div>
+                </div>-->
+            </div>
+            <div class="col-sm-2">
+                <button type="button" ng-click="generaExcel()" class="btnNew">Exportar a Excel</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" ng-show="ActivoEnvioPATPlaneacion" ng-click="enviar()" class="btnNew">Enviar Tablero PAT</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row">
+        <form name="outerForm">
+            <uib-tabset active="active">
+                <uib-tab index="0" heading="{{busqueda}}" ng-show="busqueda">
+                    <ng-form name="nestedForm">
+                        <div id="individual" class="tab-pane fade in active col-sm-12 tabla-pat" ng-show="tableros.length>0">
+                            <table class="table table-striped table-bordered table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">COMPONENTE</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">MEDIDA</th>
+                                        <th class="col-sm-5 titulo-tabla-pat" style="vertical-align:middle">PREGUNTA INDICATIVA</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">NECESIDAD IDENTIFICADA</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">COMPROMISO DE ATENCIÓN</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">PRESUPUESTO</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">OPCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-if="tableros">
+                                    <tr ng-repeat="item in tableros">
+                                        <td>{{item.COMPONENTE}}</td>
+                                        <td>{{item.MEDIDA}}</td>
+                                        <td><span class="glyphicon glyphicon-floppy-disk" title="Lista para enviar" style="color:green;" ng-if="item.ValidacionEnvio"></span> {{item.PREGUNTAINDICATIVA}}</td>
+                                        <td align="right">{{item.RESPUESTAINDICATIVA | number:0}}</td>
+                                        <td align="right">{{item.RESPUESTACOMPROMISO | number:0}}</td>
+                                        <td align="right">$ {{item.PRESUPUESTO | number:0}}</td>
+                                        <td align="center">
+                                            <a href="" class="text-center" title="{{activo? (item.ID>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}" ng-click="Editar($index)">{{activo? (item.ID>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>                            
+                        </div>
+                    </ng-form>
+                </uib-tab>
+                <uib-tab index="1" heading="Reparación Colectiva" ng-show="busqueda=='Reparación Integral' && tablerosRC.length>0">
+                    <ng-form name="nestedForm2">
+                        <div id="colectiva" class="tab-pane fade in active col-sm-12 tabla-pat" ng-show="tablerosRC.length>0">
+                            <table class="table table-striped table-bordered table-condensed" ng-show="tablerosRC.length>0">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">SUJETO</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">TIPO MEDIDA</th>
+                                        <th class="col-sm-5 titulo-tabla-pat" style="vertical-align:middle">MEDIDA</th>
+                                        <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle">ACCIÓN</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">OPCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in tablerosRC">
+                                        <td>{{item.SUJETO}}</td>
+                                        <td>{{item.MEDIDA}}</td>
+                                        <td>{{item.MEDIDARC}}</td>
+                                        <td>{{item.ACCION}}</td>
+                                        <td align="center">
+                                            <a href="" class="text-center" title="{{activo? (item.ID>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}" ng-click="EditarRC($index)">{{activo? (item.ID>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>                           
+                        </div>
+                    </ng-form>
+                </uib-tab>
+                <uib-tab index="2" heading="Retornos y Reubicaciones" ng-show="busqueda=='Reparación Integral' && tablerosRR.length>0">
+                    <ng-form name="nestedForm3">
+                        <div id="retornos" class="tab-pane fade in active col-sm-12 tabla-pat" ng-if="tablerosRR.length>0">
+                            <table class="table table-striped table-bordered table-condensed" ng-show="tablerosRR.length>0">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-2 titulo-tabla-pat" style="vertical-align:middle">COMUNIDAD</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">UBICACIÓN</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">PERSONAS</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">HOGARES</th>
+                                        <th class="col-sm-2 titulo-tabla-pat" style="vertical-align:middle">MEDIDA</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">INDICADOR</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">SECTOR</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">COMPONENTE</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">ENTIDAD RESPONSABLE</th>
+                                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">OPCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-if="tablerosRR">
+                                    <tr ng-repeat="item in tablerosRR">
+                                        <td>{{item.COMUNIDAD}}</td>
+                                        <td>{{item.UBICACION}}</td>
+                                        <td>{{item.PERSONAS}}</td>
+                                        <td>{{item.HOGARES}}</td>
+                                        <td>{{item.MEDIDA_RR}}</td>
+                                        <td>{{item.INDICADOR_RR}}</td>
+                                        <td>{{item.SECTOR}}</td>
+                                        <td>{{item.COMPONENTE}}</td>
+                                        <td>{{item.ENTIDAD_RESPONSABLE}}</td>
+                                        <td align="center">
+                                            <a href="" class="text-center" title="{{activo? (item.ID>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}" ng-click="EditarRR($index)">{{activo? (item.ID>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>                            
+                        </div>
+                    </ng-form>
+                </uib-tab>
+            </uib-tabset>
+            <!--paginaciones-->
+            <div ng-show="tableros.length>0 && active==0">
+                <span class="text-info">Página {{bigCurrentPage}} / {{numPages}}    -     {{bigTotalItems}} elementos</span>
+                <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" items-per-page="listaNumRegistros.selectedOption.id" ng-change="pageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                <ul uib-pagination boundary-links="true" items-per-page="listaNumRegistros.selectedOption.id" max-size="maxSize" ng-change="pageChanged()" total-items="bigTotalItems" ng-model="bigCurrentPage" class="pagination-sm" rotate="false" num-pages="numPages" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+            </div>
+            <div ng-show="tablerosRC.length>0 && active==1">
+                <span class="text-info">Página {{bigCurrentPageRC}} / {{numPagesRC}} -     {{bigTotalItemsRC}} elementos</span>
+                <pagination total-items="bigTotalItemsRC" ng-model="bigCurrentPageRC" max-size="maxSizeRC" items-per-page="listaNumRegistros.selectedOption.id" ng-change="pageChangedRC()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPagesRC"></pagination>
+                <ul uib-pagination boundary-links="true" items-per-page="listaNumRegistros.selectedOption.id" max-size="maxSizeRC" ng-change="pageChangedRC()" total-items="bigTotalItemsRC" ng-model="bigCurrentPageRC" class="pagination-sm" rotate="false" num-pages="numPagesRC" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+            </div>
+            <div ng-show="tablerosRR.length>0 && active==2">
+                <span class="text-info">Página {{bigCurrentPageRR}} / {{numPagesRR}} -     {{bigTotalItemsRR}} elementos</span>
+                <pagination total-items="bigTotalItemsRR" ng-model="bigCurrentPageRR" max-size="maxSizeRR" items-per-page="listaNumRegistros.selectedOption.id" ng-change="pageChangedRR()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPagesRC"></pagination>
+                <ul uib-pagination boundary-links="true" items-per-page="listaNumRegistros.selectedOption.id" max-size="maxSizeRR" ng-change="pageChangedRR()" total-items="bigTotalItemsRR" ng-model="bigCurrentPageRR" class="pagination-sm" rotate="false" num-pages="numPagesRR" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 sin-padding">
+            <div class="alert alert-warning" role="alert" ng-if="mensajeWarning">
+                <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                <span id="spanMensajeWarningAng" name="spanMensajeWarning">{{mensajeWarning}}</span>
+            </div>
+            <div class="alert alert-success" role="alert" ng-if="mensajeOK">
+                <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                <span id="span1" runat="server">{{mensajeOK}}</span>
+            </div>
+        </div>
+    </div>
+</div>

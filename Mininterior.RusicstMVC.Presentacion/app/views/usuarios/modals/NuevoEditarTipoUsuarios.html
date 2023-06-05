@@ -1,0 +1,47 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">{{titulo}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label for="Tipo" class="col-sm-12 required">Tipo de usuario</label>
+                    <div class="col-sm-12">
+                        <input class="form-control" ng-model="registro.Tipo" id="Tipo" name="Tipo" ng-disabled="!isNew" required />
+                        <span class="text-danger" ng-show="submitted && myForm.Tipo.$error.required">{{errorMessages.inputText}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Nombre" class="col-sm-12 required">Nombre</label>
+                    <div class="col-sm-12">
+                        <input class="form-control" ng-model="registro.Nombre" id="Nombre" name="Nombre" required />
+                        <span class="text-danger" ng-show="submitted && myForm.Nombre.$error.required">{{errorMessages.inputText}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Activo" class="col-sm-12">Activo</label>
+                    <div class="col-sm-12">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" id="checkbox1" class="styled" ng-model="registro.Activo">
+                            <label for="checkbox1">
+                                Activo
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span class="alert-danger col-sm-12 text-center" ng-show="error">
+                        {{error}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>
+

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModeloContextoLogOld" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EntitiesRusicstLogOld" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="C_ListaCategoryLogOld" ReturnType="Collection(ModeloContextoLogOld.C_ListaCategoryLogOld_Result)" />
+    <FunctionImport Name="C_LogXCategoriaExportarOld" ReturnType="Collection(ModeloContextoLogOld.C_LogXCategoriaExportarOld_Result)">
+      <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="C_LogXCategoriaOld" ReturnType="Collection(ModeloContextoLogOld.C_LogXCategoriaOld_Result)">
+      <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="C_LogOld" ReturnType="Collection(ModeloContextoLogOld.C_LogOld_Result)">
+      <Parameter Name="LogID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="C_ListaCategoryLogOld_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="C_LogXCategoriaExportarOld_Result">
+    <Property Type="Int32" Name="LogID" Nullable="false" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Categoria" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="UrlYBrowser" Nullable="true" MaxLength="1500" />
+    <Property Type="String" Name="Mensaje" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="C_LogXCategoriaOld_Result">
+    <Property Type="Int32" Name="LogID" Nullable="false" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Categoria" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="UrlYBrowser" Nullable="true" MaxLength="1500" />
+  </ComplexType>
+  <ComplexType Name="C_LogOld_Result">
+    <Property Type="Int32" Name="LogID" Nullable="false" />
+    <Property Type="Int32" Name="EventID" Nullable="true" />
+    <Property Type="Int32" Name="Priority" Nullable="false" />
+    <Property Type="String" Name="Severity" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="256" />
+    <Property Type="DateTime" Name="Timestamp" Nullable="false" Precision="23" />
+    <Property Type="String" Name="MachineName" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="AppDomainName" Nullable="false" MaxLength="512" />
+    <Property Type="String" Name="ProcessID" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="ProcessName" Nullable="false" MaxLength="512" />
+    <Property Type="String" Name="ThreadName" Nullable="true" MaxLength="512" />
+    <Property Type="String" Name="Win32ThreadId" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Message" Nullable="true" MaxLength="1500" />
+    <Property Type="String" Name="FormattedMessage" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,102 @@
+﻿<form role="form" class="form-horizontal" name="registerForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h4 class="text-center" id="modal-title">{{pregunta.Id == 0? 'Nueva Pregunta de Retornos y Reubicaciones': 'Edición de Preguntas de Retornos y Reubicaciones'}}</h4>
+    </div>
+    <div class="modal-body">
+        <label class="text-danger">{{errorgeneral}}</label>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Hogares">Hogares</label>
+            <div class="separar col-sm-9">
+                <input type="number" id="Hogares" class="form-control input-sm" placeholder="Hogares" ng_model="pregunta.Hogares" name="Hogares" required ng-trim="true"  />
+                <span class="text-danger" ng-show="submitted && registerForm.Hogares.$error.required">El hogar es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Personas">Personas</label>
+            <div class="separar col-sm-9">
+                <input type="number" id="Hogares" class="form-control input-sm" placeholder="Personas" ng_model="pregunta.Personas" name="Personas" required ng-trim="true"  />
+                <span class="text-danger" ng-show="submitted && registerForm.Personas.$error.required">El dato de Personas es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Sector">Sector</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Sector" id="Sector" ng_model="pregunta.Sector" name="Sector" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.Sector.$error.required">El dato de Sector es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Componente">Componente</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Componente" id="Componente" ng_model="pregunta.Componente" name="Componente" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.Componente.$error.required">El dato de Componente es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Comunidad">Comunidad</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Comunidad" id="Comunidad" ng_model="pregunta.Comunidad" name="Comunidad" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.Comunidad.$error.required">El dato de Comunidad es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Ubicacion">Ubicación</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Ubicación" id="Ubicacion" ng_model="pregunta.Ubicacion" name="Ubicacion" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.Ubicacion.$error.required">El dato de Ubicación es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="MedidaRetornoReubicacion">Medida Retorno Reubicación</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Medida Retorno Reubicación" id="MedidaRetornoReubicacion" ng_model="pregunta.MedidaRetornoReubicacion" name="MedidaRetornoReubicacion" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.MedidaRetornoReubicacion.$error.required">El dato de Medida Retorno Reubicación es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="IndicadorRetornoReubicacion">Indicador Retorno Reubicación</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Indicador Retorno Reubicación" id="IndicadorRetornoReubicacion" ng_model="pregunta.IndicadorRetornoReubicacion" name="IndicadorRetornoReubicacion" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.IndicadorRetornoReubicacion.$error.required">El dato de Indicador Retorno Reubicación es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="EntidadResponsable">Entidad Responsable</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Entidad Responsable" id="EntidadResponsable" ng_model="pregunta.EntidadResponsable" name="EntidadResponsable" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.EntidadResponsable.$error.required">El dato de Entidad Responsable es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="GobernaciónSelect">Departamento</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm ng-pristine ng-valid" id="Gobernacion" name="Gobernacion"  ng-change="cargarComboAlcaldias()" ng-model="pregunta.IdDepartamento" required ng-options="item.IdDepartamento as item.Departamento for (key, item)  in gobernaciones"></select>
+                <span class="text-center text-danger" ng-show="submitted && registerForm.Gobernacion.$error.required">El departamento es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="alcaldiaSelect">Municipio</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm ng-pristine ng-valid" id="alcaldiaSelect" name="alcaldiaSelect"  ng-model="pregunta.IdMunicipio" required ng-options="item.IdMunicipio as item.Municipio for (key, item)  in alcaldias"></select>
+                <span class="text-danger" ng-show="submitted && registerForm.alcaldiaSelect.$error.required">El municipio es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="IdTablero">Tablero</label>
+            <div class="separar col-sm-9">
+                <select class="form-control input-sm ng-pristine ng-valid" disabled id="IdTablero" name="IdTablero" ng-model="pregunta.IdTablero" required ng-options="item.Id as item.Etiqueta for (key, item)  in Tableros"></select>
+                <span class="text-danger">{{errors.IdUnidadMedida}}</span></br>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Activo">Activo</label>
+            <div class="separar col-sm-9">
+                <input type="checkbox" ng-checked="pregunta.Activo" id="Activo" ng_model="pregunta.Activo" />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()"  ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

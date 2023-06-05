@@ -1,0 +1,62 @@
+﻿<div class="">
+    <!--@*<div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>*@-->
+    <div class="row"> <h2>Tableros PAT – Planeación</h2></div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+
+    <div class="row">
+        <h3 id="titulo" class="titulo-rejilla">Tableros Por Diligenciar</h3>
+        <table class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle">NÚMERO DE TABLERO</th>
+                    <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle">VIGENCIA</th>
+                    <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle">COMPLETAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in ListaTablerosMunicipioPorCompletar">
+                    <td class="text-center">{{item.Id}}</td>
+                    <td class="text-center">Planeación {{item.Planeacion}}</td>
+                    <td align="center">
+                        <a href="" class="text-center" title="Consultar" ng-click="Completar($index)">Completar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta2" role="alert">{{alerta2}}</div>
+        <label class="text-danger" ng-if="error2">{{error2}}</label>
+    </div>
+
+    <div class="row">
+        <h3 id="titulo" class="titulo-rejilla">Tableros Diligenciados</h3>
+        <table class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle">NÚMERO DE TABLERO</th>
+                    <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle">VIGENCIA</th>
+                    <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle">CONSULTAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in ListaTablerosMunicipioCompletados">
+                    <td class="text-center">{{item.Id}}</td>
+                    <td class="text-center">Planeación {{item.Planeacion}}</td>
+                    <td align="center">
+                        <a href="" class="text-center" title="Consultar" ng-click="Consultar($index)">Consultar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+  
+
+</div>

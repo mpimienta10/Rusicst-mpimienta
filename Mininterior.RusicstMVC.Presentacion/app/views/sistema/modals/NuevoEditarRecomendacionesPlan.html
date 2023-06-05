@@ -1,0 +1,129 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Creación/Edición Recomendaciones Plan de Mejoramiento</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Objetivos</div>
+                    <div class="panel-body">
+
+                        <div class="form-group-sm">
+                            <div class="col-sm-7">
+                                <button class="btnNew" type="button" ng-click="PopUpBuscarObjetivos('')">Buscar Objetivos</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group-sm">
+                            <label class="col-sm-12 control-label-left required" for="areaObjetivo">Objetivo Específico:</label>
+                            <div class="col-sm-12">
+                                <textarea style="max-width: 100% !important;" class="form-control input-sm" rows="3" id="areaObjetivo" 
+                                          name="areaObjetivo" ng-model="objetivo.objetivoEspecifico" ng-trim="true" ng-maxlength="1024"
+                                          required>
+                                </textarea>
+                                <span class="text-danger" ng-show="submitted && myForm.areaObjetivo.$error.required">{{errorMessages.inputText}}</span>
+                                <span class="text-danger" ng-show="myForm.areaObjetivo.$error.maxlength">El Objetivo Específico debe tener menos de 1024 caracteres.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-sm">
+                            <label class="col-sm-12 control-label-left required" for="porcObjetivo">Porcentaje de Objetivo:</label>
+                            <div class="col-sm-12">
+                                <input type="number" class="form-control input-sm" min="1" max="{{maxPorcentaje}}" step="1" id="porcObjetivo" name="porcObjetivo" ng-pattern="/^[0-9]*$/" ng-model="objetivo.porcObjetivo" required />
+                                <span class="text-danger" ng-show="submitted && myForm.porcObjetivo.$error.required">{{errorMessages.inputText}}</span>
+                                <span class="text-danger" ng-show="!myForm.porcObjetivo.$valid">El porcentaje del Objetivo Específico debe estar entre 1 y {{maxPorcentaje}}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group-sm">
+                            <label class="col-sm-12 control-label-left required" for="preguntasObjetivo">Listado Preguntas:</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="preguntasObjetivo" name="preguntasObjetivo" 
+                                       ng-model="objetivo.Pregunta" 
+                                       uib-typeahead="pregunta as pregunta.NombrePregunta for pregunta in getLocation($viewValue)" 
+                                       class="form-control input-sm" required>
+                                <span class="text-danger" ng-show="submitted && myForm.preguntasObjetivo.$error.required">Debe Seleccionar una pregunta para asociar las opciones a la recomendación</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btnNew" type="button" ng-click="submitted=true;asociar()">Asociar</button>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Opciones y Recomendaciones</div>
+                    <div class="panel-body">
+
+                        <div class="form-group-sm" ng-show="listaOpciones.length > 0">
+                            <div class="col-sm-7">
+                                <button class="btnNew" type="button" ng-click="PopUpBuscarRecomendaciones(objetivo.Pregunta.IdPregunta)">Buscar Recomendaciones</button>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+                        <div ng-repeat="item in listaOpciones">
+                            
+                            <div class="form-group-sm">
+                                <label class="col-sm-5 control-label-left" for="chkRecomenda{{$index}}" style="margin-top: 10px;">Aplica Recomendación</label>
+                                <div class="col-sm-3">
+                                    <input type="checkbox" class="form-control input-sm" id="chkRecomenda{{$index}}" name="chkRecomenda{{$index}}" ng-model="recomendacion[$index].aplica"
+                                           ng-change="applyPattern($index)" />
+                                </div>
+                            </div>
+
+                            <div class="form-group-sm">
+                                <label class="col-sm-12 control-label-left" style="margin-top: 5px;">Si la respuesta es: &nbsp; {{item.Valor}}</label>
+                            </div>
+
+                            <div class="form-group-sm">
+                                <label class="col-sm-12 control-label-left" for="txtRecomenda{{$index}}" style="margin-top: 5px;">Se Recomendará:</label>
+                                <div class="col-sm-12">
+                                    <textarea style="max-width: 100% !important;" class="form-control input-sm" rows="6" id="txtRecomenda{{$index}}"
+                                              ng-required="recomendacion[$index].aplica"
+                                              name="txtRecomenda{{$index}}" ng-model="recomendacion[$index].texto" ng-trim="true" ng-maxlength="4000" ng-minlength="1">
+                                    </textarea>
+                                    <span class="text-danger" ng-show="recomendacion[$index].aplica && myForm.txtRecomenda{{$index}}.$error.required">No puede guardar recomendaciones vacías.</span>
+                                </div>
+                            </div>
+
+                            <div style="display: none;">
+                                {{recomendacion[$index].calificacion = 0}}
+                            </div>
+
+                            <!--<div class="form-group-sm">
+                                <label class="col-sm-12 control-label-left" for="valRecomenda{{$index}}" style="margin-top: 5px;">Se Calificará:</label>
+                                <div class="col-sm-12">
+                                    <input type="number" class="form-control input-sm" min="0" 
+                                           id="valRecomenda{{$index}}" name="valRecomenda{{$index}}" ng-pattern="recomendacion[$index].pattern"
+                                           ng-model="recomendacion[$index].calificacion" ng-required="recomendacion[$index].aplica"/>
+                                    <span class="text-danger" ng-show="recomendacion[$index].aplica && !myForm.valRecomenda{{$index}}.$valid">El valor de la calificación debe ser un número entero.</span>
+                                    <hr />
+                                </div>
+                            </div>-->                            
+                        </div>                     
+
+                    </div>
+
+                    <!--<div class="panel-footer">
+                        <div>{{recomendacion}}</div>
+                    </div>-->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted2=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

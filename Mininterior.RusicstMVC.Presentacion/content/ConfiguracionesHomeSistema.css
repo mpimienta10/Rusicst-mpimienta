@@ -1,0 +1,269 @@
+﻿    .carousel-control.left {
+        background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    }
+
+    .carousel-control.right {
+        background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    }
+
+    .search-icon {
+        left: 160px !important;
+    }
+
+    /* overlay styles, all needed */
+    .overlay3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+
+
+    .overlay33 {
+        position: absolute;
+        left: 0;
+        height: 150px;
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+
+    /* just some content with arbitrary styles for explanation purposes */
+    .modal-Overlay3 {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        position: absolute;
+        border-radius: 5px;
+        text-align: center;
+        z-index: 11; /* 1px higher than the overlay layer */
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .imagePreviewCell {
+        border: solid 1px gray;
+        height: 150px;
+        /*if IE*/
+        height: expression("150px");
+        text-align: center;
+    }
+
+    .imagePreviewCellGob {
+        border: solid 1px gray;
+        height: 50px;
+        /*if IE*/
+        height: expression("50px");
+        text-align: center;
+    }
+
+    .imgCenter {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+
+
+    /*Modal overlay for Image Upload*/
+    .overlayMint {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+
+    /* just some content with arbitrary styles for explanation purposes */
+    .modal-OverlayMint {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        position: absolute;
+        border-radius: 5px;
+        text-align: center;
+        z-index: 11; /* 1px higher than the overlay layer */
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+
+    #modalRS {
+        top: 12%;
+        left: 50%;
+        outline: none;
+    }
+
+    #modalSL {
+        top: 12%;
+        outline: none;
+    }
+
+    .modal-header-rus {
+        background-color: #ff9802;
+        color: #ffffff;
+    }
+
+        .modal-header-rus > .close {
+            color: #fff;
+            opacity: 1;
+        }
+
+
+    /*Floating Home Button*/
+    .btn-floating {
+        display: inline-block;
+        color: #FFF;
+        position: fixed;
+        z-index: 1000;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0;
+        background-color: #ff9802;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        background-clip: padding-box;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        -ms-transition: 0.3s;
+        transition: 0.3s;
+        cursor: pointer;
+        top: 20%;
+        left: 5%;
+    }
+
+        .btn-floating i {
+            width: inherit;
+            display: inline-block;
+            text-align: center;
+            color: #FFF;
+            font-size: 1.6rem;
+            line-height: 37px;
+        }
+
+        .btn-floating.btn-large {
+            width: 55.5px;
+            height: 55.5px;
+        }
+
+            .btn-floating.btn-large i {
+                line-height: 55.5px;
+            }
+
+        .btn-floating i {
+            font-size: 1.3rem;
+            line-height: inherit;
+        }
+
+    .btn-floating {
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+
+        .btn-floating:hover {
+            -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        }
+
+    .delete_btn {
+        margin-right: 0px !important;
+    }
+
+    #ulLinks li {
+        width: 120px !important;
+    }
+
+        #ulLinks li img {
+            display: none;
+        }
+
+        #ulLinks li:hover img {
+            display: inline;
+            float: right;
+        }
+
+    .message-error {
+        font-size: 10px;
+        color: red;
+        font-weight: bold;
+        width: 100% !important;
+    }
+
+
+    /*Btnfloating2*/
+    .btn-floating2 {
+        display: inline-block;
+        color: #FFF;
+        position: fixed;
+        z-index: 1000;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0;
+        background-color: #ff9802;
+        -webkit-border-bottom-left-radius: 10%;
+        -webkit-border-bottom-right-radius: 10%;
+        -moz-border-bottom-left-radius: 10%;
+        -moz-border-bottom-right-radius: 10%;
+        border-bottom-left-radius: 10%;
+        border-bottom-right-radius: 10%;
+        background-clip: padding-box;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        -ms-transition: 0.3s;
+        transition: 0.3s;
+        cursor: pointer;
+        top: 0%;
+        right: 20%;
+    }
+
+        .btn-floating2 i {
+            width: inherit;
+            display: inline-block;
+            text-align: center;
+            color: #FFF;
+            font-size: 1.6rem;
+            line-height: 37px;
+        }
+
+        .btn-floating2.btn-large {
+            width: 55.5px;
+            height: 55.5px;
+        }
+
+            .btn-floating2.btn-large i {
+                line-height: 55.5px;
+            }
+
+        .btn-floating2 i {
+            font-size: 1.3rem;
+            line-height: inherit;
+        }
+
+    .btn-floating2 {
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+
+        .btn-floating2:hover {
+            -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        }

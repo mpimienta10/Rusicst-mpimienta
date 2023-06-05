@@ -1,0 +1,57 @@
+﻿
+<div>
+    <div ng-switch on="pregunta.tipo">
+        <div ng-switch-when="TEXTO">
+            <input class="" type="text" maxlength="100" ng-model="pregunta.respuesta" />
+        </div>
+        <div ng-switch-when="PARAGRAFO">
+            <textarea type="text" maxlength="1000" ng-model="pregunta.respuesta" />
+        </div>
+        <div ng-switch-when="NUMERO">
+            <input class="" type="number" ng-model="pregunta.respuesta" />
+        </div>
+        <div ng-switch-when="MONEDA">
+            <input type="text" min="1" step="any" ng-model="pregunta.respuesta" />
+        </div>
+        <div ng-switch-when="DECIMAL">
+            <input type="number" step="0.01" ng-model="pregunta.respuesta" >
+        </div>
+        <div ng-switch-when="PORCENTAJE">
+            <input type="text" ng-model="pregunta.respuesta" ui-mask="% 99.99" ui-mask-placeholder ui-mask-placeholder-char="0" />
+        </div>
+        <div ng-switch-when="ARCHIVO">
+            <input type="file" ngf-select ng-model="file" name="file"
+                   accept="" ngf-max-size="40MB" required
+                   ngf-model-invalid="errorFile" style="width:100%;" />
+        </div>
+        <div ng-switch-when="FECHA" >
+            <input type="date" ng-model="pregunta.respuesta" />
+        </div>
+        <div ng-switch-when="CHECK">
+            <div class="checkbox checkbox-primary">
+                <input type="checkbox" class="styled" ng-model="pregunta.respuesta">
+                <label>
+                </label>
+            </div>
+        </div>
+        <div ng-switch-when="UNICA" >
+            <select class="" ng-model="pregunta.respuesta">
+                <option ng-repeat="item in pregunta.LOpciones" value="{{item.Id}}" >{{item.Valor}}</option>
+            </select>
+        </div>
+        <div ng-switch-when="MULTIPLE">
+            <div class="checkbox checkbox-primary" ng-repeat="item in pregunta.LOpciones">
+                <input type="checkbox" class="styled" checklist-model="pregunta.respuesta" checklist-value="item">
+                <label>
+                    {{item}}
+                </label>
+            </div>
+        </div>
+        <div ng-switch-when="LABEL" >
+            <div compile="pregunta.valor"></div>
+        </div>
+        <div ng-switch-default>
+            <input type="text" maxlength="100" value="default" ng-model="pregunta.respuesta" />
+        </div>
+    </div>
+</div>

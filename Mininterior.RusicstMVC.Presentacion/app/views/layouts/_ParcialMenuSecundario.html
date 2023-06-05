@@ -1,0 +1,145 @@
+﻿<div class="box-slide">
+    <div class="container">
+        <nav id="menuSecundario" class="navbar navbar-default box-slide" style="margin-bottom: 0">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a ui-sref="Index.Index">INICIO</a></li>
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_2">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">USUARIOS</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_3"><a ui-sref="Index.AdministrarTiposUsuario">ADMINISTRAR TIPOS DE USUARIO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_2"><a ui-sref="Index.AdministrarUsuario">ADMINISTRAR USUARIOS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_45"><a ui-sref="Index.AdministrarUsuario">CLASIFICADORES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_19"><a ui-sref="Index.EmailMasivo">EMAIL MASIVOS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_27"><a ui-sref="Index.GestionarSolicitudes">GESTIÓN DE SOLICITUDES DE USUARIO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_100"><a ui-sref="Index.HistoricoUsuarios">HISTÓRICO DE USUARIOS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_17"><a ui-sref="Index.GestionarPermisos">GESTIONAR PERMISOS DE USUARIO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_4"><a ui-sref="Index.HabilitarReportes">HABILITAR REPORTES A USUARIOS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_16"><a ui-sref="Index.HabilitarReportes">RESULTADOS ANTERIORES</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_3">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SISTEMA</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_36"><a ui-sref="Index.ConfiguracionArchivosAyuda">CONFIGURAR ARCHIVOS DE AYUDA</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_26"><a ui-sref="ConfiguracionHome">CONFIGURACIÓN DEL HOME</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_25"><a ui-sref="ConfiguracionSistema">CONFIGURACIÓN DEL SISTEMA</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_47"><a ui-sref="Index.GestionarRoles">GESTIÓN DE ROLES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_24"><a ui-sref="Index.GestionAuditoriaEventos">GESTIÓN DE AUDITORÍA Y EVENTOS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_101"><a ui-sref="Index.GestionAuditoriaOldEventos">HISTÓRICO DE AUDITORÍA Y EVENTOS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_23"><a a ui-sref="Index.GestionErroresAplicacion">GESTIÓN DE ERRORES APLICACIÓN</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_46"><a ui-sref="Index.GestionBancoPreguntas">GESTIÓN DE BANCO DE PREGUNTAS</a></li>
+                            <!--<li ng-if="autenticado && permisos.subrecurso_48"><a ui-sref="Index.GestionPlanesMejoramiento">GESTIÓN DE PLANES DE MEJORAMIENTO </a></li>-->
+                            <li ng-if="autenticado && permisos.subrecurso_48"><a ui-sref="Index.GestionPlanesMejoramientoV3">GESTIÓN DE PLANES DE MEJORAMIENTO </a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_6"><a ui-sref="Index.ParametrosSistema">PARÁMETROS DEL SISTEMA</a></li>
+                            <!--<li ng-if="autenticado && permisos.subrecurso_50"><a ui-sref="Index.ParametrosSistema">TIPOS DE RECURSO</a></li>-->
+                            <li ng-if="autenticado && permisos.subrecurso_11"><a ui-sref="Index.GlosarioReportes">ADMINISTRAR GLOSARIO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_7"><a ui-sref="Index.AdminRetroalimentacion">ADMINISTRAR RETROALIMENTACIÓN</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_67"><a ui-sref="Index.AdminTablerosPat">ADMINISTRAR TABLEROS PAT</a></li> 
+                            <li ng-if="autenticado && permisos.subrecurso_67"><a ui-sref="Index.ConfiguracionDerechosPAT">ADMINISTRAR DERECHOS PAT</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_102"><a ui-sref="Index.AdministracionServiciosWeb">ADMINISTRAR SERVICIOS WEB</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_4">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REPORTES</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_8"><a ui-sref="Index.CompletarConsultarReportes">COMPLETAR/CONSULTAR REPORTES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_21"><a ui-sref="Index.ConsultaEntidadesTerritoriales">CONSULTA REPORTES ENTIDADES TERRITORIALES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_7"><a ui-sref="Index.DisenoReportes">DISEÑO DE REPORTES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_56"><a ui-sref="Index.DisenoReportes">INFORME DE PLAN DE MEJORAMIENTO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_54"><a ui-sref="Index.DisenoReportes">INFORME DE RESPUESTAS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_22"><a ui-sref="Index.ModificarPreguntas">MODIFICAR PREGUNTAS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_20"><a ui-sref="Index.RevisionRespuestasAG">REVISAR RESPUESTAS ALCALDÍAS GOBERNACIÓN</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_103"><a ui-sref="Index.PrecargueRespuestas">PRECARGUE RESPUESTAS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_105"><a ui-sref="Index.PrecargueSeguimientoPAT">PRECARGUE NIVEL NACIONAL</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_8">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INFORMES</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_42"><a ui-sref="Index.ConsolidadoDiligenciamiento">CONSOLIDADO DEL DILIGENCIAMIENTO DEL RUSICST</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_10"><a ui-sref="Index.Autoevaluacion">INFORME DE PLAN DE MEJORAMIENTO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_9"><a ui-sref="Index.InformeRespuestas">INFORME DE RESPUESTAS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_28"><a ui-sref="Index.OpcionesMenu">OPCIONES MENÚ</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_29"><a ui-sref="Index.OpcionesRol">OPCIONES POR ROL</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_39"><a ui-sref="Index.SalidaInformacionGobernacion">SALIDA DE INFORMACIÓN DE GOBERNACIONES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_40"><a ui-sref="Index.SalidaInformacionMunicipal">SALIDA DE INFORMACIÓN MUNICIPAL</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_32"><a ui-sref="Index.UsuariosSistema">USUARIOS DEL SISTEMA</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_34"><a ui-sref="Index.UsuariosGuardaronInformacion">USUARIOS QUE GUARDARON INFORMACIÓN EN EL SISTEMA</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_30"><a ui-sref="Index.UsuarioReporte">USUARIOS QUE ENVIARON EL REPORTE</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_33"><a ui-sref="Index.UsuariosGuardaronAutoevaluacion">USUARIOS QUE GUARDARON INFORMACIÓN DE PLAN DE MEJORAMIENTO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_31"><a ui-sref="Index.UsuariosPasaronAutoevaluacion">USUARIOS QUE PASARON A PLAN DE MEJORAMIENTO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_68"><a ui-sref="Index.EnvioTableroPAT">CONSULTA TABLEROS PAT ENVIADOS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_98"><a ui-sref="Index.UsuariosIniciarionSesion">USUARIOS QUE INICIARON SESIÓN</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_104"><a ui-sref="Index.InformePrecargueRespuestas">INFORME DE PRECARGUES RESPUESTA ENCUESTA</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_9">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SEGUIMIENTO ALCALDÍAS</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_15"><a ui-sref="Index.CompletarConsultarReportes">COMPLETAR/CONSULTAR REPORTES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_52"><a ui-sref="Index.InformeRespuestas">INFORME DE RESPUESTAS</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_10">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCESO BI</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_35"><a ui-sref="Index.BI">ANÁLISIS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_41"><a ui-sref="#">ANÁLISIS GEOGRÁFICO</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_43"><a ui-sref="#">ANÁLISIS PREDEFINIDOS</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_13">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SEGUIMIENTO GOBERNACIONES</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_51"><a ui-sref="Index.CompletarConsultarReportes">COMPLETAR/CONSULTAR REPORTES</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_53"><a ui-sref="Index.InformeRespuestas">INFORME DE RESPUESTAS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_55"><a ui-sref="Index.RevisionRespuestasAG">REVISAR RESPUESTAS ALCALDIAS GOBERNACIÓN</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_14">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TABLERO PAT</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_61"><a ui-sref="Index.ConsultaDiligenciamientoEntidades">CONSULTAS PLANEACIÓN</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_64"><a ui-sref="Index.ConsultaSeguimiento">CONSULTAS SEGUIMIENTO</a></li>                            
+                            <li ng-if="autenticado && permisos.subrecurso_57"><a ui-sref="Index.TablerosDepartamento">PLANEACIÓN DEPARTAMENTAL</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_60"><a ui-sref="Index.TablerosMunicipio">PLANEACIÓN MUNICIPAL</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_62"><a ui-sref="Index.PreguntasPat">CONSULTA PREGUNTAS</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_58"><a ui-sref="Index.TablerosSeguimientoMunicipio">SEGUIMIENTO SEMESTRAL MUNICIPAL</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_59"><a ui-sref="Index.TablerosSeguimientoDepartamento">SEGUIMIENTO SEMESTRAL DEPARTAMENTAL</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_65"><a ui-sref="Index.EvaluacionPat">EVALUACIÓN TABLERO PAT</a></li>
+                            <li ng-if="autenticado && permisos.subrecurso_66"><a ui-sref="Index.EvaluacionConsolidadoPat">EVALUACIÓN CONSOLIDADO</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" ng-if="autenticado && recursos.recurso_15">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">RETROALIMENTACIÓN</a>
+                        <ul class="dropdown-menu dropdown-menu-principal">
+                            <li ng-if="autenticado && permisos.subrecurso_97"><a ui-sref="Index.RetroRusicst">RUSICST</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</div>

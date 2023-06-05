@@ -1,0 +1,36 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Usuarios Internos</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">
+                    Se requiere autenticación
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="Usuario" class="col-sm-12 required">Nombre de Usuario</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" ng-model="registro.UserName" id="Usuario" name="Usuario" autocomplete="off" required />
+                            <span class="text-danger" ng-show="submitted && myForm.Usuario.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="EmailPrueba" class="col-sm-12 required">Contraseña</label>
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" id="password" name="password" ng-model="registro.password" autocomplete="off" required />
+                            <span class="text-danger" ng-show="submitted && myForm.password.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span class="col-sm-12 alert-danger text-center" ng-show="submitted && error">{{error}}</span>
+        <span ng-show="cargando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        <button class="btnNew" type="submit" ng-click="submitted=true;aceptar()">Iniciar Sesión</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

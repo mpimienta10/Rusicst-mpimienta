@@ -1,0 +1,90 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Modificar Preguntas</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" novalidate>
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Buscar pregunta</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="reporte">Reporte:</label>
+                        <div class="col-sm-10">
+                            <select id="reporte" name="reporte" ng-model="filtro.idEncuesta" ng-change="cargarComboGrupo()" class="form-control input-sm ng-pristine ng-valid" required>
+                                <option></option>
+                                <option ng-repeat="item in reportes" value="{{item.Id}}">{{item.Titulo}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="grupo">Etapa:</label>
+                        <div class="col-sm-10">
+                            <select id="grupo" name="grupo" ng-model="filtro.idGrupo" ng-change="cargarComboSeccion()" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in grupos" value="{{item.Id}}">{{item.Titulo}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="seccion">Sección:</label>
+                        <div class="col-sm-10">
+                            <select id="seccion" name="seccion" ng-model="filtro.idSeccion" ng-change="cargarComboSubSeccion  ()" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in secciones" value="{{item.Id}}">{{item.Titulo}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="subseccion">Página:</label>
+                        <div class="col-sm-10">
+                            <select id="subseccion" name="subseccion" ng-model="filtro.idSubseccion" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in subsecciones" value="{{item.Id}}">{{item.Titulo}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="idPreguntaAnterior">Código Único de Pregunta:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control input-sm" ng-model="filtro.idPreguntaAnterior" id="idPreguntaAnterior" name="idPreguntaAnterior" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="codigoPreguntaBanco">Código Homologado:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-sm" ng-model="filtro.codigoPreguntaBanco" id="codigoPreguntaBanco" name="codigoPreguntaBanco" />
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <label class="col-sm-2 control-label" for="nombrePregunta">Nombre de la pregunta:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-sm" ng-model="filtro.nombrePregunta" id="nombrePregunta" name="nombrePregunta" required />
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-offset-2"><button type="button" class="btnNew ancho" ng-click="submitted=true;buscar()">Buscar</button></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="form-group col-sm-12">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+    <div class="row">
+        <button class="btn btn-default pull-right" ng-if="isGrid" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="!cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row">
+        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Modificar Encuesta</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll ui-grid-auto-resize></div>
+        </div>
+      
+    </div>
+</div>

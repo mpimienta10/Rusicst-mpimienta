@@ -1,0 +1,44 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">{{tablero.PREGUNTAINDICATIVA}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body" style="margin-left:10px; margin-right:10px">
+        <div class="alert alert-success col-sm-12 " role="alert">
+            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+            <span>
+                A continuación podrá ver el listado de las personas que de acuerdo a la información de la Plataforma SIGO, no cuentan con la necesidad atendida.
+                <br />Para obtener más detalles, como los datos de contacto de cada uno, por favor ingrese a SIGO (<a href="HTTP://sigo.unidadvictimas.gov.co" target="_blank" title="Ir a SIGO">sigo.unidadvictimas.go.co</a>) con los datos de acceso de su alcaldía.
+                <br />En el ejercicio de planeación para la próxima vigencia deberá tener como referencia el total acumulado de personas, sin embargo, es importante que en las acciones a desarrollar en el corto plazo, priorice a las personas que acá se relacionan.
+                <br />Fecha de corte de SIGO: 31 diciembre de 2017
+            </span>           
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion();">
+                    <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+                </button>
+            </div>
+            <!--@*Loading*@-->
+            <div class="row">
+                <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+            </div>
+            <!--@*Div grilla*@-->
+            <div class="row">
+                <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+                    <h3 id="titulo" class="titulo-rejilla">Necesidades Identificadas por SIGO </h3>
+                    <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll ui-grid-auto-resize></div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+
+            </div>
+            <!--@*Div de errores y alertas*@-->
+            <div class="form-group">
+                <label class="text-danger" ng-if="error">{{error}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btnNew" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

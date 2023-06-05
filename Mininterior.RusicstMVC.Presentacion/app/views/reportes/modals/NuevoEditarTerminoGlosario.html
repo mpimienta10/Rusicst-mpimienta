@@ -1,0 +1,31 @@
+﻿<form role="form" class="form-horizontal" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center">{{modificar?'Modificar Término': 'Nuevo Término'}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="form-group ">
+                <label class="col-sm-12 control-label-left required" for="termino">Término</label>
+                <div class="col-sm-12">
+                    <textarea class="form-control" rows="2" ng-model="glosario.Termino" id="termino" name="termino" ng-maxlength="511" required></textarea>
+                    <span class="text-danger" ng-show="submitted && myForm.termino.$error.required">El término es obligatorio</span>
+                    <span class="text-danger" ng-show="submitted && myForm.termino.$error.maxlength">El término supera los 511 caracteres</span>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-sm-12 control-label-left required" for="descripcion">Descripción</label>
+                <div class="col-sm-12">
+                    <textarea class="form-control" rows="5" ng-model="glosario.Descripcion" id="descripcion" name="descripcion" required></textarea>
+                    <span class="text-danger" ng-show="submitted && myForm.descripcion.$error.required">La descripción es obligatoria</span>
+                </div>
+            </div>
+            <div class="alert alert-danger text-center" ng-if="error">
+                {{error}}
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btnNew" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

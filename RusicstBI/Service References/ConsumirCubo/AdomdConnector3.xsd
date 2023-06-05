@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1071/AdomdConnector.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" />
+  <xs:import schemaLocation="http://localhost:1071/AdomdConnector.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="LoadSchema">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadSchemaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoadSchemaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadCubes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadCubesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" minOccurs="0" name="LoadCubesResult" nillable="true" type="q1:ArrayOfAdomdCube" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDimensions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cubeName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDimensionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" minOccurs="0" name="LoadDimensionsResult" nillable="true" type="q2:ArrayOfAdomdDimension" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMeasures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cubeName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMeasuresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" minOccurs="0" name="LoadMeasuresResult" nillable="true" type="q3:ArrayOfAdomdMeasure" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMeasureGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cubeName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMeasureGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LoadMeasureGroupsResult" nillable="true" type="q4:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMeasureGroupDimensions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cubeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="catalogName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadMeasureGroupDimensionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LoadMeasureGroupDimensionsResult" nillable="true" type="q5:ArrayOfKeyValueOfstringArrayOfstringty7Ep6D1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadLevelMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cubeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="levelUniqueName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadLevelMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" minOccurs="0" name="LoadLevelMembersResult" nillable="true" type="q6:ArrayOfAdomdMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadFilterMemberMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cubeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="parentMemberUniqueName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="levelNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadFilterMemberMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" minOccurs="0" name="LoadFilterMemberMembersResult" nillable="true" type="q7:ArrayOfAdomdMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="query" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteCommandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" minOccurs="0" name="ExecuteCommandResult" nillable="true" type="q8:GridData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteCommandDataTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="query" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteCommandDataTableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExecuteCommandDataTableResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultasPersonalizadasRusicstJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoEncuesta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="codigoEncuestaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombreEncuesta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombreEncuestaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="codigoPregunta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="codigoPreguntaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombrePregunta" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombrePreguntaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="codigoDepartamento" type="xs:boolean" />
+        <xs:element minOccurs="0" name="codigoDepartamentoFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombreDepartamento" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombreDepartamentoFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="codigoMunicipio" type="xs:boolean" />
+        <xs:element minOccurs="0" name="codigoMunicipioFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombreMunicipio" type="xs:boolean" />
+        <xs:element minOccurs="0" name="nombreMunicipioFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="etapaPolitica" type="xs:boolean" />
+        <xs:element minOccurs="0" name="etapaPoliticaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="seccion" type="xs:boolean" />
+        <xs:element minOccurs="0" name="seccionFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="tema" type="xs:boolean" />
+        <xs:element minOccurs="0" name="temaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoVictimizante" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoVictimizanteFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dinamicaDesplazamiento" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dinamicaDesplazamientoFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="enfoqueDiferencial" type="xs:boolean" />
+        <xs:element minOccurs="0" name="enfoqueDiferencialFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="factoresRiesgo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="factoresRiesgoFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="rangoEtareo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="rangoEtareoFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="moneda" type="xs:boolean" />
+        <xs:element minOccurs="0" name="monedaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="numero" type="xs:boolean" />
+        <xs:element minOccurs="0" name="numeroFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="porcentaje" type="xs:boolean" />
+        <xs:element minOccurs="0" name="porcentajeFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="respuestaUnica" type="xs:boolean" />
+        <xs:element minOccurs="0" name="respuestaUnicaFila" type="xs:boolean" />
+        <xs:element minOccurs="0" name="filtroEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroDepartamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroMunicipio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultasPersonalizadasRusicstJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultasPersonalizadasRusicstJSONResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaDepartamentosRusicstJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="hecho" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaDepartamentosRusicstJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultaDepartamentosRusicstJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaDepartamentosEncuestasRusicstJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="hecho" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaDepartamentosEncuestasRusicstJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultaDepartamentosEncuestasRusicstJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaMunicipioRusicstJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="departamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hecho" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaMunicipioRusicstJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultaMunicipioRusicstJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaMunicipioEncuestaRusicstJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="departamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hecho" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filtroPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaMunicipioEncuestaRusicstJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultaMunicipioEncuestaRusicstJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDepartamentosJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDepartamentosJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerDepartamentosJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerMunicipiosJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoDepartamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerMunicipiosJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerMunicipiosJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerEncuestasJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerEncuestasJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerEncuestasJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntasPorCodigoJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoPregunta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntasPorCodigoJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerPreguntasPorCodigoJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntasPorNombreJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombrePregunta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntasPorNombreJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerPreguntasPorNombreJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntasPorConsultaPredefinidaJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntasPorConsultaPredefinidaJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerPreguntasPorConsultaPredefinidaJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerListadoConsultaPredefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerListadoConsultaPredefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerListadoConsultaPredefinidaResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerInformacionConsultaPredefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoDepartamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoMunicipio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerInformacionConsultaPredefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoDepartamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoMunicipio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerControlesDimensionesConsultaPredefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsulaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerControlesDimensionesConsultaPredefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerControlesDimensionesConsultaPredefinidaResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerControlesHechosConsultaPredefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsulaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerControlesHechosConsultaPredefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerControlesHechosConsultaPredefinidaResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirConsultaPredefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoEncuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoDepartamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoMunicipio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idConsultaPredefinidaSalida" type="xs:int" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirConsultaPredefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinidaSalida" type="xs:int" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimpiarConsultaPredefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimpiarConsultaPredefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirDimensionHechoConsultaPrefefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="control" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirDimensionHechoConsultaPrefefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirUbicacionConsultaPrefefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ubicacion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirUbicacionConsultaPrefefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirPreguntaConsultaPrefefinida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idConsultaPredefinida" type="xs:int" />
+        <xs:element minOccurs="0" name="codigoPregunta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistirPreguntaConsultaPrefefinidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDimensionesHechosPorPregunta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPreguntas" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hechoMoneda" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoNumero" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoPorcentaje" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoRespuestaUnica" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionEtapaPolitica" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionSeccion" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionTema" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionHechoVictimizante" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionDinamicaDesplazamiento" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionEnfoqueDiferencial" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionFactoresRiesgo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionRangoEtareo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDimensionesHechosPorPreguntaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="hechoMoneda" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoNumero" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoPorcentaje" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hechoRespuestaUnica" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionEtapaPolitica" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionSeccion" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionTema" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionHechoVictimizante" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionDinamicaDesplazamiento" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionEnfoqueDiferencial" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionFactoresRiesgo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dimensionRangoEtareo" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerMunicipiosPorDepartamentoJSON">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="departamento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerMunicipiosPorDepartamentoJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerMunicipiosPorDepartamentoJSONResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorServicio" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerListaDepartamentosJSON">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerListaDepartamentosJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerListaDepartamentosJSONResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerTiposGraficaJSON">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerTiposGraficaJSONResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerTiposGraficaJSONResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

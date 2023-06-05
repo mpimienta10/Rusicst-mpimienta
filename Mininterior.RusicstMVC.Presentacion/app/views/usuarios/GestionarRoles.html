@@ -1,0 +1,26 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Roles</h2></div>
+    <div class="row"> <a href="" ng-click="PopUpNuevoRol('')">Agregar</a></div>
+    <div class="row">
+        <button class="btn btn-default pull-right" ng-if="isGrid" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>    
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row">
+        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Gestionar Roles</h3>           
+            <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>    
+</div>

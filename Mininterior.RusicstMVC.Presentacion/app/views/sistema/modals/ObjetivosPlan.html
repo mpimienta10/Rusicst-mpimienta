@@ -1,0 +1,38 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Objetivos Generales Plan de Mejoramiento</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group-lg">
+                    <div class="row">
+                        <button class="btnNew" type="button" ng-click="PopUpNuevoObjetivo('')">Agregar Objetivo General</button>
+                    </div>
+                    <div class="row" ng-if="isGrid4">
+                        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion4();">
+                            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+                        </button>
+                    </div>
+                    <div class="row">
+                        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                    <div class="row">
+                        <div id="filterTable" ng-if="isGrid4" ui-i18n="{{lang}}">
+                            <h3 id="titulo" class="titulo-rejilla">Listado Objetivos Generales Plan</h3>
+                            <div id="grid3" ui-grid="gridOptions4" class="grid4" ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted=true;cancelar()">Aceptar</button>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Extensiones de tiempo concedidas</h2></div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p style="font-size:10px"> Estas son las extensiones de tiempo otorgadas anteriormente a los usuarios.</p>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <button class="btn btn-default pull-right" style="margin:9px 0px 0px 10px !important" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+        <a ui-sref="Index.HabilitarReportes" class="btnNew pull-right">Nueva Extensión de Tiempo</a>
+    </div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row">
+        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Extensiones Anteriores</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    </div>
+</div>

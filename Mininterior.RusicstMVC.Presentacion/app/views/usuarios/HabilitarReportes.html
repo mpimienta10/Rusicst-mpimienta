@@ -1,0 +1,86 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Extensiones de tiempo</h2></div>
+    <div class="row">
+        <div class="col-sm-6" style="padding:0;">
+            <div style="font-size:10px;">
+                <p style="font-size: 10px;">
+                    Las extensiones de tiempo permiten al usuario administrador otorgar un nuevo plazo para completar un Reporte, Plan de Mejoramiento o Tablero PAT.
+                    El plazo se asigna a un usuario específico sobre un reporte específico, por lo que deberá seleccionar estos dos.
+                </p>
+                <p style="font-size: 10px;">
+                    Seleccione un Tipo de Extensión de la lista: Encuesta (Reporte), Plan de Mejoramiento o Tablero PAT.
+                </p>
+                <p style="font-size: 10px;">
+                    Para seleccionar el usuario simplemente vaya escribiendo algunas de las letras contiguas del nombre de este o del
+                    nombre de usuario con el que accede al sistema.
+                </p>
+                <p style="font-size: 10px;">
+                    De igual manera proceda con la selección del Reporte, Plan de Mejoramiento o Tablero PAT, escribiendo parte del nombre de este para que el sistema le
+                    muestre el listado de reportes que cumplen con el término buscado.
+                </p>
+            </div>
+            <div class="col-sm-6" style="padding:0;font-size:12px">
+                <a ui-sref="Index.ExtensionesAnteriores" class="btnNew ancho">Ver extensiones anteriores</a>
+            </div>
+        </div>
+        <div class="col-sm-6 filter">
+            <form class="sombra panel panel-default" id="myForm" name="myForm" role="form" novalidate>
+                <div class="panel-body">
+                    <div class="">
+                        <div class="form-group">
+                            <label for="tipo" class="text-muted" style="font-size: 10px;">Tipo de Extensión:</label>
+                            <select class="form-control input-sm" id="tipo"
+                                    name="tipo" ng-model="tipoSeleccionado"
+                                    ng-change="changeTipo()"
+                                    ng-options="opt as opt.tipoExtension for opt in tipos" required></select>
+
+                            <!--<select id="tipo" name="tipo" ng-model="tipoSeleccionado" class="form-control input-sm" required
+                                    ng-change="changeTipo()">
+                                <option ng-repeat="item in tipos" value="{{item.idTipo}}">{{item.tipoExtension}}</option>
+                            </select>-->
+                            <span class="text-danger" ng-show="submitted && myForm.tipo.$error.required">{{errorMessages.select}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="usuario" class="text-muted" style="font-size: 10px;">Usuario:</label>
+                            <input type="text" ng-model="usuarioSeleccionado" uib-typeahead="usuario as usuario.NombresYUsername for usuario in usuarios | filter:{NombresYUsername:$viewValue} | limitTo:10"
+                                   class="form-control input-sm" id="usuario" name="usuario" autocomplete="off" required>
+                            <span class="text-danger" ng-show="submitted && myForm.usuario.$error.required">{{errorMessages.select}}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="encuesta" class="text-muted" style="font-size: 10px;">{{tipoSeleccionado.tipoExtension || 'Encuesta'}}:</label>
+                            <input type="text" ng-model="encuestaSeleccionada" uib-typeahead="encuesta as encuesta.Titulo for encuesta in encuestas | filter:{Titulo:$viewValue} | limitTo:10 "
+                                   class="form-control input-sm" id="encuesta" name="encuesta" autocomplete="off" required>
+                            <span class="text-danger" ng-show="submitted && myForm.encuesta.$error.required">{{errorMessages.select}}</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="fechaFin" class="text-muted" style="font-size: 10px;">Fecha de fin:</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="registro.FechaFin" id="fechainicio" required is-open="popup1.opened"
+                                   name="fecha" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                            <span class="text-danger" ng-show="submitted && myForm.fecha.$error.required">{{errorMessages.dateRequired}}</span>
+                            <span class="text-danger" ng-show="submitted && myForm.fecha.$error.date">Fecha inválida</span>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4" style="padding:0;">
+                                <button type="submit" ng-disabled="disabledguardando" value="" id="ExtenderPlazo" class="btnNew ancho" ng-click="submitted=true;aceptar()">Extender plazo</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+                        <label class="text-danger" ng-if="error">{{error}}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

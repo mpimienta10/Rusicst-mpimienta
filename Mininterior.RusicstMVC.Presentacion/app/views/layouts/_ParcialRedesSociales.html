@@ -1,0 +1,14 @@
+﻿<div class="row top-social " style="margin-top:0px" >
+    <div class="container">
+        <div class="wrap-content  pull-right" style="margin-top:5px">
+            <span style="float:left;margin-top:5px">Síguenos en las redes sociales</span>
+            <div style="max-width: 53px; max-height: 40px; float: left;" ng-repeat="item in datosHome.listRS">
+                <a target="_blank" href="{{item.contentUrl}}" style="height: 100%;" >
+                    <img data-ng-src="data:image/jpg;base64,{{item.ImageContent}}" id="{{item.imgID}}" 
+                         style="max-width:100%; max-height: 100%;">
+                </a>
+            </div>
+         
+        </div>
+    </div>
+</div>

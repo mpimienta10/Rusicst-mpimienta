@@ -1,0 +1,324 @@
+﻿<div class="container">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <br />
+    <div class="form-group"> <h2>Seleccione los filtros que deseas aplicar a tu búsqueda:</h2></div>
+    <div id="formulario-bi">
+        <div class="panel-body">
+            <div class="row">
+                <!--Se arma los acordeones-->
+                <uib-accordion close-others="false" class="primer-nivel">
+                    <div uib-accordion-group is-open="consultaPredifinida.expandido" ng-click="consultarPredefinida()">
+                        <uib-accordion-heading>
+                            <div>Consultas Predefinidas<span ng-show="datosSeleccionados.consultaPredifinida">: {{datosSeleccionados.consultaPredifinida}}</span> <i class="pull-right fa" ng-class="{'fa-chevron-down': consultaPredifinida.expandido, 'fa-chevron-right': !consultaPredifinida.expandido}"></i></div>
+                        </uib-accordion-heading>
+                        <!--Contenido-->
+                       
+                        <table class="table table-responsive table-striped table-condensed">
+                            <thead style="background:#91b6bf;color:white; font-weight:bold">
+                                <tr>
+                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Descripción</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in consultaPredefinidas.slice(((currentPagePredefinidas-1)*itemsPerPagePredefinidas), ((currentPagePredefinidas)*itemsPerPagePredefinidas))">
+                                    <td ng-class="{ 'activo': item.seleccionada, '': !item.seleccionada}">{{item.Nombre}}</td>
+                                    <td ng-class="{ 'activo': item.seleccionada, '': !item.seleccionada}">{{item.Descripcion}}</td>
+                                    <td ng-class="{ 'activo': item.seleccionada, '': !item.seleccionada}"><input class="btn alert-info" ng-click="consultarSeleccionada(item)" value="Seleccionar"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div uib-pagination total-items="totalItemsPredefinidas" ng-model="currentPagePredefinidas" max-size="maxSizeredefinidas" class="pagination-sm"
+                                 boundary-links="true" rotate="false" num-pages="numPagesPredefinidas" items-per-page="itemsPerPagePredefinidas"
+                                 previous-text="&lsaquo; Anterior" next-text="Siguiente &rsaquo;"
+                                 first-text="&laquo; Primero" last-text="Último &raquo;"></div>
+
+                        </div>
+                    </div>
+                    <!--FILTROS-->
+                    <div uib-accordion-group class="titulo" is-open="filtros.expandido">
+                        <uib-accordion-heading>
+                            <div>Filtros<span ng-show="datosSeleccionados.encuesta ">: {{datosSeleccionados.encuesta}} {{datosSeleccionados.departamento}} {{datosSeleccionados.municipio}}</span> <i class="pull-right fa" ng-class="{'fa-chevron-down': filtros.expandido, 'fa-chevron-right': !filtros.expandido}"></i></div>
+                        </uib-accordion-heading>
+                        <!--Contenido-->
+                        <uib-tabset active="activeJustified" justified="true">
+                            <uib-tab index="0" heading="Básicos">
+                                <div class="jumbotron">
+                                    <div class="row">
+                                        <label class="col-sm-2 text-right required" for="encuesta">Encuesta</label>
+                                        <div class="col-sm-10">
+                                            <select id="encuesta" name="encuesta" ng-model="registro.idEncuesta" class="form-control input-sm ng-pristine ng-valid" ng-change="obtenerNombreFiltros(registro.idEncuesta,null,null)" required>
+                                                <option ng-repeat="item in encuestas" value="{{item.CodigoEncuesta}}">{{item.NombreEncuesta}}</option>
+                                            </select>
+                                            <span class="text-danger" ng-show="submitted && myForm.encuesta.$error.required">Seleccione Encuesta</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-2 text-right required" for="GobernaciónSelect">Departamento</label>
+                                        <div class="col-sm-10">
+                                            <select id="GobernacionSelect" ng-model="registro.idDepartamento" ng-change="cargarComboMunicipios(registro.idDepartamento)" name="GobernacionSelect" class="form-control input-sm ng-pristine ng-valid" required>
+                                                <option ng-repeat="item in gobernaciones" value="{{item.CodigoDepartamento}}">{{item.NombreDepartamento}}</option>
+                                            </select>
+                                            <span class="text-danger" ng-show="submitted && myForm.GobernacionSelect.$error.required">Seleccione Departamento</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-2 text-right required" for="alcaldiaSelect">Municipio</label>
+                                        <div class="col-sm-10">
+                                            <select id="alcaldiaSelect" name="alcaldiaSelect" ng-model="registro.idMunicipio" class="form-control input-sm ng-pristine" ng-change="obtenerNombreFiltros(null,null,registro.idMunicipio)" required>
+                                                <option value="-1">TODOS</option>
+                                                <option ng-repeat="item in alcaldias" value="{{item.CodigoMunicipio}}">{{item.NombreMunicipio}}</option>
+                                            </select>
+                                            <span class="text-danger" ng-show="submitted && myForm.alcaldiaSelect.$error.required">Seleccione Municipio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </uib-tab>
+                            <uib-tab index="1" heading="Preguntas">
+                                <div class="jumbotron">
+                                    <div class="row">
+                                        <label class="col-sm-2 text-right required" for="encuesta">Pregunta</label>
+                                        <table class="table table-responsive table-striped table-condensed">
+                                            <thead style="background:#91b6bf;color:white; font-weight:bold">
+                                                <tr>
+                                                    <th class="text-center">Codigo Pregunta</th>
+                                                    <th class="text-center">Nombre Pregunta</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in gridPreguntasFiltroOptions.data">
+                                                    <td>{{item.CodigoPregunta}}</td>
+                                                    <td>{{item.NombrePregunta}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </uib-tab>
+                            <uib-tab index="2" heading="Ubicación">
+                                <div class="jumbotron">
+                                    <div class="row">
+                                        <label class="col-sm-2 text-right required" for="encuesta">Ubicación</label>
+                                        <table class="table table-responsive table-striped table-condensed">
+                                            <thead style="background:#91b6bf;color:white; font-weight:bold">
+                                                <tr>
+                                                    <th class="text-center">Control</th>
+                                                    <th class="text-center">Nombre</th>
+                                                    <th class="text-center">Ubicacion</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in gridUbicacionFiltroOptions.data">
+                                                    <td>{{item.Control}}</td>
+                                                    <td>{{item.Nombre}}</td>
+                                                    <td>
+                                                        <select ng-model="item.Ubicacion" class="form-control input-sm ng-pristine">
+                                                            <option value="Columnas">Columnas</option>
+                                                            <option value="Filas">Filas</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </uib-tab>
+                        </uib-tabset>
+                    </div>
+                    <!--DIMENSIONES-->
+                    <div uib-accordion-group is-open="dimensiones.expandido">
+                        <uib-accordion-heading>
+                            <div>
+                                <div class="checkbox checkbox-default">
+                                    <input type="checkbox" id="checkbox1" class="styled" ng-model="dimensiones.valor" ng-click="checkboxClick($index, $event, 'dimensiones', 'primerNivel')">
+                                    <label for="checkbox1">
+                                        {{dimensiones.label}}<span ng-show="datosSeleccionados.dimensiones">: {{datosSeleccionados.dimensiones}}</span> 
+                                    </label>
+                                    <i class="pull-right fa" ng-class="{'fa-chevron-down': dimensiones.expandido, 'fa-chevron-right': !dimensiones.expandido}"></i>
+                                </div>
+
+                            </div>
+                        </uib-accordion-heading>
+                        <!--Segundo Nivel-->
+                        <uib-accordion close-others="false" class="segundo-nivel" ng-repeat="segundoNivel in dimensiones.segundoNivel">
+                            <div uib-accordion-group is-open="segundoNivel.expandido">
+                                <uib-accordion-heading class="titulo">
+                                    <div>
+                                        <div class="checkbox checkbox-default">
+                                            <input type="checkbox" id="checkbox1" class="styled" ng-model="segundoNivel.valor" ng-click="checkboxClick($index, $event, 'dimensiones', 'segundoNivel')">
+                                            <label for="checkbox1">
+                                                {{segundoNivel.label}}
+                                            </label>
+                                            <i class="pull-right fa" ng-class="{'fa-chevron-down': segundoNivel.expandido, 'fa-chevron-right': !segundoNivel.expandido}"></i>
+                                        </div>
+                                    </div>
+                                </uib-accordion-heading>
+
+                                <!--Tercer Nivel-->
+                                <ul>
+                                    <li ng-repeat="tercerNivel in segundoNivel.tercerNivel" class="tecer-nivel alert alert-info">
+                                        <div class="checkbox checkbox-default">
+                                            <input type="checkbox" id="checkbox1" class="styled" ng-model="tercerNivel.valor" ng-click="checkboxClick($index, $event, 'dimensiones', 'tercerNivel' , tercerNivel)">
+                                            <label for="checkbox1">
+                                                {{tercerNivel.label}}
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </uib-accordion>
+                    </div>
+
+                    <!--HECHOS-->
+                    <div uib-accordion-group is-open="hechos.expandido" disabled>
+                        <uib-accordion-heading>
+                            <div>
+                                <div class="checkbox checkbox-default">
+                                    <input type="checkbox" id="checkbox1" class="styled" ng-model="hechos.valor" ng-change="actualizarCheck(hechos)"
+                                           ng-click="checkboxClick($index, $event, 'hechos', 'primerNivel')">
+                                    <label for="checkbox1">
+                                        {{hechos.label}}<span ng-show="datosSeleccionados.hechos">: {{datosSeleccionados.hechos}}</span>
+                                    </label>
+                                    <i class="pull-right fa" ng-class="{'fa-chevron-down': hechos.expandido, 'fa-chevron-right': !hechos.expandido}"></i>
+                                </div>
+
+                            </div>
+                        </uib-accordion-heading>
+                        <!--Segundo Nivel Hechos-->
+                        <uib-accordion close-others="false" class="segundo-nivel" ng-repeat="segundoNivel in hechos.segundoNivel">
+                            <div uib-accordion-group is-open="segundoNivel.expandido">
+                                <uib-accordion-heading class="titulo">
+                                    <div>
+                                        <div class="checkbox checkbox-default">
+                                            <input type="checkbox" id="checkbox1" class="styled" ng-model="segundoNivel.valor" ng-change="actualizarOption(segundoNivel)"
+                                                   ng-click="checkboxClick($index, $event, 'hechos', 'segundoNivel')">
+                                            <label for="checkbox1">
+                                                {{segundoNivel.label}}
+                                            </label>
+                                            <i class="pull-right fa" ng-class="{'fa-chevron-down': segundoNivel.expandido, 'fa-chevron-right': !segundoNivel.expandido}"></i>
+                                        </div>
+                                    </div>
+                                </uib-accordion-heading>
+                                <!--tercernivel-->
+                                <ul>
+                                    <li ng-repeat="tercerNivel in segundoNivel.tercerNivel" class="tecer-nivel alert alert-info">
+                                        <div>
+                                            <label>
+                                                <input type="radio" class="opcionRefresh" name="hechoSeleccionado" ng-model="hechoSeleccionado" value="{{tercerNivel.label}}" ng-click="actualizarOption(tercerNivel)">
+                                                {{tercerNivel.label}} 
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </uib-accordion>
+                    </div>
+
+                 
+                   <div uib-accordion-group class="titulo panel-institucional" is-open="seccion5.expandido">
+                        <uib-accordion-heading>
+                            <div>Preguntas <i class="pull-right fa" ng-class="{'fa-chevron-down': seccion5.expandido, 'fa-chevron-right': !seccion5.expandido}"></i></div>
+                        </uib-accordion-heading>
+                        <!--Contenido-->
+                        <div class="row">
+                            <label class="col-sm-2 text-right required" for="GobernaciónSelect">Buscar Pregunta</label>
+                            <div class="col-sm-10">
+                                <input type="text" ng-model="registro.pregunta" class="styled">
+                                <button class="btnNew" ng-click="consultarPreguntasXCodigo()">Buscar por Codigo</button>
+                                <button class="btnNew" ng-click="consultarPreguntasXNombre()">Buscar por Nombre</button>
+                            </div>
+                        </div>
+                        <div ng-if="preguntas.length > 0">
+                            <table class="table table-responsive table-striped table-condensed">
+                                <thead style="background:#91b6bf;color:white; font-weight:bold">
+                                    <tr>
+                                        <th class="text-center">Seleccionar</th>
+                                        <th class="text-center">Codigo Pregunta</th>
+                                        <th class="text-center">Nombre Pregunta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in preguntas.slice(((currentPagePreguntas-1)*itemsPerPagePreguntas), ((currentPagePreguntas)*itemsPerPagePreguntas))">
+                                        <td><input type="checkbox" class="styled" ng-model="item.IsCheck"></td>
+                                        <td>{{item.CodigoPregunta}}</td>
+                                        <td>{{item.NombrePregunta}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div uib-pagination total-items="totalItemsPreguntas" ng-model="currentPagePreguntas" max-size="maxSizePreguntas" class="pagination-sm"
+                                     boundary-links="true" rotate="false" num-pages="numPagesPreguntas" items-per-page="itemsPerPagePreguntas"
+                                     previous-text="&lsaquo; Anterior" next-text="Siguiente &rsaquo;"
+                                     first-text="&laquo; Primero" last-text="Último &raquo;"></div>
+
+                            </div>
+                        </div>
+                        <button class="btnNew" ng-click="seleccionarPreguntas()">Seleccionar</button>
+                    </div>
+                </uib-accordion>
+                <br/>
+                <div class="alert alert-info">
+                    <div class="row">
+                        <div class="row">
+                            <label class="col-sm-3 text-right">Consulta Predefinida:</label>
+                            <div class="col-sm-9">{{datosSeleccionados.consultaPredifinida}}</div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-3 text-right">Filtros:</label>
+                            <div class="col-sm-9">{{datosSeleccionados.encuesta}} {{datosSeleccionados.departamento}} {{datosSeleccionados.municipio}}</div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-3 text-right">Dimensiones Seleccionadas:</label>
+                            <div class="col-sm-9">{{datosSeleccionados.dimensiones}}</div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-3 text-right">Hecho Seleccionado:</label>
+                            <div class="col-sm-9">{{datosSeleccionados.hechos}}</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btnNew" ng-click="generarDatos()" ng-show="datosSeleccionados">Generar Datos</button>
+                <button class="btnNew" ng-click="limpiarDatos()" ng-show="datosSeleccionados">Limpiar</button>
+                <button class="btnNew" ng-click="mostrarPredefinidaNueva=1" ng-show="datosSeleccionados.consultaPredifinida">Guardar Predefinida</button>
+                <div id="PanelCM" class="sombra panel panel-default" ng-show="mostrarPredefinidaNueva">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-12 control-label-left" for="SuperSeccion">Nombre</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control input-sm" ng-model="predefinida.Nombre" required ng-maxlength="255" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 control-label-left" for="titulo">Descripción</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control input-sm" ng-model="predefinida.Descripcion" required ng-maxlength="255" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btnNew" ng-click="mostrarPredefinidaNueva=0;GuardarPredefinida()">Guardar</button>
+                            <button class="btn btn-default" ng-click="mostrarPredefinidaNueva=0">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+                <h3 id="titulo" class="titulo-rejilla" style="background:#91b6bf;color:white; font-weight:bold;border-color:#91b6bf">Datos Generados</h3>
+                <div id="grid" ui-grid="gridOptions" class="grid" ui-grid-selection ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="col-sm-12 alert alert-danger text-center" ng-if="error">{{error}}</label>
+    </div>
+    <div class="form-group" ng-if="isGrid">
+        <button class="btnNew" ng-click="exportarJson()">Exportar Json</button>
+        <a class="btnNew" ng-click="graficar()" ng-href="#!/Index/BI/Graficas/{{enviarDatos}}" target="_blank">Gráficas</a>
+    </div>
+    
+</div>

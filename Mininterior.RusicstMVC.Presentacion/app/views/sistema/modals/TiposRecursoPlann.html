@@ -1,0 +1,39 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Listado Tipos de Recurso</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group-lg">
+                    <div class="row">
+                        <button class="btnNew" type="button" ng-click="PopUpNuevoRecurso('')">Nuevo Tipo de Recurso</button>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion();">
+                            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+                        </button>
+                    </div>
+                    <div class="row">
+                        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                    <div class="row">
+                        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+                            <h3 id="titulo" class="titulo-rejilla">Listado Tipos de Recurso</h3>
+                            <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+
+        <button class="btnNew" type="button" ng-click="cancelar()">Aceptar</button>
+    </div>
+</form>

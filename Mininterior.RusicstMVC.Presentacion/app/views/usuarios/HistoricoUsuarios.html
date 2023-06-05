@@ -1,0 +1,65 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Histórico de Usuarios</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" novalidate>
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Criterios de búsqueda</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="GobernaciónSelect">Departamento</label>
+                        <div class="col-sm-10">
+                            <select id="GobernacionSelect" ng-model="registro.idDepartamento" ng-change="cargarComboMunicipios()" name="GobernacionSelect" class="form-control input-sm ng-pristine ng-valid">
+                                <option></option>
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="alcaldiaSelect">Municipio</label>
+                        <div class="col-sm-10">
+                            <select id="alcaldiaSelect" name="alcaldiaSelect" ng-model="registro.idMunicipio" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in alcaldias" value="{{item.IdMunicipio}}">{{item.Municipio}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="encuesta">Seleccione Tipo Usuario</label>
+                        <div class="col-sm-10">
+                            <select id="rol" name="rol" ng-model="registro.IdTipoUsuario" class="form-control input-sm ng-pristine ng-valid">
+                                <option></option>
+                                <option ng-repeat="item in roles" value="{{item.Id}}">{{item.Nombre}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-offset-2">
+                            <button type="button" class="btnNew ancho" ng-disabled="submitted && cargando" ng-click="submitted=true;aceptar()">Ver Reporte</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-sm-12 rusicst-center" ng-show="submitted && cargando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="row" ng-if="isGrid">
+        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <div class="row" ng-if="isGrid">
+        <div id="filterTable" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Histórico de Usuarios</h3>
+            <div id="grid" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning text-center" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger text-center" ng-if="error">{{error}}</label>
+    </div>
+</div>

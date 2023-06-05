@@ -1,0 +1,135 @@
+﻿
+<div>
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Consolidado del Diligenciamiento del RUSICST</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" novalidate>
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Criterios de búsqueda</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="GobernaciónSelect">Departamento</label>
+                        <div class="col-sm-10">
+                            <select id="GobernacionSelect" name="GobernacionSelect" ng-model="registro.idDepartamento" class="form-control input-sm ng-pristine ng-valid" required>
+                                <option value="-1">Todos</option>
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                            <span class="text-danger" ng-show="submitted && myForm.GobernacionSelect.$error.required">Seleccione Departamento</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="encuesta">Encuesta</label>
+                        <div class="col-sm-10">
+                            <select id="encuesta" name="encuesta" ng-model="registro.idEncuesta" class="form-control input-sm ng-pristine ng-valid" required>
+                                <option ng-repeat="item in encuestas" value="{{item.Id}}">{{item.Titulo}}</option>
+                            </select>
+                            <span class="text-danger" ng-show="submitted && myForm.encuesta.$error.required">Seleccione Encuesta</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button type="button" class="btnNew ancho" ng-disabled="!cargoDatos" ng-click="submitted=true;filtrar()">Ver Reporte</button>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-hide="cargoDatos">
+                        <span class="col-sm-12 rusicst-center"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                     <div  class="form-group" id="pies">
+                    </div>
+                </div>
+            </div>
+            <div class="sombra panel panel-default" ng-if="mostrarReporte && cargoDatos && datos.length > 0">
+                <div class="panel-body">
+                    <div class="reporte">
+                        <div class="form-group">
+                            <div class="col-sm-12"><button class="btn btn-default pull-right" ng-click="exportar()"> Exportar PDF</button></div>
+                        </div>
+                        <div class="form-group color-heading">
+                            <div class="text-center titulo1"> CONSOLIDADO DEL DILIGENCIAMIENTO DEL RUSICST </div>
+                            <div class="text-center titulo2">{{departametoYEncuesta.encuesta}}</div>
+                            <div class="text-center titulo3">REPORTE UNIFICADO DEL SISTEMA DE INFORMACIÓN, COORDINACIÓN Y SEGUIMIENTO TERRITORIAL DE LA POLÍTICA PÚBLICA DE VÍCTIMAS - RUSICST</div>
+                        </div>
+                        <div class="text-center">A continuación encontrará los datos cuantitativos sobre el nivel de reporte en el RUSICST de los municipios de su jurisdicción, durante el periodo seleccionado</div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-3 titulo1 color-heading text-center">DEPARTAMENTO</div>
+                            <div class="col-sm-3 text-center" style="border: 1px solid gray"><strong>{{departametoYEncuesta.departamento}}</strong></div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-sm-6">
+                                <div class="text-center"><strong>GUARDÓ INFORMACIÓN</strong></div>
+                                <div class="col-sm-offset-2 col-sm-8">
+                                    <canvas id="pie1" class="chart chart-pie"
+                                            chart-data="data1" chart-labels="labels1" chart-options="options"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 ">
+                                <div class="text-center"><strong>COMPLETÓ REPORTE</strong></div>
+                                <div class="col-sm-offset-2 col-sm-8">
+                                    <canvas id="pie2" class="chart chart-pie"
+                                            chart-data="data2" chart-labels="labels2" chart-options="options"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="text-center "><strong>GUARDÓ INFORMACIÓN EN EL PLAN DE MEJORAMIENTO</strong></div>
+                                <div class="col-sm-offset-2 col-sm-8">
+                                    <canvas id="pie4" class="chart chart-pie"
+                                            chart-data="data4" chart-labels="labels4" chart-options="options"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-center "><strong>ENVIÓ EL REPORTE</strong></div>
+                                <div class="col-sm-offset-2 col-sm-8">
+                                    <canvas id="pie3" class="chart chart-pie"
+                                            chart-data="data3" chart-labels="labels3" chart-options="options"></canvas>
+                                </div>
+                            </div>                            
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <table class="table table-condensed table-striped">
+                                    <thead>
+                                        <tr class="fila-encabezado-tabla text-center">
+                                            <td ng-repeat="item in header">{{item.text}}</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in datos">
+                                            <td>{{item.DEPARTAMENTO}}</td>
+                                            <td class="text-center">{{item.MUNICIPIOS}}</td>
+                                            <td class="text-center">{{item.SI_GUARDO}}</td>
+                                            <td class="text-center">{{item.NO_GUARDO}}</td>
+                                            <td class="text-center">{{item.SI_COM_REP}}</td>
+                                            <td class="text-center">{{item.NO_COM_REP}}</td>
+                                            <td class="text-center">{{item.SI_INFO_PLAN}}</td>
+                                            <td class="text-center">{{item.NO_INFO_PLAN}}</td>
+                                            <td class="text-center">{{item.SI_ENVIARON}}</td>
+                                            <td class="text-center">{{item.NO_ENVIARON}}</td>                                            
+                                        </tr>
+                                    </tbody>
+                                    <tfoot class="totales">
+                                        <tr>
+                                            <td ng-repeat="item in total_ParaReportePDF">{{item.text}}</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="form-group">
+        <div class="alert alert-warning text-center" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>
+
+
+

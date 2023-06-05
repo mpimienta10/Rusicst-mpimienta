@@ -1,0 +1,42 @@
+﻿
+<div>
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+        </div>
+    <div class="row"> <h2>Completar/Consultar Reportes</h2></div>
+    <div class="row"> <h5>A continuación encontrará los reportes pendientes por completar y enviar. Seleccione uno de ellos para iniciar. Recuerde que cada reporte tiene una fecha límite para su envío.</h5></div>
+    <!--@*Div grilla completar*@-->
+    <div class="row" ng-if="isGrid2">
+        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion2();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <div class="row" ng-if="isGrid2">
+        <div id="filterTable" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Listado de Encuestas No Completadas</h3>
+            <div id="grid2" ui-grid="gridOptions2" class="grid2"  ui-grid-exporter  ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="form-group">
+        <div class="alert alert-warning text-center" ng-if="alerta2" role="alert">{{alerta2}}</div>
+        <label class="alert alert-danger text-center" ng-if="error2">{{error2}}</label>
+    </div>
+    <!--@*Div grilla consultar*@-->
+    <div class="row" ng-if="isGrid">
+        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <div class="row" ng-if="isGrid">
+        <div id="filterTable" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Listado de Encuestas Completadas</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid"  ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="form-group">
+        <div class="alert alert-warning text-center" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="alert alert-danger text-center" ng-if="error">{{error}}</label>
+    </div>
+</div>

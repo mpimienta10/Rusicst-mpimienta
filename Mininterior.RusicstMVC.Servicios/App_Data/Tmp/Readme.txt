@@ -1,0 +1,1 @@
+Carpeta utilizada para los archivos que se adjuntan de manera temporal

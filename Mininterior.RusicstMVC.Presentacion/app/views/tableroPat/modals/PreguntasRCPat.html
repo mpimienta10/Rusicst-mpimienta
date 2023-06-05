@@ -1,0 +1,60 @@
+﻿<form role="form" class="form-horizontal" name="registerForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h4 class="text-center" id="modal-title">{{pregunta.Id == 0? 'Nueva Pregunta de Reparación Colectiva': 'Edición de Preguntas de Reparación Colectiva'}}</h4>
+    </div>
+    <div class="modal-body">
+        <label class="text-danger">{{errorgeneral}}</label>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Medida">Medida</label>
+            <div class="separar col-sm-9">
+                <select class="form-control input-sm ng-pristine ng-valid" id="Medida" name="Medida" ng-model="pregunta.IdMedida" required ng-options="item.Id as item.Descripcion for (key, item)  in Medidas"></select>
+                <span class="text-danger" ng-show="submitted && registerForm.Medida.$error.required">La Medida es requerida</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Sujeto">Sujeto</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Sujeto" id="Sujeto" ng_model="pregunta.Sujeto" name="Sujeto" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.Sujeto.$error.required">El Sujeto es requerido</span>
+                <span class="text-danger" ng-show="submitted">{{errors.Sujeto}}</span></br>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Medidareparacioncolectiva">Medida de reparación colectiva</label>
+            <div class="separar col-sm-9">
+                <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Medida de reparación colectiva" id="Medidareparacioncolectiva" ng_model="pregunta.MedidaReparacionColectiva" name="Medidareparacioncolectiva" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger" ng-show="submitted && registerForm.Medidareparacioncolectiva.$error.required">La Medida de reparación colectiva es requerida</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="GobernaciónSelect">Departamento</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm ng-pristine ng-valid" id="Gobernacion" name="Gobernacion"  ng-change="cargarComboAlcaldias()" ng-model="pregunta.IdDepartamento" required ng-options="item.IdDepartamento as item.Departamento for (key, item)  in gobernaciones"></select>
+                <span class="text-center text-danger" ng-show="submitted && registerForm.Gobernacion.$error.required">El departamento es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="alcaldiaSelect">Municipio</label>
+            <div class="col-sm-9">
+                <select class="form-control input-sm ng-pristine ng-valid" id="alcaldiaSelect" name="alcaldiaSelect"  ng-model="pregunta.IdMunicipio" required ng-options="item.IdMunicipio as item.Municipio for (key, item)  in alcaldias"></select>
+                <span class="text-danger" ng-show="submitted && registerForm.alcaldiaSelect.$error.required">El municipio es requerido</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="IdTablero">Tablero</label>
+            <div class="separar col-sm-9">
+                <select class="form-control input-sm ng-pristine ng-valid" disabled id="IdTablero" name="IdTablero" ng-model="pregunta.IdTablero" required ng-options="item.Id as item.Etiqueta for (key, item)  in Tableros"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="Activo">Activo</label>
+            <div class="separar col-sm-9">
+                <input type="checkbox" ng-checked="pregunta.Activo" id="Activo" ng_model="pregunta.Activo" />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()" ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

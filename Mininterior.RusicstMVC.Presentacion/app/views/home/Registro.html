@@ -1,0 +1,172 @@
+﻿<div>
+
+    <!--Ingreso-->
+    <div class="container-fluid">
+        <div class="row" style="background-color:#748595">
+            <div class="col-sm-offset-8 col-sm-1">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <a ui-sref="home.login" class="btn btn-login center-block">VOLVER AL INICIO</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Registro-->
+    <form class="" role="form" name="myForm">
+        <div>
+            <div class="form-box">
+                <div class="text-center">
+                    <div style="font-size:18px">Registro de ingreso al RUSICST</div>
+                    <div>Por favor diligenciar todos los campos, son obligatorios.</div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-horizontal">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Nombres" id="Nombres">Nombre</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" name="Nombres" type="text" ng-model="registro.Nombre" id="Nombres" required />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Nombres.$error.required"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Apellidos" id="Apellidos">Apellidos</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" name="Apellidos" type="text" ng-model="registro.Apellidos" id="Apellidos" required />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Apellidos.$error.required"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Email" id="Nombres">E-mail</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" name="Email" type="email" ng-model="registro.Email" id="Email" required />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Email.$error.required"></span>
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Email.$error.email"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="EmailAlternativo" id="EmailAlternativo">E-mail Alternativo</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" name="EmailAlternativo" type="email" ng-model="registro.EmailAlt" id="EmailAlternativo" />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.EmailAlternativo.$error.email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Departamento" id="Departamento">Departamento</label>
+                                <div class="col-sm-7">
+                                    <select id="DepartamentoSelect" name="DepartamentoSelect" ng-change="cargarMunicipios()" ng-model="registro.IdDepartamento" class="form-control input-sm ng-pristine ng-valid" required>
+                                        <option ng-repeat="item in Departamentos" value="{{item.id}}">{{item.value}}</option>
+                                    </select>
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.DepartamentoSelect.$error.required"></span>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="Municipio" id="Municipio">Municipio</label>
+                                <div class="col-sm-7">
+                                    <!-------------------------------------------------------------------------------------------------------------------------->
+                                    <!--Se retira la validación del municipio para permitir el registro de las gobernaciones solo seleccionado el departamento-->
+                                    <!-------------------------------------------------------------------------------------------------------------------------->
+                                    <select id="MunicipioSelect" name="MunicipioSelect" ng-model="registro.IdMunicipio" class="form-control input-sm ng-pristine">
+                                        <option ng-repeat="item in Municipios" value="{{item.IdMunicipio}}">{{item.Municipio}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Cargo" id="Cargo">Cargo</label>
+                                <div class="col-sm-7">
+                                    <input required class="form-control input-sm" name="Cargo" type="text" ng-model="registro.Cargo" id="Cargo" />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Cargo.$error.required"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Celular" id="Celular">Teléfono Celular</label>
+                                <div class="col-sm-7">
+                                    <input required class="form-control input-sm" name="Celular" type="number" ng-model="registro.TelefonoCelular" id="Celular" />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Celular.$error.required"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Telefono" id="Telefono">Teléfono</label>
+                                <div class="col-sm-7">
+                                    <input required class="form-control input-sm" name="Telefono" type="number" ng-model="registro.TelefonoFijo" id="Telefono" />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Telefono.$error.required"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label required" for="Indicativo" id="Indicativo">Indicativo</label>
+                                <div class="col-sm-7">
+                                    <input required class="form-control input-sm" name="Indicativo" type="number" ng-model="registro.TelefonoFijoIndicativo" id="Indicativo" />
+                                    <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.Indicativo.$error.required"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="Extension" id="Extension">Extensión</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" name="Extension" type="text" ng-model="registro.TelefonoFijoExtension" id="Extension" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-10">Adjunto el documento que lo valide como Enlace RUSICST de su alcaldía o gobernación; o en su defecto, el documento que certifique su vinculación con una entidad pública o de control, institución académica o centro de investigación.</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <input type="file" ngf-select ng-model="file" name="file" id="file"
+                                     ngf-max-size="40MB" required
+                                     style="width:100%;color:#63002D"/>
+                            </div>
+                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.file.$error.required">
+                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-6">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <div vc-recaptcha
+                                     type="'image'"
+                                     theme="'light'"
+                                     key="model.key"
+                                     on-create="setWidgetId(widgetId)"
+                                     on-success="setResponse(response)"
+                                     on-expire="cbExpiration()"></div>
+                                <span class="text-danger text-center" ng-show="errorValidationCaptcha">Seleccione la casilla en el captcha</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-2 col-sm-offset-5">
+                <input type="button" ng-disabled="deshabiltarRegistrese" class="btnNew ancho" href="" ng-click="submitted=true;aceptar()" value="REGÍSTRESE" />
+            </div>
+            <span class="col-sm-1" ng-show="deshabiltarRegistrese"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+
+        </div>
+        <div class="row ">
+            <div class="col-sm-offset-2 col-sm-10">{{error}}</div>
+        </div>
+    </form>
+</div>
+
+
+
+

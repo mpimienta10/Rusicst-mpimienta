@@ -1,0 +1,39 @@
+﻿<div class="">
+    <!--@*<div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>*@-->
+    <div class="row"> <h2>Gestión de Solicitudes Usuarios</h2></div>
+    <div class="row" ng-if="isGrid">
+        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row" ng-if="isGrid">
+        <div id="filterTable" ui-i18n="{{lang}}">
+            <h3 id="titulo1" class="titulo-rejilla">Gestión de Solicitudes Usuarios</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid1" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+    <!--@*Div grilla consultar*@-->
+    <div class="row" ng-if="isGrid2">
+        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion2();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <div class="row" ng-if="isGrid2">
+        <div id="filterTable" ui-i18n="{{lang}}">
+            <h3 id="titulo2" class="titulo-rejilla">Histórico de Solicitudes de Usuarios</h3>
+            <div id="grid2" ui-grid="gridOptions2" class="grid2" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta2" role="alert">{{alerta2}}</div>
+        <label class="text-danger" ng-if="error2">{{error2}}</label>
+    </div>
+</div>

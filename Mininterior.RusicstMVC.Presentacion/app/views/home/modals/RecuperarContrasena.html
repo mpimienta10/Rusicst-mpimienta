@@ -1,0 +1,37 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Recuperar Contraseña</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">
+                    Para restablecer la contraseña, escriba su <b>Usuario</b> y <b>Correo Electrónico</b> y haga clic en el botón Enviar.<br />
+                    Una nueva contraseña será enviada a su correo electrónico, con la cual deberá ingresar al Sistema.
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="Usuario" class="col-sm-12 required">Usuario</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" ng-model="registro.UserName" id="Usuario" name="Usuario" required />
+                            <span class="text-danger" ng-show="submitted && myForm.Usuario.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="EmailPrueba" class="col-sm-12 required">Correo Electrónico</label>
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" ng-model="registro.Email" id="Email" name="Email" required />
+                            <span class="text-danger" ng-show="submitted && myForm.Email.$error.required">{{errorMessages.inputText}}</span>
+                            <span class="text-danger" ng-show="submitted && myForm.Email.$error.email">{{errorMessages.email}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span ng-show="cargando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        <button class="btnNew" type="submit" ng-click="submitted=true;aceptar()">Enviar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

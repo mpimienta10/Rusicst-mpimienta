@@ -1,0 +1,71 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Gestión del Banco de Preguntas</h2></div>
+    <div class="row"> 
+        <!--<a href="" ng-click="PopUpNuevoEditarPregunta('')">Nueva Pregunta</a>-->
+        <button class="btnNew" type="button" ng-click="PopUpNuevoEditarPregunta('')">Nueva Pregunta</button>
+        <button class="btnNew col-md-offset-1" type="button" ui-sref="Index.ClasificadoresBancoPreguntas">Clasificadores</button>
+    </div>
+    
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" novalidate>
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Criterios de búsqueda</div>
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="tipoPregunta">Tipo pregunta: </label>
+                        <div class="col-sm-10">
+                            <select id="tipoPregunta" 
+                                    name="tipoPregunta" 
+                                    ng-model="registro.idTipoPregunta" 
+                                    class="form-control input-sm ng-pristine ng-valid"
+                                    required>
+                                <option ng-repeat="item in tiposPregunta" value="{{item.Id}}">{{item.Nombre}}</option>
+                            </select>
+                            <span class="text-danger" ng-show="submitted && myForm.tipoPregunta.$error.required">Debe seleccionar un tipo de pregunta</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="CodigoPregunta">Código pregunta: </label>
+                        <div class="col-sm-10">
+                            <input type="text" id="CodigoPregunta" name="CodigoPregunta" class="form-control input-sm" ng-model="registro.codigoPregunta" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button type="button" class="btnNew ancho" ng-disabled="!cargoDatosSpinner" ng-click="submitted=true;filtrar()">Buscar</button>
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-2">
+                            <button type="button" class="btnNew ancho" ng-disabled="!cargoDatosSpinner" ng-click="exportar()">Exportar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatosSpinner"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row">
+        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Gestión del Banco de Preguntas</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>

@@ -1,0 +1,935 @@
+﻿<form role="form" class="form-horizontal" name="myFormReporte" novalidate>
+    <div class="modal-body">
+        <button ng-hide="TipoUser == 'A'" class="btnNew ancho" ng-click="CambiarTituBoton();mostrarSelMunicipio = !mostrarSelMunicipio">{{TituloGen}}</button>
+            <div ng-show="mostrarSelMunicipio">
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Selección Municipio</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label-left" for="GobernaciónSelect">Departamento:</label>
+                            <div class="col-sm-3">
+                                <select id="GobernacionSelect" ng-change="cargarComboMunicipiosTitulos()" name="GobernacionSelect" ng-model="titulos.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                    <option></option>
+                                    <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label-left" for="usuarioSelect">Municipio:</label>
+                            <div class="col-sm-3">
+                                <select ng-model="titulos.municipio" ng-change="cargarMunicipiosTitulos()" class="form-control input-sm ng-pristine">
+                                    <option></option>
+                                    <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div id="PrintContent0">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <img data-ng-src="data:image/jpg;base64,{{datosHome.ImageMintContent}}"
+                         class="img-responsive center-block" alt="mininterior"
+                         style="width:60%; max-height: 60%;" id="imgMint" />
+                </div>
+                <div class="col-sm-4">
+                    <label class="rusicst-center label-retro-Titulo">Retroalimentación RUSICST {{miRetroAdmin.Titulo}}</label>
+                </div>
+                <div class="col-sm-4">
+                    <img data-ng-src="data:image/jpg;base64,{{datosHome.ImageVictContent}}"
+                         class="img-responsive center-block" alt="Unidad para la atención y reparación integral a las víctimas"
+                         style="width:60%; max-height: 60%;" id="imgVic" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button class="btn btn-default pull-right" ng-click="exportarPrint()"> Imprimir PDF</button>
+                <button class="btn btn-default pull-right" ng-click="mostrarPresentacion = 1 ; mostrarNivel = 1; mostrarDesarrollo = 1; mostrarAnalisis = 1; mostrarRevision = 1; mostrarHistorial = 1; mostrarObserva = 1; exportar()"> Exportar PDF</button>
+            </div>
+        </div>
+        <div id="PrintContent">
+            <!--Presentacion-->
+            <div>
+                <button class="btnNew ancho" ng_model="Usuario.UserPrint">{{ Usuario.UserPrint }}</button>
+                <button class="btnNew ancho" ng_model="realimentacion.Presentacion" ng-click="mostrarPresentacion = !mostrarPresentacion">{{ realimentacion.Presentacion }}</button>
+                <input type="text" ng-hide="tipo == '0'" class="form-control input-sm text-justify" ng-model="realimentacion.Presentacion" id="txtAyuda" />
+            </div>
+            <div id="PanelPre" class="panel panel-default" ng-show="mostrarPresentacion">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" id="ayuda" ng_model="realimentacion.PresTexto" name="ayuda" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLPresTexto"></label-retro-consulta>
+                    </div>
+                    <button class="btnNew" ng-hide="tipo == '0'" id="btnGuardarPres" ng-click="guardarPresentacion()">Guardar</button>
+                </div>
+            </div>
+        </div>
+        <div id="PrintContent2">
+            <!--Nivel-->
+            <div>
+                <button class="btnNew ancho" ng_model="realimentacion.Nivel" ng-click="mostrarNivel = !mostrarNivel">{{ realimentacion.Nivel }}</button>
+                <input type="text" ng-hide="tipo == '0'" class="form-control input-sm text-justify" ng-model="realimentacion.Nivel" id="txtNivel" />
+            </div>
+            <div id="PanelNiv" class="panel panel-default" ng-show="mostrarNivel">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="6" placeholder="" id="nivel" ng_model="realimentacion.NivTexto" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLNivTexto"></label-retro-consulta>
+                    </div>
+                    <div>
+                        <label class="col-sm-12 label-retro" for="Nivel2">{{ realimentacion.Nivel2 }}</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" id="nivel2" ng_model="realimentacion.Niv2Texto" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLNiv2Texto"></label-retro-consulta>                        
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label-left">Nombre Gráfica</label>
+                        <div class="separar col-sm-5">
+                            <input type="text" class="form-control input-sm col-sm-6" ng-model="Nivel.Titulo" />
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label-left" for="SelGrafica">Seleccionar Gráfica</label>
+                        <div class="separar col-sm-5">
+                            <select class="form-control input-sm" id="SelGrafica" ng-model="Nivel.IdNivelGraf" ng-change="pintarGrafNivel()" ng-options="item.Id as item.Descripcion for (key, item) in SeleccionGraf"></select>
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <div class="separar col-sm-2">
+                            <label class="control-label-left" for="SelGrafica">Color</label>
+                        </div>
+                        <div class="separar col-sm-3">
+                            <select class="form-control input-sm" ng-model="Nivel.Color1Niv" ng-change="pintarGrafNivel()" ng-options="item.Id as item.Descripcion for (key, item) in SeleccionColor"></select>
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="form-group">
+                        <label class="col-sm-2 control-label">Ver Archivos como:</label>
+                        <label class="col-sm-2 control-label" for="GobernaciónSelect">Departamento:</label>
+                        <div class="col-sm-3">
+                            <select ng-change="cargarComboMunicipiosNivel()" ng-model="nivel.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                <option></option>
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label" for="usuarioSelect">Municipio:</label>
+                        <div class="col-sm-3">
+                            <select ng-change="ObtenerSeriesNivelxUsuario()" ng-disabled="cargarNivel" ng-model="nivel.municipio" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                            </select>
+                        </div>
+                        <span class="col-sm-12 rusicst-center" ng-show="cargarNivel"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                    <div class="col-sm-12 rusicst-center">
+                        <label class="label-retro rusicst-center" ng-model="Nivel.Titulo">{{Nivel.Titulo}}</label>
+                    </div>
+                    <div class="col-sm-12 rusicst-center">
+                        <table class="table table-responsive table-striped">
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-4 rusicst-center"></td>
+                                    <td class="col-sm-4 rusicst-center">
+                                        <canvas ng-hide="Nivel.IdNivelGraf != 2" id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-options="optionsNiv" chart-dataset-override="datasetOverrideNiv"></canvas>
+                                        <canvas ng-hide="Nivel.IdNivelGraf != 7" id="horizontalbar" class="chart-horizontal-bar" chart-data="data" chart-labels="labels" chart-dataset-override="datasetOverrideNiv" chart-options="optionsNivHB"></canvas>
+                                    </td>
+                                    <td class="col-sm-4 rusicst-center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-12 rusicst-center">
+                        <label ng-disabled="true" class="text-justify">{{Nivel.TxtGrafica}}</label>
+                    </div>
+                    <button class="btnNew" ng-hide="tipo == '0'" id="btnGuardarNiv" ng-click="guardarNivel()">Guardar</button>
+                </div>
+            </div>
+        </div>
+        <div id="PrintContent3">
+            <!--Desarrollo-->
+            <div>
+                <button class="btnNew ancho" ng_model="realimentacion.Desarrollo" ng-click="cargarPreguntas();graficar7DesXusuario();mostrarDesarrollo = !mostrarDesarrollo">{{ realimentacion.Desarrollo }}</button>
+                <input type="text" ng-hide="tipo == '0'" class="form-control input-sm text-justify" ng-model="realimentacion.Desarrollo" id="txtDesarrollo" />
+            </div>
+            <div id="PanelDes" class="panel panel-default" ng-show="mostrarDesarrollo">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" id="desTexto" ng_model="realimentacion.DesTexto" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLDesTexto"></label-retro-consulta>   
+                    </div>
+                    <div>
+                        <label class="col-sm-12 label-retro" for="desarrollo2">{{ realimentacion.Desarrollo2 }}</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" id="des2Texto" ng_model="realimentacion.Des2Texto" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLDes2Texto"></label-retro-consulta>   
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label-left">Nombre Gráfica</label>
+                        <div class="separar col-sm-5">
+                            <input type="text" class="form-control input-sm col-sm-6" ng-model="Desarrollo.Titulo" />
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label" for="SelGrafica"></label>
+                        <label class="col-sm-3 control-label" for="SelGrafica">Diseño</label>
+                        <label class="col-sm-3 control-label" for="SelGrafica">Implementación</label>
+                        <label class="col-sm-3 control-label" for="SelGrafica">Evaluación</label>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label-left" for="SelGrafica">Color</label>
+                        <div class="separar col-sm-3">
+                            <select class="form-control input-sm" ng-model="Desarrollo.ColorDesDis" ng-change="pintarGrafDesarrollo()" ng-options="item.Id as item.Descripcion for (key, item) in SeleccionColor"></select>
+                        </div>
+                        <div class="separar col-sm-3">
+                            <select class="form-control input-sm" ng-model="Desarrollo.ColorDesImp" ng-change="pintarGrafDesarrollo()" ng-options="item.Id as item.Descripcion for (key, item) in SeleccionColor"></select>
+                        </div>
+                        <div class="separar col-sm-3">
+                            <select class="form-control input-sm" ng-model="Desarrollo.ColorDesEval" ng-change="pintarGrafDesarrollo()" ng-options="item.Id as item.Descripcion for (key, item) in SeleccionColor"></select>
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label-left" for="SelGrafica">Nombre</label>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre1Des" />
+                        </div>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre4Des" />
+                        </div>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre7Des" />
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label-left" for="SelGrafica">Nombre</label>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre2Des" />
+                        </div>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre5Des" />
+                        </div>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre8Des" />
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="col-sm-2 control-label-left" for="SelGrafica">Nombre</label>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre3Des" />
+                        </div>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre6Des" />
+                        </div>
+                        <div class="separar col-sm-3">
+                            <input class="form-control input-sm" ng-model="Desarrollo.Nombre9Des" />
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <label class="title" ng-model="Desarrollo.Titulo">{{Desarrollo.Titulo}}</label>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="col-sm-12">
+                        <table class="table" style="width:523px;height:261px">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <canvas id="bar" class="chart chart-bar" chart-data="dataDes" chart-labels="labelsDes" chart-series="seriesDes" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btnNew" ng-hide="tipo == '0'" id="btnGuardarDes" ng-click="guardarDesarrollo()">Guardar</button>
+                    <div class="row" ng-hide="tipo == '0'">
+                        <div class="sombra panel panel-default">
+                            <div class="panel-heading">Criterios de búsqueda</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label-left" for="encuesta">Reporte:</label>
+                                    <div class="col-sm-6">
+                                        <select id="encuesta" ng-hide="tipo == '0'" name="encuesta" ng-model="filtro.EncuestaRelacionada" ng-change="AgregarEncDes()" class="form-control input-sm ng-pristine ng-valid">
+                                            <option></option>
+                                            <option ng-repeat="item in encuestas" value="{{item.Id}}">{{item.Titulo}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <ul>
+                                            <li ng-repeat="item in encuestasDes">
+                                                <span ng-hide="tipo == '0'" class="fa fa-trash-o color-red" ng-click="eliminarEncDes(item)"></span>
+                                                <a href=""> {{item.Titulo}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div ng-hide="tipo == '0'" class="col-sm-12">
+                                    <div class="separar col-sm-3">
+                                        <label class="control-label">Código Pregunta:</label>
+                                    </div>
+                                    <div class="separar col-sm-3">
+                                        <input class="form-control input-sm" ng-model="codigoNiv.Pregunta" />
+                                    </div>
+                                    <div class="separar col-sm-2">
+                                        <button type="button" class="btnNew" ng-click="buscarPregunta()">Buscar</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <h3 id="titulo" class="titulo-rejilla">Preguntas</h3>
+                                </div>
+                                <div class="col-sm-12">
+                                    <table class="table table-responsive table-striped">
+                                        <thead>
+                                            <tr>
+                                                <td class="col-sm-3 rusicst-center titulo-columnas">Código Pregunta</td>
+                                                <td class="col-sm-3 rusicst-center titulo-columnas">Tipo Pregunta</td>
+                                                <td class="col-sm-5 rusicst-center titulo-columnas">Valor</td>
+                                                <td class="col-sm-1 rusicst-center titulo-columnas" ng-hide="tipo == '0'">Eliminar</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in encuestasDesGrilla">
+                                                <td class="rusicst-center">{{item.CodigoPregunta}}</td>
+                                                <td class="rusicst-center">{{item.Nombre}}</td>
+                                                <td class="rusicst-center"><input ng-disabled="tipo == '0'" class="form-control input-sm" ng-model="item.Valor" /></td>
+                                                <td class="rusicst-center" ng-hide="tipo == '0'"><div class="text-center"><a href="" ng-click="goEliminar(item)">Eliminar</a></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="button" ng-hide="tipo == '0'" class="col-sm-2 btnNew" ng-click="guardarPreguntasDesarrollo()">Guardas Datos</button>
+                                </div>
+                                <div ng-hide="tipo == '0'" class="form-group">
+                                    <label class="col-sm-2 control-label">Ver Gráficas como:</label>
+                                    <label class="col-sm-2 control-label" for="GobernaciónSelect">Departamento:</label>
+                                    <div class="col-sm-3">
+                                        <select ng-change="cargarComboUsuarios()" ng-model="Desarrollo.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                            <option></option>
+                                            <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-2 control-label" for="usuarioSelect">Usuario:</label>
+                                    <div class="col-sm-3">
+                                        <select ng-change="graficar7Des()" ng-model="Desarrollo.usuario" class="form-control input-sm ng-pristine ng-valid">
+                                            <option></option>
+                                            <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="PrintContent31">
+            <!--Graficas Desarrollo-->
+            <div id="PanelDes" class="panel panel-default" ng-show="mostrarDesarrollo">
+                <div class="panel-body">
+                    <div id="pnl7Graf" class="sombra panel panel-default">
+                            <table class="table table-responsive table-striped table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">{{Desarrollo.Titulo}}</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesTodo" chart-labels="labelsDesTodo" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">Dinámica del Conflicto Armado</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesDin" chart-labels="labelsDesDin" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">Comité de Justicia Transicional</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesCom" chart-labels="labelsDesCom" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">Plan de Acción Territorial</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesTerr" chart-labels="labelsDesTerr" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">Participación de las Víctimas</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesPar" chart-labels="labelsDesPar" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">Articulación Institucional</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesArt" chart-labels="labelsDesArt" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">Retorno y Reubicación</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesRet" chart-labels="labelsDesRet" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                                <div class="col-sm-6 rusicst-center">
+                                                    <label class="label-retro">Adecuación Institucional</label>
+                                                    <canvas id="bar" class="chart chart-bar" chart-data="dataDesAdec" chart-labels="labelsDesAdec" chart-dataset-override="datasetOverride" chart-options="optionsDes"></canvas>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div id="PrintContent4">
+            <div>
+                <button class="btnNew ancho" ng-hide="tipo == '0'" ng_model="realimentacion.Analisis" ng-click="mostrarAnalisis = !mostrarAnalisis">{{ realimentacion.Analisis }}</button>
+                <button class="btnNew ancho" ng-hide="tipo != '0'" ng_model="realimentacion.Analisis" ng-click="CargarSeccionesAnalisis(false); mostrarAnalisis = !mostrarAnalisis">{{ realimentacion.Analisis }}</button>
+                <input type="text" ng-hide="tipo == '0'" class="form-control input-sm text-justify" ng-model="realimentacion.Analisis" id="txtAnalisis" />
+            </div>
+            <div id="PanelAna" class="panel panel-default" ng-show="mostrarAnalisis">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" ng_model="realimentacion.AnaTexto" ng-trim="true"></textarea>
+                        <label ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLAnaTexto"></label>   
+                    </div>
+                    <button class="btnNew" ng-hide="tipo == '0'" ng-click="guardarAnalisis()">Guardar</button>
+                    <div>
+                        <label class="col-sm-12 label-retro">3.1 Revisión de plan de mejoramiento</label>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="form-group">
+                        <label class="col-sm-2 control-label">Ver Análisis como:</label>
+                        <label class="col-sm-2 control-label">Departamento:</label>
+                        <div class="col-sm-3">
+                            <select ng-change="cargarComboMunicipiosAnalisis()" ng-model="analisis.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                <option></option>
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label" for="usuarioSelect">Usuario:</label>
+                        <div class="col-sm-3">
+                            <select ng-change="CargarSeccionesAnalisis(true)" ng-model="analisis.municipio" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <uib-accordion close-others="oneAtATime">
+                            <div uib-accordion-group class="panel-default" ng-repeat="seccion in AnalisisAco">
+                                <uib-accordion-heading>
+                                    <div>{{seccion.Titulo}}<span class="badge pull-right">{{seccion.Conteo}}</span></div>
+                                </uib-accordion-heading>
+                                <div ng-repeat="recomendacion in seccion.Recomendacion">
+                                    <recomendacion datos="recomendacion" guardar="guardarAnalisisReco(recomendacion)">
+                                    </recomendacion>
+                                </div>
+                            </div>
+                            <div uib-accordion-group class="panel-default">
+                                <uib-accordion-heading>
+                                    <div>Resumen General</div>
+                                </uib-accordion-heading>
+                                <div class="form-group">
+                                    <div class="col-sm-4">
+                                        <label class="col-sm-12 control-label-left rusicst-center">Número de Acciones de Mejora</label>
+                                        <div class="col-sm-offset-2 col-sm-8"><canvas id="pie" class="chart chart-pie" chart-data="data1Ana" chart-labels="labelsAna1" chart-colors="colorsAna1"></canvas></div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label class="col-sm-12 control-label-left rusicst-center">Acciones Cumplidas <br /></label>
+                                        <div class="col-sm-offset-2 col-sm-8"><canvas id="pie" class="chart chart-pie" chart-data="data2Ana" chart-labels="labelsAna2" chart-colors="colorsAna2"></canvas></div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label class="col-sm-12 control-label-left rusicst-center">Tiempo de Cumplimiento de las acciones</label>
+                                        <div class="col-sm-offset-2 col-sm-8"><canvas id="pie" class="chart chart-pie" chart-data="data3Ana" chart-labels="labelsAna3" chart-colors="colorsAna3"></canvas></div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="credits col-sm-4">
+                                        <ul style="text-align: left; margin: 0px; padding: 0px;" id="ulLinks">
+                                            <li>
+                                                <a>
+                                                    <span style="background-color: #2ECC71; width:25px"></span>
+                                                    <span style="color:Black">Si, totalmente</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a style="text-decoration:none;">
+                                                    <span style="background-color: #2471A3; width:25px"></span>
+                                                    <span style="color:Black">Si, parcialmente</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a style="text-decoration:none;">
+                                                    <span style="background-color: #C0392B; width:25px"></span>
+                                                    <span style="color:Black">No</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="credits col-sm-4">
+                                        <ul style="text-align: left; margin: 0px; padding: 0px;" id="ulLinks">
+                                            <li>
+                                                <a>
+                                                    <span style="background-color: #2ECC71; width:25px"></span>
+                                                    <span style="color:Black">Cumplidas</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a style="text-decoration:none;">
+                                                    <span style="background-color: #C0392B; width:25px"></span>
+                                                    <span style="color:Black">No Cumplidas</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="credits col-sm-4">
+                                        <ul style="text-align: left; margin: 0px; padding: 0px;" id="ulLinks">
+                                            <li>
+                                                <a>
+                                                    <span style="background-color: #2ECC71; width:25px"></span>
+                                                    <span style="color:Black">Cumplidas</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a style="text-decoration:none;">
+                                                    <span style="background-color: #2471A3; width:25px"></span>
+                                                    <span style="color:Black">A tiempo</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul style="text-align: left; margin: 0px; padding: 0px;" id="ulLinks">
+                                            <li>
+                                                <a style="text-decoration:none;">
+                                                    <span style="background-color: #FDB45C; width:25px"></span>
+                                                    <span style="color:Black">Próximas a Vencer</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a style="text-decoration:none;">
+                                                    <span style="background-color: #C0392B; width:25px"></span>
+                                                    <span style="color:Black">Vencidas</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </uib-accordion>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div id="PrintContent5">
+            <div>
+                <button class="btnNew ancho" ng-hide="tipo == '0'" ng_model="realimentacion.Revision" ng-click="cargarPreguntasRevision(true);mostrarRevision = !mostrarRevision">{{ realimentacion.Revision }}</button>
+                <button class="btnNew ancho" ng-hide="tipo != '0'" ng_model="realimentacion.Revision" ng-click="cargarPreguntasRevisionXusuario();mostrarRevision = !mostrarRevision">{{ realimentacion.Revision }}</button>
+                <input type="text" ng-hide="tipo == '0'" class="form-control input-sm text-justify" ng-if="::mostrarRevision || undefined" ng-model="realimentacion.Revision" id="txtRevision" />
+            </div>
+            <div id="PanelRev" class="panel panel-default" ng-show="mostrarRevision">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" id="RevTexto" ng_model="realimentacion.RevTexto" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLRevTexto"></label-retro-consulta>   
+                    </div>
+                    <button class="btnNew" ng-hide="tipo == '0'" id="btnGuardarRev" ng-click="guardarRevision()">Guardar</button>
+                    <div ng-show="tipo == '1' && TipoUser == 'AD'" class="sombra panel panel-default">
+                        <div class="panel-heading">Criterios de búsqueda</div>
+                        <div class="panel-body">
+                            <div ng-hide="tipo == '0'" class="col-sm-12">
+                                <div class="separar col-sm-3">
+                                    <label class="control-label">Código Pregunta</label>
+                                </div>
+                                <div class="separar col-sm-3">
+                                    <input type="text" class="form-control input-sm" ng-model="revision.CodigoPre" />
+                                </div>
+                                <div class="separar col-sm-2">
+                                    <button type="button" class="btnNew" ng-click="buscarPreguntaRev()">Buscar</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <h3 id="titulo" class="titulo-rejilla">Cumplimiento a documentos</h3>
+                            </div>
+                            <div class="col-sm-12">
+                                <table class="table table-responsive table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td class="col-sm-1 rusicst-center titulo-columnas">Código Pregunta</td>
+                                            <td class="col-sm-2 rusicst-center titulo-columnas">Documento</td>
+                                            <!--<td class="col-sm-1 rusicst-center titulo-columnas">Envió</td>-->
+                                            <td class="col-sm-1 rusicst-center titulo-columnas">Sumariza</td>
+                                            <!--<td class="col-sm-1 rusicst-center titulo-columnas">Corresponde</td>
+                                            <td class="col-sm-3 rusicst-center titulo-columnas">Observaciones</td>
+                                            <td class="col-sm-2 rusicst-center titulo-columnas">Ver Archivo</td>-->
+                                            <td class="col-sm-1 rusicst-center titulo-columnas" ng-hide="tipo == '0'">Eliminar</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in archivosRevGrilla">
+                                            <td>{{item.CodigoPregunta}}</td>
+                                            <td><input class="form-control input-sm" ng-model="item.Nombre" /></td>
+                                            <!--<td>
+                                                <input type="checkbox" id="checkbox1" class="styled nav-justified" ng-model="item.Envio">
+                                            </td>-->
+                                            <td>
+                                                <input ng-disabled="tipo == '0'" type="checkbox" id="checkbox1" class="styled nav-justified" ng-model="item.Sumatoria">
+                                            </td>
+                                            <!--<td>
+                                                <select ng-model="item.Corresponde" class="form-control input-sm ng-pristine">
+                                                    <option value="0">No</option>
+                                                    <option value="1">Si</option>
+                                                    <option value="2">Parcial</option>
+                                                </select>
+                                            </td>
+                                            <td><textarea class="form-control input-sm" ng-model="item.Observaciones" /></td>
+                                            <td><div class="text-center"><a href="" ng-click="descargarArchivo(item)">{{item.Nombre}}</a></div></td>-->
+                                            <td ng-hide="tipo == '0'"><div class="text-center"><a href="" ng-click="goEliminarRev(item)">Eliminar</a></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="col-sm-12" ng-show="mostrarRevAcciones">
+                                <button type="button" ng-hide="tipo == '0'" class="col-sm-3 btnNew" ng-click="cargarPreguntasRevision(true);mostrarRevAcciones=0;mostrarRevAccionesAdmin=1">Ver Como Administrador</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" ng-hide="tipo == '0'" class="col-sm-3 btnNew" ng-show="mostrarRevAccionesAdmin" ng-click="guardarPreguntasRevision()">Guardar Datos como Admin</button>
+                            </div>
+                            <div ng-hide="tipo == '0'" class="form-group">
+                                <label class="col-sm-2 control-label">Ver Archivos como:</label>
+                                <label class="col-sm-2 control-label" for="GobernaciónSelect">Departamento:</label>
+                                <div class="col-sm-3">
+                                    <select ng-change="cargarComboMunicipios()" ng-model="revision.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                        <option></option>
+                                        <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                                    </select>
+                                </div>
+                                <label class="col-sm-2 control-label" for="usuarioSelect">Usuario:</label>
+                                <div class="col-sm-3">
+                                    <select ng-change="cargarPreguntasRevision(false);mostrarRevAcciones=1;mostrarRevAccionesAdmin=0" ng-model="revision.municipio" class="form-control input-sm ng-pristine">
+                                        <option></option>
+                                        <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" class="col-sm-3 btnNew" ng-show="mostrarRevAcciones" ng-click="guardarPreguntasRevisionXUsuario()">Guardar Datos Como Alcaldía</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="tipo == '1' && (TipoUser == 'AN' || TipoUser == 'AD' )" class="sombra panel panel-default">
+                        <div class="panel-heading">Criterios de búsqueda</div>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <h3 id="titulo" class="titulo-rejilla">Cumplimiento a documentos</h3>
+                            </div>
+                            <div class="col-sm-12">
+                                <table class="table table-responsive table-striped">
+                                    <thead>
+                                        <tr>
+                                            <!--<td class="col-sm-1 rusicst-center titulo-columnas">Código Pregunta</td>-->
+                                            <td class="col-sm-2 rusicst-center titulo-columnas">Documento</td>
+                                            <td class="col-sm-1 rusicst-center titulo-columnas">Envió</td>
+                                            <td class="col-sm-1 rusicst-center titulo-columnas">Sumariza</td>
+                                            <td class="col-sm-1 rusicst-center titulo-columnas">Corresponde</td>
+                                            <td class="col-sm-3 rusicst-center titulo-columnas">Observaciones</td>
+                                            <td class="col-sm-3 rusicst-center titulo-columnas">Recomendaciones</td>
+                                            <td class="col-sm-2 rusicst-center titulo-columnas">Ver Archivo</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in archivosRevGrilla">
+                                            <!--<td>{{item.CodigoPregunta}}</td>-->
+                                            <td class="rusicst-center"><label class="control-label-left"> {{item.Nombre}}</label></td>
+                                            <td class="rusicst-center">
+                                                <span ng-show="item.Envio == 1" class="fa fa-check color-green"></span>
+                                                <span ng-show="item.Envio == 0" class="fa fa-remove color-red "></span>
+                                            </td>
+                                            <td class="rusicst-center">
+                                                <span ng-show="item.Sumatoria == 1" class="fa fa-check color-green"></span>
+                                                <span ng-show="item.Sumatoria == 0" class="fa fa-remove color-red "></span>
+                                            </td>
+                                            <td>
+                                                <select ng-model="item.Corresponde" class="form-control input-sm ng-pristine">
+                                                    <option value="0">No</option>
+                                                    <option ng-show="item.Envio == 1" value="1">Si</option>
+                                                    <option value="2">No aplica</option>
+                                                </select>
+                                            </td>
+                                            <td><textarea class="form-control input-sm" ng-model="item.Observaciones" /></td>
+                                            <td><textarea class="form-control input-sm" ng-model="item.Observaciones2" /></td>
+                                            <td><div class="text-center"><a href="" ng-click="descargarArchivo(item)">{{item.Nombre}}</a></div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--<div class="col-sm-12" ng-show="mostrarRevAcciones">
+                                <button type="button" ng-hide="tipo == '0'" class="col-sm-3 btnNew" ng-click="cargarPreguntasRevision(true);mostrarRevAcciones=0;mostrarRevAccionesAdmin=1">Ver Como Administrador</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" ng-hide="tipo == '0'" class="col-sm-3 btnNew" ng-show="mostrarRevAccionesAdmin" ng-click="guardarPreguntasRevision()">Guardar Datos como Admin</button>
+                            </div>-->
+                            <div ng-hide="tipo == '0'" class="form-group">
+                                <label class="col-sm-2 control-label">Ver Archivos como:</label>
+                                <label class="col-sm-2 control-label" for="GobernaciónSelect">Departamento:</label>
+                                <div class="col-sm-3">
+                                    <select ng-change="cargarComboMunicipios()" ng-model="revision.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                        <option></option>
+                                        <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                                    </select>
+                                </div>
+                                <label class="col-sm-2 control-label" for="usuarioSelect">Usuario:</label>
+                                <div class="col-sm-3">
+                                    <select ng-change="cargarPreguntasRevision(false);mostrarRevAcciones=1;mostrarRevAccionesAdmin=0" ng-model="revision.municipio" class="form-control input-sm ng-pristine">
+                                        <option></option>
+                                        <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" class="col-sm-3 btnNew" ng-show="mostrarRevAcciones" ng-click="guardarPreguntasRevisionXUsuario()">Guardar Datos Como Alcaldía</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-hide="tipo != '0'" class="col-sm-12 sombra panel panel-default">
+                        <div class="panel-heading">Criterios de búsqueda</div>
+                        <div class="panel-body">
+                            <div class="col-sm-12">
+                                <h3 id="titulo" class="titulo-rejilla">Cumplimiento a documentos</h3>
+                            </div>
+                            <div class="col-sm-12">
+                                <table class="table table-responsive table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td class="col-sm-2 rusicst-center titulo-columnas">Documento</td>
+                                            <td class="col-sm-1 rusicst-center titulo-columnas">Envió</td>
+                                            <td class="col-sm-1 rusicst-center titulo-columnas">Corresponde</td>
+                                            <td class="col-sm-4 rusicst-center titulo-columnas">Observaciones</td>
+                                            <td class="col-sm-4 rusicst-center titulo-columnas">Recomendaciones</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in archivosRevGrilla">
+                                            <td class="rusicst-center"><label class="control-label-left"> {{item.Nombre}}</label></td>
+                                            <td class="rusicst-center">
+                                                <span ng-show="item.Envio == 1" class="fa fa-check color-green"></span>
+                                                <span ng-show="item.Envio == 0" class="fa fa-remove color-red "></span>
+                                            </td>
+                                            <td class="rusicst-center">
+                                                <label class="text-justify">{{item.Corresponde}}</label>
+                                            </td>
+                                            <td class="rusicst-center">
+                                                <label class="text-justify">{{item.Observaciones}}</label>
+                                            </td>
+                                            <td class="rusicst-center">
+                                                <label class="text-justify">{{item.Observaciones2}}</label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-12" ng-show="mostrarRevAcciones">
+                                <button type="button" ng-hide="tipo == '0'" class="col-sm-3 btnNew" ng-click="cargarPreguntasRevision(true)">Ver Como Administrador</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" ng-hide="tipo == '0'" class="col-sm-3 btnNew" ng-click="guardarPreguntasRevision()">Guardar Datos como Admin</button>
+                            </div>
+                            <div ng-hide="tipo == '0'" class="form-group">
+                                <label class="col-sm-2 control-label">Ver Archivos como:</label>
+                                <label class="col-sm-2 control-label" for="GobernaciónSelect">Departamento:</label>
+                                <div class="col-sm-3">
+                                    <select ng-change="cargarComboMunicipios()" ng-model="revision.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                        <option></option>
+                                        <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                                    </select>
+                                </div>
+                                <label class="col-sm-2 control-label" for="usuarioSelect">Usuario:</label>
+                                <div class="col-sm-3">
+                                    <select ng-change="cargarPreguntasRevision(false);mostrarRevAcciones=1" ng-model="revision.municipio" class="form-control input-sm ng-pristine">
+                                        <option></option>
+                                        <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="button" class="col-sm-3 btnNew" ng-show="mostrarRevAcciones" ng-click="guardarPreguntasRevisionXUsuario()">Guardar Datos Como Alcaldía</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 rusicst-center">
+                        <label class="label-retro rusicst-center">Gráfica de documentos</label>
+                    </div>
+                    <div class="col-sm-12 rusicst-center">
+                        <table class="table table-responsive table-striped">
+                            <tbody>
+                                <tr>
+                                    <td class="col-sm-4 rusicst-center"></td>
+                                    <td class="col-sm-4 rusicst-center">
+                                        <canvas id="pie" class="chart chart-pie" chart-data="data2Rev" chart-labels="labelsRev" chart-colors="colorsRev" chart-options="OpcionRev"></canvas>
+                                    </td>
+                                    <td class="col-sm-4 rusicst-center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--<div>
+                        <label class="col-sm-12 control-label-left" for="desarrollo2">{{ Desarrollo2 }}</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <textarea class="form-control input-sm text-justify" rows="12" placeholder="" id="des2Texto" ng_model="Des2Texto" ng-trim="true"></textarea>
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+        <div id="PrintContent6">
+            <div>
+                <button class="btnNew ancho" ng-hide="tipo == '0'" ng_model="realimentacion.Historial" ng-click="mostrarHistorial = !mostrarHistorial">{{ realimentacion.Historial }}</button>
+                <button class="btnNew ancho" ng-hide="tipo != '0'" ng_model="realimentacion.Historial" ng-click="cargarHistorialXusuario();mostrarHistorial = !mostrarHistorial">{{ realimentacion.Historial }}</button>
+                <input type="text" ng-hide="tipo == '0'" class="form-control input-sm text-justify" ng-model="realimentacion.Historial" id="txtHistorial" />
+            </div>
+            <div id="PanelHis" class="panel panel-default" ng-show="mostrarHistorial">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" id="HisTexto" ng_model="realimentacion.HisTexto" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLHisTexto"></label-retro-consulta>
+                    </div>
+                    <button ng-hide="tipo == '0'" class="btnNew" id="btnGuardarHis" ng-click="guardarHistorial()">Guardar</button>
+                    <div ng-hide="tipo == '0'">
+                        <button class="btnNew" ng-click="mostrarGuardarHistorial = !mostrarGuardarHistorial">Agregar Histórico</button>
+                    </div>
+                    <div id="PanelHis" class="panel panel-default" ng-show="mostrarGuardarHistorial">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="SelGrafica">Carta Aval</label>                               
+                                <div class="separar col-sm-3">
+                                    <input class="form-control input-sm" ng-model="historia.pregunta" />
+                                </div>
+                                <label class="col-sm-2 control-label" for="SelGrafica">Periodo</label>
+                                <div class="separar col-sm-3">
+                                    <input class="form-control input-sm" ng-model="historia.nombre" />
+                                </div>
+                                <div class="separar col-sm-2">
+                                    <button class="form-control btnNew" id="btnGuardarHis" ng-disabled="crearHisTodos" ng-click="CrearHistorico()">Guardar</button>
+                                </div>
+                            </div>
+                            <span class="col-sm-12 rusicst-center" ng-show="crearHisTodos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                        </div>
+                    </div>
+                    <div ng-hide="tipo == '0'" class="form-group">
+                        <label class="col-sm-2 control-label">Ver histórico como:</label>
+                        <label class="col-sm-2 control-label" for="GobernaciónSelect">Departamento:</label>
+                        <div class="col-sm-3">
+                            <select ng-change="cargarComboMunicipiosHistorico()" ng-model="historico.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                <option></option>
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-2 control-label" for="usuarioSelect">Usuario:</label>
+                        <div class="col-sm-3">
+                            <select ng-change="cargarHistorico()" ng-model="historico.municipio" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in usuarios" value="{{item.UserName}}">{{item.UserName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <h3 id="titulo" class="titulo-rejilla">Administración 2012-2015</h3>
+                    </div>
+                    <div class="col-sm-12">
+                        <table class="table table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Periodo   </td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Guardó Información</td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Completó Preguntas minimas</td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Diligenció Plan de Mejoramiento</td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Envió Reporte</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in archivosHisGrilla1Periodo">
+                                    <td class="rusicst-center"><label class="text-justify control-label " for="Periodo">{{item.Periodo}}</label></td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Guardo == 1" class="fa fa-check color-green"></span>
+                                        <span ng-show="item.Guardo == 0" class="fa fa-remove color-red "></span>
+                                    </td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Completo == 1" class="fa fa-check color-green "></span>
+                                        <span ng-show="item.Completo == 0" class="fa fa-remove color-red "></span>
+                                    </td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Diligencio == 1" class="fa fa-check color-green "></span>
+                                        <span ng-show="item.Diligencio == 0" class="fa fa-remove color-red "></span>
+                                    </td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Envio == 1" class="fa fa-check color-green"></span>
+                                        <span ng-show="item.Envio == 0" class="fa fa-remove color-red"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-12">
+                        <h3 id="titulo" class="titulo-rejilla">Administración 2016-2019</h3>
+                    </div>
+                    <div class="col-sm-12">
+                        <table class="table table-responsive table-striped">
+                            <thead>
+                                <tr>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Periodo   </td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Guardó Información</td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Completó Preguntas minimas</td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Diligenció Plan de Mejoramiento</td>
+                                    <td class="col-sm-2 rusicst-center titulo-columnas">Envió Reporte</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in archivosHisGrilla2Periodo">
+                                    <td class="rusicst-center"><label class="text-justify control-label " for="Periodo">{{item.Periodo}}</label></td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Guardo == 1" class="fa fa-check color-green"></span>
+                                        <span ng-show="item.Guardo == 0" class="fa fa-remove color-red "></span>
+                                    </td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Completo == 1" class="fa fa-check color-green "></span>
+                                        <span ng-show="item.Completo == 0" class="fa fa-remove color-red "></span>
+                                    </td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Diligencio == 1" class="fa fa-check color-green "></span>
+                                        <span ng-show="item.Diligencio == 0" class="fa fa-remove color-red "></span>
+                                    </td>
+                                    <td class="rusicst-center">
+                                        <span ng-show="item.Envio == 1" class="fa fa-check color-green"></span>
+                                        <span ng-show="item.Envio == 0" class="fa fa-remove color-red"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="PrintContent7">
+            <div>
+                <button class="btnNew ancho" ng_model="realimentacion.Observa" ng-click="mostrarObserva = !mostrarObserva">{{ realimentacion.Observa }}</button>
+                <input type="text" ng-hide="tipo == '0'" class="form-control input-sm text-justify" ng-model="realimentacion.Observa" id="txtObserva" />
+            </div>
+            <div id="PanelObs" class="panel panel-default" ng-if="::mostrarObserva || undefined" ng-show="mostrarObserva">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <textarea ng-hide="tipo == '0'" class="form-control input-sm text-justify" rows="12" placeholder="" id="ObsTexto" ng_model="realimentacion.ObsTexto" ng-trim="true"></textarea>
+                        <label-retro-consulta ng-hide="tipo != '0'" class="text-justify" ng-bind-html="myHTMLObsTexto"></label-retro-consulta>
+                    </div>
+                    <!--<div>
+                        <label class="col-sm-12 control-label-left" for="desarrollo2">{{ Desarrollo2 }}</label>
+                    </div>
+                    <div class="col-sm-12">
+                        <textarea class="form-control input-sm text-justify" rows="12" placeholder="" id="des2Texto" ng_model="Des2Texto" ng-trim="true"></textarea>
+                    </div>-->
+                    <button ng-hide="tipo == '0'" class="btnNew" id="btnGuardarObs" ng-click="guardarObservacion()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

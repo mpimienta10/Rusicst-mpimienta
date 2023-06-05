@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cd3e8b3c-3c0f-4c57-8d41-d72e833904a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1071/AdomdConnector.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AdomdConnector.xsd" MetadataType="Schema" ID="fd321001-5ff8-4ab6-aa23-b904f674c194" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?xsd=xsd4" />
+    <MetadataFile FileName="AdomdConnector1.xsd" MetadataType="Schema" ID="19b2393d-ca85-43c6-9b9a-71abe9ff187b" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?xsd=xsd2" />
+    <MetadataFile FileName="AdomdConnector2.xsd" MetadataType="Schema" ID="93258fa3-b395-4f5b-b5ed-d383ce49476d" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?xsd=xsd3" />
+    <MetadataFile FileName="AdomdConnector3.xsd" MetadataType="Schema" ID="ceaef2de-a3ea-4119-b3a6-f60d6aa222de" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?xsd=xsd0" />
+    <MetadataFile FileName="AdomdConnector4.xsd" MetadataType="Schema" ID="55de45d9-7cc0-4a5b-bef8-86c0cb34e362" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?xsd=xsd1" />
+    <MetadataFile FileName="AdomdConnector.disco" MetadataType="Disco" ID="0515abe6-a465-4f94-b66c-58a19745fae0" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?disco" />
+    <MetadataFile FileName="AdomdConnector.wsdl" MetadataType="Wsdl" ID="a093eb5c-a7e3-4a79-9a1b-cd0d1ec950df" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?wsdl" />
+    <MetadataFile FileName="AdomdConnector1.wsdl" MetadataType="Wsdl" ID="4388ce74-e88f-403c-94ee-db6c7ec4b42b" SourceId="1" SourceUrl="http://localhost:1071/AdomdConnector.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,57 @@
+﻿<div class="row">
+    <form role="form" class="form-horizontal" name="myFormReporte" novalidate>
+        <div class="sombra panel panel-default">
+            <div class="panel-heading text-center" style="background-color:#63002D; color:white;border:solid 1px #63002D">
+                <h4> {{registro.Titulo}}</h4>
+            </div>
+            <div class="panel-body" style="margin: 0 25%">
+                <div class="row">
+                    <div class="">
+                        <!--Se arma los acordeones-->
+                        <uib-accordion close-others="false" ng-repeat="seccion in datos">
+                            <!--Se arma las secciones - directiva-->
+                            <!--<pintar-secciones seccion="item">-->
+                            <div uib-accordion-group class="seccion-indice seccion-indice-titulo {{seccion.Estilos}}" is-open="seccion.expandido" ng-click="AbrirSubseccion(seccion)">
+                                <uib-accordion-heading>
+                                    <div>{{seccion.Titulo}} <i class="pull-right fa" ng-class="{'fa-chevron-down': seccion.expandido, 'fa-chevron-right': !seccion.expandido}"></i></div>
+                                </uib-accordion-heading>
+                                <!--Se arma las subsecciones-->
+                                <ul>
+                                    <li ng-repeat="item in seccion.LSubSecciones"><a class="{{item.Estilos}}" ng-show="!item.OcultaTitulo" ng-click="AbrirSubseccion(item)" href="">{{item.Titulo}}</a></li>
+                                </ul>
+                                <!--</pintar-secciones>-->
+                            </div>        
+                        </uib-accordion>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sombra panel panel-default">
+            <div class="panel-heading text-center" style="background-color:#63002D; color:white;border:solid 1px #63002D">
+                Plan de Mejoramiento
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="text-center col-sm-12 text-muted">Luego de completar todo el reporte debe proceder con el plan de mejoramiento.</div>
+                    <div class="col-sm-4 col-sm-offset-4"><button class="btnNew ancho" ng-click="irAutoevaluacion()">Ir a Plan de Mejoramiento</button></div>
+
+                    <div class="row">
+                        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+
+                    <div class="row" ng-if="listaPreguntas">
+                        <label class="text-danger" style="margin-left: 40px;">Las siguientes preguntas son obligatorias y no han sido contestadas</label>
+                        <br />
+                        <ul style="width: 95% !important;">
+                            <li ng-repeat="item in listaPreguntas" class="text-danger">{{item.TextoPregunta}}</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+    </form>
+</div>

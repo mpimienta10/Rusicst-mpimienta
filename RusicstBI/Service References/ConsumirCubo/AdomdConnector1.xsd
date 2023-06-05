@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfAdomdCube">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdomdCube" nillable="true" type="tns:AdomdCube" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdomdCube" nillable="true" type="tns:ArrayOfAdomdCube" />
+  <xs:complexType name="AdomdCube">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:XmlaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CubeType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastDataUpdate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastSchemaUpdate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdomdCube" nillable="true" type="tns:AdomdCube" />
+  <xs:complexType name="XmlaElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatalogName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CubeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="XmlaElement" nillable="true" type="tns:XmlaElement" />
+  <xs:complexType name="ArrayOfAdomdDimension">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdomdDimension" nillable="true" type="tns:AdomdDimension" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdomdDimension" nillable="true" type="tns:ArrayOfAdomdDimension" />
+  <xs:complexType name="AdomdDimension">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:XmlaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DimensionType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Hierarchies" nillable="true" type="tns:ArrayOfAdomdHierarchy" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UniqueName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdomdDimension" nillable="true" type="tns:AdomdDimension" />
+  <xs:complexType name="ArrayOfAdomdHierarchy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdomdHierarchy" nillable="true" type="tns:AdomdHierarchy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdomdHierarchy" nillable="true" type="tns:ArrayOfAdomdHierarchy" />
+  <xs:complexType name="AdomdHierarchy">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:XmlaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllMember" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DefaultMember" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DimensionUniqueName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Levels" nillable="true" type="tns:ArrayOfAdomdLevel" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UniqueName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdomdHierarchy" nillable="true" type="tns:AdomdHierarchy" />
+  <xs:complexType name="ArrayOfAdomdLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdomdLevel" nillable="true" type="tns:AdomdLevel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdomdLevel" nillable="true" type="tns:ArrayOfAdomdLevel" />
+  <xs:complexType name="AdomdLevel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:XmlaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DimensionUniqueName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HierarchyUniqueName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="UniqueName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdomdLevel" nillable="true" type="tns:AdomdLevel" />
+  <xs:complexType name="ArrayOfAdomdMeasure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdomdMeasure" nillable="true" type="tns:AdomdMeasure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdomdMeasure" nillable="true" type="tns:ArrayOfAdomdMeasure" />
+  <xs:complexType name="AdomdMeasure">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:XmlaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Aggregator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DefaultFormatString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MeasureGroupName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UniqueName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdomdMeasure" nillable="true" type="tns:AdomdMeasure" />
+  <xs:complexType name="ArrayOfAdomdMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdomdMember" nillable="true" type="tns:AdomdMember" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdomdMember" nillable="true" type="tns:ArrayOfAdomdMember" />
+  <xs:complexType name="AdomdMember">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:XmlaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ChildrenCardinality" type="xs:int" />
+          <xs:element minOccurs="0" name="LevelNumber" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="LevelUniqueName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentUniqueName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UniqueName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdomdMember" nillable="true" type="tns:AdomdMember" />
+  <xs:complexType name="GridData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Axes" nillable="true" type="tns:ArrayOfAxisData" />
+      <xs:element minOccurs="0" name="Cells" nillable="true" type="tns:ArrayOfCellData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GridData" nillable="true" type="tns:GridData" />
+  <xs:complexType name="ArrayOfAxisData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AxisData" nillable="true" type="tns:AxisData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAxisData" nillable="true" type="tns:ArrayOfAxisData" />
+  <xs:complexType name="AxisData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Positions" nillable="true" type="tns:ArrayOfPositionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AxisData" nillable="true" type="tns:AxisData" />
+  <xs:complexType name="ArrayOfPositionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PositionData" nillable="true" type="tns:PositionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPositionData" nillable="true" type="tns:ArrayOfPositionData" />
+  <xs:complexType name="PositionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Members" nillable="true" type="tns:ArrayOfMemberData" />
+      <xs:element minOccurs="0" name="Ordinal" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PositionData" nillable="true" type="tns:PositionData" />
+  <xs:complexType name="ArrayOfMemberData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MemberData" nillable="true" type="tns:MemberData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMemberData" nillable="true" type="tns:ArrayOfMemberData" />
+  <xs:complexType name="MemberData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChildCount" type="xs:int" />
+      <xs:element minOccurs="0" name="DrilledDown" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LevelDepth" type="xs:int" />
+      <xs:element minOccurs="0" name="LevelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentSameAsPrevious" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ParentUniqueName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UniqueName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberData" nillable="true" type="tns:MemberData" />
+  <xs:complexType name="ArrayOfCellData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CellData" nillable="true" type="tns:CellData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCellData" nillable="true" type="tns:ArrayOfCellData" />
+  <xs:complexType name="CellData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FormattedValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CellData" nillable="true" type="tns:CellData" />
+</xs:schema>

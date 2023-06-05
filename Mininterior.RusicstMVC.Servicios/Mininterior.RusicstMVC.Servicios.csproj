@@ -1,0 +1,701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F3D563E-E238-4302-855A-38990959BF66}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mininterior.RusicstMVC.Servicios</RootNamespace>
+    <AssemblyName>Mininterior.RusicstMVC.Servicios</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.88.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ClosedXML.0.87.1\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Identity.Client, Version=4.43.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.43.0\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.1.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="reactive-commons, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Rusict\Arquitectura SOA\Rusicst-MVC\packages\reactive-commons\reactive-commons.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-01\1-Cambio de estructura.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-01\2-SP Menu Usuarios.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-01\3-SP Listas Desplegables.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-01\4-Borrado tablas AspNetMembership.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-01\5-Insercion parametros sistema.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-01\6-Creacion de las tablas de AspNetIdentity.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-01\7-Eliminacion de procedimientos.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-03\1-SP Menu Sistema.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-03\2-Script Tabla Respuesta.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-03\3-Script Tabla Usuario Rol.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-03\4-Script Tabla Permiso Usuario Encuesta.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-03\5-SP Menu Reportes.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-03\6-Script General.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-08\1-ScriptsNelsonRestrepo.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-08\2-Scripts General.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-08\3-SP Nelson Restrepo.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-08\4-ScriptRoles.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-08\5-PoblarUsuarios.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-08\6-Script General.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-29\1-Script 2017-05-29.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-29\2-ScriptsInicialPAT.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-29\3-ScriptsPrecarguePAT.sql" />
+    <Content Include="App_Data\1-Script DB Rusicst-Linea Base\Script Version 2017-05-29\4-ScriptsAjustesTablasPAT.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\AjusteModeloRoles-Ejecutar-1-vez.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-05-29.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-06-07.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-06-14.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-06-20 PAT.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-06-20.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-06-24.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-07-06.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-07-13.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-07-20.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-07-27.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-08-02.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-08-09.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-08-11.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-08-22.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-08-29.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-09-05.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-09-13.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-09-15_Realimentacion.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-09-20_ReaDatosHistoricos-1-vez.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-09-20_Realimentacion.sql" />
+    <Content Include="App_Data\BK Script 2017-09-28\Script 2017-09-26.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-09-28.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-25.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-09.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-14 - Servicios PAT - 1 Sola Vez.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-14.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-11 Tablas PAT 1 - sola vez.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-11.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-06.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-02.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-31.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-26 - Extensiones de Tiempo - 1 sola vez.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-25 - Plan de Mejoramiento 1 sola Vez.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-27.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-24.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-20.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-17.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-12.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-09.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-10-03.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-18.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-15.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-20.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-20 Pat 1 Sola Vez.Sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-21.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-25.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-12.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-11.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-05.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-04.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-28.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-27 - Plan V3 - 1 Sola Vez.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-27 - Plan Mejoramiento V3.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-27.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-23 pat 1 sola vez.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-11-22.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-17.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-16.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-12.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-11.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-09.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-03.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-28.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-27.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-26.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-20.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-19.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2017-12-16.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-15-BorradoTablasLog.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-27 - LOG.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-27.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-26 - mejoras seguimiento gobernacion.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-26 - mejoras planeacion gobernacion.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-22.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-19LogAuditoria.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-19.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-15-CreacionTablasLog.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-18.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-07.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-05.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-09.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-10.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-14.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-13.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-11.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-08.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-06.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-01.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-28.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-21 Log Auditoria Ejecutar SoloSi Tienen BD LogBackup.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-20.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-19.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-16.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-14 - Log Viejo.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-14.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-12.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-09.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-30.sql" />
+    <Content Include="App_Data\BK Script 2018-01-30\Script 2018-01-29.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-22.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-02-26.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-06-19.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-07-09.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-07-26.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2019-02-20.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-09-19.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-08-30.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-08-24.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-08-02.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-08-01.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-07-19.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-07-17.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-07-12.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-06-29.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-06-27.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-06-20.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-06-12.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-06-01.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-05-09.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-05-04.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-04-26.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-04-17.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-04-10.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-04-05.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-04-02.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-27.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-26.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-16.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-15 Log.sql" />
+    <Content Include="App_Data\BK Script 2019-09-17\Script 2018-03-15.sql" />
+    <Content Include="App_Data\Script 2019-09-17.sql" />
+    <Content Include="App_Data\Tmp\Readme.txt" />
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.ObtenerCompromisoEntidadesRRResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.obtenerCompromisosEntidadesRCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.ObtenerCompromisosEntidadesRCResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.obtenerCompromisosEntidadesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.ObtenerCompromisosEntidadesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.obtenerCompromisosEntidadesRRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.obtenerEntidadesNacionalesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.ObtenerEntidadesNacionalesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.obtenerSeguimientoEntidadesRCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.ObtenerSeguimientoEntidadesRCResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.obtenerSeguimientoEntidadesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.ObtenerSeguimientoEntidadesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.obtenerSeguimientoEntidadesRRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESignaProduccion\Mininterior.RusicstMVC.Servicios.ServiciosESignaProduccion.ObtenerSeguimientoEntidadesRRResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiciosESignaProduccion\TableroPatWS.wsdl" />
+    <None Include="Service References\ServiciosESignaProduccion\TableroPatWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiciosESigna\configuration91.svcinfo" />
+    <None Include="Service References\ServiciosESigna\configuration.svcinfo" />
+    <None Include="Service References\ServiciosESignaProduccion\configuration91.svcinfo" />
+    <None Include="Service References\ServiciosESignaProduccion\configuration.svcinfo" />
+    <None Include="Service References\ServiciosESignaProduccion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.ObtenerCompromisoEntidadesRRResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.obtenerCompromisosEntidadesRCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.ObtenerCompromisosEntidadesRCResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.obtenerCompromisosEntidadesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.ObtenerCompromisosEntidadesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.obtenerCompromisosEntidadesRRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.obtenerEntidadesNacionalesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.ObtenerEntidadesNacionalesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.obtenerSeguimientoEntidadesRCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.ObtenerSeguimientoEntidadesRCResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.obtenerSeguimientoEntidadesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.ObtenerSeguimientoEntidadesResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.obtenerSeguimientoEntidadesRRResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosESigna\Mininterior.RusicstMVC.Servicios.ServiciosESigna.ObtenerSeguimientoEntidadesRRResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiciosESigna\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.ConjuntoDatosViewModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.SP_GETNECESIDADES_PLANEACION_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.SP_GetOfertasMapaPorFiltro_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.SP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.SP_GETSEGUIMIENTO_OFERTA_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.SP_GetDatosBeneficiosXVictima_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.SP_GetDatosRemisionesXVictima_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiciosSigo\Mininterior.RusicstMVC.Servicios.ServiciosSigo.SP_GetProgramasParaPresidencia_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiciosSigo\OfertaService.disco" />
+    <None Include="Service References\ServiciosSigo\configuration91.svcinfo" />
+    <None Include="Service References\ServiciosSigo\configuration.svcinfo" />
+    <None Include="Service References\ServiciosSigo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AuthContext.cs" />
+    <Compile Include="AuthRepository.cs" />
+    <Compile Include="Controllers\General\BuscadorController.cs" />
+    <Compile Include="Controllers\General\ListasController.cs" />
+    <Compile Include="Controllers\Informes\ConsolidadoDiligenciamientoController.cs" />
+    <Compile Include="Controllers\Informes\InformeAutoevaluacionController.cs" />
+    <Compile Include="Controllers\Informes\InformeRespuestasController.cs" />
+    <Compile Include="Controllers\Informes\OpcionesMenuController.cs" />
+    <Compile Include="Controllers\Informes\OpcionesRolController.cs" />
+    <Compile Include="Controllers\Informes\InformePrecargueRespuestasController.cs" />
+    <Compile Include="Controllers\Informes\SalidaInformacionGobernacionController.cs" />
+    <Compile Include="Controllers\Informes\SalidaInformacionMunicipalController.cs" />
+    <Compile Include="Controllers\Informes\UsuariosEnSistemaController.cs" />
+    <Compile Include="Controllers\Informes\UsuariosEnviaronReporteController.cs" />
+    <Compile Include="Controllers\Informes\UsuariosGuardaronInformacionAutoevaluacionController.cs" />
+    <Compile Include="Controllers\Informes\UsuariosIniciarionSesionController.cs" />
+    <Compile Include="Controllers\Informes\UsuariosGuardaronInformacionSistemaController.cs" />
+    <Compile Include="Controllers\Informes\UsuariosPasaronAutoevaluacionController.cs" />
+    <Compile Include="Controllers\reAlimentacion\ReAlimentacionController.cs" />
+    <Compile Include="Controllers\Reportes\ConsultaEntidadesTerritorialesController.cs" />
+    <Compile Include="Controllers\Reportes\ConsultarCompletarReportesController.cs" />
+    <Compile Include="Controllers\Reportes\PrecargueRespuestasController.cs" />
+    <Compile Include="Controllers\Reportes\EncuestaController.cs" />
+    <Compile Include="Controllers\Reportes\DisenoReporteController.cs" />
+    <Compile Include="Controllers\Reportes\GlosarioController.cs" />
+    <Compile Include="Controllers\Reportes\IndiceEncuestasController.cs" />
+    <Compile Include="Controllers\Reportes\ModificarPreguntasController.cs" />
+    <Compile Include="Controllers\Reportes\PrecargueSeguimientoPATController.cs" />
+    <Compile Include="Controllers\Reportes\RevisionRespuestasAGController.cs" />
+    <Compile Include="Controllers\Sistema\ConfiguracionArchivosAyudaController.cs" />
+    <Compile Include="Controllers\Sistema\ConfiguracionDerechosPATController.cs" />
+    <Compile Include="Controllers\Sistema\GestionAuditoriaOldEventosController.cs" />
+    <Compile Include="Controllers\Sistema\GestionBancoPreguntasController.cs" />
+    <Compile Include="Controllers\Sistema\ConfigurarHomeController.cs" />
+    <Compile Include="Controllers\Sistema\ConfigurarSistemaController.cs" />
+    <Compile Include="Controllers\Sistema\GestionAuditoriaEventosController.cs" />
+    <Compile Include="Controllers\Sistema\GestionErroresAplicacionController.cs" />
+    <Compile Include="Controllers\Sistema\SeguimientoPlanesMejoramientoController.cs" />
+    <Compile Include="Controllers\Sistema\GestionPlanesMejoramientoV3Controller.cs" />
+    <Compile Include="Controllers\Sistema\GestionPlanesMejoramientoController.cs" />
+    <Compile Include="Controllers\Sistema\ParametrosSistemaController.cs" />
+    <Compile Include="Controllers\TableroPat\GestionDepartamentalController.cs" />
+    <Compile Include="Controllers\TableroPat\EvaluacionController.cs" />
+    <Compile Include="Controllers\TableroPat\ConsumoServiciosExternosController.cs" />
+    <Compile Include="Controllers\TableroPat\SeguimientoDepartamentalController.cs" />
+    <Compile Include="Controllers\TableroPat\SeguimientoMunicipalController.cs" />
+    <Compile Include="Controllers\TableroPat\AdministracionController.cs" />
+    <Compile Include="Controllers\TableroPat\GestionMunicipalController.cs" />
+    <Compile Include="Controllers\Usuarios\AutenticacionController.cs" />
+    <Compile Include="Controllers\Usuarios\ContactanosController.cs" />
+    <Compile Include="Controllers\Usuarios\EmailMasivoController.cs" />
+    <Compile Include="Controllers\Usuarios\GestionarPermisosController.cs" />
+    <Compile Include="Controllers\Usuarios\GestionarRolesController.cs" />
+    <Compile Include="Controllers\Usuarios\GestionarSolicitudesController.cs" />
+    <Compile Include="Controllers\Usuarios\HabilitarReportesController.cs" />
+    <Compile Include="Controllers\Usuarios\TipoUsuarioController.cs" />
+    <Compile Include="Controllers\Usuarios\UsuariosController.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\RefreshToken.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Helpers\EncuestaExcelUtils.cs" />
+    <Compile Include="Helpers\ExcelAppFacade.cs" />
+    <Compile Include="Helpers\Utilitarios.cs" />
+    <Compile Include="Lang\FuncAND.cs" />
+    <Compile Include="Lang\FuncContext.cs" />
+    <Compile Include="Lang\FuncCONTAINS.cs" />
+    <Compile Include="Lang\FuncCOPY.cs" />
+    <Compile Include="Lang\FuncCOPYENC.cs" />
+    <Compile Include="Lang\FuncDISABLE.cs" />
+    <Compile Include="Lang\FuncDISABLEANDCLEAR.cs" />
+    <Compile Include="Lang\FuncENABLE.cs" />
+    <Compile Include="Lang\FuncEQ.cs" />
+    <Compile Include="Lang\FuncEval.cs" />
+    <Compile Include="Lang\FuncEXEC.cs" />
+    <Compile Include="Lang\FuncIF.cs" />
+    <Compile Include="Lang\FuncMSG.cs" />
+    <Compile Include="Lang\FuncNULL.cs" />
+    <Compile Include="Lang\FuncOR.cs" />
+    <Compile Include="Lang\FuncSUM.cs" />
+    <Compile Include="Lang\IFunc.cs" />
+    <Compile Include="Lang\IFuncFactory.cs" />
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Auditoria.cs" />
+    <Compile Include="Models\MenuReAlimentacion.cs" />
+    <Compile Include="Models\Encuesta.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\ExternalLoginModels.cs" />
+    <Compile Include="Models\MenuInformes.cs" />
+    <Compile Include="Models\MenuReportes.cs" />
+    <Compile Include="Models\MenuSistema.cs" />
+    <Compile Include="Models\MenuUsuarios.cs" />
+    <Compile Include="Models\AdjuntoPat.cs" />
+    <Compile Include="Models\RespuestaPat.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\Audit.cs" />
+    <Compile Include="Providers\AuditRepository.cs" />
+    <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Service References\ServiciosESignaProduccion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiciosESigna\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiciosSigo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\Desarrollo.pubxml" />
+    <None Include="Service References\ServiciosESigna\TableroPatWS.wsdl" />
+    <None Include="Service References\ServiciosESigna\TableroPatWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiciosSigo\OfertaService.wsdl" />
+    <None Include="Service References\ServiciosSigo\OfertaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiciosSigo\OfertaService1.wsdl" />
+    <None Include="Service References\ServiciosSigo\OfertaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiciosSigo\OfertaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mininterior.RusicstMVC.Aplicacion\Mininterior.RusicstMVC.Aplicacion.csproj">
+      <Project>{bd0dfeae-c5ce-405e-8b65-b87799772553}</Project>
+      <Name>Mininterior.RusicstMVC.Aplicacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mininterior.RusicstMVC.Datos\Mininterior.RusicstMVC.Datos.csproj">
+      <Project>{ce8b47d8-7917-4710-832e-45cf03c3f1a2}</Project>
+      <Name>Mininterior.RusicstMVC.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mininterior.RusicstMVC.Entidades\Mininterior.RusicstMVC.Entidades.csproj">
+      <Project>{ddc92ec1-c09a-4db3-88c9-fdc0cbf90e6d}</Project>
+      <Name>Mininterior.RusicstMVC.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiciosESignaProduccion\" />
+    <WCFMetadataStorage Include="Service References\ServiciosESigna\" />
+    <WCFMetadataStorage Include="Service References\ServiciosSigo\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60438/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.64.0\build\net45\Microsoft.AnalysisServices.AdomdClient.retail.amd64.targets" Condition="Exists('..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.64.0\build\net45\Microsoft.AnalysisServices.AdomdClient.retail.amd64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.64.0\build\net45\Microsoft.AnalysisServices.AdomdClient.retail.amd64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.64.0\build\net45\Microsoft.AnalysisServices.AdomdClient.retail.amd64.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

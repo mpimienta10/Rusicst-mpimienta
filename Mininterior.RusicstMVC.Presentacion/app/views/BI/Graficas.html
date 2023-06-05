@@ -1,0 +1,58 @@
+﻿<form>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:#63002D; color:white;border:solid 1px #63002D">
+            <h1 class="text-center">Gráficas</h1>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="col-sm-2 control-label required text-right" for="GobernaciónSelect">Tipo de Gráfica</label>
+                <div class="col-sm-10">
+                    <select id="GobernacionSelect" name="GobernacionSelect" ng-model="registro.tipo" class="form-control input-sm ng-pristine ng-valid" required>
+                        <option ng-repeat="item in tipoGraficas" value="{{item.tipo}}">{{item.tipo}}</option>
+                    </select>
+                    <span class="text-danger" ng-show="submitted && myForm.GobernacionSelect.$error.required">Seleccione Tipo de Gráfica</span>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="text-center">
+                   {{filtros[0]}} / {{filtros[1]}} <div ng-show="filtros[2]">/ {{filtros[2]}}</div>
+                </div>
+            </div>
+            <br/>
+            <br />
+
+            <div ng-switch on="registro.tipo" ng-class="{'deshabilitado':  celda.pregunta.deshabilitar}">
+                <div ng-switch-when="Columnas">
+                    <div class="form-group">
+                        <canvas id="pie" class="chart chart-bar"
+                                chart-data="dataX" chart-labels="labels" chart-options="options" chart-series="series"></canvas>
+                    </div>
+                </div>
+                <div ng-switch-when="Pastel">
+                    <div class="form-group">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <canvas id="pie" class="chart chart-pie"
+                                    chart-data="dataX[0]" chart-labels="labels" chart-options="options2"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div ng-switch-when="Linea">
+                    <div class="form-group">
+                        <canvas id="pie" class="chart chart-line"
+                                chart-data="dataX" chart-labels="labels" chart-options="options3"
+                                chart-dataset-override="datasetOverride" chart-click="onClick"></canvas>
+                    </div>
+                </div>
+                <div ng-switch-when="Barra">
+                    <div class="form-group">
+                        <canvas id="pie" class="chart-horizontal-bar"
+                                chart-data="dataX" chart-labels="labels" chart-options="options2"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

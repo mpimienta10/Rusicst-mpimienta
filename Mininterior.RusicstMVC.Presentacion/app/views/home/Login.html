@@ -1,0 +1,75 @@
+﻿<div data-ng-app="APIModule" style="background-color:#e8e8e8;border-top:1px solid #F0E7E5;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <!--CARROUSEL-->
+                <div ng-include="'app/views/layouts/_ParcialCarruselLogin.html'"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Ingreso-->
+<div style="background-color:#748595" ng-controller="LoginController" data-ng-app="APIModule">
+    <div class="container">
+        <form class="row" id="myForm" name="myForm" role="form">
+            <div class="col-sm-3 col-sm-offset-2">
+                <div class="form-horizontal">
+                    <div class="form-group-sm" style="margin-top:15px;">
+                        <label class="col-sm-5 control-label" for="usuario" style="color:white">Usuario</label>
+                        <div class="col-sm-7">
+                            <input ng-disabled="IE" type="text" class="form-control" id="usuario" name="usuario" ng-model="registro.userName" required />
+                            <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.usuario.$error.required"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-horizontal" style="margin-top:15px;">
+                    <div class="form-group-sm" style="padding-bottom:15px">
+                        <label class="col-sm-5 control-label" for="password" style="color:white">Contraseña</label>
+                        <div class="col-sm-7">
+                            <input ng-disabled="IE" type="password" class="form-control" id="password" name="password" ng-model="registro.password" required />
+                            <span class="pull-right align-icon-error" ng-bind-html="errorMessages.icon" ng-show="submitted && myForm.password.$error.required"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2" style="padding-right:30px;margin-left:15px">
+                <button class="btn btn-login center-block" ng-disabled="cargando" ng-click="submitted=true;aceptar()" style="width:100%">ENTRAR</button>
+            </div>
+            
+        </form>
+     </div>
+</div>
+
+<!--Aún no te has registrado-->
+<div class="login-form line-border">
+    <div class="wrap-content">
+        <span class="side">¿Aún no se ha registrado? <a ui-sref="home.registro">Hágalo aquí</a></span>
+        <span class="side -bar-">|</span>
+        <span class="side" ng-controller="RecuperarContrasenaController">¿Olvidó su contraseña? <a href="#" ng-click="abrirModalRecuperarContrasena()">Haga clic aquí</a> </span>
+        <span class="side -bar-">|</span>
+        <span class="side" ng-controller="LoginController"> Ingreso usuarios internos <a href="#" ng-click="autenticarAD()">Hágalo aquí</a></span>
+        <span class="report" ng-controller="ContactanosController">
+            Si presenta dificultades para ingresar al sistema contáctenos a través del correo: <a href="#" ng-click="abrirModalContactanos()">
+                reporteunificado@mininterior.gov.co
+            </a>
+        </span>
+    </div>
+</div>
+
+<!--contenido-->
+<div class="">
+    <div id="divLoginText" class="wrap-content -parraf">
+        <p ng-bind-html="datosHome.TextHome | unsafe"></p>
+    </div>
+</div>
+
+
+
+
+
+
+

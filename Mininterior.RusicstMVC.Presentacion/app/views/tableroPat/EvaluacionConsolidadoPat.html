@@ -1,0 +1,80 @@
+﻿<div>
+    <form role="form" class="form-horizontal" id="editForm" name="editForm" novalidate>
+        <div class="row"> <h2>Evaluación Consolidado</h2></div>
+        <div class="row">
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Criterios de Búsqueda</div>
+                <div class="panel-body">
+                    <div class="form-group" ng-hide="datosUsuario.TipoTipoUsuario=='GOBERNACION'  ">
+                        <label class="col-sm-3 control-label" for="GobernaciónSelect">Departamento:</label>
+                        <div class="separar col-sm-9">
+                            <select id="GobernacionSelect" ng-change="cargarComboMunicipios()" name="GobernacionSelect" ng-model="filtro.departamento" class="form-control input-sm ng-pristine ng-valid">
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                            <span class="text-danger" ng-show="submitted && !filtro.departamento">Debe seleccionar un departamento</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="IdTablero">Tablero</label>
+                        <div class="separar col-sm-9">
+                            <select class="form-control input-sm ng-pristine ng-valid" id="IdTablero" name="IdTablero" ng-model="filtro.IdTablero" required ng-options="item.Id as item.Etiqueta for (key, item)  in Tableros"></select>
+                            <span class="text-danger" ng-show="submitted && !editForm.IdTablero.$valid">Debe seleccionar un tablero</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btnNew" ng-click="submitted=true;filtrar()">Buscar</button>
+                </div>
+            </div>
+        </div>
+        <!--@*Loading*@-->
+        <div class="row">
+            <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        </div>
+        <div class="row" ng-if="datos.length>0">
+            <table class="table table-striped table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th class="col-sm-3 titulo-tabla-pat" style="vertical-align:middle" rowspan="2">PREGUNTA INDICATIVA</th>
+                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle" rowspan="2">PERIODO SEGUIMIENTO</th>
+                        <th class="col-sm-4 titulo-tabla-pat" style="vertical-align:middle" colspan="2">% AVANCE GOBERNACIÓN</th>
+                    </tr>
+                    <tr>
+                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">COMPROMISO</th>
+                        <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">PRESUPUESTO</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in datos">
+                    <tr>
+                        <td rowspan="2" class="centrado-tabla-pat" style="vertical-align:middle">{{item.PreguntaIndicativa}}</td>
+                        <td>Seguimiento Primer Semestre</td>
+                        <td class="totales">{{item.AvancePrimerSemestreGobernaciones  | currency:""}} %</td>
+                        <td class="totales">{{item.AvancePresupuestoPrimerSemestreGobernaciones | currency:""}} %</td>
+                    </tr>
+                    <tr>
+                        <td>Seguimiento Acumulado Anual</td>
+                        <td class="totales">{{item.AvanceAcumuladoGobernaciones | currency:""}} %</td>
+                        <td class="totales">{{item.AvancePresupuestoAcumuladoGobernaciones | currency:""}} %</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-sm-3 titulo-tabla-pat" style="vertical-align:middle; text-align:center">Total</td>
+                        <td class="negrita">Seguimiento Primer Semestre</td>
+                        <td class="totales-negrita">{{totales.CompromisoGobernacionPrimer | currency:""}} %</td>
+                        <td class="totales-negrita">{{totales.PresupuestoGobernacionPrimer | currency:""}} %</td>
+                    </tr>
+                    <tr>
+                        <td class="negrita">Seguimiento Acumulado Anual</td>
+                        <td class="totales-negrita">{{totales.CompromisoGobernacionAcumulado | currency:""}} %</td>
+                        <td class="totales-negrita">{{totales.PresupuestoGobernacionAcumulado | currency:""}} %</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>       
+        <!--@*Div de errores y alertas*@-->
+        <div class="form-group">
+            <label class="text-danger" ng-if="error">{{error}}</label>
+            <label class="text-danger" ng-if="alerta">{{alerta}}</label>
+        </div>
+    </form>
+</div>
+

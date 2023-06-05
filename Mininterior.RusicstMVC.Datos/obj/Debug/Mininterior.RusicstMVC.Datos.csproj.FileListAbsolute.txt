@@ -1,0 +1,24 @@
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.dll.config
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.pdb
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.xml
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.csprojResolveAssemblyReference.cache
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.pdb
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.dll.config
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.pdb
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.xml
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.csprojResolveAssemblyReference.cache
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.pdb

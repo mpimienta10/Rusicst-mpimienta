@@ -1,0 +1,2536 @@
+﻿@charset "UTF-8";
+/*Estilos para el sitio pte.gov.co/ */
+
+/*
+ * V. 0.1.
+ */
+
+/* ==========================================================================
+   Etiquetas base
+   ========================================================================== */
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+p {
+    font-weight: 100;
+}
+
+input[type=text], textarea, input[type=email], select, button, a {
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0px 0px 0px 0px !important;
+    outline: 0 !important;
+}
+
+iframe {
+    display: block;
+    width: 100%;
+    border: none;
+}
+
+.title-main-section {
+    text-align: center;
+    color: #0e6275;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-weight: 100;
+    font-size: 2.75em;
+}
+
+.title-medium-section {
+    text-align: center;
+    color: #0e6275;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-weight: 100;
+    font-size: 1.375em;
+}
+
+.title-medium-home {
+    text-align: center;
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-weight: 100;
+    font-size: 1.375em;
+}
+
+.title-contracts {
+    color: #FFDD5E;
+    font-size: 2.2em;
+    padding: 11px 0 0 63px;
+    letter-spacing: 0;
+    margin: 0;
+    font-weight: 400;
+    transition: all 0.5s ease-out;
+    font-family: 'Bebas';
+}
+
+
+#consult .title-medium-home {
+    color: #6F6B6B;
+}
+
+.btn-pte {
+    font-size: 1em;
+    color: #3ac4b7;
+    border: 0;
+    padding: 6px 38px;
+    box-shadow: 1px 2px 6px -1px #13796f;
+}
+
+.btn-pte-green {
+    font-size: 1em;
+    color: #fff;
+    background: #3ac4b7;
+    border: 0;
+    padding: 6px 38px;
+    box-shadow: 1px 2px 6px -1px #13796f;
+}
+
+.btn-pte-gray {
+    font-size: 1em;
+    color: #fff;
+    background: #C0C0C0;
+    border: 0;
+    padding: 6px 38px;
+    box-shadow: 1px 2px 6px -1px #13796f;
+}
+
+.btn-pte-large {
+    padding: 6px 125px;
+}
+
+.btn-pte-green:hover {
+    color: #fff;
+    background-color: #0e6275;
+    border: 0 none;
+}
+
+.btn-pte-gray:hover {
+    color: #fff;
+    background-color: #0e6275;
+    border: 0 none;
+}
+.btn-info {
+    background-image: url(../images/ico_info.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 23px;
+    height: 23px;
+    border: 0 none;
+}
+
+.btn-info2 {
+    background-image: url(../images/ico_info2.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 34px;
+    height: 34px;
+    border: 0 none;
+    background-position: 4px 6px;
+}
+
+    .btn-info:hover, .btn-info2:hover {
+        opacity: 0.6;
+        background-color: transparent;
+        border: 0 none;
+    }
+
+    .btn-info:focus, .btn-info.focus, .btn-info2:focus {
+        background-color: transparent;
+        border-color: transparent;
+        opacity: 0.6;
+    }
+
+    .btn-info:active, .btn-info.active, .open > .dropdown-toggle.btn-info, .btn-info2:active {
+        background-color: transparent;
+        border-color: transparent;
+        opacity: 0.6;
+    }
+
+/*MOdal window pte*/
+.modal-header {
+    background: #3ac4b7;
+}
+
+    .modal-header h4 {
+        color: #fff;
+    }
+
+    .modal-header .close {
+        color: #fff;
+    }
+
+.modal-content {
+    box-shadow: none;
+    border: 0 none;
+    border-radius: 0;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: static;
+}
+
+.navbar {
+    margin: 0;
+}
+
+.navbar-inner {
+    background: #FFF;
+    border: 0 none;
+    padding: 12px 0 22px 0;
+}
+
+.navbar .topbar {
+    height: 5px;
+    background: #0e6275 url(../images/sections/top_bars.gif) no-repeat 90% 0;
+}
+
+.navbar .brand {
+    padding: 0;
+}
+
+.navbar-right {
+    float: right !important;
+    margin-right: -15px;
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+/*Section #1*/
+#intro {
+    background: #fff9d5;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 0;
+}
+
+section.handleft {
+    width: 522px;
+    height: 226px;
+    position: absolute;
+    background: url(../images/sections/left_hand.png);
+    z-index: 1;
+}
+
+section.handright {
+    width: 531px;
+    height: 229px;
+    position: absolute;
+    right: 0;
+    background: url(../images/sections/right_hand.png);
+    z-index: 1;
+}
+
+.hero-unit {
+    text-align: center;
+}
+
+    .hero-unit h4 {
+        color: #79adb9;
+        font-size: 1.5em;
+    }
+
+    .hero-unit h1 {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 2.0625em;
+        color: #0e6275;
+        font-weight: 700;
+    }
+
+    .hero-unit p {
+        font-size: 1em;
+        color: #0e6275;
+        line-height: 22px;
+    }
+    /*special button*/
+    .hero-unit .btn-group {
+        margin-top: 29px;
+    }
+
+        .hero-unit .btn-group .btn {
+            background: #ffd330;
+            color: #0e6275;
+            font-size: 1em;
+            padding: 13px 29px;
+            border: 0 none;
+            font-weight: 400;
+            box-shadow: 1px 4px 10px -1px #ccc;
+            border-radius: 0 5px 5px 0 !important;
+        }
+
+            .hero-unit .btn-group .btn.ico {
+                background: #FFF url(../images/ico_btn_state.png) no-repeat center;
+                padding: 15px 37px 31px 29px;
+                border: 0 none;
+                border-radius: 5px 0 0 5px !important;
+            }
+
+            .hero-unit .btn-group .btn:hover {
+                background: #FFDD5E;
+            }
+
+            .hero-unit .btn-group .btn.ico:hover {
+                background-color: rgba(226,226,226,0.6);
+                background-image: url(../images/ico_btn_state.png);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+/*landmark*/
+.land .top {
+    background: url(../images/sections/city_border.png) no-repeat center;
+    height: 126px;
+}
+
+.land {
+    padding: 63px 0 0 0;
+}
+
+.green {
+    background: #3ac4b7;
+}
+
+/*highlights areas*/
+.highlights {
+    background: url(../images/bk_highlight-1.png) no-repeat;
+    background-size: cover;
+}
+
+.highlights {
+    height: 400px;
+    text-align: center;
+    display: table;
+}
+
+    .highlights .ico-graph {
+        display: table-cell;
+        vertical-align: middle;
+        border: 0 none;
+    }
+
+        .highlights .ico-graph:hover {
+            text-decoration: none;
+            border: 0 none;
+        }
+
+            .highlights .ico-graph:hover .companies img, .highlights .ico-graph:hover .programation img, .highlights .ico-graph:hover .ct-chart0, .highlights .ico-graph:hover #thousand {
+                transform: scale(1.1,1.1);
+            }
+
+
+    .highlights-empty span, .highlights span {
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        top: 0px;
+        padding-left: 63px;
+    }
+
+    .highlights-empty p.copy, .highlights p.copy {
+        color: #fff;
+        font-size: 1em;
+    }
+
+.highlights-wrapper {
+    height: 200px;
+}
+
+#thousand {
+    background: url(../images/ico_contract.png) no-repeat 15% 89%;
+    color: #ffd330;
+    font-size: 3.4em;
+    padding: 0 0 0 63px;
+    letter-spacing: 0;
+    margin: 0;
+    font-weight: 400;
+    transition: all 0.5s ease-out;
+    font-family: 'Bebas';
+}
+
+.companies img {
+    margin-top: -44px;
+    transition: all 0.4s ease-out;
+}
+
+.programation img {
+    margin-top: -32px;
+    transition: all 0.4s ease-out;
+}
+
+.execution {
+    position: relative;
+}
+
+#public {
+    color: #fff;
+    font-size: 3.4em;
+    position: absolute;
+    letter-spacing: -4px;
+    margin: 0;
+    font-weight: 400;
+    font-family: 'Bebas';
+}
+
+    #public:after {
+        content: "%";
+        font-size: 0.6em;
+        padding-left: 4px;
+    }
+/*Section #2*/
+#consult {
+    background: #b5d7df;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 42px 0 72px 0;
+}
+
+/*Tabs*/
+.tab-container {
+    margin-top: 47px;
+}
+
+.tab-container-content {
+    padding: 25px;
+}
+
+.tab-content {
+    background: #e7f1f3;
+    padding: 27px;
+    overflow: hidden;
+}
+
+.nav-tabs.nav-justified li {
+    border-bottom: 4px solid #b5d7df;
+}
+
+    .nav-tabs.nav-justified li.active {
+        border-bottom: 0;
+    }
+
+        .nav-tabs.nav-justified li.active a {
+            border-bottom: 4px solid #e7f1f3;
+            min-height: 65px;
+        }
+
+.nav-tabs > li a {
+    background: #6f9ca7;
+    margin: 0 4px 0;
+}
+
+.nav-tabs > li:first-child a {
+    margin: 0;
+}
+
+.nav-tabs.nav-justified > li > a {
+    border: 0 none;
+    color: /*#a2bdc4*/ #fff;
+    border-bottom: 0 none;
+    min-height: 61px;
+}
+
+.nav-tabs > li > a {
+    color: #fff;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    opacity: 0.8;
+    background: #6f9ca7;
+    border-bottom: 0 none;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    background-color: #e7f1f3;
+    border: 0 none;
+}
+
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
+    color: #0e6275;
+    border-bottom: 4px solid #e7f1f3;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+/*Forms*/
+.form-control {
+    font-weight: 100;
+    color: #5d7178;
+}
+
+div.pte-form {
+    background: #fff;
+    width: 91%;
+    float: left;
+    padding: 40px;
+    position: relative;
+}
+
+    div.pte-form .btn-info {
+        position: absolute;
+        right: 17px;
+        bottom: 20px;
+    }
+
+.ico-form {
+    float: left;
+    width: 94px;
+    background-color: #fff !important;
+    height: 107px;
+    display: inline-block;
+    margin-top: 7%;
+    border-radius: 5px 0 0 5px;
+    background-position: 19px 25px !important;
+}
+
+#finanzas .ico-form {
+    margin-top: 3%;
+    background: url(../images/z_region.png) no-repeat;
+}
+
+#gastos .ico-form {
+    margin-top: 5%;
+    background: url(../images/z_gastos.png) no-repeat;
+}
+
+#contratos .ico-form {
+    background: url(../images/z_contratos.png) no-repeat;
+}
+
+#ingresos .ico-form {
+    background: url(../images/z_ingresos.png) no-repeat;
+}
+
+#SGP .ico-form {
+    background: url(../images/z_region.png) no-repeat;
+}
+
+#SGR .ico-form {
+    background: url(../images/z_region.png) no-repeat;
+}
+
+#OtrasTransferencias .ico-form {
+    background: url(../images/z_region.png) no-repeat;
+}
+
+label {
+    font-size: 1em;
+    color: #0e6275;
+    font-family: 'PT Sans', sans-serif;
+    padding-right: 20px;
+    padding-left: 30px;
+}
+
+.form-inline .form-group {
+    margin-bottom: 15px;
+}
+
+.form-inline .form-control {
+    border-radius: 0;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1px solid #0e6275;
+}
+
+/*Section #3*/
+#execution {
+    background: #fff9d5;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 42px 0 72px 0;
+    color: #fff;
+}
+
+    #execution .title-medium-home {
+        color: #0e6275;
+    }
+
+    #execution .title-medium-home, #execution2 .title-medium-home {
+        margin: 20px 0 45px;
+    }
+
+/*Section #4*/
+#execution2 {
+    background: #996f75;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 42px 0 35px 0;
+    color: #fff;
+}
+
+    #execution2 .btn-pte-green, #execution .btn-pte-green {
+        width: 20%;
+        margin-top: 39px;
+        margin-bottom: 40px;
+    }
+/*Section #4*/
+#footer {
+    background: #e7f1f3;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 0 0 36px 0;
+    color: #fff;
+    text-align: center;
+}
+
+img.logo-gobierno {
+    margin-top: 69px;
+    margin-bottom: 56px;
+}
+
+.credits {
+    color: #5d7178;
+    font-size: 0.875em;
+    padding: 0 10%;
+    font-weight: 300;
+    line-height: 22px;
+    margin-bottom: 40px;
+}
+
+.credits2 {
+    color: #5d7178;
+    font-size: 0.6875em;
+    margin: 0;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: left;
+}
+
+.menu-footer {
+    background: #fff;
+    padding: 10px 0;
+}
+
+#footer .nav > li > a:hover, #footer .nav > li > a:focus {
+    opacity: 0.8;
+    background: none;
+    border-bottom: 0 none;
+}
+
+#footer .nav > li > a {
+    padding: 32px 60px;
+    color: #0e6275;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.counter {
+    text-align: left;
+    margin-bottom: 106px;
+}
+
+    .counter li.initial {
+        color: #afbabe;
+        font-size: 0.6875em;
+        margin: 0;
+        clear: both;
+        float: none !important;
+        background: none !important;
+        padding: 0;
+    }
+
+    .counter ul {
+        width: auto;
+        margin: 0 0 0 -40px;
+    }
+
+        .counter ul li {
+            float: left;
+            background: url(../images/bk_counter.gif) repeat-x;
+            height: 24px;
+            color: #fff;
+            padding: 2px 6px;
+            list-style: none;
+            margin-right: 1px;
+        }
+
+/* ==========================================================================
+  Charts
+   ========================================================================== */
+.ct-chart0 {
+    margin: 38px 0 0 0;
+    transition: all 0.5s ease-out;
+}
+
+#chart0 {
+    width: 140px;
+    height: 140px;
+}
+
+.ct-chart1 canvas {
+    width: 170px !important;
+    height: 170px !important;
+}
+
+.ct-chart1 {
+    position: relative;
+    background: url(../images/white-chart.png) no-repeat center;
+    float: left;
+    margin: 0 2% 0;
+}
+
+    .ct-chart1 .val-chart {
+        position: absolute;
+        color: #0e6275;
+        font-size: 3.6em;
+        text-align: center;
+        z-index: 11;
+       width:100%;
+       text-align:center;
+        letter-spacing: -3px;
+        top: -2%;
+        font-weight: 400;
+        font-family: 'Bebas';
+    }
+
+        .ct-chart1 .val-chart:after {
+            content: "%";
+            font-size: 0.6em;
+            padding-left: 4px;
+        }
+
+    .ct-chart1 p.copy {
+        color: #0e6275;
+        font-size: 1em;
+        text-align: center;
+        width: auto;
+        line-height: 14px;
+        margin: 10px 0 0 0;
+    }
+
+/*Charts Ejecución presupuestal por sector*/
+/*.ct-chart6 canvas { width:180px !important; height:180px !important; display:block; margin:0 auto }*/
+
+.ct-chart2 {
+    position: relative;
+    float: left;
+    width: 25%;
+}
+
+    .ct-chart2 .val-chart2 {
+        position: absolute;
+        color: #fff;
+        font-size: 2em;
+        text-align: center;
+        z-index: 11;
+        width:100%;
+        top: -2%;
+        font-weight: 400;
+        font-family: 'Bebas';
+    }
+
+        .ct-chart2 .val-chart2:after {
+            content: "%";
+            font-size: 0.6em;
+            padding-left: 4px;
+        }
+
+p.ind {
+    margin-top: 17px;
+    color: #fff;
+    font-size: 1em;
+    text-align: center;
+    width: auto;
+    line-height: 1em;
+}
+
+/* ==========================================================================
+   CONsULTAS
+   ========================================================================== */
+/*contenedor para internas*/
+#consultas {
+    background: #f2f7f8;
+    height: auto;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding: 57px 0 57px 0;
+}
+
+    #consultas .title-main-section {
+        padding: 0 8em;
+    }
+
+.breadcrumb-wrapper {
+    background: #0e6275;
+}
+
+.breadcrumb {
+    margin: 0;
+    background: none;
+}
+
+    .breadcrumb li:first-child a {
+        color: #76acb8;
+    }
+
+    .breadcrumb a {
+        font-family: 'PT Sans', sans-serif;
+        color: #fff;
+        text-decoration: none;
+    }
+
+        .breadcrumb a span {
+            padding: 0 15px 0 0;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.6;
+        }
+
+    .breadcrumb > .active {
+        color: #fff;
+    }
+
+    .breadcrumb > li + li:before {
+        content: ">";
+        color: #76acb8;
+        padding: 0 10px;
+    }
+
+.jumbotron {
+    padding-top: 12px;
+    padding-bottom: 19px;
+    background: #3ac4b7;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+    .jumbotron h2 {
+        font-size: 1.75em;
+        color: #fff;
+        font-family: 'PT Sans', sans-serif;
+        font-weight: 700;
+    }
+
+.filter {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .filter li {
+        display: inline-block;
+        color: #fff;
+    }
+
+    .filter > li + li:before {
+        content: ">";
+        color: #fff;
+        padding: 0 10px;
+        content: "/\00a0";
+    }
+
+    .filter li:first-child + li:before {
+        content: "";
+        padding: 0;
+    }
+
+    .filter li a {
+        color: #fff;
+        font-family: 'PT Sans', sans-serif;
+    }
+
+    .filter li:first-child a {
+        color: #fff;
+    }
+
+/*Acordeon collapse*/
+.filter-collapse {
+    margin: 40px 0;
+}
+
+    .filter-collapse .btn-pte-green {
+        width: 300px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+/*inputs*/
+.accordion .panel-title a {
+    background: url(../images/ico_collapse.png) no-repeat right -36px;
+    padding: 0 0 2px 0px;
+}
+
+    .accordion .panel-title a.collapsed {
+        background: url(../images/ico_collapse.png) no-repeat right 0;
+    }
+
+.subaccordion .panel-title a {
+    background: url(../images/ico_collapse.png) no-repeat right -66px;
+    padding: 0 0 2px 0px;
+    width: 96%;
+}
+
+    .subaccordion .panel-title a.collapsed {
+        background: url(../images/ico_collapse.png) no-repeat right -93px;
+    }
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border: 0 none;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 0;
+}
+
+.panel-group {
+    margin-bottom: 0;
+}
+
+.panel-heading {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.panel-title label, .sub-panel-heading .panel-title label, .filters-list label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin: 0 33px 0 0;
+    padding: 0;
+}
+
+
+    .panel-title label:before, .sub-panel-heading .panel-title label:before, .filters-list label:before {
+        border-radius: 90px;
+    }
+
+    .filters-list label:before {
+        border: 2px solid #ccdcdf;
+    }
+
+    .panel-title label:before {
+        border: 2px solid #f6d352;
+    }
+
+.subaccordion .panel-title label:before {
+    border: 2px solid #537982;
+}
+
+.panel-title label:before, .subaccordion .panel-title label:before, .filters-list label:before {
+    content: "";
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin-right: 20px;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    background-color: #fff;
+    padding-bottom: 7px;
+}
+
+.panel-title input[type=checkbox], .subaccordion .panel-title input[type=checkbox], .filters-list input[type=checkbox] {
+    display: none;
+}
+
+    .panel-title input[type=checkbox]:checked + label:before {
+        color: #ffcc00;
+    }
+
+    .subaccordion .panel-title input[type=checkbox]:checked + label:before {
+        color: #537982;
+    }
+
+    .filters-list input[type=checkbox]:checked + label:before {
+        color: #3ac4b7;
+    }
+
+    .panel-title input[type=checkbox]:checked + label:before, .subaccordion .panel-title input[type=checkbox]:checked + label:before, .filters-list input[type=checkbox]:checked + label:before {
+        content: "\2022";
+        font-size: 30px;
+        text-align: center;
+        line-height: 14px;
+    }
+
+    .filters-list input[type=checkbox]:checked + label {
+        font-weight: 700;
+    }
+/*listas*/
+.filters-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #0e6275;
+}
+
+    .filters-list li {
+        padding: 15px 39px 15px 150px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+    }
+
+    .filters-list label {
+        padding: 0 0 0 40px;
+        font-weight: 100;
+        font-size: 1em;
+    }
+
+.panel-title-main {
+    margin-top: 0;
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    margin-bottom: 0;
+    font-size: 1.375em;
+}
+
+.panel-default {
+    border: 0 none;
+}
+
+    .panel-default > .panel-heading-main {
+        background: #3ac4b7;
+        border: 0 none;
+        padding: 20px 39px;
+    }
+
+    .panel-default > .panel-heading {
+        color: #333;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        padding: 15px 39px;
+        background: #ffd330;
+    }
+
+.subaccordion .panel-default > .panel-heading {
+    color: #333;
+    border-top: 0 none;
+    border-bottom: 1px solid #fff;
+    padding: 15px 39px 15px 100px;
+    background: #91b6bf;
+}
+
+.panel-body {
+    padding: 0;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    background: #e7f1f3;
+}
+
+.subaccordion .panel-title > a {
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-size: 1.125em;
+    text-decoration: none;
+}
+
+.panel-title > a, .panel-title > small, .panel-title > .small, .panel-title > small > a, .panel-title > .small > a {
+    color: #0e6275;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.125em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.bg-success {
+    background: #b5d7df;
+    padding: 20px 0;
+    text-align: center;
+}
+
+    .bg-success p {
+        color: #fff;
+    }
+
+/* ==========================================================================
+   INGRESOS - Gráficas
+   ========================================================================== */
+#graficas-pte {
+    text-align: center;
+    padding: 20px 0 0 0;
+    background: #f2f7f8;
+}
+
+    #graficas-pte .filter {
+        margin-bottom: 19px;
+    }
+
+        #graficas-pte .filter li {
+            display: inline-block;
+            color: #0e6275;
+        }
+
+        #graficas-pte .filter > li + li:before {
+            content: ">";
+            color: #0e6275;
+            padding: 0 10px;
+            content: "/\00a0";
+        }
+
+        #graficas-pte .filter li a {
+            color: #0e6275;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        #graficas-pte .filter li:first-child + li:before {
+            content: "";
+            padding: 0;
+        }
+
+.graficas-pte-wrapper {
+    background: #fff;
+    padding: 0;
+    margin: 19px 0 0 0;
+}
+
+    .graficas-pte-wrapper .btn-pte-green {
+        width: 300px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+/*Tablas pte*/
+.table {
+    margin: 52px auto;
+}
+
+.table-bordered {
+    border: 1px solid #d2dce0;
+    font-family: 'Roboto', sans-serif;
+}
+
+    .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+        border: 1px solid #d2dce0;
+    }
+
+.table thead {
+    background: #f2f8f9;
+}
+
+    .table thead th {
+        color: #0e6275;
+        text-align: center;
+        font-weight: 400;
+    }
+
+.table tbody th {
+    background: #f2f8f9;
+    color: #0e6275;
+    text-align: center;
+    font-weight: 400;
+}
+
+.table tbody td {
+    color: #9ca7ab;
+}
+
+/* ==========================================================================
+ REGIONALIZACION
+   ========================================================================== */
+
+#region {
+    padding: 20px 0 0 0;
+    background: #f2f7f8;
+}
+
+.modal-graph button.close {
+    float: none;
+    background: url(../images/btn_close_modal.png) no-repeat;
+    width: 36px;
+    height: 36px;
+    opacity: 1;
+    margin: 16px 0 0 20px;
+}
+
+#region iframe {
+    border: 0 none;
+    min-width: 100%;
+    min-height: 600px;
+}
+
+.region-wrapper {
+    background: #fff;
+    padding: 40px 0;
+    margin: 19px 0 0 0;
+}
+
+#map-pte {
+    margin: 0 auto;
+}
+/*tooltip personalizado*/
+.tooltip-pte {
+    width: 340px;
+    height: 163px;
+    background: url(../images/bk_tooltip-pte.png) no-repeat;
+    text-align: left;
+    padding: 10px 0 0 0;
+    margin: 0;
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+    .tooltip-pte a {
+        text-decoration: none;
+        transition: all 0.3s;
+        display: block;
+        text-align: right;
+        padding: 6px 18px 0 0;
+        color: #0e6275;
+        font-weight: 700;
+        font-size: 0.875em;
+    }
+
+        .tooltip-pte a:hover {
+            opacity: 0.9;
+        }
+
+    .tooltip-pte .btn_close {
+        width: 26px;
+        height: 26px;
+        background: url(../images/btn_close.png) no-repeat;
+        text-indent: -9999px;
+        display: block;
+        position: relative;
+        float: right;
+        top: -18px;
+        border: 0 none;
+    }
+
+        .tooltip-pte .btn_close:hover {
+            opacity: 0.8;
+        }
+
+    .tooltip-pte h4 {
+        color: #fff;
+        font-size: 1.5em;
+        font-family: 'PT Sans', sans-serif;
+        margin: 0 0 5px 0;
+        font-weight: 700;
+        padding-left: 34px;
+    }
+
+    .tooltip-pte p {
+        font-family: 'PT Sans', sans-serif;
+        color: #fff;
+        font-size: 1em;
+        margin: 0 0 17px 0;
+        padding-left: 34px;
+    }
+
+    .tooltip-pte .value {
+        color: #0e6275;
+        font-size: 1.9375em;
+        font-weight: 700;
+        letter-spacing: -1px;
+        text-align: center;
+        display: block;
+    }
+
+#btnZoomOut {
+    position: relative;
+    top: 85px;
+}
+/*---------------*/
+
+/* ==========================================================================
+   Mediaqueries
+   ========================================================================== */
+@media (max-width: 767px) {
+    /* ==========================================================================
+   Header
+   ========================================================================== */
+    .navbar .brand img {
+        width: 134px;
+    }
+
+    .navbar-right {
+        padding-right: 13px;
+    }
+
+        .navbar-right img {
+            width: 142px;
+        }
+    /*Section #1*/
+    .hero-unit .btn-group {
+        margin-top: 10px;
+    }
+
+        .hero-unit .btn-group .btn {
+            padding: 13px 4px;
+        }
+
+    section.handleft {
+        top: 314px;
+        background: url(../images/sections/left_hand.png) -81px 0 no-repeat;
+        background-size: 213px;
+        width: 185px;
+        height: 134px;
+    }
+
+    section.handright {
+        top: 314px;
+        right: 0;
+        background: url(../images/sections/right_hand.png) 54px 0 no-repeat;
+        background-size: 213px;
+        width: 185px;
+        height: 134px;
+    }
+
+    .highlights {
+        padding: 22px 19px;
+        display: block;
+        height: auto;
+    }
+
+    .hero-unit p {
+        padding: 0 4%;
+    }
+
+    .hero-unit h4 {
+        font-size: 1.6em;
+    }
+
+    .execution .ct-perfect-fourth {
+        margin-top: 0;
+    }
+
+    .contract p.copy {
+        margin-top: 31px;
+    }
+
+    .execution {
+        padding-bottom: 40px;
+    }
+
+        .execution p.copy {
+            margin-top: 0;
+        }
+
+    .companies img {
+        margin-top: 0;
+    }
+
+    .companies p.copy, .programation p.copy {
+        margin: 60px 0;
+    }
+
+    .highlights .ico-graph {
+        display: block;
+        padding-top: 20px;
+    }
+
+    .highlights-wrapper {
+        height: auto;
+    }
+
+    .programation img {
+        margin: 0;
+    }
+
+    .companies p.copy, .programation p.copy, .contract p.copy, .execution p.copy {
+        padding: 10px 10% 0;
+        font-size: 1.2em;
+    }
+
+    #thousand {
+        padding: 0px 0 0 62px;
+        letter-spacing: -1px;
+        font-size: 3.4em;
+        background: url(../images/ico_contract.png) no-repeat 20% 89%;
+        background-size: auto;
+    }
+
+    #public {
+        font-size: 2.2em;
+        top: 50px;
+        left: 3px;
+        letter-spacing: 0;
+        width: 100%;
+    }
+
+    .highlights-empty span, .highlights span {
+        padding-left: 39px;
+        font-size: 1em;
+        line-height: 15px;
+        padding-top: 8px;
+        text-align: left;
+    }
+
+    .land {
+        padding: 72px 0 0 0;
+    }
+
+        .land .top {
+            background: url(../images/sections/bk_mobile_citi_border.png) no-repeat center 69px;
+            height: 124px;
+            background-size: 100%;
+        }
+
+    /*Section #2*/
+    /*Tabs*/
+    #consult {
+        padding: 19px 0 20px 0;
+    }
+
+    .nav-tabs.nav-justified {
+        float: left;
+        width: 69px;
+    }
+
+        .nav-tabs.nav-justified > li > a {
+            margin-bottom: 4px;
+            margin-left: 0;
+            text-indent: -9999px;
+            width: 69px;
+            background-image: url(../images/txt_tab_sprite.png);
+            background-repeat: no-repeat;
+            background-position: -20px;
+        }
+
+        .nav-tabs.nav-justified > li:nth-child(1) a {
+            height: 187px;
+            background-position: -81px -7px;
+        }
+
+        .nav-tabs.nav-justified > li:nth-child(2) a {
+            height: 173px;
+            background-position: -81px -250px;
+        }
+
+        .nav-tabs.nav-justified > li:nth-child(3) a {
+            height: 198px;
+            background-position: -81px -476px;
+        }
+
+        .nav-tabs.nav-justified > li:nth-child(4) a {
+            height: 195px;
+            background-position: -81px -719px;
+            margin-bottom: 0;
+        }
+
+        .nav-tabs.nav-justified > li.active:nth-child(1) a {
+            background-position: 5px 0;
+        }
+
+        .nav-tabs.nav-justified > li.active:nth-child(2) a {
+            background-position: 5px -250px;
+        }
+
+        .nav-tabs.nav-justified > li.active:nth-child(3) a {
+            background-position: 5px -471px;
+        }
+
+        .nav-tabs.nav-justified > li.active:nth-child(4) a {
+            background-position: 5px -719px;
+            margin-bottom: 0;
+        }
+
+        .nav-tabs.nav-justified li {
+            display: block;
+            border: 0 none;
+        }
+
+    /*Forms*/
+    div.pte-form {
+        width: 100%;
+        padding: 48px 14px 23px;
+        height: 719px;
+    }
+
+    .tab-content {
+        padding: 0;
+        float: left;
+        width: 77%;
+    }
+
+    .tab-container-content {
+        position: relative;
+        padding: 21px 10px;
+    }
+
+    .form-horizontal .control-label {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 6px;
+    }
+
+    .btn-pte-large {
+        padding: 6px 80px;
+    }
+
+    .ico-form {
+        /* float: left; */
+        width: 57px;
+        height: 56px;
+        margin-top: 0;
+        position: absolute;
+        top: 12px;
+        z-index: 1;
+        background-size: 63% !important;
+        background-position: 13px 15px !important;
+    }
+
+    #gastos .ico-form, #finanzas .ico-form, #SGP .ico-form, #SGR .ico-form, #OtrasTransferencias .ico-form {
+        margin: 0;
+    }
+
+
+    /*Section #3*/
+    #execution2 .btn-pte-green, #execution .btn-pte-green {
+        width: 60%;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+    /* ==========================================================================
+  Charts
+   ========================================================================== */
+    #chart0 {
+        width: 140px !important;
+        height: 140px !important;
+        margin: 0;
+    }
+
+    .ct-chart1 canvas {
+        width: 200px !important;
+        height: 200px !important;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .ct-chart1 {
+        background-position: center 16px;
+        width: 100%;
+        float: none;
+        margin: 20px 0;
+    }
+
+        .ct-chart1 .val-chart {
+            font-size: 3.9em;
+            
+            letter-spacing: -3px;
+            top: 68px;
+            width: 100%;
+        }
+
+            .ct-chart1 .val-chart:after {
+                font-size: 0.6em;
+                padding-left: 4px;
+            }
+        /*.ct-chart1 p.copy {    padding: 0 81px;}*/
+        .ct-chart1 p.copy {
+            font-size: 1.3em;
+            left: 0;
+            top: 158px;
+            width: 100%;
+            line-height: 19px;
+            text-align: center;
+        }
+
+    .ct-chart2 canvas {
+        width: 200px !important;
+        height: 200px !important;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .ct-chart2 {
+        width: 100%;
+        float: none;
+        margin: 20px 0;
+    }
+
+        .ct-chart2 .val-chart2 {
+            font-size: 3.5em;
+            
+            width: 100%;
+            top: 61px;
+        }
+
+            .ct-chart2 .val-chart2:after {
+                font-size: 0.6em;
+                padding-left: 4px;
+            }
+
+    p.ind {
+        font-size: 1.4em;
+        width: auto;
+        line-height: 1.4em;
+        margin: 27px 0 68px;
+    }
+
+    /*Hack para firefox*/
+    @-moz-document url-prefix() {
+    }
+    /*Fin Hack para firefox*/
+
+
+    /*footer*/
+    .counter {
+        margin-bottom: 74px;
+    }
+
+    .credits2 {
+        margin: 20px 0;
+    }
+
+    #footer .nav > li > a {
+        padding: 20px 0;
+        margin: 0;
+        font-size: 1.3em;
+    }
+
+    /* ==========================================================================
+   CONsULTAS
+   ========================================================================== */
+    #consultas {
+        padding: 11px 0 11px 0;
+    }
+
+        #consultas .title-main-section {
+            padding: 0;
+        }
+
+    .accordion .panel-title a {
+        position: relative;
+        width: 70%;
+        left: 20px;
+    }
+
+    .subaccordion .panel-title a {
+        position: relative;
+        width: 70%;
+        left: 11px;
+    }
+
+    .panel-default > .panel-heading {
+        padding: 15px 14px;
+    }
+
+    .subaccordion .panel-default > .panel-heading {
+        padding: 15px 5px 15px 20px;
+    }
+
+    .filters-list li {
+        padding: 15px 39px 15px 30px;
+    }
+
+    .filter > li + li:before {
+        padding: 0 2px;
+    }
+
+    /* ==========================================================================
+   REGIONALIZACION
+   ========================================================================== */
+    #jqChart {
+        width: 100% !important;
+    }
+
+    .modal {
+        right: -10px;
+    }
+
+    #region {
+        padding: 19px 0 0 0;
+    }
+
+    .region-wrapper {
+        margin: 5px 0;
+    }
+
+    .tooltip-pte {
+        width: 276px;
+        /* #map-pte { width:80% !important}*/
+    }
+
+    .graficas-pte-wrapper {
+        overflow: scroll;
+    }
+
+    .counter h5 {
+        color: #afbabe;
+        font-size: 0.6875em;
+        margin: 0 0 4px 0;
+        /*   padding: 0 18em;*/
+    }
+
+    .counter ul {
+        margin: 0px 20%;
+        padding: 1em 0.3em;
+    }
+}
+
+
+
+@media (min-width:768px) {
+    /*Section #1*/
+    section.handleft {
+        top: 190px;
+        background: url(../images/sections/left_hand.png) -77px 0 no-repeat;
+        background-size: 238px;
+        width: 205px;
+        height: 134px;
+    }
+
+    section.handright {
+        top: 190px;
+        right: 0;
+        background: url(../images/sections/right_hand.png) 36px 0 no-repeat;
+        background-size: 238px;
+        width: 196px;
+        height: 134px;
+    }
+
+    .highlights {
+        padding: 22px 19px;
+    }
+
+    .hero-unit p {
+        padding: 0 21%;
+    }
+
+    .hero-unit h4 {
+        font-size: 1.6em;
+    }
+
+    .execution .ct-perfect-fourth {
+        margin-top: 38px;
+    }
+
+        .execution .ct-perfect-fourth > svg {
+            width: 160px !important;
+            height: 160px !important;
+        }
+
+    .contract p.copy {
+        margin-top: -14px;
+    }
+
+    .execution p.copy {
+        margin-top: 42px;
+    }
+
+    .companies p.copy, .programation p.copy {
+        margin: 0;
+    }
+
+    .highlights-wrapper {
+        height: 130px;
+    }
+
+    #thousand {
+        padding: 0px 0 0 52px;
+        letter-spacing: -1px;
+        font-size: 1.7em;
+        background-size: 22%;
+        margin-top: 40px;
+    }
+
+    #public {
+        font-size: 2.1em;
+        top: 45px;
+        left: 35%;
+        letter-spacing: 0;
+    }
+
+    .highlights-empty span, .highlights span {
+        padding-left: 56px;
+        font-size: 1em;
+        line-height: 15px;
+        padding-top: 8px;
+        text-align: left;
+    }
+
+    /*Section #2*/
+    /*Tabs*/
+    .nav-tabs.nav-justified li:last-child a {
+        width: 93%;
+    }
+    /*Forms*/
+    div.pte-form {
+        width: 85%;
+        padding: 27px 14px;
+    }
+
+    .tab-content {
+        padding: 0;
+    }
+
+    .form-horizontal .control-label {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /*Section #3*/
+    #execution2 .btn-pte-green, #execution .btn-pte-green {
+        width: 30%;
+    }
+
+    /* ==========================================================================
+  Charts
+   ========================================================================== */
+
+    /*Chart Sector público*/
+    #chart0 {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    /*Charts Ejecución de contratos por sector*/
+    .ct-chart1 canvas {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .ct-chart1 {
+        background-position: center 20px;
+        background-size: 70%;
+        float: left;
+        margin-bottom: 20px;
+        height: 227px;
+    }
+
+        .ct-chart1:nth-child(4) {
+            margin-left: 148px;
+        }
+
+        .ct-chart1 .val-chart {
+            font-size: 3.1em;
+           
+            top: 59px;
+        }
+
+            .ct-chart1 .val-chart:after {
+                font-size: 0.6em;
+                padding-left: 4px;
+            }
+
+        .ct-chart1 p.copy {
+            font-size: 1em;
+            left: 26%;
+            top: 109px;
+            line-height: 14px;
+            width: 199px;
+        }
+
+    .ct-chart2 canvas {
+        width: 170px !important;
+        height: 170px !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .ct-chart2 {
+        background-size: 170px 170px;
+    }
+
+        .ct-chart2 .val-chart2 {
+            font-size: 2.7em;
+           
+            top: 61px;
+        }
+
+            .ct-chart2 .val-chart2:after {
+                font-size: 0.6em;
+                padding-left: 4px;
+            }
+
+    p.ind {
+        font-size: 1em;
+        width: auto;
+        line-height: 1em;
+    }
+
+    /*Hack para firefox*/
+    @-moz-document url-prefix() {
+        .ct-chart1 .val-chart {
+            top: 65px !important;
+        }
+
+        .ct-chart2 .val-chart2 {
+           
+            top: 63px !important;
+        }
+    }
+    /*Fin Hack para firefox*/
+
+    /*footer*/
+    .counter h5 {
+    }
+    /*.counter ul{
+ 		    padding: 0 7em;
+    
+		}*/
+    /* ==========================================================================
+   CONsULTAS
+   ========================================================================== */
+
+    #consultas .title-main-section {
+        padding: 0;
+    }
+
+    .accordion .panel-title a {
+        width: 94%;
+    }
+
+    .subaccordion .panel-title a {
+        width: 93%;
+    }
+}
+
+
+
+
+@media (min-width:992px) {
+
+    /*Section*/
+    section.handleft {
+        top: 131px;
+        background: url(../images/sections/left_hand.png) -210px 0 no-repeat;
+        width: 341px;
+        height: 220px;
+    }
+
+    section.handright {
+        top: 131px;
+        right: 0;
+        background: url(../images/sections/right_hand.png) 20px 0 no-repeat;
+        width: 341px;
+        height: 220px;
+    }
+
+    .highlights {
+        padding: 14px 19px;
+    }
+
+        .highlights-empty span, .highlights span {
+            padding-left: 83px;
+        }
+
+    .highlights-wrapper {
+        height: 160px;
+    }
+
+    .hero-unit h4 {
+        margin-top: 26px;
+    }
+
+    .execution .ct-perfect-fourth {
+        margin-top: 32px;
+    }
+
+        .execution .ct-perfect-fourth > svg {
+            width: 180px !important;
+            height: 180px !important;
+            position: static !important;
+            margin: 0 auto;
+        }
+
+    .highlights-empty p.copy, .highlights p.copy {
+        margin-top: 38px;
+    }
+
+    .companies img {
+        margin-top: -9px;
+    }
+
+    #thousand {
+        padding: 0 0 0 74px;
+        letter-spacing: -2px;
+        font-size: 2.6em;
+    }
+
+    .hero-unit p {
+        padding: 0 26%;
+    }
+    /*Section #1*/
+
+    #public {
+        font-size: 2.2em;
+        left: 39%;
+    }
+    /*Forms*/
+    div.pte-form {
+        width: 89%;
+        padding: 40px;
+    }
+    /*Section #2*/
+    /*Tabs*/
+    .nav-tabs.nav-justified li:last-child a {
+        width: auto;
+    }
+
+    .form-horizontal .control-label {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /*Section #3*/
+    #execution2 .btn-pte-green, #execution .btn-pte-green {
+        width: 20%;
+        margin-top: 39px;
+        margin-bottom: 40px;
+    }
+    /* ==========================================================================
+  Charts
+   ========================================================================== */
+    /*Charts Ejecución de contratos por sector*/
+    .ct-chart0 {
+        margin-top: 45px;
+    }
+
+    .ct-chart1 canvas {
+        width: 130px;
+        height: 130px;
+    }
+
+    .ct-chart1 {
+        background-size: 70%;
+        background-position: center 15px;
+        float: left;
+        margin-bottom: 20px;
+    }
+
+    .ct-chart4 {
+        margin-top: 0;
+        clear: none;
+    }
+
+    .ct-chart1 .val-chart {
+        font-size: 3.1em;
+       
+        letter-spacing: -3px;
+        top: 55px;
+    }
+
+        .ct-chart1 .val-chart:after {
+           
+            font-size: 1em;
+        
+            padding-left: 4px;
+        }
+
+    .ct-chart1 p.copy {
+        font-size: 1em;
+        left: 30%;
+        top: 117px;
+        line-height: 14px;
+    }
+
+    /*Hack para firefox*/
+    @-moz-document url-prefix() {
+        .ct-chart1 .val-chart {
+            top: 55px !important;
+            font-size:3.3em;
+            
+        }
+         .ct-chart1 .val-chart:after {
+             font-size: 0.6em;
+        }
+       .ct-chart2 .val-chart2:after {
+             font-size: 0.4em !important;
+        }
+       
+        .ct-chart2 .val-chart2 {
+           
+            top: 63px !important;
+        }
+    }
+    /*Fin Hack para firefox*/
+
+
+
+    .ct-chart2 svg {
+        margin: 0 auto !important;
+        position: static !important;
+    }
+
+    .ct-chart2 {
+        background-size: 170px 170px;
+    }
+
+        .ct-chart2 .val-chart2 {
+            font-size: 3em;
+          
+            top: 58px;
+        }
+
+            .ct-chart2 .val-chart2:after {
+                font-size: 1em;
+                padding-left: 4px;
+            }
+
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        
+         .ct-chart2 .val-chart2:after {
+        font-size: 1.7rem !important;
+        padding-left: 4px;
+        }
+    }
+    /*Fin Hack para chrome*/
+
+    p.ind {
+        font-size: 1em;
+        width: auto;
+        line-height: 1em;
+    }
+    /*footer*/
+    .counter h5 { /*  padding:0 40.5em;*/
+    }
+    /*.counter ul{
+ 		    padding: 0 11em;
+    
+		}*/
+    /* ==========================================================================
+   CONsULTAS
+   ========================================================================== */
+
+    #consultas .title-main-section {
+        padding: 0;
+    }
+
+    .accordion .panel-title a {
+        width: 95%;
+    }
+
+    .subaccordion .panel-title a {
+        width: 94%;
+    }
+}
+
+/*Large devices Desktops (≥1200px) */
+
+@media (min-width:1200px) {
+    .hero-unit h4 {
+        font-size: 1.5em;
+        margin: 23px 0;
+    }
+
+    section.handleft {
+        top: 131px;
+        background: url(../images/sections/left_hand.png) -40px 0 no-repeat;
+        width: 522px;
+        height: 226px;
+    }
+
+    section.handright {
+        top: 131px;
+        right: 0;
+        background: url(../images/sections/right_hand.png) 40px 0 no-repeat;
+        width: 522px;
+        height: 226px;
+    }
+
+    .hero-unit {
+        padding-left: 31%;
+        padding-right: 28%;
+        position: relative;
+    }
+
+        .hero-unit p {
+            padding: 0 4%;
+        }
+
+    .land .top {
+        background: url(../images/sections/city_border.png) no-repeat center;
+        height: 110px;
+    }
+
+    .highlights {
+        padding: 24px;
+    }
+
+        .highlights-empty span, .highlights span {
+            padding-left: 63px;
+        }
+    /*Section #1*/
+    #thousand {
+        font-size: 2.6em;
+        padding: 28px 0 0 63px;
+        letter-spacing: -3px;
+        margin-top: 0;
+    }
+
+    .contract p.copy {
+        margin-top: 33px;
+    }
+
+    #public {
+        font-size: 2.3em;
+        top: 50px;
+        left: 39%;
+    }
+
+    .programation img {
+        margin-top: 0;
+    }
+    /*Section #2*/
+    /*Tabs*/
+    .nav-tabs.nav-justified li:last-child a {
+        width: 93%;
+    }
+
+    .form-horizontal .control-label {
+        padding: inherit;
+    }
+    /*Forms*/
+    div.pte-form {
+        width: 91%;
+        padding: 40px;
+    }
+
+    .tab-content {
+        padding: 27px;
+    }
+    /*Section #3*/
+    #execution2 .btn-pte-green, #execution .btn-pte-green {
+        width: 20%;
+        margin-top: 39px;
+        margin-bottom: 40px;
+    }
+    /* ==========================================================================
+  Charts
+   ========================================================================== */
+    /*Chart Sector público*/
+    #chart0 {
+        width: 140px !important;
+        height: 140px !important;
+    }
+
+
+    /*Charts Ejecución de contratos por sector*/
+
+    .ct-chart1 {
+        background-position: center 0;
+        width: 15% !important;
+        background-size: 140px 140px;
+        height: auto !important;
+    }
+
+        .ct-chart1:nth-child(4) {
+            margin-left: 0;
+        }
+
+        .ct-chart1 canvas {
+            width: 170px;
+            height: 170px;
+        }
+
+    .ct-chart4 {
+        margin-top: 0;
+        clear: none;
+    }
+
+    .ct-chart1 .val-chart {
+        font-size: 3.1em;
+      
+        letter-spacing: -1px;
+        top: 54px;
+    }
+
+        .ct-chart1 .val-chart:after {
+            font-size: 1.8rem;
+            padding-left: 4px;
+        }
+
+    .ct-chart1 p.copy {
+        font-size: 1em;
+        left: 26%;
+        top: 123px;
+        line-height: 14px;
+        width: auto;
+    }
+
+
+    .ct-chart2 {
+        background-size: 164px 164px !important;
+        background-position: 50px center;
+    }
+
+        .ct-chart2 .val-chart2 {
+            font-size: 3em;
+          
+            top: 58px;
+        }
+    /*Fin Hack para firefox*/
+  
+   
+
+    p.ind {
+        font-size: 1.2em;
+        width: auto;
+        line-height: 1.2em;
+    }
+    /*footer*/
+    .counter h5 { /* padding: 0 51.5em;*/
+    }
+    /*.counter ul{
+ 		    padding: 0 15em;
+    
+		}*/
+    /* ==========================================================================
+   CONsULTAS
+   ========================================================================== */
+
+    #consultas .title-main-section {
+        padding: 0 8em;
+    }
+
+    .accordion .panel-title a {
+        width: 96%;
+    }
+
+    .subaccordion .panel-title a {
+        width: 96%;
+    }
+
+    /* ==========================================================================
+   INGRESOS - Gráficas
+   ========================================================================== */
+
+    /*Tablas pte*/
+    .table {
+        width: 65%;
+    }
+
+    #graficas-pte #jqChart {
+        width: 80% !important;
+    }
+
+    /* ==========================================================================
+   REGIONALIZACION
+   ========================================================================== */
+
+    #region .title-main-section {
+        padding: 0 8em;
+    }
+
+    #map-pte {
+        height: 1000px !important;
+    }
+
+        #map-pte svg {
+            margin: 0 auto !important;
+            display: block !important;
+        }
+
+    /*Hack para firefox*/
+    @-moz-document url-prefix() {
+        .ct-chart6 #val-chart6, .ct-chart7 #val-chart7, .ct-chart8 #val-chart8, .ct-chart9 #val-chart9 {
+            top: 59px !important;
+        }
+
+        .ct-chart2 .val-chart2 {
+          
+        }
+
+        #public {
+            top: 52px !important;
+        }
+
+        .ct-chart1 .val-chart {
+            top: 58px !important;
+        }
+    }
+    /*Fin Hack para firefox*/
+}
+
+.pagination-ys {
+    /*display: inline-block;*/
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+    .pagination-ys table > tbody > tr > td {
+        display: inline;
+    }
+
+        .pagination-ys table > tbody > tr > td > a,
+        .pagination-ys table > tbody > tr > td > span {
+            position: relative;
+            float: left;
+            padding: 8px 12px;
+            line-height: 1.42857143;
+            text-decoration: none;
+            color: #0e6275;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            margin-left: -1px;
+        }
+
+        .pagination-ys table > tbody > tr > td > span {
+            position: relative;
+            float: left;
+            padding: 8px 12px;
+            line-height: 1.42857143;
+            text-decoration: none;
+            margin-left: -1px;
+            z-index: 2;
+            color: #fff;
+            background-color: #3ac4b7;
+            border-color: #dddddd;
+            cursor: default;
+        }
+
+        .pagination-ys table > tbody > tr > td:first-child > a,
+        .pagination-ys table > tbody > tr > td:first-child > span {
+            margin-left: 0;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+        }
+
+        .pagination-ys table > tbody > tr > td:last-child > a,
+        .pagination-ys table > tbody > tr > td:last-child > span {
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .pagination-ys table > tbody > tr > td > a:hover,
+        .pagination-ys table > tbody > tr > td > span:hover,
+        .pagination-ys table > tbody > tr > td > a:focus,
+        .pagination-ys table > tbody > tr > td > span:focus {
+            color: #fff;
+            background-color: #3ac4b7;
+            border-color: #dddddd;
+        }
+
+.table thead {
+    background: #3ac4b7;
+}
+
+    .table thead > tr > th {
+        color: #fff;
+    }
+
+        .table thead > tr > th > a {
+            color: #fff;
+        }
+
+.table tbody > tr > td > a {
+    color: #0e6275;
+}
+
+.details-info-list {
+    list-style: none;
+    font-family: 'Roboto';
+    color: #5d7178;
+}
+
+    .details-info-list span {
+        color: #0e6275;
+    }
+
+.map_popover {
+    width: 340px;
+    height: 163px;
+    background: url(../images/bk_tooltip-pte.png) no-repeat;
+    text-align: left;
+    padding: 10px 0 0 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    cursor: pointer;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin-left: 132px;
+}
+
+    .map_popover a {
+        text-decoration: none;
+        transition: all 0.3s;
+        display: block;
+        text-align: right;
+        padding: 6px 18px 0 0;
+        color: #0e6275;
+        font-weight: 700;
+        font-size: 0.875em;
+    }
+
+        .map_popover a:hover {
+            opacity: 0.9;
+        }
+
+    .map_popover h4 {
+        color: #fff;
+        font-size: 1.5em;
+        font-family: 'PT Sans', sans-serif;
+        margin: 0 0 5px 0;
+        font-weight: 700;
+        padding-left: 0;
+    }
+
+    .map_popover p {
+        font-family: 'PT Sans', sans-serif;
+        color: #fff;
+        font-size: 1em;
+        margin: 0 0 17px 0;
+        padding-left: 0;
+    }
+
+    .map_popover .value {
+        color: #0e6275;
+        font-size: 1.9375em;
+        font-weight: 700;
+        letter-spacing: -1px;
+        text-align: center;
+        display: block;
+        padding-top: 9px;
+    }
+
+.map_popover_close {
+    width: 26px;
+    height: 26px;
+    background: url(../images/btn_close.png) no-repeat;
+    top: -8px !important;
+    right: -8px !important;
+    text-indent: -9999px;
+}
+
+    .map_popover_close:hover {
+        opacity: 0.8;
+    }
+
+@media (max-width: 767px) {
+    .map_popover {
+        left: -100px !important;
+    }
+}
+
+.chart-frame {
+    width: 100%;
+    overflow: auto;
+}
+
+.modal-body .ui-jqchart {
+    margin: 0 auto !important;
+    height: 700px;
+}
+
+    .modal-body .ui-jqchart canvas {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+    }
+
+.modal-body #chartGastos {
+    width: 800px;
+    max-width: 100% !important;
+}

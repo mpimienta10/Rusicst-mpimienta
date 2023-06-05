@@ -1,0 +1,46 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Contáctanos</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                 <div class="sombra panel panel-default">
+                    <div class="panel-heading">Redacción</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="EmailPrueba" class="col-sm-12">Dirección de Contacto:</label>
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" ng-model="registro.CorreoUsuarioContactenos" id="Email" name="Email" required />
+                                <span class="text-danger" ng-show="submitted && myForm.Email.$error.required">{{errorMessages.inputText}}</span>
+                                <span class="text-danger" ng-show="submitted && myForm.Email.$error.email">{{errorMessages.email}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Asunto" class="col-sm-12">Asunto:</label>
+                            <div class="col-sm-12">
+                                <input class="form-control" ng-model="registro.Asunto" id="Asunto" name="Asunto" required />
+                                <span class="text-danger" ng-show="submitted && myForm.Asunto.$error.required">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <textarea ui-tinymce="tinymceOptions" ng-model="registro.Mensaje" name="mensaje" required></textarea>
+                                <span class="text-danger" ng-show="submitted && myForm.mensaje.$error.required">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-sm-12 alert-success text-center" ng-show="submitted && enviado">Correo enviado satisfactoriamente</span>
+                            <span class="col-sm-12 alert-danger text-center" ng-show="submitted && error">{{error}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span ng-show="enviando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        <button class="btnNew" type="submit" ng-click="submitted=true;aceptar()">Enviar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

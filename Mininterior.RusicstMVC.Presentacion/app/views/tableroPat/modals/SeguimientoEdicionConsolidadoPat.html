@@ -1,0 +1,702 @@
+﻿<form role="form" class="form-horizontal" id="registerForm" name="registerForm" novalidate>
+    <div class="modal-header  modal-rejilla">
+        <h4 class="text-center">Derecho: {{tableroDetalle.Derecho}}</h4>
+        <h4 class="text-center">Componente: {{tableroDetalle.Componente}}</h4>
+        <h4 class="text-center">Medida: {{tableroDetalle.Medida}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <!--Pregunta indicativa y explicacion de la pregunta indicativa-->
+            <label class="col-sm-12 p-municipios">Pregunta Indicativa: {{tableroDetalle.PreguntaIndicativa}}</label>
+            <div style="margin-left:15px;margin-right:15px;">
+                <div class="alert alert-success col-sm-12 " role="alert" ng-if="tableroDetalle.ExplicacionPregunta">
+                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                    <span>{{tableroDetalle.ExplicacionPregunta}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--Pregunta indicativa y explicacion de la pregunta indicativa-->
+            <label class="col-sm-12 p-municipios">Necesidad Identificada: {{tableroDetalle.NecesidadIdentificada | number:0}}</label>
+        </div>
+        <div class="row">
+            <label class="col-sm-12 p-alcaldia">Alcaldía: {{tableroDetalle.Municipio}}</label>
+        </div>
+        <!--SEGUIMIENTO ALCALDÍAS-->
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">SEGUIMIENTO ALCALDÍAS</div>
+            <div class="panel-body">
+                <!--titulos-->
+                <div class="col-sm-12 sin-padding" style="padding-left: 0px;">
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 control-label"> </label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 control-label">Planeación Inicial</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Planeación Definitivo</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Seguimiento I</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Seguimiento II</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Total Seguimiento</label>
+                    </div>
+                </div>
+                <!--textos-->
+                <div class="col-sm-12 sin-padding" style="padding-left: 0px;">
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label">Compromiso: </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label">Presupuesto ($): </label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--compromiso-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="number" id="respuesta_compromisoa" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.RespuestaCompromiso" name="respuesta_compromisoa" ng-trim="true" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    {{datosSegAlcaldia.Presupuesto | currency:"$"}}
+                                    <input type="number" id="presupuestog" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.Presupuesto" name="presupuestog" ng-trim="true" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--compromiso definitivo-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="number" id="respuesta_compromisoDefinitivo" class="form-control input-sm" placeholder="número" ng_model="datosSegAlcaldia.CompromisoDefinitivo" name="respuesta_compromisoDefinitivo" ng-trim="true" disabled />                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    {{datosSegAlcaldia.PresupuestoDefinitivo | currency:"$"}}
+                                    <input type="number" id="presupuestoDefinitivo" class="form-control input-sm" placeholder="número" ng_model="datosSegAlcaldia.PresupuestoDefinitivo" name="presupuestoDefinitivo" ng-trim="true" disabled/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Primer Semestre-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="number" id="cantidad1g" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.CompromisoPrimerSemestre" name="cantidad1g" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    {{datosSegAlcaldia.PresupuestoPrimerSemestre | currency:"$"}}
+                                    <div class="input-group">
+                                        <input type="number" id="presupuesto1g" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.PresupuestoPrimerSemestre" name="presupuesto1g" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--segundo  Semestre-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input type="number" id="cantidad2g" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.CompromisoSegundoSemestre" name="cantidad2" disabled value="0" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{datosSegAlcaldia.PresupuestoSegundoSemestre | currency:"$"}}
+                                <div class="input-group">
+                                    <input type="number" id="presupuesto2g" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.PresupuestoSegundoSemestre" name="presupuesto2g" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--total-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="number" id="cantidadTg" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.CompromisoTotal" name="cantidadTg" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{datosSegAlcaldia.PresupuestoTotal | currency:"$"}}
+                                <input type="number" id="presupuestoTg" class="form-control input-sm" placeholder="" ng_model="datosSegAlcaldia.PresupuestoTotal" name="presupuestoTg" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--informacion complementaria 1 semestre-->
+                <div class="col-sm-6 sin-padding" style="padding-left: 0px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Información complementaria 1º Semestre</div>
+                        <div class="panel-body">
+                            <!--programas-->
+
+                            <label class="col-sm-12" for="nombre">Programas:</label>
+                            <div class="col-sm-12 sin-padding" ng-show="programasAgregadosAlcaldia1.length>0">
+                                <table class="table table-striped table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-sm-8">Programa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-if="programasAgregadosAlcaldia1">
+                                        <tr ng-repeat="item in programasAgregadosAlcaldia1">
+                                            <td>{{item.PROGRAMA}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--observaciones-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class=" col-sm-12" for="nombre">Observaciones:</label>
+                                    <div class="col-sm-12">
+                                        <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="" id="OBSERVACIONES_SEGUIMIENTO" ng_model="datosSegAlcaldia.ObservacionesSeguimiento" name="OBSERVACIONES_SEGUIMIENTO" ng-trim="true" ng-maxlength="4000" disabled></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--adjunto-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12" for="nombre">Adjunto:</label>
+                                    <div class="col-sm-12" ng-if="datosSegAlcaldia.AdjuntoSeguimiento != ''">
+                                        <a href="" ng-click="descargarAlcaldias($index,1)"> {{datosSegAlcaldia.AdjuntoSeguimiento}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--informacion complementaria 2 semestre-->
+                <div class="col-sm-6 sin-padding" style="padding-right: 0px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Información complementaria 2º Semestre</div>
+                        <div class="panel-body">
+                            <!--programas-->
+
+                            <label class="col-sm-12" for="nombre2">Programas:</label>
+                            <div class="col-sm-12 sin-padding" ng-show="programasAgregadosAlcaldia2.length>0">
+                                <table class="table table-striped table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-sm-8">Programa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-if="programasAgregadosAlcaldia2">
+                                        <tr ng-repeat="item in programasAgregadosAlcaldia2">
+                                            <td>{{item.PROGRAMA}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--observaciones-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class=" col-sm-12" for="nombre2">Observaciones:</label>
+                                    <div class="col-sm-12">
+                                        <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="" id="OBSERVACIONES_SEGUIMIENTO2" ng_model="datosSegAlcaldia.ObservacionesSegundo" name="OBSERVACIONES_SEGUIMIENTO2" ng-trim="true" ng-maxlength="4000" disabled></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--adjunto-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12" for="nombre2">Adjunto:</label>
+                                    <div class="col-sm-12" ng-if="datosSegAlcaldia.NombreAdjuntoSegundo && datosSegAlcaldia.NombreAdjuntoSegundo != ''">
+                                        <a href="" ng-click="descargarAlcaldias($index,2)"> {{datosSegAlcaldia.NombreAdjuntoSegundo}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 sin-padding" style="padding-right: 0px;">
+                    <span class="col-sm-12 text-danger" ng-show="registerForm.$error.maxSize || error.maxSize || errorFile.$error.maxSize || errorFile.$errorMessages.maxSize">{{errorMessages.fileRequired}} {{errorMessages.maxSize}}</span>
+                    <span class="col-sm-12 text-danger" ng-show="submitted && !extension"> {{errorMessages.extension}} </span>
+                </div>
+            </div>
+        </div>
+        <!--SEGUIMIENTO GOBERNACIONES-->
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">SEGUIMIENTO GOBERNACIONES {{anoSeguimiento}}</div>
+            <div class="panel-body">
+                <!--titulos-->
+                <div class="col-sm-12 sin-padding" style="padding-left: 0px;">
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 control-label"> </label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 control-label">Planeación Inicial</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Planeación Definitivo</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Seguimiento I</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Seguimiento II</label>
+                    </div>
+                    <div class="col-sm-2 sin-padding">
+                        <label class="col-sm-12 text-center">Total Seguimiento</label>
+                    </div>
+                </div>
+                <!--textos-->
+                <div class="col-sm-12 sin-padding" style="padding-left: 0px;">
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label">Compromiso: </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label">Presupuesto ($): </label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--compromiso-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="number" id="respuesta_compromiso" class="form-control input-sm" placeholder="número" ng_model="tableroDetalle.CompromisoGobernacion" name="respuesta_compromiso" ng-trim="true" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    {{datosRespuesta.Presupuesto | currency:"$"}}
+                                    <input type="number" id="presupuesto" class="form-control input-sm" placeholder="número" ng_model="tableroDetalle.Presupuesto" name="presupuesto" ng-trim="true" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--compromiso definitivo-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <input type="number" id="respuesta_compromisoDefinitivo" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.CompromisoDefinitivo" name="respuesta_compromisoDefinitivo" ng-trim="true" ng-disabled="seguimiento != 1" ng-required="seguimiento == 1" />
+                                    <span class="text-danger" ng-show="submitted && !registerForm.respuesta_compromisoDefinitivo.$valid && seguimiento == 2">Es un número entero</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    {{datosRespuesta.PresupuestoDefinitivo | currency:"$"}}
+                                    <input type="number" id="presupuestoDefinitivo" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.PresupuestoDefinitivo" name="presupuestoDefinitivo" ng-trim="true" ng-disabled="seguimiento != 1" ng-required="seguimiento == 1" />
+                                    <span class="text-danger" ng-show="submitted && !registerForm.presupuestoDefinitivo.$valid && seguimiento == 2">Es un número entero obligatorio entre 0 y 99.999.999.000.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Primer Semestre-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding" style="border-right-width: 10px;padding-right: 20px;">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span ng-show="replaced1" class="input-group-addon" uib-tooltip="Este Valor no se ha Guardado aún" tooltip-placement="top" tooltip-trigger="'mouseenter'"><i class="glyphicon glyphicon-info-sign"></i></span>
+                                    <input type="number" id="cantidad1" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.CantidadPrimer" name="cantidad1" ng-trim="true" ng-pattern="/^[0-9]*$/" min="0" max="9999999" ng-disabled="seguimiento != 1" ng-required="seguimiento == 1" ng-change="sumTotalCantidad()" />
+                                </div>
+                                <span class="text-danger col-sm-12" ng-show="submitted && !registerForm.cantidad1.$valid && seguimiento == 1">Es un número entero obligatorio entre 0 y 9.999.999</span>
+                            </div>
+                            <div class="form-group">
+                                {{datosRespuesta.PresupuestoPrimer | currency:"$"}}
+                                <div class="input-group">
+                                    <span ng-show="replaced2" class="input-group-addon" uib-tooltip="Este Valor no se ha Guardado aún" tooltip-placement="top" tooltip-trigger="'mouseenter'"><i class="glyphicon glyphicon-info-sign"></i></span>
+                                    <input type="number" id="presupuesto1" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.PresupuestoPrimer" name="presupuesto1" ng-trim="true" ng-pattern="/^[0-9]+(\.[0-9]{1,4})?$/" min="0" max="99999999000000" ng-disabled="seguimiento != 1" ng-required="seguimiento == 1" ng-change="sumTotalPresupuesto()" />
+                                </div>
+                                <span class="text-danger" ng-show="submitted && !registerForm.presupuesto1.$valid && seguimiento == 1">Es un número entero obligatorio entre 0 y 99.999.999.000.000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--segundo  Semestre-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="sin-padding">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span ng-show="replaced3" class="input-group-addon" uib-tooltip="Este Valor no se ha Guardado aún" tooltip-placement="top" tooltip-trigger="'mouseenter'"><i class="glyphicon glyphicon-info-sign"></i></span>
+                                    <input type="number" id="cantidad2" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.CantidadSegundo" name="cantidad2" ng-trim="true" ng-pattern="/^-?[0-9]+$/" min="-1" max="9999999" ng-disabled="seguimiento != 2" ng-required="seguimiento == 2" ng-change="sumTotalCantidad2()" value="0" />
+                                </div>
+                                <span class="text-danger  col-sm-12" ng-show="submitted && !registerForm.cantidad2.$valid">Es un número entero obligatorio entre 0 y 9.999.999</span>
+                            </div>
+                            <div class="form-group">
+                                {{datosRespuesta.PresupuestoSegundo | currency:"$"}}
+                                <div class="input-group">
+                                    <span ng-show="replaced4" class="input-group-addon" uib-tooltip="Este Valor no se ha Guardado aún" tooltip-placement="top" tooltip-trigger="'mouseenter'"><i class="glyphicon glyphicon-info-sign"></i></span>
+                                    <input type="number" id="presupuesto2" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.PresupuestoSegundo" name="presupuesto2" ng-trim="true" ng-pattern="/^-?[0-9]+(\.[0-9]{1,4})?$/" min="-1" max="99999999000000" ng-disabled="seguimiento != 2" ng-required="seguimiento == 2" ng-change="sumTotalPresupuesto2()" />
+                                </div>
+                                <span class="text-danger" ng-show="submitted && !registerForm.presupuesto2.$valid && seguimiento == 2">Es un número entero obligatorio entre 0 y 99.999.999.000.000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--total-->
+                    <div class="col-sm-2 sin-padding">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="number" id="cantidadT" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.COMPROMISO_TOTAL" name="cantidadT" ng-trim="true" ng-pattern="/^-?[0-9]+$/" min="0" max="9999999" disabled />
+                                <span class="text-danger" ng-show="submitted && !registerForm.cantidadT.$valid">Es un número entero obligatorio entre 0 y 9.999.999</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{datosRespuesta.PRESUPUESTO_TOTAL | currency:"$"}}
+                                <input type="number" id="presupuestoT" class="form-control input-sm" placeholder="número" ng_model="datosRespuesta.PRESUPUESTO_TOTAL" name="presupuestoT" ng-trim="true" ng-pattern="/^-?[0-9]+(\.[0-9]{1,4})?$/" min="0" max="99999999000000" disabled />
+                                <span class="text-danger" ng-show="submitted && !registerForm.presupuestoT.$valid">Es un número entero obligatorio entre 0 y 99.999.999.000.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Observaciones ajuste planeación-->
+                <div class="col-sm-12 sin-padding" style="padding-left: 0px;">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <label class=" col-sm-12" for="OBSERVACIONES_AJUSTE_PLANEACION">Observaciones ajuste planeación:</label>
+                            <div class="col-sm-12">
+                                <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="Observaciones ajuste planeación si las hay" id="OBSERVACIONES_AJUSTE_PLANEACION" ng_model="datosRespuesta.ObservacionesDefinitivo" name="OBSERVACIONES_AJUSTE_PLANEACION" ng-trim="true" ng-maxlength="4000" ng-disabled="seguimiento != 2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--informacion complementaria 1 semestre-->
+                <div class="col-sm-6 sin-padding" style="padding-left: 0px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Información complementaria 1º Semestre</div>
+                        <div class="panel-body">
+                            <!--programas-->
+
+                            <label class="col-sm-12" for="nombre">Programa:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="programa" placeholder="Nuevo programa a realizar" class="form-control input-sm" ng_model="tablero.PROGRAMA" ng-trim="true" name="programa" ng-disabled="seguimiento != 1" />
+                                <span class="text-danger">{{errors.PROGRAMA}}</span><br />
+                            </div>
+                            <div class="col-sm-2" style="padding-left: 0px;    padding-right: 0px;" ng-if="activo">
+                                <button type="button" class="btn btnNew" ng-click="agregarPrograma(1)" style="margin:0px;padding-right: 10px;" ng-disabled="seguimiento != 1">
+                                    Agregar
+                                </button>
+                            </div>
+
+                            <div class="col-sm-12 sin-padding" ng-show="programasAgregados1.length>0">
+                                <table class="table table-striped table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-sm-8">Programa</th>
+                                            <th class="col-sm-2 text-center">Eliminar</th>
+                                            <th class="col-sm-2 text-center">Editar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-if="programasAgregados1">
+                                        <tr ng-repeat="item in programasAgregados1">
+                                            <td>{{item.PROGRAMA}}</td>
+                                            <td align="center">
+                                                <a class="glyphicon glyphicon-remove-circle text-danger link" title="Borrar Programa" ng-hide="seguimiento != 1" ng-click="borrarPrograma($index)"></a>
+                                            </td>
+                                            <td align="center">
+                                                <a class="glyphicon glyphicon-edit text-danger link" title="Editar Programa" ng-hide="seguimiento != 1" ng-click="EditarPrograma($index)"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--observaciones-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class=" col-sm-12" for="nombre">Observaciones:</label>
+                                    <div class="col-sm-12">
+                                        <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="Observación del seguimiento si las hay" id="OBSERVACIONES_SEGUIMIENTO" ng_model="datosRespuesta.Observaciones" name="OBSERVACIONES_SEGUIMIENTO" ng-trim="true" ng-maxlength="4000" ng-disabled="seguimiento != 1"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--adjunto-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12" for="nombre">Adjunto:</label>
+                                    <div class="col-sm-12" ng-if="datosRespuesta.NombreAdjunto != ''">
+                                        <a href="" ng-click="descargar($index,1)"> {{datosRespuesta.NombreAdjunto}}</a>
+                                        <!--<a href="" ng-click="descargar($index)">Ver Adjunto</a>-->
+                                        <a class="glyphicon glyphicon-remove-circle text-danger link" title="Eliminar Archivo" ng-hide="seguimiento != 1" ng-click="borrarAdjunto(1)">Eliminar Archivo</a>
+                                    </div>
+                                    <div class="col-sm-12" ng-show="datosRespuesta.NombreAdjunto == ''">
+                                        <input type="file" ngf-select ng-model="file" name="file" 
+                                               ngf-max-size="10MB" 
+                                               ngf-validate-fn="validarArchivo($file)" 
+                                               ngf-model-invalid="errorFile" style="width:100%;" 
+                                               ng-disabled="seguimiento != 1" />
+                                        <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 10MB</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--informacion complementaria 2 semestre-->
+                <div class="col-sm-6 sin-padding" style="padding-right: 0px;">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Información complementaria 2º Semestre</div>
+                        <div class="panel-body">
+                            <!--programas-->
+
+                            <label class="col-sm-12" for="nombre2">Programa:</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="programa2" placeholder="Nuevo programa a realizar" class="form-control input-sm" ng_model="tablero.PROGRAMA2" ng-trim="true" name="programa2" ng-disabled="seguimiento != 2" />
+                                <span class="text-danger">{{errors.PROGRAMA2}}</span><br />
+                            </div>
+                            <div class="col-sm-2" style="padding-left: 0px;    padding-right: 0px;" ng-if="activo">
+                                <button type="button" class="btn btnNew" ng-click="agregarPrograma(2)" style="margin:0px;padding-right: 10px;" ng-disabled="seguimiento != 2">
+                                    Agregar
+                                </button>
+                            </div>
+
+                            <div class="col-sm-12 sin-padding" ng-show="programasAgregados2.length>0">
+                                <table class="table table-striped table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-sm-8">Programa</th>
+                                            <th class="col-sm-2 text-center">Eliminar</th>
+                                            <th class="col-sm-2 text-center">Editar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-if="programasAgregados2">
+                                        <tr ng-repeat="item in programasAgregados2">
+                                            <td>{{item.PROGRAMA}}</td>
+                                            <td align="center">
+                                                <a class="glyphicon glyphicon-remove-circle text-danger link" title="Borrar Programa" ng-hide="seguimiento != 2" ng-click="borrarPrograma2($index)"></a>
+                                            </td>
+                                            <td align="center">
+                                                <a class="glyphicon glyphicon-edit text-danger link" title="Editar Programa" ng-hide="seguimiento != 2" ng-click="EditarPrograma2($index)"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--observaciones-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class=" col-sm-12" for="nombre2">Observaciones:</label>
+                                    <div class="col-sm-12">
+                                        <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="Observación del seguimiento si las hay" id="OBSERVACIONES_SEGUIMIENTO2" ng_model="datosRespuesta.ObservacionesSegundo" name="OBSERVACIONES_SEGUIMIENTO2" ng-trim="true" ng-maxlength="4000" ng-disabled="seguimiento != 2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--adjunto-->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12" for="nombre2">Adjunto:</label>
+                                    <div class="col-sm-12" ng-if="datosRespuesta.NombreAdjuntoSegundo && datosRespuesta.NombreAdjuntoSegundo != ''">
+                                        <a href="" ng-click="descargar($index,2)"> {{datosRespuesta.NombreAdjuntoSegundo}}</a>
+                                        <a class="glyphicon glyphicon-remove-circle text-danger link" title="Eliminar Archivo" ng-hide="seguimiento != 2" ng-click="borrarAdjunto(2)">Eliminar Archivo</a>
+                                    </div>
+                                    <div class="col-sm-12" ng-show="!datosRespuesta.NombreAdjuntoSegundo || datosRespuesta.NombreAdjuntoSegundo == ''">
+                                        <input type="file" ngf-select ng-model="file2" name="file2" 
+                                               ngf-max-size="10MB" 
+                                               ngf-validate-fn="validarArchivo($file)"  
+                                               ngf-model-invalid="errorFile2" style="width:100%;" 
+                                               ng-disabled="seguimiento != 2" />
+                                        <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 10MB</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 sin-padding" style="padding-right: 0px;">
+                    <span class="col-sm-12 text-danger" ng-show="registerForm.$error.maxSize || error.maxSize || errorFile.$error.maxSize || errorFile.$errorMessages.maxSize">{{errorMessages.fileRequired}} {{errorMessages.maxSize}}</span>
+                    <span class="col-sm-12 text-danger" ng-show="submitted && !extension"> {{errorMessages.extension}} </span>
+                </div>
+            </div>
+        </div>
+        <!--SEGUIMIENTO NACIONAL-->
+        <!--SEGUIMIENTO NACIONAL-->
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">SEGUIMIENTO NACIONAL</div>
+            <div class="panel-body">
+                <!--titulos-->
+                <div class="col-sm-3 sin-padding">
+                    <label class="col-sm-12 control-label"> </label>
+                </div>
+                <div class="col-sm-2 sin-padding">
+                    <label class="col-sm-12 control-label"> </label>
+                </div>
+                <div class="col-sm-2 sin-padding">
+                    <label class="col-sm-12 text-center">SEGUIMIENTO 1º SEMESTRE</label>
+                </div>
+                <div class="col-sm-2 sin-padding">
+                    <label class="col-sm-12 text-center">SEGUIMIENTO 2º SEMESTRE </label>
+                </div>
+                <div class="col-sm-2 sin-padding">
+                    <label class="col-sm-12 text-center">SEGUIMIENTO TOTAL VIGENCIA </label>
+                </div>
+                <!--textos-->
+                <div class="col-sm-3 sin-padding">
+                    <div class="sin-padding">
+                        <div class="form-group">
+                            <label class="col-sm-12 control-label">Compromiso: </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12 control-label">Presupuesto ($): </label>
+
+                        </div>
+                    </div>
+                </div>
+                <!--compromiso-->
+                <div class="col-sm-2 sin-padding">
+                    <div class="sin-padding">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="number" id="respuesta_compromisno" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.CompromisoN" name="respuesta_compromison" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{datosSegNacional.PresupuestoN | currency:"$"}}
+                                <input type="number" id="presupueston" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.PresupuestoN" name="presupueston" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Primer Semestre-->
+                <div class="col-sm-2 sin-padding">
+                    <div class="sin-padding">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="number" id="cantidad1n" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.CantidadPrimerSemestreN" name="cantidad1n" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                {{datosSegNacional.PresupuestoPrimerSemestreN | currency:"$"}}
+                                <div class="input-group">
+                                    <input type="number" id="presupuesto1n" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.PresupuestoPrimerSemestreN" name="presupuesto1n" disabled />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--segundo  Semestre-->
+                <div class="col-sm-2 sin-padding">
+                    <div class="sin-padding">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="number" id="cantidad2n" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.CantidadSegundoSemestreN" name="cantidad2n" disabled value="0" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{datosSegNacional.PresupuestoSegundoSemestreN | currency:"$"}}
+                            <div class="input-group">
+                                <input type="number" id="presupuesto2n" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.PresupuestoSegundoSemestreN" name="presupuesto2n" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--total-->
+                <div class="col-sm-2 sin-padding">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="number" id="cantidadTn" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.CompromisoTotalN" name="cantidadT" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            {{datosSegNacional.PresupuestoTotalN | currency:"$"}}
+                            <input type="number" id="presupuestoTn" class="form-control input-sm" placeholder="" ng_model="datosSegNacional.PresupuestoTotalN" name="presupuestoTn" disabled />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 tab-pane fade in active sin-padding table-responsive">
+                    <table class="table table-striped table-bordered table-condensed" style="max-width: 120%; width: 90%; margin-left: auto; margin-right: auto;">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle" rowspan="2">Entidad Nacional</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle" colspan="2">PLANEACIÓN</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle" colspan="2">SEGUIMIENTO 1</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle" colspan="2">SEGUIMIENTO 2</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle" rowspan="2">Ver mas</th>
+                            </tr>
+                            <tr>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">COMPROMISO</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">PRESUPUESTO</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">COMPROMISO</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">PRESUPUESTO</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">COMPROMISO</th>
+                                <th class="col-sm-1 titulo-tabla-pat" style="vertical-align:middle">PRESUPUESTO</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-if="datosPrecargueNacional">
+                            <tr ng-repeat="item in datosPrecargueNacional">
+                                <td>{{item.EntidadNacional}}</td>
+
+                                <td align="right">{{item.PlanCompromiso | number:0}}</td>
+                                <td align="right">{{item.PlanPresupuesto | currency:"$": ''}}</td>
+
+                                <td align="right">{{item.SegCompromiso1 | number:0}}</td>
+                                <td align="right">{{item.SegPresupuesto1 | currency:"$": ''}}</td>
+
+                                <td align="right">{{item.SegCompromiso2 | number:0}}</td>
+                                <td align="right">{{item.SegPresupuesto2 | currency:"$": ''}}</td>
+                                <td align="center">
+                                    <a href="" class="text-center" title="Ver Observaciones y Programas" ng-click="VerMas($index)">{{(item.Observaciones.length>0 || item.Programas.length>0)? 'Ver': ' '}}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Datos precargue por pregunta y municipio-->
+                <!--<div class="col-sm-12 sin-padding">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label class="col-sm-2" style="margin-top: 30px;" for="Dato1">Cantidad:</label>
+                        <div class="col-sm-10">
+                            <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="" id="Dato1" ng_model="datosPrecargueNacional.Cantidad" name="Dato1" ng-trim="true" disabled ng-maxlength="4000"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label class="col-sm-2" style="margin-top: 30px;" for="Dato2">Presupuesto:</label>
+                        <div class="col-sm-10">
+                            <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="" id="Dato2" ng_model="datosPrecargueNacional.Presupuesto" name="Dato2" ng-trim="true" disabled  ng-maxlength="4000"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label class="col-sm-2" style="margin-top: 30px;" for="Dato3">Dato 3:</label>
+                        <div class="col-sm-10">
+                            <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="" id="Dato3" ng_model="datosPrecargueNacional.Dato3" name="Dato3" ng-trim="true" disabled ng-maxlength="4000"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            </div>
+        </div>
+        <span class="text-danger" ng-show="submitted && !registerForm.$valid">Existen errores en el formulario. Por favor verifique e intente de nuevo.</span>
+        <span class="text-danger" ng-show="error">{{error}}</span>
+    </div>
+    <div class="modal-footer" ng-if="activo">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()" style="margin:0px;" ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()" style="margin:0px;">Cancelar</button>
+    </div>
+    <div class="modal-footer" ng-if="!activo">
+        <button class="btn btnNew" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row">
+        <h2> Usuarios Iniciaron Sesión en el Sistema</h2>
+    </div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" novalidate>
+            <div class="form-group padding-top-10 col-sm-6">
+                <label class="col-sm-2 control-label" for="encuestaSelect">Encuesta:</label>
+                <div class="col-sm-8">
+                    <select id="encuestaSelect" name="encuestaSelect" ng-model="EncuestaSeleccionada"
+                            class="form-control input-sm ng-pristine ng-valid" required>
+                        <option ng-repeat="item in encuestas" value="{{item.Id}}">{{item.Titulo}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btnNew col-sm-2" ng-click="buscar()" value="Buscar" />
+            </div>
+            <div class="form-group pull-right">
+                <button class="btn btn-default pull-right" ng-if="isGrid" ng-click="limpiarAgrupacion();">
+                    <i class="fa fa-object-ungroup"></i> limpiarAgrupacion
+                </button>
+            </div>
+        </form>
+    </div>    
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row">
+        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla"> Usuarios que Iniciaron Sesión</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+        <!--@*<div class="margin-top">
+            <button type="button" class="btn btn-primary" ng-click="openPopUp()" ng-if="isGrid">
+                <span class="glyphicon glyphicon-plus"></span> Crear Filtro
+            </button>
+        </div>*@-->
+    </div>   
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>  
+

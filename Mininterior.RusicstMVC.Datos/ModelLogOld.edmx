@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModeloContextoLogOld.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="C_ListaCategoryLogOld" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="C_LogOld" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LogID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="C_LogXCategoriaExportarOld" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="C_LogXCategoriaOld" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+          <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModeloContextoLogOldStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModeloContextoLogOld" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesRusicstLogOld" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="C_ListaCategoryLogOld" ReturnType="Collection(ModeloContextoLogOld.C_ListaCategoryLogOld_Result)" />
+          <FunctionImport Name="C_LogXCategoriaExportarOld" ReturnType="Collection(ModeloContextoLogOld.C_LogXCategoriaExportarOld_Result)">
+            <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="C_LogXCategoriaOld" ReturnType="Collection(ModeloContextoLogOld.C_LogXCategoriaOld_Result)">
+            <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="FechaInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="C_LogOld" ReturnType="Collection(ModeloContextoLogOld.C_LogOld_Result)">
+            <Parameter Name="LogID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="C_ListaCategoryLogOld_Result">
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="64" />
+        </ComplexType>
+        <ComplexType Name="C_LogXCategoriaExportarOld_Result">
+          <Property Type="Int32" Name="LogID" Nullable="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Categoria" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="UrlYBrowser" Nullable="true" MaxLength="1500" />
+          <Property Type="String" Name="Mensaje" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="C_LogXCategoriaOld_Result">
+          <Property Type="Int32" Name="LogID" Nullable="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Fecha" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Categoria" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="UrlYBrowser" Nullable="true" MaxLength="1500" />
+        </ComplexType>
+        <ComplexType Name="C_LogOld_Result">
+          <Property Type="Int32" Name="LogID" Nullable="false" />
+          <Property Type="Int32" Name="EventID" Nullable="true" />
+          <Property Type="Int32" Name="Priority" Nullable="false" />
+          <Property Type="String" Name="Severity" Nullable="false" MaxLength="32" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="256" />
+          <Property Type="DateTime" Name="Timestamp" Nullable="false" Precision="23" />
+          <Property Type="String" Name="MachineName" Nullable="false" MaxLength="32" />
+          <Property Type="String" Name="AppDomainName" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="ProcessID" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="ProcessName" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="ThreadName" Nullable="true" MaxLength="512" />
+          <Property Type="String" Name="Win32ThreadId" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="1500" />
+          <Property Type="String" Name="FormattedMessage" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModeloContextoLogOldStoreContainer" CdmEntityContainer="EntitiesRusicstLogOld" >
+          <FunctionImportMapping FunctionImportName="C_ListaCategoryLogOld" FunctionName="ModeloContextoLogOld.Store.C_ListaCategoryLogOld">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModeloContextoLogOld.C_ListaCategoryLogOld_Result">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="C_LogXCategoriaExportarOld" FunctionName="ModeloContextoLogOld.Store.C_LogXCategoriaExportarOld">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModeloContextoLogOld.C_LogXCategoriaExportarOld_Result">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="UrlYBrowser" ColumnName="UrlYBrowser" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="C_LogXCategoriaOld" FunctionName="ModeloContextoLogOld.Store.C_LogXCategoriaOld">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModeloContextoLogOld.C_LogXCategoriaOld_Result">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="UrlYBrowser" ColumnName="UrlYBrowser" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="C_LogOld" FunctionName="ModeloContextoLogOld.Store.C_LogOld">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModeloContextoLogOld.C_LogOld_Result">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="AppDomainName" ColumnName="AppDomainName" />
+                <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="ThreadName" ColumnName="ThreadName" />
+                <ScalarProperty Name="Win32ThreadId" ColumnName="Win32ThreadId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="FormattedMessage" ColumnName="FormattedMessage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,141 @@
+﻿<form class="" role="form" name="myForm">
+    <div class="">
+        <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+        </div>
+        <div class="row" style="margin-bottom: 10px;"> <h2>Módulo de Seguimiento Semestral al Plan de Mejoramiento {{datosPlan.FechaSeguimiento}}</h2></div>
+        <div class="row" style="margin-bottom: 10px;"> <h4>{{datosPlan.MensajeSeguimiento}}</h4></div>
+        <div class="row" style="margin-bottom: 10px;">
+            <!-- Aca va los botones de exportar-->
+            &nbsp;
+            <div class="col-sm-12">
+                <button class="btn btn-default pull-right" ng-click="exportar()"> Exportar PDF</button>
+                <button class="btn btn-default pull-right" ng-click="exportarExcel()"> Exportar Excel</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        </div>
+
+        <div class="row">
+            <div id="exportthis">
+
+                <!--Se arma los acordeones-->
+                <uib-accordion close-others="false" ng-repeat="seccion in datos" ng-init="outerIndex = $index">
+                    <!--Se arma las secciones - directiva-->
+                    <!--<pintar-secciones seccion="item">-->
+                    <div uib-accordion-group class="panel-default" is-open="seccion.expandido" style="overflow: auto;">
+                        <uib-accordion-heading>
+                            <div class="ui-accordion-header-plan">{{seccion.Titulo}} <i class="pull-right fa" ng-class="{'fa-chevron-down': seccion.expandido, 'fa-chevron-right': !seccion.expandido}"></i></div>
+                        </uib-accordion-heading>
+
+                        <table id="RecomendaTable" class="tablePlan" style="width: 100%;">
+
+                            <thead>
+                                <tr class="trPlan" style="background-color: rgb(231, 230, 230);">
+                                    <th class="headerCell" rowspan="2">Objetivo</th>
+                                    <th class="headerCell" rowspan="2">Estrategia</th>
+                                    <th class="headerCell" rowspan="2">Acción a Realizar</th>
+                                    <th class="headerCell" colspan="2">Tiempos de Ejecución</th>
+                                    <th class="headerCell" rowspan="2">Estado de la Acción a {{fechaFinCol}}</th>
+                                    <th class="headerCell" rowspan="2">Descripción del Estado</th>
+                                    <th class="headerCell" rowspan="2">Autoevaluación</th>
+                                    <th class="headerCell hidePorc" rowspan="2">Coincide con el Rusicst</th>
+                                </tr>
+                                <tr class="trPlan" style="background-color: rgb(231, 230, 230);">
+                                    <th class="headerCell">Fecha Inicio</th>
+                                    <th class="headerCell">Fecha Final</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="objetivo in seccion.objetivos" ng-init="objetivoIndex = $index">
+                                <tr class="trPlan" ng-repeat="accion in objetivo.acciones" ng-init="innerIndex = $index">
+                                    <td class="tdRec col-sm-1" rowspan="{{objetivo.rowSpan}}" ng-if="((objetivo.ObjetivoGeneral != accion.ObjetivoGeneral) || (innerIndex == 0))" style="background-color: rgba(231, 230, 230, 0.4);">
+                                        {{objetivo.ObjetivoGeneral}}
+                                    </td>
+                                    <td class="tdRec col-sm-1" rowspan="{{objetivo.rowSpan}}" ng-if="((objetivo.ObjetivoGeneral != accion.ObjetivoGeneral) || (innerIndex == 0))" style="background-color: rgba(231, 230, 230, 0.4);">
+                                        {{objetivo.Estrategia}}
+                                    </td>
+                                    <td class="tdRec col-sm-1" style="background-color: rgba(231, 230, 230, 0.4);">
+                                        {{accion.Accion}}
+                                    </td>
+                                    <td class="tdRec col-sm-1" style="background-color: rgba(231, 230, 230, 0.4);">
+                                        {{accion.FechaInicioEjecucion | date:'dd/MM/yyyy'}}
+                                    </td>
+                                    <td class="tdRec col-sm-1" style="background-color: rgba(231, 230, 230, 0.4);">
+                                        {{accion.FechaFinEjecucion | date:'dd/MM/yyyy'}}
+                                    </td>
+
+                                    <td class="tdRec">
+                                        <select id="Estado{{outerIndex}}{{objetivoIndex}}{{innerIndex}}" name="Estado{{outerIndex}}{{objetivoIndex}}{{innerIndex}}"
+                                                ng-model="accion.IdEstadoAccion" class="form-control input-sm ng-valid"
+                                                style="width: 130px; margin-left: auto; margin-right: auto;"
+                                                ng-options="c.IdEstadoAccion as c.EstadoAccion for c in listaEstados"></select>
+                                        <span class="text-danger" ng-show="submitted && myForm.Estado{{outerIndex}}{{objetivoIndex}}{{innerIndex}}.$error.required">Campo obligatorio</span>
+                                    </td>
+                                    <td class="tdRec">
+                                        <textarea id="txtDescripcionEstado{{outerIndex}}{{objetivoIndex}}{{innerIndex}}" name="txtDescripcionEstado{{outerIndex}}{{objetivoIndex}}{{innerIndex}}"
+                                                  class="form-control"
+                                                  style="width: 200px; max-width:200px !important; max-height: 250px !important;" rows="2"
+                                                  maxlength="500"
+                                                  ng-model="accion.DescripcionEstado"
+                                                  ng-required="accion.IdEstadoAccion != 3 && accion.IdEstadoAccion != null"></textarea>
+                                        <span class="text-danger" ng-show="submitted && myForm.txtDescripcionEstado{{outerIndex}}{{objetivoIndex}}{{innerIndex}}.$error.required">Campo obligatorio</span>
+                                        <span class="text-danger" ng-show="myForm.txtDescripcionEstado{{outerIndex}}{{objetivoIndex}}{{innerIndex}}.$error.maxlength">La longitud de campo debe tener menos de 500 caracteres.</span>
+                                    </td>
+                                    <td class="tdRec">
+                                        <select id="Autoeval{{outerIndex}}{{objetivoIndex}}{{innerIndex}}" name="Autoeval{{outerIndex}}{{objetivoIndex}}{{innerIndex}}"
+                                                ng-model="accion.IdAutoevaluacion" class="form-control input-sm ng-valid"
+                                                style="width: 80px; margin-left: auto; margin-right: auto;"
+                                                ng-options="c.IdAutoevaluacion as c.Autoevaluacion for c in listaAutoeva"
+                                                ng-required="accion.IdEstadoAccion != null"></select>
+                                        <span class="text-danger" ng-show="submitted && myForm.Autoeval{{outerIndex}}{{objetivoIndex}}{{innerIndex}}.$error.required">Campo obligatorio</span>
+                                    </td>
+
+                                    <td class="tdRec hidePorc" rowspan="{{objetivo.rowSpan}}" ng-if="((objetivo.ObjetivoGeneral != accion.ObjetivoGeneral) || (innerIndex == 0))" style="background-color: rgba(231, 230, 230, 0.4); text-align: center;">
+                                        {{accion.CoincideRusicst == true ? "Si": "No"}}
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </uib-accordion>
+            </div>
+
+            <uib-accordion close-others="false">
+                <div uib-accordion-group class="panel-default" style="overflow: auto;">
+                    <uib-accordion-heading>
+                        <div class="ui-accordion-header-plan">Adjuntar Archivo <i class="pull-right fa" ng-class="{'fa-chevron-down': openFile, 'fa-chevron-right': !openFile}"></i></div>
+                    </uib-accordion-heading>
+
+                    <input type="file" ngf-select="" ng-model="datos.file" name="filen" id="filen"
+                           ng-show="fileIsVacio"
+                           ngf-validate-fn="validarArchivo($file)"
+                           ngf-max-size="10MB"
+                           ngf-model-invalid="errorFile" style="width:100%;" />
+                    <span class="col-sm-12 text-danger text-center" ng-show="submitted && errorFile.$errorMessages.maxSize">
+                        El tamaño máximo del archivo es de 10MB
+                    </span>
+
+                    <div uib-alert class="alert alert-link archivo-alerta" close="cerrar();" ng-show="!fileIsVacio">
+                        <a href="" ng-click="descargar()">{{fileLocation}}</a>
+                    </div>
+
+                </div>
+            </uib-accordion>
+
+        </div>
+
+        <div class="form-group">
+            <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+            <label class="text-danger" ng-if="error">{{error}}</label>
+        </div>
+
+        <div class="form-group">
+            <button class="btnNew" type="button" ng-click="submitted=true;aceptar()" ng-show="activo" ng-disabled="guardando">Guardar</button>
+            <button class="btnNew" type="button" ng-click="submitted=true;enviar()" ng-show="activo" ng-disabled="enviando">Enviar</button>
+        </div>
+
+    </div>
+</form>

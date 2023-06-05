@@ -1,0 +1,158 @@
+﻿<form role="form" class="form-horizontal" name="registerForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h4>{{pregunta.Id == 0? 'Nueva Pregunta': 'Edición de Preguntas'}}</h4>
+    </div>
+
+    <div id="PrintContent">
+        <div>
+            <button class="btnNew ancho" ng_model="realimentacion.Nivel" ng-click="mostrarPregunta = !mostrarPregunta" style="margin-left:10px; width:97%">Información de la Pregunta</button>
+        </div>
+        <div id="PanelPregunta" class="panel panel-default" style="margin-left:10px; margin-right:10px" ng-show="mostrarPregunta">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="Derecho">Derecho</label>
+                    <div class="separar col-sm-9">
+                        <select class="form-control input-sm ng-pristine ng-valid" id="Derecho" name="Derecho" ng-model="pregunta.IdDerecho" required ng-options="item.Id as item.Descripcion for (key, item)  in Derechos"></select>
+                        <span class="text-danger" ng-show="submitted && registerForm.Derecho.$error.required">El derecho es requerido</span>
+                        <span class="text-danger">{{errors.IdDerecho}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="Componente">Componente</label>
+                    <div class="separar col-sm-9">
+                        <select class="form-control input-sm ng-pristine ng-valid" id="Componente" name="Componente" ng-model="pregunta.IdComponente" required ng-options="item.Id as item.Descripcion for (key, item)  in Componentes"></select>
+                        <span class="text-danger" ng-show="submitted && registerForm.Componente.$error.required">El Componente es requerido</span>
+                        <span class="text-danger">{{errors.IdComponente}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="Medida">Medidas</label>
+                    <div class="separar col-sm-9">
+                        <select class="form-control input-sm ng-pristine ng-valid" id="Medida" name="Medida" ng-model="pregunta.IdMedida" required ng-options="item.Id as item.Descripcion for (key, item)  in Medidas"></select>
+                        <span class="text-danger" ng-show="submitted && registerForm.Medida.$error.required">La Medida es requerida</span>
+                        <span class="text-danger">{{errors.IdMedida}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="Nivel">Nivel</label>
+                    <div class="separar col-sm-9">
+                        <select class="form-control input-sm ng-pristine ng-valid" id="Nivel" disabled name="Nivel" ng-model="pregunta.Nivel" required ng-options="item.Id as item.Descripcion for (key, item)  in Niveles"></select>
+                        <span class="text-danger" ng-show="submitted && registerForm.Nivel.$error.required">El nivel es requerido</span>
+                        <span class="text-danger">{{errors.Nivel}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="pregunta_indicativa">Pregunta Indicativa</label>
+                    <div class="separar col-sm-9">
+                        <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Pregunta Indicativa" id="pregunta_indicativa" ng_model="pregunta.PreguntaIndicativa" name="pregunta_indicativa" ng-trim="true" ng-maxlength="4000" required></textarea>
+                        <span class="text-danger" ng-show="submitted && registerForm.pregunta_indicativa.$error.required">La pregunta indicativa es requerida</span>
+                        <span class="text-danger" ng-show="submitted">{{errors.PreguntaIndicativa}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="ExplicacionPregunta">Explicación de Pregunta indicativa</label>
+                    <div class="separar col-sm-9">
+                        <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Explicación de la Pregunta indicativa" id="ExplicacionPregunta" ng_model="pregunta.ExplicacionPregunta" name="pregunta_compromiso" ng-trim="true" ng-maxlength="4000"></textarea>
+                        <span class="text-danger" ng-show="submitted">{{errors.ExplicacionPregunta}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="IdUnidadMedida">Unidad</label>
+                    <div class="separar col-sm-9">
+                        <select class="form-control input-sm ng-pristine ng-valid" id="IdUnidadMedida" name="IdUnidadMedida" ng-model="pregunta.IdUnidadMedida" required ng-options="item.Id as item.Descripcion for (key, item)  in UnidadesMedidas"></select>
+                        <span class="text-danger" ng-show="submitted && registerForm.IdUnidadMedida.$error.required">La Unidad de medida es requerida</span>
+                        <span class="text-danger">{{errors.IdUnidadMedida}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="IdTablero">Tablero</label>
+                    <div class="separar col-sm-9">
+                        <select class="form-control input-sm ng-pristine ng-valid" disabled id="IdTablero" name="IdTablero" ng-model="pregunta.IdTablero" required ng-options="item.Id as item.Etiqueta for (key, item)  in Tableros"></select>
+                        <span class="text-danger" ng-show="submitted && registerForm.IdTablero.$error.required">El tablero es requerido</span>
+                        <span class="text-danger">{{errors.IdTablero}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="Apoyo_Departamental">Apoyo Departamental</label>
+                    <div class="separar col-sm-9">
+                        <input type="checkbox" ng-checked="pregunta.ApoyoDepartamental" id="Apoyo_Departamental" ng_model="pregunta.ApoyoDepartamental" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="Apoyo_Entidad_Nacional">Apoyo Entidad Nacional</label>
+                    <div class="separar col-sm-9">
+                        <input type="checkbox" ng-checked="pregunta.ApoyoEntidadNacional" id="Apoyo_Entidad_Nacional" ng_model="pregunta.ApoyoEntidadNacional" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="RequiereAdjunto">Requiere Adjunto</label>
+                    <div class="separar col-sm-9">
+                        <input type="checkbox" ng-checked="pregunta.RequiereAdjunto" id="RequiereAdjunto" ng_model="pregunta.RequiereAdjunto" />
+                    </div>
+                </div>
+                <div class="form-group" ng-show="pregunta.RequiereAdjunto">
+                    <label class="col-sm-3 control-label" for="MensajeAdjunto">Mensaje relacionado al Adjunto</label>
+                    <div class="separar col-sm-9">
+                        <textarea class="form-control input-sm" rows="4" style="resize: none " placeholder="Mensaje aclarativo de por qué la importancia de adjuntar un documento" id="MensajeAdjunto" ng_model="pregunta.MensajeAdjunto" name="MensajeAdjunto" ng-trim="true" ng-maxlength="4000"></textarea>
+                        <span class="text-danger" ng-show="submitted">{{errors.MensajeAdjunto}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="Activo">Activo</label>
+                    <div class="separar col-sm-9">
+                        <input type="checkbox" ng-checked="pregunta.Activo" id="Activo" ng_model="pregunta.Activo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="mostrarUbicacion">
+        <div id="PrintContent1">
+            <div>
+                <button class="btnNew ancho" ng_model="realimentacion.Desarrollo" ng-click="mostrarRelacionar = !mostrarRelacionar" style="margin-left:10px; width:97%">{{pregunta.Nivel == 2 ? "Relacionar con Departamentos" : pregunta.Nivel == 3 ? "Relacionar con Municipios" : ""}}</button>
+            </div>
+            <div id="PanelRelacionar" class="panel panel-default" style="margin-left:10px; margin-right:10px" ng-show="mostrarRelacionar">
+                <div class="form-group">
+                    <br />
+                    <div class="col-sm-10 col-sm-offset-1" ng-show="!pregunta.incluir">
+                        Códigos DANE:<br />
+                        <input class="form-control" ng-model="pregunta.IdsDane" id="IdsDAne" name="IdsDane" />
+                        <br />
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-3">
+
+                        <div class="btn-group">
+                            <label class="btn btn-default" ng-model="pregunta.incluir" uib-btn-radio="false" ng-click="getDatosItemsNivel(true)">{{pregunta.Nivel == 2 ? "Departamentos No Incluidos" : pregunta.Nivel == 3 ? "Municipios No Incluidos" : ""}}</label>
+                        </div>
+                        <div class="btn-group">
+                            <label class="btn btn-default" ng-model="pregunta.incluir" uib-btn-radio="true" ng-click="getDatosItemsNivel(true)">{{pregunta.Nivel == 2 ? "Departamentos Incluidos" : pregunta.Nivel == 3 ? "Municipios Incluidos" : ""}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal" ng-if="isGrid">
+                    <div class="form-group">
+                        <br />
+                        <h3 id="titulo" class="titulo-rejilla" style="margin: 0px 30px; text-align:center">{{tituloincluir}}</h3>
+                        <div id="filterTable" ui-i18n="{{lang}}" style="margin: 0px 30px; text-align:left">
+                            <div id="grid1" ui-grid="gridOptions" class="grid3" ui-grid-selection ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <span class="col-sm-12 rusicst-center" ng-hide="!cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                    <div class="alert alert-warning" ng-if="alerta" ng-show="alerta.length" role="alert" style="width:94%; margin-left:27px">{{alerta}}</div>
+                    <label class="text-danger" ng-if="error">{{error}}</label>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center"><label style="text-align:center" class="text-danger">{{errorgeneral}}</label><br /></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btnNew" ng-click="submitted=true; guardar()" ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>
+
+</form>

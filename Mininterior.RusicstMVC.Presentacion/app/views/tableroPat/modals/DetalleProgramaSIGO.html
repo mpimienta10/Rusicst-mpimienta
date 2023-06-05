@@ -1,0 +1,62 @@
+﻿<form role="form" class="form-horizontal" id="editForm" name="editForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <p><b>Detalle del Programa de SIGO: </b>{{programa.NombrePrograma}}</p>
+    </div>
+    <div class="modal-body">
+        <div class="alert alert-success col-sm-12 " role="alert">
+            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+            <span>
+                A continuación podrá ver la informacion de los programas caracterizados en el Sistema de Informacion del grupo de Gestion de Oferta.
+                <br />Para obtener más detalles,por favor ingrese a SIGO (<a href="http://sigo.unidadvictimas.gov.co/Paginas/Account/Login.aspx" target="_blank" title="Ir a SIGO">sigo.unidadvictimas.go.co</a>) con los datos de acceso de su alcaldía.
+                <br />Fecha de corte de SIGO: 31 Diciembre de 2019
+            </span>
+        </div>
+        <div class="row">
+            <div class="form-group  col-sm-12">
+                <label class="col-sm-4 control-label">Tipo de programa</label>
+                <div class="col-sm-8">
+                    <label class="rusicst-control-label">{{programa.Tipo=='OFERTA'?'Caracterizacion de Oferta': 'Cargue de beneficiarios'}}</label>
+                </div>
+            </div>
+            <div class="form-group  col-sm-12">
+                <label class="col-sm-4 control-label">Número del  Programa:</label>
+                <div class="col-sm-8">
+                    <label class="rusicst-control-label">{{programa.NumeroPrograma}}</label>
+                </div>
+            </div>
+            <div class="form-group  col-sm-12">
+                <label class="col-sm-4 control-label">Nombre Programa:</label>
+                <div class="col-sm-8">
+                    <label class="rusicst-control-label">{{programa.NombrePrograma}}</label>
+                </div>
+            </div>
+            <div class="form-group  col-sm-12">
+                <label class="col-sm-4 control-label" for="descripcion">Descripción:</label>
+                <div class="col-sm-8">
+                    <label class="rusicst-control-label">{{programa.DescripcionPrograma}}</label>
+                </div>
+            </div>
+            <div class="form-group  col-sm-12">
+                <label class="col-sm-4 control-label" for="descripcion">Vigencia:</label>
+                <div class="col-sm-8">
+                    <label class="rusicst-control-label">{{programa.Vigencia}}</label>
+                </div>
+            </div>
+            <div class="form-group  col-sm-12">
+                <label class="col-sm-4 control-label" for="descripcion">Número Beneficiarios:</label>
+                <div class="col-sm-8">
+                    <label class="rusicst-control-label">{{programa.NumeroBeneficiaios}}</label>
+                </div>
+            </div>
+            <div class="form-group  col-sm-12">
+                <label class="col-sm-4 control-label" for="descripcion">Número víctimas :</label>
+                <div class="col-sm-8">
+                    <label class="rusicst-control-label">{{programa.NumeroVictimas}}</label>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="modal-footer">        
+        <button class="btn btn-default" ng-click="cancelar()" style="margin:0px;">Cancelar</button>
+    </div>
+</form>

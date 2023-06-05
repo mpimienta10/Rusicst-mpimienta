@@ -1,0 +1,30 @@
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll.config
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.pdb
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.pdb
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll.config
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.xml
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.xml
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.csprojResolveAssemblyReference.cache
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.dll
+C:\Andres\Repos\RUSICTS\RUSICTS\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.pdb
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll.config
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.pdb
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.pdb
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll.config
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.xml
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.csprojResolveAssemblyReference.cache
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.dll
+C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.pdb

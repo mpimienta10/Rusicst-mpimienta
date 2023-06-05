@@ -1,0 +1,179 @@
+﻿<form role="form" class="form-horizontal" id="registerForm" name="registerForm" novalidate>
+    <div class="modal-header  modal-rejilla">
+        <h4 class="text-center">Derecho: {{tablero.COMPONENTE}}</h4>
+        <h4 class="text-center">Componente: {{tablero.COMPONENTE}}</h4>
+        <h4 class="text-center">Medida: {{tablero.MEDIDA}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <!--Pregunta indicativa y explicacion de la pregunta indicativa-->
+            <label class="col-sm-12 p-municipios">Pregunta Indicativa: {{tablero.PreguntaIndicativa}}</label>
+            <div style="margin-left:15px;margin-right:15px;">
+                <div class="alert alert-success col-sm-12 " role="alert" ng-if="tablero.ExplicacionPregunta">
+                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                    <span>{{tablero.ExplicacionPregunta}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-12 p-alcaldia">Alcaldía: {{tablero.ENTIDAD}}</label>
+        </div>
+        <!--Planeación Alcaldía-->
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">Planeación Alcaldía {{anoPlaneacion}}</div>
+            <div class="panel-body">
+                <label class="col-sm-12 p-municipios">Necesidad Identificada: {{tablero.INDICATIVA_MUNICIPIO | number:0}}</label>
+                <label class="col-sm-12 p-municipios">Compromiso Alcaldía: {{tablero.COMPROMISO_MUNICIPIO | number:0}}</label>
+                <label class="col-sm-12 p-municipios">Presupuesto Alcaldía: {{tablero.PRESUPUESTO_MUNICIPIO | number:0}}</label>
+            </div>
+        </div>
+
+        <!--Definición de Compromisos - Gobernación-->
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">Definición de Compromisos - Gobernación</div>
+            <div class="panel-body">
+                <div class="col-sm-6 sin-padding">
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Compromiso: </label>
+                        <div class="col-sm-3">
+                            <input type="number" ng-disabled="disabled" id="RespuestaCompromiso" class="form-control input-sm" placeholder="número" ng_model="tablero.RespuestaCompromiso" name="RespuestaCompromiso" ng-trim="true" ng-pattern="/^[0-9]*$/" max="1000000" />
+                            <span class="text-danger" ng-show="!registerForm.RespuestaCompromiso.$valid">Es un número entero entre 0 y 1.000.000</span>
+                        </div>
+                    </div>               
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Presupuesto: </label>
+                        <div class="col-sm-3">
+                            {{tablero.Presupuesto | currency:"$":0}}
+                            <input type="number" ng-disabled="disabled" id="presupuesto" class="form-control input-sm" placeholder="número" ng_model="tablero.Presupuesto" name="presupuesto" ng-trim="true" ng-pattern="/^[0-9]*$/" max="2000000000000" />
+                            <span class="text-danger" ng-show="!registerForm.presupuesto.$valid">Es un número entero entre 0 y 2'000.000'000.000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 sin-padding">
+                    <label class="col-sm-12 control-label" style="text-align: left;">Observaciones:</label>
+                    <div class="col-sm-12">
+                        <textarea class="form-control input-sm" style="resize: none" ng-disabled="disabled" rows="4" placeholder="" id="ObservacionCompromiso" ng_model="tablero.ObservacionCompromiso" name="ObservacionCompromiso" ng-trim="true" ng-maxlength="4000"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--ACCIONES-->
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">Acciones a realizar:</div>
+            <div class="panel-body">
+                <div class="col-sm-12 sin-padding" ng-if="activo==true">
+                    <label class="col-sm-2 control-label" for="nombre">Acción:</label>
+                    <div class="col-sm-8">
+                        <input type="text" ng-disabled="disabled" id="accion" placeholder="acción a realizar" class="form-control input-sm" ng_model="tablero.ACCION" ng-trim="true" name="accion" />
+                        <span class="text-danger">{{errors.ACCION}}</span><br />
+                    </div>
+                    <div class="col-sm-1" ng-if="activo">
+                        <button type="button" class="btn btnNew" ng-click="agregarAccion()">
+                            <span class="glyphicon glyphicon-plus"></span>Agregar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-12 sin-padding" ng-show="accionesAgregadas.length>0">
+                    <table class="table table-striped table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-10">Acción</th>
+                                <th class="col-sm-2 text-center" ng-if="activo==true">Quitar</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-if="accionesAgregadas">
+                            <tr ng-repeat="item in accionesAgregadas" ng-if="item.ACTIVO == true ">
+                                <td>{{item.ACCION}}</td>
+                                <td align="center" ng-if="activo==true">
+                                    <a class="glyphicon glyphicon-remove-circle text-danger link" title="Borrar acción" ng-click="borrarAccion($index)"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--PROGRAMAS-->
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">Programas mediante el cual dará cumplimiento a los compromisos</div>
+            <div class="panel-body">
+                <div class="alert alert-success col-sm-12 " role="alert">
+                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                    <span>
+                        Debe diligenciar los programas y proyectos que ha establecido en su planeación a ejecutar durante la vigencia correspondiente, los cuales tendrán que ser caracterizados posteriormente en SIGO (<a href="http://sigo.unidadvictimas.gov.co/Paginas/Account/Login.aspx" target="_blank" title="Ir a SIGO">sigo.unidadvictimas.go.co</a>) para evidenciar la oferta que dispone su municipio en la que puede acceder la población víctima, y así demostrar la gestión que ha realizado en la etapa de seguimiento.
+                    </span>
+                </div>
+                <div class="col-sm-12 sin-padding">
+                    <table class="table table-striped table-bordered table-condensed" ng-if="programasOferta.length>0">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-1">Agregar</th>
+                                <th class="col-sm-2">Programa</th>
+                                <th class="col-sm-4">Descripción</th>
+                                <th class="col-sm-2">Vigencia</th>
+                                <th class="col-sm-1">Activo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in programasOferta">
+                                <td align="center">
+                                    <button type="button" ng-disabled="disabled" class="btn btn-default btn-xs glyphicon glyphicon-plus" ng-click="agregarProgramaOferta($index)"></button>
+                                </td>
+                                <td>{{item.PROGRAMA}}</td>
+                                <td>{{item.DESCRIPCION}}</td>
+                                <td>{{item.VIGENCIA}}</td>
+                                <td align="center" ng-if="item.ACTIVO">Si</td>
+                                <td align="center" ng-if="item.ACTIVO == false">No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-12 sin-padding" ng-if="activo==true">
+                    <label class=" col-sm-2 control-label" for="nombre">Programa:</label>
+                    <div class="col-sm-8">
+                        <input type="text" ng-disabled="disabled" id="programa" placeholder="Nuevo programa a realizar" class="form-control input-sm" ng_model="tablero.PROGRAMA" ng-trim="true" name="programa" />
+                        <span class="text-danger">{{errors.PROGRAMA}}</span><br />
+                    </div>
+                    <div class="col-sm-2" ng-if="activo">
+                        <button type="button" ng-disabled="disabled" class="btn btnNew" ng-click="agregarPrograma()">
+                            <span class="glyphicon glyphicon-plus"></span>Agregar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 sin-padding" ng-show="programasAgregados.length>0">
+                    <table class="table table-striped table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-10">Programa</th>
+                                <th class="col-sm-2 text-center" ng-if="activo==true">Quitar</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-if="programasAgregados">
+                            <tr ng-repeat="item in programasAgregados" ng-if="item.ACTIVO == true">
+                                <td>{{item.PROGRAMA}}</td>
+                                <td align="center" ng-if="activo==true">
+                                    <a class="glyphicon glyphicon-remove-circle text-danger link" title="Borrar acción" ng-click="borrarPrograma($index)"></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <span class="text-danger" ng-show="submitted && !registerForm.$valid">Existen errores en el formulario. Por favor verifique e intente de nuevo.</span>
+        <span class="text-danger" ng-show="error">{{error}}</span>
+
+    </div>
+    <div class="modal-footer" ng-if="activo">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()" style="margin:0px;" ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()" style="margin:0px;">Cancelar</button>
+    </div>
+    <div class="modal-footer" ng-if="!activo">
+        <button class="btn btnNew" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

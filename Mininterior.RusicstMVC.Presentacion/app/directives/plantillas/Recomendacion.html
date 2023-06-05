@@ -1,0 +1,70 @@
+﻿<div class="form-horizontal recomendacion">
+    <table class="table table-responsive">
+        <tbody>
+            <tr>
+                <td class="celda-titulo" colspan="1" >Etapa</td>
+                <td class="celda-datos" colspan="5">{{datos.Titulo}}</td>
+            </tr>
+            <tr>
+                <td class="celda-titulo" colspan="1">Objetivo por Cumplir</td>
+                <td class="celda-datos" colspan="5">{{datos.ObjetivoGeneral}}</td>
+            </tr>
+            <tr>
+                <td class="celda-titulo" colspan="1">Recomendacion</td>
+                <td class="celda-datos" colspan="5">{{datos.Recomendacion}}</td>
+            </tr>
+            <tr>
+                <td class="celda-titulo" colspan="1">Accion</td>
+                <td class="celda-datos" colspan="3">{{datos.Accion}}</td>
+                <td class="celda-datos" colspan="1">
+                    <div>¿Esta accion permite alcanzar el objetivo?</div>
+                    <div ng-hide="datos.tipo == '0'">
+                        <select ng-model="datos.AccionPermite" class="form-control input-sm ng-pristine">
+                            <option value="0">No</option>
+                            <option value="1">Si, Totalmente</option>
+                            <option value="2">Si, Parcialmente</option>
+                        </select>
+                    </div>
+                    <div ng-hide="datos.tipo != '0'">
+                        <label ng-show="datos.AccionPermite == '0'">No</label>
+                        <label ng-show="datos.AccionPermite == '1'">Si, Totalmente</label>
+                        <label ng-show="datos.AccionPermite == '2'">Si, Parcialmente</label>
+                    </div>
+                    <div>Fecha de Cumplimiento de la Accion</div>
+                    <div>
+                        <label ng-bind="datos.FechaCumplimiento | date:'yyyy-MM-dd'"></label>
+                    </div>
+                </td>
+                <td class="celda-datos" colspan="2">
+                    <div>Observacion</div>
+                        <div ng-hide="datos.tipo == '0'"><textarea ng-model="datos.Observacion" class="form-control" type="text" style="resize:none;" />
+                        </div>
+                    <div ng-hide="datos.tipo != '0'">
+                        <label>{{datos.Observacion}}</label>
+                    </div>
+                    <button ng-hide="datos.tipo == '0'" class="btnNew" ng-click="guardar(datos)">Guardar</button>
+                </td> 
+            </tr>
+            <!--<tr>    NO BORRAR PORQUE EL FUNCI
+                <td class="celda-titulo" colspan="1">Fecha de Cumplimiento de la Accion</td>
+                <td class="celda-datos" colspan="3"><label ng-bind="datos.FechaCumplimiento | date:'yyyy-MM-dd'"></label></td>
+                <td class="celda-datos" colspan="1">
+                    <div>Esta accion ya se cumplio?</div>
+                    <div>
+                        <select ng-model="datos.AccionCumplio" class="form-control input-sm ng-pristine">
+                            <option value="0">No</option>
+                            <option value="1">Si</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="celda-datos" colspan="2">
+                    <div> 
+                    <label class="celda-titulo" ng-hide="datos.alcaldiaRespuesta !=0">La alcaldía aún no ha dado respuesta</label>
+                    </div>
+                <button class="btnNew" ng-click="guardar(datos)">Guardar</button>
+                </td>
+            </tr>-->
+        </tbody>
+    </table>
+   
+</div>

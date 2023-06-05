@@ -1,0 +1,83 @@
+﻿<form role="form" class="form-horizontal" name="myFormReporte" novalidate>
+    <div class="modal-header modal-rejilla" id="PanelFull">
+        <h3 class="text-center">Información de la sección</h3>
+    </div>
+    <div class="modal-body">
+        <div id="PanelCM" class="sombra panel panel-default" ng-show="mostrarSeccionNueva">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-12 control-label-left" for="SuperSeccion"> Subsección de</label>
+                    <div class="col-sm-12">
+                        <select class="form-control input-sm ng-pristine ng-valid" id="SuperSeccion" name="SuperSeccion" ng-model="Seccion.SuperSeccion" ng-options="item.Id as item.Titulo for (key, item)  in SubSeccion"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label-left" for="titulo">Título:</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control input-sm" ng-model="Seccion.Titulo" ng-pattern="/^[a-zA-Z0-9 À-ÿ\u00f1\u00d1]*$/" id="titulo" name="titulo" required ng-maxlength="255" />
+                        <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.required">El título es obligatorio</span>
+                        <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.maxlength">El título supera los 255 caracteres</span>
+                        <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.pattern">El título debe ir sin caracteres especiales</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-12 control-label-left" for="ayuda">Ayuda:</label>
+                    <div class="col-sm-12">
+                        <textarea class="form-control input-sm" rows="3" style="resize:none" placeholder="" id="ayuda" ng_model="Seccion.Ayuda" name="ayuda" ng-trim="true"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12">Adjunto:</label>
+                    <div class="col-sm-12">
+                        <input type="file" ngf-select ng-model="file" name="file" accept="" ngf-max-size="25MB" ngf-model-invalid="errorFile" style="width:100%;" />
+                        <span class="col-sm-12 text-danger text-center" ng-show="errorFile.$errorMessages.maxSize">
+                            menor a 25MB
+                        </span>
+                        <span class="col-sm-12 text-danger text-center" ng-show="submitted && extension">
+                            {{errorMessages.extension}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label-left" for="estilos">Estilos cuadro de índice:</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control input-sm" ng-model="Seccion.Estilos" id="estilo" name="estilo" ng-maxlength="255" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Prueba" class="col-sm-12">Ocultar Título?</label>
+                    <div class="col-sm-12">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" id="checkbox1" class="styled" ng-model="Seccion.OcultaTitulo">
+                            <label for="checkbox1">
+                                Ocultar
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="error">
+                    <label class="text-danger">{{error}}</label>
+                </div>
+                <div class="panel-footer">
+                    <button class="btnNew" ng-disabled="deshabiltarSeccion" ng-click="submitted=true;aceptar()">Guardar</button>
+                    <button class="btn btn-default" ng-click="mostrarSeccionNueva=0">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="panel-body">
+                <div> <a id="ayudaEstilo" ng-click="redirectToAyudaEstilo()">Ayuda de Estilos</a></div>
+                <button class="btnNew" ng-click="mostrarSeccionNueva=1;nuevaSeccion()">Nueva Sección</button>
+                <span class="col-sm-1" ng-show="deshabiltarSeccion"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+            </div>
+            <div id="filterTable" ng-if="isGrid2" ui-i18n="{{lang}}" style="margin: 0px 15px">
+                <h3 id="titulo" class="titulo-rejilla">Listado de Secciones</h3>
+                <div id="grid2" ui-grid="gridOptions2" class="grid2" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

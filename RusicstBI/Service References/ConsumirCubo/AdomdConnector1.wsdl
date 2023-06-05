@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:1071/AdomdConnector.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:1071/AdomdConnector.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1071/AdomdConnector.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CustomDataProvider.Web.Framework" />
+      <xsd:import schemaLocation="http://localhost:1071/AdomdConnector.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1071/AdomdConnector.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AdomdConnector_LoadSchema_InputMessage">
+    <wsdl:part name="parameters" element="LoadSchema" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadSchema_OutputMessage">
+    <wsdl:part name="parameters" element="LoadSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadCubes_InputMessage">
+    <wsdl:part name="parameters" element="LoadCubes" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadCubes_OutputMessage">
+    <wsdl:part name="parameters" element="LoadCubesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadDimensions_InputMessage">
+    <wsdl:part name="parameters" element="LoadDimensions" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadDimensions_OutputMessage">
+    <wsdl:part name="parameters" element="LoadDimensionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadMeasures_InputMessage">
+    <wsdl:part name="parameters" element="LoadMeasures" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadMeasures_OutputMessage">
+    <wsdl:part name="parameters" element="LoadMeasuresResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadMeasureGroups_InputMessage">
+    <wsdl:part name="parameters" element="LoadMeasureGroups" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadMeasureGroups_OutputMessage">
+    <wsdl:part name="parameters" element="LoadMeasureGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadMeasureGroupDimensions_InputMessage">
+    <wsdl:part name="parameters" element="LoadMeasureGroupDimensions" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadMeasureGroupDimensions_OutputMessage">
+    <wsdl:part name="parameters" element="LoadMeasureGroupDimensionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadLevelMembers_InputMessage">
+    <wsdl:part name="parameters" element="LoadLevelMembers" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadLevelMembers_OutputMessage">
+    <wsdl:part name="parameters" element="LoadLevelMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadFilterMemberMembers_InputMessage">
+    <wsdl:part name="parameters" element="LoadFilterMemberMembers" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LoadFilterMemberMembers_OutputMessage">
+    <wsdl:part name="parameters" element="LoadFilterMemberMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ExecuteCommand_InputMessage">
+    <wsdl:part name="parameters" element="ExecuteCommand" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ExecuteCommand_OutputMessage">
+    <wsdl:part name="parameters" element="ExecuteCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ExecuteCommandDataTable_InputMessage">
+    <wsdl:part name="parameters" element="ExecuteCommandDataTable" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ExecuteCommandDataTable_OutputMessage">
+    <wsdl:part name="parameters" element="ExecuteCommandDataTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultasPersonalizadasRusicstJSON_InputMessage">
+    <wsdl:part name="parameters" element="ConsultasPersonalizadasRusicstJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultasPersonalizadasRusicstJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ConsultasPersonalizadasRusicstJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaDepartamentosRusicstJSON_InputMessage">
+    <wsdl:part name="parameters" element="ConsultaDepartamentosRusicstJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaDepartamentosRusicstJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ConsultaDepartamentosRusicstJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaDepartamentosEncuestasRusicstJSON_InputMessage">
+    <wsdl:part name="parameters" element="ConsultaDepartamentosEncuestasRusicstJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaDepartamentosEncuestasRusicstJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ConsultaDepartamentosEncuestasRusicstJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaMunicipioRusicstJSON_InputMessage">
+    <wsdl:part name="parameters" element="ConsultaMunicipioRusicstJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaMunicipioRusicstJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ConsultaMunicipioRusicstJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaMunicipioEncuestaRusicstJSON_InputMessage">
+    <wsdl:part name="parameters" element="ConsultaMunicipioEncuestaRusicstJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ConsultaMunicipioEncuestaRusicstJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ConsultaMunicipioEncuestaRusicstJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerDepartamentosJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerDepartamentosJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerDepartamentosJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerDepartamentosJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerMunicipiosJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerMunicipiosJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerMunicipiosJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerMunicipiosJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerEncuestasJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerEncuestasJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerEncuestasJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerEncuestasJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerPreguntasPorCodigoJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerPreguntasPorCodigoJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerPreguntasPorCodigoJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerPreguntasPorCodigoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerPreguntasPorNombreJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerPreguntasPorNombreJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerPreguntasPorNombreJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerPreguntasPorNombreJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerPreguntasPorConsultaPredefinidaJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerPreguntasPorConsultaPredefinidaJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerPreguntasPorConsultaPredefinidaJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerPreguntasPorConsultaPredefinidaJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerListadoConsultaPredefinida_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerListadoConsultaPredefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerListadoConsultaPredefinida_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerListadoConsultaPredefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerInformacionConsultaPredefinida_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionConsultaPredefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerInformacionConsultaPredefinida_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionConsultaPredefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerControlesDimensionesConsultaPredefinida_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerControlesDimensionesConsultaPredefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerControlesDimensionesConsultaPredefinida_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerControlesDimensionesConsultaPredefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerControlesHechosConsultaPredefinida_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerControlesHechosConsultaPredefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerControlesHechosConsultaPredefinida_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerControlesHechosConsultaPredefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirConsultaPredefinida_InputMessage">
+    <wsdl:part name="parameters" element="PersistirConsultaPredefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirConsultaPredefinida_OutputMessage">
+    <wsdl:part name="parameters" element="PersistirConsultaPredefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LimpiarConsultaPredefinida_InputMessage">
+    <wsdl:part name="parameters" element="LimpiarConsultaPredefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_LimpiarConsultaPredefinida_OutputMessage">
+    <wsdl:part name="parameters" element="LimpiarConsultaPredefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirDimensionHechoConsultaPrefefinida_InputMessage">
+    <wsdl:part name="parameters" element="PersistirDimensionHechoConsultaPrefefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirDimensionHechoConsultaPrefefinida_OutputMessage">
+    <wsdl:part name="parameters" element="PersistirDimensionHechoConsultaPrefefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirUbicacionConsultaPrefefinida_InputMessage">
+    <wsdl:part name="parameters" element="PersistirUbicacionConsultaPrefefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirUbicacionConsultaPrefefinida_OutputMessage">
+    <wsdl:part name="parameters" element="PersistirUbicacionConsultaPrefefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirPreguntaConsultaPrefefinida_InputMessage">
+    <wsdl:part name="parameters" element="PersistirPreguntaConsultaPrefefinida" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_PersistirPreguntaConsultaPrefefinida_OutputMessage">
+    <wsdl:part name="parameters" element="PersistirPreguntaConsultaPrefefinidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerDimensionesHechosPorPregunta_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerDimensionesHechosPorPregunta" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerDimensionesHechosPorPregunta_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerDimensionesHechosPorPreguntaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerMunicipiosPorDepartamentoJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerMunicipiosPorDepartamentoJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerMunicipiosPorDepartamentoJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerMunicipiosPorDepartamentoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerListaDepartamentosJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerListaDepartamentosJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerListaDepartamentosJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerListaDepartamentosJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerTiposGraficaJSON_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerTiposGraficaJSON" />
+  </wsdl:message>
+  <wsdl:message name="AdomdConnector_ObtenerTiposGraficaJSON_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerTiposGraficaJSONResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AdomdConnector">
+    <wsdl:operation name="LoadSchema">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadSchema" message="AdomdConnector_LoadSchema_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadSchemaResponse" message="AdomdConnector_LoadSchema_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCubes">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadCubes" message="AdomdConnector_LoadCubes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadCubesResponse" message="AdomdConnector_LoadCubes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDimensions">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadDimensions" message="AdomdConnector_LoadDimensions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadDimensionsResponse" message="AdomdConnector_LoadDimensions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMeasures">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadMeasures" message="AdomdConnector_LoadMeasures_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadMeasuresResponse" message="AdomdConnector_LoadMeasures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMeasureGroups">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadMeasureGroups" message="AdomdConnector_LoadMeasureGroups_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadMeasureGroupsResponse" message="AdomdConnector_LoadMeasureGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMeasureGroupDimensions">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadMeasureGroupDimensions" message="AdomdConnector_LoadMeasureGroupDimensions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadMeasureGroupDimensionsResponse" message="AdomdConnector_LoadMeasureGroupDimensions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadLevelMembers">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadLevelMembers" message="AdomdConnector_LoadLevelMembers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadLevelMembersResponse" message="AdomdConnector_LoadLevelMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadFilterMemberMembers">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LoadFilterMemberMembers" message="AdomdConnector_LoadFilterMemberMembers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LoadFilterMemberMembersResponse" message="AdomdConnector_LoadFilterMemberMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCommand">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ExecuteCommand" message="AdomdConnector_ExecuteCommand_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ExecuteCommandResponse" message="AdomdConnector_ExecuteCommand_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteCommandDataTable">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ExecuteCommandDataTable" message="AdomdConnector_ExecuteCommandDataTable_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ExecuteCommandDataTableResponse" message="AdomdConnector_ExecuteCommandDataTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultasPersonalizadasRusicstJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ConsultasPersonalizadasRusicstJSON" message="AdomdConnector_ConsultasPersonalizadasRusicstJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ConsultasPersonalizadasRusicstJSONResponse" message="AdomdConnector_ConsultasPersonalizadasRusicstJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDepartamentosRusicstJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ConsultaDepartamentosRusicstJSON" message="AdomdConnector_ConsultaDepartamentosRusicstJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ConsultaDepartamentosRusicstJSONResponse" message="AdomdConnector_ConsultaDepartamentosRusicstJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDepartamentosEncuestasRusicstJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ConsultaDepartamentosEncuestasRusicstJSON" message="AdomdConnector_ConsultaDepartamentosEncuestasRusicstJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ConsultaDepartamentosEncuestasRusicstJSONResponse" message="AdomdConnector_ConsultaDepartamentosEncuestasRusicstJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaMunicipioRusicstJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ConsultaMunicipioRusicstJSON" message="AdomdConnector_ConsultaMunicipioRusicstJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ConsultaMunicipioRusicstJSONResponse" message="AdomdConnector_ConsultaMunicipioRusicstJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaMunicipioEncuestaRusicstJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ConsultaMunicipioEncuestaRusicstJSON" message="AdomdConnector_ConsultaMunicipioEncuestaRusicstJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ConsultaMunicipioEncuestaRusicstJSONResponse" message="AdomdConnector_ConsultaMunicipioEncuestaRusicstJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDepartamentosJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerDepartamentosJSON" message="AdomdConnector_ObtenerDepartamentosJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerDepartamentosJSONResponse" message="AdomdConnector_ObtenerDepartamentosJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMunicipiosJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerMunicipiosJSON" message="AdomdConnector_ObtenerMunicipiosJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerMunicipiosJSONResponse" message="AdomdConnector_ObtenerMunicipiosJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEncuestasJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerEncuestasJSON" message="AdomdConnector_ObtenerEncuestasJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerEncuestasJSONResponse" message="AdomdConnector_ObtenerEncuestasJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreguntasPorCodigoJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerPreguntasPorCodigoJSON" message="AdomdConnector_ObtenerPreguntasPorCodigoJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerPreguntasPorCodigoJSONResponse" message="AdomdConnector_ObtenerPreguntasPorCodigoJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreguntasPorNombreJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerPreguntasPorNombreJSON" message="AdomdConnector_ObtenerPreguntasPorNombreJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerPreguntasPorNombreJSONResponse" message="AdomdConnector_ObtenerPreguntasPorNombreJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreguntasPorConsultaPredefinidaJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerPreguntasPorConsultaPredefinidaJSON" message="AdomdConnector_ObtenerPreguntasPorConsultaPredefinidaJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerPreguntasPorConsultaPredefinidaJSONResponse" message="AdomdConnector_ObtenerPreguntasPorConsultaPredefinidaJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoConsultaPredefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerListadoConsultaPredefinida" message="AdomdConnector_ObtenerListadoConsultaPredefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerListadoConsultaPredefinidaResponse" message="AdomdConnector_ObtenerListadoConsultaPredefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionConsultaPredefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerInformacionConsultaPredefinida" message="AdomdConnector_ObtenerInformacionConsultaPredefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerInformacionConsultaPredefinidaResponse" message="AdomdConnector_ObtenerInformacionConsultaPredefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerControlesDimensionesConsultaPredefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerControlesDimensionesConsultaPredefinida" message="AdomdConnector_ObtenerControlesDimensionesConsultaPredefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerControlesDimensionesConsultaPredefinidaResponse" message="AdomdConnector_ObtenerControlesDimensionesConsultaPredefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerControlesHechosConsultaPredefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerControlesHechosConsultaPredefinida" message="AdomdConnector_ObtenerControlesHechosConsultaPredefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerControlesHechosConsultaPredefinidaResponse" message="AdomdConnector_ObtenerControlesHechosConsultaPredefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersistirConsultaPredefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/PersistirConsultaPredefinida" message="AdomdConnector_PersistirConsultaPredefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/PersistirConsultaPredefinidaResponse" message="AdomdConnector_PersistirConsultaPredefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LimpiarConsultaPredefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/LimpiarConsultaPredefinida" message="AdomdConnector_LimpiarConsultaPredefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/LimpiarConsultaPredefinidaResponse" message="AdomdConnector_LimpiarConsultaPredefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersistirDimensionHechoConsultaPrefefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/PersistirDimensionHechoConsultaPrefefinida" message="AdomdConnector_PersistirDimensionHechoConsultaPrefefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/PersistirDimensionHechoConsultaPrefefinidaResponse" message="AdomdConnector_PersistirDimensionHechoConsultaPrefefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersistirUbicacionConsultaPrefefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/PersistirUbicacionConsultaPrefefinida" message="AdomdConnector_PersistirUbicacionConsultaPrefefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/PersistirUbicacionConsultaPrefefinidaResponse" message="AdomdConnector_PersistirUbicacionConsultaPrefefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PersistirPreguntaConsultaPrefefinida">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/PersistirPreguntaConsultaPrefefinida" message="AdomdConnector_PersistirPreguntaConsultaPrefefinida_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/PersistirPreguntaConsultaPrefefinidaResponse" message="AdomdConnector_PersistirPreguntaConsultaPrefefinida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDimensionesHechosPorPregunta">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerDimensionesHechosPorPregunta" message="AdomdConnector_ObtenerDimensionesHechosPorPregunta_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerDimensionesHechosPorPreguntaResponse" message="AdomdConnector_ObtenerDimensionesHechosPorPregunta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMunicipiosPorDepartamentoJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerMunicipiosPorDepartamentoJSON" message="AdomdConnector_ObtenerMunicipiosPorDepartamentoJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerMunicipiosPorDepartamentoJSONResponse" message="AdomdConnector_ObtenerMunicipiosPorDepartamentoJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaDepartamentosJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerListaDepartamentosJSON" message="AdomdConnector_ObtenerListaDepartamentosJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerListaDepartamentosJSONResponse" message="AdomdConnector_ObtenerListaDepartamentosJSON_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTiposGraficaJSON">
+      <wsdl:input wsaw:Action="urn:AdomdConnector/ObtenerTiposGraficaJSON" message="AdomdConnector_ObtenerTiposGraficaJSON_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AdomdConnector/ObtenerTiposGraficaJSONResponse" message="AdomdConnector_ObtenerTiposGraficaJSON_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

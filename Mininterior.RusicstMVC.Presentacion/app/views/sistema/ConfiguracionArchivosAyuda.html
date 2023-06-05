@@ -1,0 +1,54 @@
+﻿
+<div data-ng-app="APIModule" id="tblSubs" ng-controller="ConfiguracionArchivosAyudaController">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row">
+        <!--@*Div listado de ayudas*@-->
+        <div class="col-sm-6">
+            <ul>
+                <li ng-repeat="item in ayudas">
+                    <a href=""><span class="fa fa-pencil-square-o color-green" ng-click="abrirModalModificarAyuda($index)"></span></a>
+                    <a href=""><span class="fa fa-trash-o color-red" ng-click="abrirModalEliminar($index)"></span></a>
+                    <a href="" ng-click="descargar($index)"> {{item.Titulo}}</a>
+                </li>
+            </ul>
+        </div>
+        <!--@*agregar ayuda*@-->
+        <div class="col-sm-6">
+            <form role="form" class="form-horizontal" name="myForm" novalidate>
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Archivo de Ayuda</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" placeholder="Nombre" class="form-control input-sm" ng-model="nombre" id="nombre" name="nombre" required />
+                                <span class="col-sm-12 text-danger" ng-show="submitted && myForm.nombre.$error.required">El nombre es requerido</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="file" ngf-select ng-model="file" name="file" accept="" ngf-max-size="25MB" required ngf-model-invalid="errorFile" style="width:100%;" />
+                            </div>
+                            <div class="col-sm-12"><span>{{progressPercentage}}</span></div>
+                            <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 25MB</label></div>
+                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.file.$error.required">
+                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                            </span>
+                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && extension">
+                                {{errorMessages.extension}}
+                            </span>
+                        </div>
+                        <button type="button" class="btnNew" ng-click="submitted=true;agregar()"><span class="fa fa-plus-square"></span> Agregar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="form-group col-sm-12">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>
+
+

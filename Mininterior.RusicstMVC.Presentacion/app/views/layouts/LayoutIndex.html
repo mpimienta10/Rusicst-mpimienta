@@ -1,0 +1,29 @@
+﻿
+<div>
+   
+    <div ng-include="'/app/views/layouts/_ParcialMenuPrincipal.html'"></div>
+    <div ng-include="'/app/views/layouts/_ParcialRedesSociales.html'" ></div>
+    <div ng-include="'/app/views/layouts/_ParcialCabeceraGobierno.html'" class="container"></div>
+    <div ng-include="'/app/views/layouts/_ParcialMenuSecundario.html'"></div>
+    <div>
+        <div style="background-color: #E2EBF4">
+            <div class="container">
+                <div class="row">
+                    <div class="" ncy-breadcrumb style="background-color: #E2EBF4;padding:0 0;margin-bottom:5px" ncy-breadcrumb-text-separator=" > " >
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="container" style="margin-top:15px"><ui-view></ui-view></div>
+
+    <hr class="line-border" />
+    <div ng-controller="_ParcialCreditosController" ng-include="'/app/views/layouts/_ParcialCreditos.html'" class="container-fluid" style="position:relative;"></div>
+    <hr class="line-border" />
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div ng-bind-html="datosHome.TextFooter | unsafe"></div>
+        </div>
+    </div>
+</div>

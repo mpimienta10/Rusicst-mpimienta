@@ -1,0 +1,57 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Activación Plan</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group-sm">
+                    <div class="col-sm-12" style="text-align: justify;">
+                        Está a punto de Activar el Plan de Mejoramiento. 
+                        Por favor seleccione las fechas de Inicio y Fin del diligenciamiento.
+                    </div>
+                </div>
+
+                <div class="form-group-sm">
+                    <div class="col-sm-12" style="margin-top: 10px; margin-bottom: 10px;">
+                        <div class="col-sm-6">
+                            <label class="col-sm-12 control-label-left required" for="fechaInicio">Fecha Inicio:</label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="activacion.fechaIni" id="fechaInicio" required is-open="popup1.opened"
+                                           name="fechaInicio" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                    <span class="text-danger" ng-show="submitted && myForm.fechaInicio.$error.required">{{errorMessages.inputText}}</span>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open1()" style="height: 30px; padding: 4px 12px;"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="col-sm-12 control-label-left required" for="fechaFin">Fecha Fin:</label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="activacion.fechaFin" id="fechaFin" required is-open="popup2.opened"
+                                           name="fechaFin" datepicker-options="dateOptions2" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                    <span class="text-danger" ng-show="submitted && myForm.fechaFin.$error.required">{{errorMessages.inputText}}</span>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open2()" style="height: 30px; padding: 4px 12px;"><i class="fa fa-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Activar Plan</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+﻿<form role="form" class="form-horizontal" name="myFormReporte" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center">Encuestas de la Retroalimentación</h3>
+    </div>
+    <div class="modal-body">
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">Adicionar Encuesta</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="encuesta">Encuesta:</label>
+                    <div class="col-sm-8">
+                        <select id="encuesta" name="encuesta" ng-model="filtro.EncuestaRelacionada" ng-change="asociarEncuestaRetroAdmin()" class="form-control input-sm ng-pristine ng-valid">
+                            <option></option>
+                            <option ng-repeat="item in encuestas" value="{{item.Id}}">{{item.Titulo}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}" style="margin: 0px 15px">
+                <h3 id="titulo" class="titulo-rejilla">Listado de Encuestas en la Retroalimentación</h3>
+                <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

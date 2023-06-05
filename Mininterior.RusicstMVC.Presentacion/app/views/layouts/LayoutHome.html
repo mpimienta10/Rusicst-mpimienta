@@ -1,0 +1,18 @@
+﻿<div>
+ 
+    <div ng-include="'/app/views/layouts/_ParcialRedesSociales.html'"></div>
+    <div ng-include="'/app/views/layouts/_ParcialCabeceraGobierno.html'" class="container"></div>
+   
+    <ui-view></ui-view>
+
+    <hr class="line-border" />
+    <div ng-controller="_ParcialCreditosController" ng-include="'/app/views/layouts/_ParcialCreditos.html'" class="container-fluid" style="position:relative;"></div>
+    <hr class="line-border" />
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div ng-bind-html="datosHome.TextFooter | unsafe"></div>
+        </div>
+    </div>
+   
+</div>

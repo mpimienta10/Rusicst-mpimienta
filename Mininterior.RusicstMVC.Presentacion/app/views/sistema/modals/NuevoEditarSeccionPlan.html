@@ -1,0 +1,52 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Creación/Edición Secciones Plan de Mejoramiento</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <!--<div class="form-group-sm">
+                    <label class="col-sm-5 control-label required" for="objetivo">Objetivo General:</label>
+                    <div class="separar col-sm-7">
+                        <textarea style="max-width: 100% !important;" class="form-control input-sm" rows="3" id="objetivo"
+                                  name="objetivo" ng-model="seccion.objetivoGeneral" ng-trim="true" ng-maxlength="4000"
+                                  required></textarea>
+                        <span class="text-danger" ng-show="submitted && myForm.objetivo.$error.required">{{errorMessages.inputText}}</span>
+                    </div>
+                </div>-->
+
+                <div class="form-group-sm">
+                    <label class="col-sm-5 control-label required" for="titulo">Título:</label>
+                    <div class="separar col-sm-7">
+                        <select id="titulo" name="titulo" ng-model="seccionPadre" 
+                                class="form-control input-sm ng-valid" 
+                                ng-options="opt as opt.Titulo for opt in seccionesEncuestas"
+                                required>
+                            <!--<option ng-repeat="item in seccionesEncuestas" value="{{item}}">{{item.Titulo}}</option>-->
+                        </select>
+                        <span class="text-danger" ng-show="submitted && myForm.titulo.$error.required">{{errorMessages.select}}</span>
+                    </div>
+                </div>
+
+                <!--{{seccionPadre}}-->
+
+                <div class="form-group-sm">
+                    <label class="col-sm-5 control-label" for="ayuda">Ayuda:</label>
+                    <div class="separar col-sm-7">
+                        <input class="form-control input-sm" name="ayuda" type="text" ng-model="seccion.ayuda" id="ayuda" />
+                        <!--<span class="text-danger" ng-show="submitted && myForm.ayuda.$error.required">{{errorMessages.inputText}}</span>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

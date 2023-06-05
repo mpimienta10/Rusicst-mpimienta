@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/ConsultaRusicstBI" title="Consulta de BI para Rusicst"  description="">
+    <siteMapNode url="~/GraficasUnificadas" title="Gráficos"  description="">
+    </siteMapNode>
+    <siteMapNode url="~/RusicstDepartamento" title="Departamentos"  description="">
+      <siteMapNode url="~/RusicstMunicipio" title="Municipios"  description="">
+      </siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,98 @@
+﻿<form role="form" class="form-horizontal" id="registroConsolidado" name="registroConsolidado" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h4 class="text-center" id="modal-title">{{total.DERECHO}}</h4>
+        <h4 class="text-center">{{total.COMPONENTE}} - {{total.MEDIDA}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">{{total.PREGUNTAINDICATIVA}}</div>
+            <div class="panel-body">
+                <div class="col-sm-12 sin-padding">
+                    <table class="table table-striped table-bordered table-condensed" ng-if="consolidados.length>0" ng-init="items.total = {}">
+                        <thead>
+                            <tr class="titulo-tabla-pat">
+                                <th class="col-sm-3" style="vertical-align:middle;text-align: center">Entidad</th>
+                                <th class="col-sm-4" style="vertical-align:middle; text-align: center" colspan=2 align="center">Municipio</th>
+                                <th class="col-sm-4" style="vertical-align:middle;text-align: center" colspan=2 align="center">Departamento</th>
+                                <th class="col-sm-1" style="vertical-align:middle;text-align: center">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <td>Totales</td>
+                                <td>
+                                    Necesidades:<br />
+                                    Compromisos:<br />
+                                    Presupuesto:
+                                </td>
+                                <td align="right">
+                                    {{items.total.INDICATIVA_MUNICIPIO | number:0}}<br />
+                                    {{items.total.COMPROMISO_MUNICIPIO | number:0}}<br />
+                                    {{items.total.PRESUPUESTO_MUNICIPIO | currency:"$":0}}
+                                </td>
+                                <td>
+                                    <br />
+                                    Compromisos:<br />
+                                    Presupuesto:
+                                </td>
+                                <td align="right">
+                                    <br />
+                                    {{items.total.RESPUESTA_COMPROMISO | number:0}}<br />
+                                    {{items.total.PRESUPUESTO | currency:"$":0}}
+                                </td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr ng-repeat="item in consolidados">
+                                <td class="centrado-tabla-pat" style="vertical-align:middle" ng-init="items.total.INDICATIVA_MUNICIPIO = items.total.INDICATIVA_MUNICIPIO + item.INDICATIVA_MUNICIPIO">{{item.ENTIDAD}}</td>
+                                <td ng-init="items.total.COMPROMISO_MUNICIPIO = items.total.COMPROMISO_MUNICIPIO + item.COMPROMISO_MUNICIPIO">
+                                    Necesidad: <br />
+                                    Compromiso: <br />
+                                    Presupuesto:
+                                </td>
+                                <td align="right" ng-init="items.total.PRESUPUESTO_MUNICIPIO = items.total.PRESUPUESTO_MUNICIPIO + item.PRESUPUESTO_MUNICIPIO">
+                                    {{item.INDICATIVA_MUNICIPIO | number:0}}<br />
+                                    {{item.COMPROMISO_MUNICIPIO | number:0}}<br />
+                                    {{item.PRESUPUESTO_MUNICIPIO | currency:"$":0}}
+                                </td>
+                                <td style="padding-top: 10px;" ng-init="items.total.RESPUESTA_COMPROMISO = items.total.RESPUESTA_COMPROMISO + item.RespuestaCompromiso">
+                                    Compromiso:<br />
+                                    <br />
+                                    Presupuesto: <br />
+                                </td>
+                                <td align="right" ng-init="items.total.PRESUPUESTO = items.total.PRESUPUESTO + item.Presupuesto">
+                                    {{item.RespuestaCompromiso | number:0}}<br />
+                                    <br />
+                                    {{item.Presupuesto | currency:"$":0}}
+                                    <!--<input type="number" id="RESPUESTA_COMPROMISO{{item.ID_ENTIDAD_MUNICIPIO}}" class="form-control input-sm" placeholder="número" ng_model="item.RespuestaCompromiso" name="RESPUESTA_COMPROMISO{{item.ID_ENTIDAD_MUNICIPIO}}" ng-trim="true" ng-disabled="disabled" ng-pattern="/^[0-9]*$/" min="0" max="1000000" value="0" />
+                                    <span class="text-danger" ng-show="submitted && !registroConsolidado.RESPUESTA_COMPROMISO{{item.ID_ENTIDAD_MUNICIPIO}}.$valid">Es un número entero obligatorio entre 0 y 1.000.000</span>
+                                    <input type="number" id="PRESUPUESTO{{item.ID_ENTIDAD_MUNICIPIO}}" class="form-control input-sm" placeholder="número" ng_model="item.Presupuesto" name="PRESUPUESTO{{item.ID_ENTIDAD_MUNICIPIO}}" ng-disabled="disabled" ng-trim="true" ng-pattern="/^[0-9]*$/" min="0" max="2000000000" />
+                                    <span class="text-danger" ng-show="submitted && !registroConsolidado.PRESUPUESTO{{item.ID_ENTIDAD_MUNICIPIO}}.$valid">Es un número entero obligatorio entre 0 y 2.000.000.000</span>-->
+                                </td>
+                                <td align="center" style="vertical-align:middle" >
+                                    <a href="" class="text-center" title="{{activo? (item.Id>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}" ng-click="EditarConsolidadoMunicipios($index)">{{activo? (item.Id>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div ng-show="cargoDatos">
+                        <div class="form-group has-error" ng-if="consolidados.length==0" align="center">
+                            <label class="control-label">{{mensaje}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="modal-footer" ng-if="activo">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()" ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>-->
+    <div class="modal-footer">
+        <button class="btn btnNew" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

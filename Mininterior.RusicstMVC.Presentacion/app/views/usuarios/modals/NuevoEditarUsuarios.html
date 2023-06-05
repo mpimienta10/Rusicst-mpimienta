@@ -1,0 +1,139 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Actualización de datos de contacto</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        {{datosUsuario}}
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Datos generales</div>
+                    <div class="panel-body">
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label required" for="Nombre">Nombres y apellidos</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="Nombre" type="text" ng-model="registro.Nombres" id="Nombre" required />
+                                <span class="text-danger" ng-show="submitted && myForm.Nombre.$error.required">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label required" for="Cargo">Cargo</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="Cargo" type="text" ng-model="registro.Cargo" id="Cargo" required />
+                                <span class="text-danger" ng-show="submitted && myForm.Cargo.$error.required">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label required" for="TipoUsuario" id="TipoUsuario">Tipo de Usuario</label>
+                            <div class="separar col-sm-9">
+                                <select id="rol" name="rol" ng-model="registro.IdTipoUsuario" class="form-control input-sm ng-valid"
+                                        ng-disabled="usuarioAutenticado.IdTipoUsuario != '1'" ng-required="usuarioAutenticado.IdTipoUsuario == '1'">
+                                    <option ng-repeat="item in TiposUsuario" value="{{item.Id}}">{{item.Nombre}}</option>
+                                </select>
+                                <span class="text-danger" ng-show="submitted && myForm.rol.$error.required">{{errorMessages.select}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="Activo" id="Activo">Activo</label>
+                            <div class="col-sm-8">
+                                <div class="checkbox checkbox-primary">
+                                    <input type="checkbox" ng-model="registro.Activo" id="Activo" ng-disabled="usuarioAutenticado.IdTipoUsuario != '1'">
+                                    <label></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Teléfono fijo</div>
+                    <div class="panel-body">
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="Indicativo" id="Indicativo">Indicativo</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="Indicativo" type="text" ng-model="registro.TelefonoFijoIndicativo" id="Indicativo" />
+
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="Numero" id="Numero">Número</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="Numero" type="text" ng-model="registro.TelefonoFijo" id="Numero" />
+
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="Extension" id="Cargo">Extensión</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="Extension" type="text" ng-model="registro.TelefonoFijoExtension" id="Extension" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Otros medios de contacto</div>
+                    <div class="panel-body">
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="TelefonoCelular" id="TelefonoCelular">Teléfono celular</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="TelefonoCelular" type="text" ng-model="registro.TelefonoCelular" id="TelefonoCelular" />
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label required" for="Email"> Correo electrónico</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="Email" type="email" ng-model="registro.Email" id="Email" required />
+                                <span class="text-danger" ng-show="submitted && myForm.Email.$error.required">{{errorMessages.inputText}}</span>
+                                <span class="text-danger" ng-show="submitted && myForm.Email.$error.email">{{errorMessages.email}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="EmailAlternativo" id="EmailAlternativo">Correo electrónico alternativo</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="EmailAlternativo" type="email" ng-model="registro.EmailAlternativo" id="EmailAlternativo" />
+                                <span class="text-danger" ng-show="submitted && myForm.EmailAlternativo.$error.email">{{errorMessages.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading"> Cambio de contraseña</div>
+                    <div class="panel-body">
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="Password" id="Password">Contraseña actual</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="Password" type="password" ng-model="registro.Password" id="Password" ng-disabled="usuarioAutenticado.IdTipoUsuario == '1'"
+                                       ng-required="submitted && (registro.newPassword || registro.confirmNewPassword) && usuarioAutenticado.IdTipoUsuario != '1'" />
+                                <span class="text-danger" ng-show="submitted && myForm.Password.$error.required">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="newPassword" id="LblNewPassword">Nueva contraseña</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="newPassword" type="password" ng-model="registro.newPassword" id="newPassword" valid-Pwd="newPassword" />
+                                <span class='text-danger' ng-show='submitted && myForm.newPassword.$error.pwdValid'>
+                                    {{errorMessages.passInvalid}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="col-sm-3 control-label" for="confirmNewPassword" id="confirmNewPassword">Confirmación de nueva contraseña</label>
+                            <div class="separar col-sm-9">
+                                <input class="form-control input-sm" name="confirmNewPassword" type="password" ng-model="registro.confirmNewPassword" id="confirmNewPassword" pw-check='newPassword' />
+                                <span class='text-danger' ng-show='submitted && myForm.confirmNewPassword.$error.pwmatch'>
+                                    {{errorMessages.comparePasswords}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

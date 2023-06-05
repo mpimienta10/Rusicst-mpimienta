@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB187E7D-6D75-4EA5-B2AC-BBF0546887A3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RusicstBI</RootNamespace>
+    <AssemblyName>RusicstBI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.7.4137.9688, Culture=neutral, PublicKeyToken=a4292a325f69b123, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.Client, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Client.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.ClientAuthorization, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.ClientAuthorization.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth2.ClientAuthorization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.11.1\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Analytics.v3, Version=1.12.0.456, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Analytics.v3.1.12.0.456\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Analytics.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.11.1\lib\net45\Google.Apis.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.11.1\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.11.1\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Oauth2.v2, Version=1.12.0.454, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Oauth2.v2.1.12.0.454\lib\portable-net45+netcore45+wpa81+wp8\Google.Apis.Oauth2.v2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.11.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.11.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.60.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.0.60\lib\net40\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\dist\jquery.animateNumber.min.js" />
+    <Content Include="assets\dist\wow.js" />
+    <Content Include="assets\dist\wow.min.js" />
+    <Content Include="assets\libs\charts\Chart.min.js" />
+    <Content Include="assets\libs\charts\chartist.js" />
+    <Content Include="assets\libs\charts\chartist.min.css" />
+    <Content Include="assets\libs\charts\chartist.min.js" />
+    <Content Include="assets\libs\jqchart\css\jquery.jqGauges.css" />
+    <Content Include="assets\libs\jqchart\css\jquery.jqGeoMap.css" />
+    <Content Include="assets\libs\jqchart\css\jquery.jqChart.css" />
+    <Content Include="assets\libs\jqchart\css\jquery.jqRangeSlider.css" />
+    <Content Include="assets\libs\jqchart\excanvas.js" />
+    <Content Include="assets\libs\jqchart\jquery-1.11.1.min.js" />
+    <Content Include="assets\libs\jqchart\jquery.jqGauges.min.js" />
+    <Content Include="assets\libs\jqchart\jquery.jqGeoMap.min.js" />
+    <Content Include="assets\libs\jqchart\jquery.mousewheel.js" />
+    <Content Include="assets\libs\jqchart\jquery.jqChart.min.js" />
+    <Content Include="assets\libs\jqchart\jquery.jqRangeSlider.min.js" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\animated-overlay.gif" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\jquery-ui-1.10.4.css" />
+    <Content Include="assets\libs\jqchart\themes\smoothness\jquery-ui-1.10.4.min.css" />
+    <Content Include="assets\libs\map\asia.svg" />
+    <Content Include="assets\libs\map\bootstrap-responsive.css" />
+    <Content Include="assets\libs\map\bootstrap-responsive.min.css" />
+    <Content Include="assets\libs\map\bootstrap.css" />
+    <Content Include="assets\libs\map\bootstrap.js" />
+    <Content Include="assets\libs\map\bootstrap.min.css" />
+    <Content Include="assets\libs\map\bootstrap.min.js" />
+    <Content Include="assets\libs\map\Colombia_Amazonas_Leticia.svg" />
+    <Content Include="assets\libs\map\Colombia_Antioquia_Medellin.svg" />
+    <Content Include="assets\libs\map\Colombia_Arauca_Arauca.svg" />
+    <Content Include="assets\libs\map\Colombia_Atlantico_Barranquilla.svg" />
+    <Content Include="assets\libs\map\Colombia_Bogota_Bogota.svg" />
+    <Content Include="assets\libs\map\Colombia_Bolivar_Cartagena.svg" />
+    <Content Include="assets\libs\map\Colombia_Boyaca_Tunja.svg" />
+    <Content Include="assets\libs\map\Colombia_Caldas_Manizales.svg" />
+    <Content Include="assets\libs\map\Colombia_Caqueta_Florencia.svg" />
+    <Content Include="assets\libs\map\Colombia_Casanare_Yopal.svg" />
+    <Content Include="assets\libs\map\Colombia_Cauca_Popayan.svg" />
+    <Content Include="assets\libs\map\Colombia_Cesar_Valledupar.svg" />
+    <Content Include="assets\libs\map\Colombia_Choco_Quibdo.svg" />
+    <Content Include="assets\libs\map\Colombia_Cordoba_Monteria.svg" />
+    <Content Include="assets\libs\map\Colombia_Cundinamarca_Bogota.svg" />
+    <Content Include="assets\libs\map\Colombia_Guainia_Inirida.svg" />
+    <Content Include="assets\libs\map\Colombia_Guaviare_SanJoseDelGuaviare.svg" />
+    <Content Include="assets\libs\map\Colombia_Huila_Neiva.svg" />
+    <Content Include="assets\libs\map\Colombia_LaGuajira_Riohacha.svg" />
+    <Content Include="assets\libs\map\Colombia_Magdalena_SantaMarta.svg" />
+    <Content Include="assets\libs\map\Colombia_Meta_Villavicencio.svg" />
+    <Content Include="assets\libs\map\Colombia_Narino_Pasto.svg" />
+    <Content Include="assets\libs\map\Colombia_NorteDeSantander_Cucuta.svg" />
+    <Content Include="assets\libs\map\Colombia_Putumayo_Mocoa.svg" />
+    <Content Include="assets\libs\map\Colombia_Quindio_Armenia.svg" />
+    <Content Include="assets\libs\map\Colombia_Risaralda_Pereira.svg" />
+    <Content Include="assets\libs\map\Colombia_SanAndres_y_Providencia.svg" />
+    <Content Include="assets\libs\map\Colombia_Santander_Bucaramanga.svg" />
+    <Content Include="assets\libs\map\Colombia_Sucre_Sincelejo.svg" />
+    <Content Include="assets\libs\map\Colombia_Tolima_Ibague.svg" />
+    <Content Include="assets\libs\map\Colombia_ValleCauca_SantiagoCali.svg" />
+    <Content Include="assets\libs\map\Colombia_Vaupes_Mitu.svg" />
+    <Content Include="assets\libs\map\Colombia_Vichada_PuertoCarreno.svg" />
+    <Content Include="assets\libs\map\jquery.js" />
+    <Content Include="assets\libs\map\jquery.mousewheel.js" />
+    <Content Include="assets\libs\map\mapa_colombia.svg" />
+    <Content Include="assets\libs\map\mapsvg.js" />
+    <Content Include="assets\libs\map\mapsvg.min.js" />
+    <Content Include="assets\libs\map\raphael.js" />
+    <Content Include="assets\libs\map\world_with_states.svg" />
+    <Content Include="ConsultaRusicstBI.aspx" />
+    <Content Include="GraficasUnificadas.aspx" />
+    <Content Include="images\infographics\2015-1200.jpg" />
+    <Content Include="images\infographics\2016-1200.jpg" />
+    <Content Include="images\infographics\2017-1200.jpg" />
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\BEBAS___-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Bundle.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\pt-sans-v8-latin-700.eot" />
+    <Content Include="fonts\pt-sans-v8-latin-700.ttf" />
+    <Content Include="fonts\pt-sans-v8-latin-700.woff" />
+    <Content Include="fonts\pt-sans-v8-latin-700.woff2" />
+    <Content Include="fonts\pt-sans-v8-latin-regular.eot" />
+    <Content Include="fonts\pt-sans-v8-latin-regular.ttf" />
+    <Content Include="fonts\pt-sans-v8-latin-regular.woff" />
+    <Content Include="fonts\pt-sans-v8-latin-regular.woff2" />
+    <Content Include="fonts\roboto-v15-latin-300.eot" />
+    <Content Include="fonts\roboto-v15-latin-300.ttf" />
+    <Content Include="fonts\roboto-v15-latin-300.woff" />
+    <Content Include="fonts\roboto-v15-latin-300.woff2" />
+    <Content Include="fonts\roboto-v15-latin-700.eot" />
+    <Content Include="fonts\roboto-v15-latin-700.ttf" />
+    <Content Include="fonts\roboto-v15-latin-700.woff" />
+    <Content Include="fonts\roboto-v15-latin-700.woff2" />
+    <Content Include="fonts\roboto-v15-latin-regular.eot" />
+    <Content Include="fonts\roboto-v15-latin-regular.ttf" />
+    <Content Include="fonts\roboto-v15-latin-regular.woff" />
+    <Content Include="fonts\roboto-v15-latin-regular.woff2" />
+    <Content Include="fonts\BEBAS___-webfont.eot" />
+    <Content Include="fonts\BEBAS___-webfont.ttf" />
+    <Content Include="fonts\BEBAS___-webfont.woff" />
+    <None Include="Properties\PublishProfiles\Profile2.pubxml" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="fonts\pt-sans-v8-latin-700.svg" />
+    <Content Include="fonts\pt-sans-v8-latin-regular.svg" />
+    <Content Include="fonts\roboto-v15-latin-300.svg" />
+    <Content Include="fonts\roboto-v15-latin-700.svg" />
+    <Content Include="fonts\roboto-v15-latin-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\ace_logo.jpg" />
+    <Content Include="images\bk_counter.gif" />
+    <Content Include="images\bk_highlight-1.png" />
+    <Content Include="images\bk_highlight.png" />
+    <Content Include="images\bk_tooltip-pte.png" />
+    <Content Include="images\brown-chart.png" />
+    <Content Include="images\btn_close.png" />
+    <Content Include="images\btn_close_modal.png" />
+    <Content Include="images\ico-form.png" />
+    <Content Include="images\ico_btn_state.png" />
+    <Content Include="images\ico_collapse.png" />
+    <Content Include="images\ico_contract.png" />
+    <Content Include="images\ico_info.png" />
+    <Content Include="images\ico_info2.png" />
+    <Content Include="images\lamp-ico.png" />
+    <Content Include="images\logo-minhacienda-web.png" />
+    <Content Include="images\logo_gobierno.png" />
+    <Content Include="images\map-ico.png" />
+    <Content Include="images\Poster.png" />
+    <Content Include="images\pte_logo.png" />
+    <Content Include="images\schiweizerische_lgoo.jpg" />
+    <Content Include="images\sections\about.png" />
+    <Content Include="images\sections\bk_mobile_citi_border.png" />
+    <Content Include="images\sections\check.png" />
+    <Content Include="images\sections\city_border.png" />
+    <Content Include="images\sections\desktop.png" />
+    <Content Include="images\sections\home.jpg" />
+    <Content Include="images\sections\intro.png" />
+    <Content Include="images\sections\left_hand.png" />
+    <Content Include="images\sections\right_hand.png" />
+    <Content Include="images\sections\title.png" />
+    <Content Include="images\sections\top_bars.gif" />
+    <Content Include="images\txt_tab_sprite.png" />
+    <Content Include="images\white-chart.png" />
+    <Content Include="images\zoom_in.png" />
+    <Content Include="images\zoom_out.png" />
+    <Content Include="images\z_contabilidad.png" />
+    <Content Include="images\z_contratos.png" />
+    <Content Include="images\z_gastos.png" />
+    <Content Include="images\z_ingresos.png" />
+    <Content Include="images\z_region.png" />
+    <Content Include="RusicstDepartamento.aspx" />
+    <Content Include="RusicstMunicipio.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery.inview.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <None Include="Service References\ConsumirCubo\AdomdConnector.disco" />
+    <None Include="Service References\ConsumirCubo\configuration91.svcinfo" />
+    <None Include="Service References\ConsumirCubo\configuration.svcinfo" />
+    <None Include="Service References\ConsumirCubo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+    <Content Include="Site.Mobile.Master" />
+    <None Include="Service References\ConsumirCubo\AdomdConnector.wsdl" />
+    <None Include="Service References\ConsumirCubo\AdomdConnector.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsumirCubo\AdomdConnector1.wsdl" />
+    <None Include="Service References\ConsumirCubo\AdomdConnector1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsumirCubo\AdomdConnector2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsumirCubo\AdomdConnector3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsumirCubo\AdomdConnector4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.AdomdCube.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.AdomdDimension.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.AdomdMeasure.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.AdomdMember.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ConsultasPersonalizadasRusicstJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.GridData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.LimpiarConsultaPredefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerControlesDimensionesConsultaPredefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerControlesHechosConsultaPredefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerDepartamentosJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerDimensionesHechosPorPreguntaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerEncuestasJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerInformacionConsultaPredefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerListadoConsultaPredefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerMunicipiosJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerMunicipiosPorDepartamentoJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerPreguntasPorCodigoJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerPreguntasPorNombreJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.PersistirConsultaPredefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.PersistirDimensionHechoConsultaPrefefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ConsultaDepartamentosEncuestasRusicstJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ConsultaDepartamentosRusicstJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ConsultaMunicipioEncuestaRusicstJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ConsultaMunicipioRusicstJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.ObtenerPreguntasPorConsultaPredefinidaJSONResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.PersistirUbicacionConsultaPrefefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ConsumirCubo\RusicstBI.ConsumirCubo.PersistirPreguntaConsultaPrefefinidaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BugFixFriendlyUrlResolver.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ConsultaRusicstBI.aspx.cs">
+      <DependentUpon>ConsultaRusicstBI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaRusicstBI.aspx.designer.cs">
+      <DependentUpon>ConsultaRusicstBI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ControlUtilities.cs" />
+    <Compile Include="Extensions\StringUtilities.cs" />
+    <Compile Include="Controls\CustomSiteMapPath.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GraficasUnificadas.aspx.cs">
+      <DependentUpon>GraficasUnificadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GraficasUnificadas.aspx.designer.cs">
+      <DependentUpon>GraficasUnificadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DepartamentoModel.cs" />
+    <Compile Include="Models\DepartamentosListaModel.cs" />
+    <Compile Include="Models\EncuestaDepartamento.cs" />
+    <Compile Include="Models\EncuestaMunicipioModel.cs" />
+    <Compile Include="Models\ModeloConsultasPersonalizadas.cs" />
+    <Compile Include="Models\ModeloConsultasPredefinidas.cs" />
+    <Compile Include="Models\ModeloControles.cs" />
+    <Compile Include="Models\ModeloDepartamentos.cs" />
+    <Compile Include="Models\ModeloEncuestas.cs" />
+    <Compile Include="Models\ModeloGrafica.cs" />
+    <Compile Include="Models\ModeloMunicipios.cs" />
+    <Compile Include="Models\ModeloPreguntas.cs" />
+    <Compile Include="Models\ModeloTiposGrafica.cs" />
+    <Compile Include="Models\MunicipioModel.cs" />
+    <Compile Include="Models\MunicipiosListaModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RusicstDepartamento.aspx.cs">
+      <DependentUpon>RusicstDepartamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RusicstDepartamento.aspx.designer.cs">
+      <DependentUpon>RusicstDepartamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RusicstMunicipio.aspx.cs">
+      <DependentUpon>RusicstMunicipio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RusicstMunicipio.aspx.designer.cs">
+      <DependentUpon>RusicstMunicipio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ConsumirCubo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ConsumirCubo\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50762</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50762/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

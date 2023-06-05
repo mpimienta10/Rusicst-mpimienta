@@ -1,0 +1,87 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"><h2>Salida de Información Gobernaciones</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" novalidate>
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Criterios de búsqueda</div>
+                <div class="panel-body">
+                    <div class="form-group" ng-show="datosUsuario.IdTipoUsuario != 7">
+                        <label class="col-sm-2 control-label required" for="GobernaciónSelect">Departamento</label>
+                        <div class="col-sm-10">
+                            <select id="GobernacionSelect" name="GobernacionSelect" ng-model="registro.idDepartamento" class="form-control input-sm ng-pristine ng-valid" ng-required="datosUsuario.IdTipoUsuario != 7">
+                                <option></option>
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                            <span class="text-danger" ng-show="submitted && myForm.GobernacionSelect.$error.required">{{errorMessages.select}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="encuesta">Encuesta</label>
+                        <div class="col-sm-10">
+                            <select id="encuesta" name="encuesta" ng-model="registro.idEncuesta" class="form-control input-sm ng-pristine ng-valid" required>
+                                <option></option>
+                                <option ng-repeat="item in encuestas" value="{{item.Id}}">{{item.Titulo}}</option>
+                            </select>
+                            <span class="text-danger" ng-show="submitted && myForm.encuesta.$error.required">{{errorMessages.select}}</span>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-offset-2">
+                            <button type="button" class="btnNew ancho" ng-disabled="!cargoDatos" ng-click="submitted=true;filtrar()">Ver Reporte</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="datos.length > 0">
+                <!--=========Reporte============-->
+                <div class="sombra panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-horizontal reporte">
+                            <div class="form-group">
+                                <div class="col-sm-12"><button class="btn btn-default pull-right" ng-click="exportar()"> Exportar PDF</button></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="reporte color-heading titulo1">SALIDA DE INFORMACIÓN GOBERNACIONES</div>
+                                <div class="reporte fila-1 text-center"><strong>{{nombreEncuesta}}</strong></div>
+                                <div class="reporte fila-2 text-center">REPORTE UNIFICADO DEL SISTEMA DE INFORMACIÓN, COORDINACIÓN Y SEGUIMIENTO TERRITORIAL DE LA POLÍTICA PÚBLICA DE VÍCTIMAS - RUSICST</div>
+                                <div class="texto text-center">
+                                    A continuación encontrará algunos datos cuantitativos sobre el total de los municipios por cada uno de los departamentos, que reportaron información con respecto al Diseño, la Implementación y la Evaluación de la Política
+                                    Pública de Víctimas en el RUSICST durante el periodo seleccionado
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <div class="reporte col-sm-6 fila-3 text-center">
+                                    <strong>DEPARTAMENTO</strong>
+                                </div>
+                                <div class="col-sm-6 text-center" style="border: 1px solid #D2D2D2;height:30px;padding-top:5px;">
+                                    {{nombreDepartamento}}
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <table class="table table-responsive">
+                                <tr ng-repeat="items in datosFormatadosPDF">
+                                    <td class="reporte" ng-class="item.style" ng-repeat="item in items" ng-show="item.text" colspan="{{item.colSpan}}">{{item.text}}</td>
+                                </tr>
+                            </table>                                                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning text-center" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger text-center" ng-if="error">{{error}}</label>
+    </div>
+</div>
+
+
+

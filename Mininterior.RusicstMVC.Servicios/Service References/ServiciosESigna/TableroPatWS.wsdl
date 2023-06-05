@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.uariv.esigna.indenova.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="TableroPatWS" targetNamespace="http://ws.uariv.esigna.indenova.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://plataformapre.unidadvictimas.gov.co:80/PortalEmpleado/TableroPatWS?xsd=1" namespace="http://ws.uariv.esigna.indenova.com/" />
+    </xsd:schema>
+  </types>
+  <message name="obtenerCompromisosEntidades">
+    <part name="parameters" element="tns:obtenerCompromisosEntidades" />
+  </message>
+  <message name="obtenerCompromisosEntidadesResponse">
+    <part name="parameters" element="tns:obtenerCompromisosEntidadesResponse" />
+  </message>
+  <message name="obtenerCompromisosEntidadesRC">
+    <part name="parameters" element="tns:obtenerCompromisosEntidadesRC" />
+  </message>
+  <message name="obtenerCompromisosEntidadesRCResponse">
+    <part name="parameters" element="tns:obtenerCompromisosEntidadesRCResponse" />
+  </message>
+  <message name="obtenerCompromisosEntidadesRR">
+    <part name="parameters" element="tns:obtenerCompromisosEntidadesRR" />
+  </message>
+  <message name="obtenerCompromisosEntidadesRRResponse">
+    <part name="parameters" element="tns:obtenerCompromisosEntidadesRRResponse" />
+  </message>
+  <message name="obtenerSeguimientoEntidades">
+    <part name="parameters" element="tns:obtenerSeguimientoEntidades" />
+  </message>
+  <message name="obtenerSeguimientoEntidadesResponse">
+    <part name="parameters" element="tns:obtenerSeguimientoEntidadesResponse" />
+  </message>
+  <message name="obtenerSeguimientoEntidadesRC">
+    <part name="parameters" element="tns:obtenerSeguimientoEntidadesRC" />
+  </message>
+  <message name="obtenerSeguimientoEntidadesRCResponse">
+    <part name="parameters" element="tns:obtenerSeguimientoEntidadesRCResponse" />
+  </message>
+  <message name="obtenerSeguimientoEntidadesRR">
+    <part name="parameters" element="tns:obtenerSeguimientoEntidadesRR" />
+  </message>
+  <message name="obtenerSeguimientoEntidadesRRResponse">
+    <part name="parameters" element="tns:obtenerSeguimientoEntidadesRRResponse" />
+  </message>
+  <message name="obtenerEntidadesNacionales">
+    <part name="parameters" element="tns:obtenerEntidadesNacionales" />
+  </message>
+  <message name="obtenerEntidadesNacionalesResponse">
+    <part name="parameters" element="tns:obtenerEntidadesNacionalesResponse" />
+  </message>
+  <portType name="TableroPatWS">
+    <operation name="obtenerCompromisosEntidades">
+      <input wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerCompromisosEntidadesRequest" message="tns:obtenerCompromisosEntidades" />
+      <output wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerCompromisosEntidadesResponse" message="tns:obtenerCompromisosEntidadesResponse" />
+    </operation>
+    <operation name="obtenerCompromisosEntidadesRC">
+      <input wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerCompromisosEntidadesRCRequest" message="tns:obtenerCompromisosEntidadesRC" />
+      <output wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerCompromisosEntidadesRCResponse" message="tns:obtenerCompromisosEntidadesRCResponse" />
+    </operation>
+    <operation name="obtenerCompromisosEntidadesRR">
+      <input wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerCompromisosEntidadesRRRequest" message="tns:obtenerCompromisosEntidadesRR" />
+      <output wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerCompromisosEntidadesRRResponse" message="tns:obtenerCompromisosEntidadesRRResponse" />
+    </operation>
+    <operation name="obtenerSeguimientoEntidades">
+      <input wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerSeguimientoEntidadesRequest" message="tns:obtenerSeguimientoEntidades" />
+      <output wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerSeguimientoEntidadesResponse" message="tns:obtenerSeguimientoEntidadesResponse" />
+    </operation>
+    <operation name="obtenerSeguimientoEntidadesRC">
+      <input wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerSeguimientoEntidadesRCRequest" message="tns:obtenerSeguimientoEntidadesRC" />
+      <output wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerSeguimientoEntidadesRCResponse" message="tns:obtenerSeguimientoEntidadesRCResponse" />
+    </operation>
+    <operation name="obtenerSeguimientoEntidadesRR">
+      <input wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerSeguimientoEntidadesRRRequest" message="tns:obtenerSeguimientoEntidadesRR" />
+      <output wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerSeguimientoEntidadesRRResponse" message="tns:obtenerSeguimientoEntidadesRRResponse" />
+    </operation>
+    <operation name="obtenerEntidadesNacionales">
+      <input wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerEntidadesNacionalesRequest" message="tns:obtenerEntidadesNacionales" />
+      <output wsam:Action="http://ws.uariv.esigna.indenova.com/TableroPatWS/obtenerEntidadesNacionalesResponse" message="tns:obtenerEntidadesNacionalesResponse" />
+    </operation>
+  </portType>
+  <binding name="TableroPatWSPortBinding" type="tns:TableroPatWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="obtenerCompromisosEntidades">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCompromisosEntidadesRC">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerCompromisosEntidadesRR">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerSeguimientoEntidades">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerSeguimientoEntidadesRC">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerSeguimientoEntidadesRR">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="obtenerEntidadesNacionales">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="TableroPatWS">
+    <port name="TableroPatWSPort" binding="tns:TableroPatWSPortBinding">
+      <soap:address location="http://plataformapre.unidadvictimas.gov.co:80/PortalEmpleado/TableroPatWS" />
+    </port>
+  </service>
+</definitions>

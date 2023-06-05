@@ -1,0 +1,18 @@
+﻿<form role="form" class="form-horizontal" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center">Ver Detalles</h3>
+    </div>
+    <div class="modal-body form-ver-detalles">
+        <div class="row">
+            <div class="col-sm-6" ng-repeat="item in items">
+                <label class="col-sm-6 control-label" for="{{item.label}}">{{item.label}}:</label>
+                <div class="col-sm-6">
+                    <label class="ver-detalles" name="{{item.label}}">{{item.value}}</label>
+                </div>
+            </div>
+        </div>      
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cerrar</button>
+    </div>   
+</form>

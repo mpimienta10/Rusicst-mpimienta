@@ -1,0 +1,26 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Crear/Modificar Detalle de Clasificador</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group-sm">
+                    <label class="col-sm-3 control-label required" for="detalle">Detalle</label>
+                    <div class="separar col-sm-9">
+                        <input class="form-control input-sm" name="detalle" type="text" ng-model="detalle.nombreDetalle" id="detalle" required />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

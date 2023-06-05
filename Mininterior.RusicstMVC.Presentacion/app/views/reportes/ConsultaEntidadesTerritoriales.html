@@ -1,0 +1,58 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Consulta Reportes Entidades Territoriales</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" id="myForm">
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Filtro</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label required" for="GobernaciónSelect">Gobernación</label>
+                        <div class="col-sm-10">
+                            <select id="Gobernacion" name="Gobernacion" ng-change="cargarComboAlcaldias()" ng-model="registro.idDepartamento" class="form-control input-sm ng-pristine ng-valid" required>
+                                <option ng-repeat="item in gobernaciones" value="{{item.IdDepartamento}}">{{item.Departamento}}</option>
+                            </select>
+                            <span class="text-center text-danger" ng-show="submitted && myForm.Gobernacion.$error.required">{{errorsMessages.select}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="alcaldiaSelect">Alcaldía</label>
+                        <div class="col-sm-10">
+                            <select id="alcaldiaSelect" name="alcaldiaSelect" ng-model="registro.idMunicipio" class="form-control input-sm ng-pristine">
+                                <option></option>
+                                <option ng-repeat="item in alcaldias" value="{{item.IdMunicipio}}">{{item.Municipio}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-offset-2"><button type="button" class="btnNew ancho" ng-disabled="cargoDatos" ng-click="submitted=true;filtrar()">Aplicar Filtro</button></div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="row" ng-hide="cargoDatos">
+        <button class="btn btn-default pull-right" ng-if="isGrid" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <!--@*Loading*@-->
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="!cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <!--@*filtro de la pantalla*@-->
+    <div class="row" ng-hide="cargoDatos">
+           <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}" >
+            <h3 id="titulo" class="titulo-rejilla">Consulta Reportes Entidades Territoriales</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid"  ui-grid-exporter  ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+           </div>
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="row" ng-hide="cargoDatos">
+        <div class="alert alert-warning text-center col-sm-12" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="alert alert-danger text-center col-sm-12" ng-if="error">{{error}}</label>
+    </div>
+</div>
+

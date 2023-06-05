@@ -1,0 +1,46 @@
+﻿<form role="form" class="form-horizontal" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center">Ver Detalles</h3>
+    </div>
+    <div class="modal-body form-ver-detalles">
+        <div class="row">
+            <div class="col-sm-6" ng-repeat="item in items">
+                <label class="col-sm-6 control-label" for="{{item.label}}">{{item.label}}:</label>
+                <div class="col-sm-6">
+                    <label class="ver-detalles" name="{{item.label}}">{{item.value}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="registro.TipoUsuario == 'Alcaldía' || registro.TipoUsuario == 'Gobernación'">
+            <div class="col-sm-12">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr>
+                            <td class="col-sm-2 rusicst-center titulo-columnas">Username</td>
+                            <td class="col-sm-2 rusicst-center titulo-columnas">Nombres</td>
+                            <td class="col-sm-2 rusicst-center titulo-columnas">Email</td>
+                            <td class="col-sm-1 rusicst-center titulo-columnas">Estado</td>
+                            <td class="col-sm-1 rusicst-center titulo-columnas">Celular</td>
+                            <td class="col-sm-2 rusicst-center titulo-columnas">Tramitó</td>
+                            <td class="col-sm-2 rusicst-center titulo-columnas">Fecha Última Modificación</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in usuariosHistoricos">
+                            <td class="rusicst-center">{{item.UserName}}</td>
+                            <td class="rusicst-center">{{item.Nombres}}</td>
+                            <td class="rusicst-center">{{item.Email}}</td>
+                            <td class="rusicst-center">{{item.Estado}}</td>
+                            <td class="rusicst-center">{{item.TelefonoCelular}}</td>
+                            <td class="rusicst-center">{{item.UsuarioTramite}}</td>
+                            <td class="rusicst-center">{{item.FechaConfirmacion | date:'dd/MM/yyyy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cerrar</button>
+    </div>   
+</form>

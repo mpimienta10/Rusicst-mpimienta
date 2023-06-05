@@ -1,0 +1,76 @@
+﻿<form class="" role="form" name="myForm">
+    <div class="">
+        <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+        </div>
+        <div class="row" style="margin-bottom: 10px;"> <h2>Autoevaluación</h2></div>
+
+        <div class="row">
+            <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        </div>
+
+        <div class="row">
+            <!--Aca va el contenido de la autoevaluacion-->
+
+            <table class="rus-encuesta" cellspacing="0" cellpadding="0" style="border-collapse: collapse;" ng-if="cargoDatos">
+
+                <thead>
+                    <tr>
+                        <th>Proceso</th>
+                        <th>Categoría</th>
+                        <th>Objetivo</th>
+                        <th>Autoevaluación por objetivo (de 0 a 5)</th>
+                        <th>Recomendaciones</th>
+                        <th>Acciones propuestas para alcanzar el objetivo</th>
+                        <th>Recursos requeridos por la ET</th>
+                        <th>Fecha de cumplimiento</th>
+                        <th>Responsable</th>
+                        <th>Nivel de avance</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="auto in datos" class="fon-color-16">
+                        <td rowspan="{{auto.CantidadObjetivosProceso}}" ng-if="auto.showRowProceso" style="text-align: center; font-weight: bold;">
+                            {{auto.NombreProceso}}
+                        </td>
+                        <td rowspan="{{auto.CantidadObjetivosCategoria}}" ng-if="auto.showRowCategoria">
+                            {{auto.NombreCategoria}}
+                        </td>
+                        <td class="ancho5">
+                            {{auto.TextoObjetivo}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{auto.autoevaluacion | number}}
+                        </td>
+                        <td class="ancho5" style="text-align: justify;">
+                            {{auto.recomendacion}}
+                        </td>
+                        <td class="ancho5" style="text-align: justify;">
+                            {{auto.acciones}}
+                        </td>
+                        <td class="ancho5" style="text-align: justify;">
+                            {{auto.recursos}}
+                        </td>
+                        <td>
+                            {{auto.FechaCumplimiento}}
+                        </td>
+                        <td class="ancho5" style="text-align: justify;">
+                            {{auto.responsable}}
+                        </td>
+                        <td style="text-align: center;">
+                            {{auto.avance | number}}%
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="form-group">
+            <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+            <label class="text-danger" ng-if="error">{{error}}</label>
+        </div>
+
+    </div>
+</form>

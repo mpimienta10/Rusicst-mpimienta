@@ -1,0 +1,68 @@
+﻿<form role="form" class="form-horizontal" id="editRRForm" name="editRRForm" novalidate>
+    <div class="modal-header  modal-rejilla">
+        <h4 class="text-center">Municipio: {{tableroRR.Municipio}}</h4>
+        <h4 class="text-center">Comunidad: {{tableroRR.Comunidad}}</h4>
+        <h4 class="text-center">Medida: {{tableroRR.MedidaRetornoReubicacion}}</h4>
+        <h4 class="text-center">Sector: {{tableroRR.Sector}}</h4>
+        <h4 class="text-center">Componente: {{tableroRR.Componente}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Avance Cualitativo</div>
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class=" col-sm-12" for="nombre">Avance Cualitativo Primer Semestre:</label>
+                            <div class="col-sm-12">
+                                <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="Avance cualitativo del Primer Semestre" id="Avance1" ng_model="datosRespuesta.AvancePrimer" name="Avance1" ng-trim="true" ng-maxlength="4000" ng-disabled="seguimiento != 1"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class=" col-sm-12" for="nombre">Avance Cualitativo Segundo Semestre:</label>
+                            <div class="col-sm-12">
+                                <textarea style="max-width: 100% !important;resize: none" class="form-control input-sm" rows="4" placeholder="Avance cualitativo del Segundo Semestre" id="Avance2" ng_model="datosRespuesta.AvanceSegundo" name="Avance2" ng-trim="true" ng-maxlength="4000" ng-disabled="seguimiento != 2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class=" col-sm-2 control-label" for="nombre">Adjunto:</label>
+                                <div class="col-sm-10" ng-show="datosRespuesta.NombreAdjunto!=''">
+                                    <a href="" ng-click="descargar($index)"> {{datosRespuesta.NombreAdjunto}}</a>
+                                    <a class="glyphicon glyphicon-remove-circle text-danger link" title="Eliminar Archivo" ng-click="borrarAdjunto()">Eliminar Archivo</a>
+                                </div>
+                                <div class="col-sm-10" ng-show="datosRespuesta.NombreAdjunto==''">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" uib-tooltip="Adjunte Archivos Ofimáticos, PDF o Imágenes" tooltip-placement="top" tooltip-trigger="'mouseenter'"><i class="glyphicon glyphicon-info-sign"></i></span>
+                                        <input type="file" ngf-select ng-model="file" name="file" id="fileSeguimiento" 
+                                               ngf-max-size="10MB" 
+                                               ngf-validate-fn="validarArchivo($file)" 
+                                               ngf-model-invalid="errorFile" style="width:100%;" />
+                                    </div>
+                                    <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 10MB</label></div>
+                                    <span class="col-sm-12 text-danger" ng-show="editRRForm.$error.maxSize || error.maxSize || errorFile.$error.maxSize || errorFile.$errorMessages.maxSize">{{errorMessages.fileRequired}} {{errorMessages.maxSize}}</span>
+                                    <span class="col-sm-12 text-danger" ng-show="submitted && !extension"> {{errorMessages.extension}} </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <span class="text-danger" ng-show="submitted && !editRRForm.$valid">Existen errores en el formulario. Por favor verifique e intente de nuevo.</span>
+
+    </div>
+    <div class="modal-footer" ng-if="activo">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()" style="margin:0px;"  ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()" style="margin:0px;">Cancelar</button>
+    </div>
+    <div class="modal-footer" ng-if="!activo">
+        <button class="btn btnNew" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

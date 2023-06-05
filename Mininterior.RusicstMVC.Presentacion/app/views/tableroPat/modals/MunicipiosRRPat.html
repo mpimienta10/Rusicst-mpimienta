@@ -1,0 +1,72 @@
+﻿<form role="form" class="form-horizontal" id="registerFormRR" name="registerFormRR" novalidate>
+    <div class="modal-header  modal-rejilla"">
+        <h4 class="text-center" id="modal-title">{{tableroRR.SUJETO}}</h4>
+        <h4 class="text-center" >{{tableroRR.MEDIDA_RR}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="sombra panel panel-default">
+            <div class="panel-heading">Medida</div>
+            <div class="panel-body">
+                <label class="col-sm-12 p-municipios">{{tableroRR.MEDIDA_RR}}</label>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Acción: </label>
+                    <div class="col-sm-10">
+                        <textarea ng-disabled="disabled" class="form-control input-sm " style="resize: none"   rows="4" placeholder="Describa la acción a ejecutar" id="ACCION" ng_model="tableroRR.ACCION" name="ACCION" ng-trim="true" ng-maxlength="4000"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Presupuesto:</label>
+                    <div class="col-sm-10">
+                        {{tableroRR.PRESUPUESTO | currency:"$":0}}
+                        <input type="number" ng-disabled="disabled" id="presupuesto" class="form-control input-sm" placeholder="número" ng_model="tableroRR.PRESUPUESTO" name="presupuesto" ng-trim="true" ng-pattern="/^[0-9]*$/" max="2000000000000" />
+                        <span class="text-danger" ng-show="submitted || !registerFormRR.presupuesto.$valid">Es un número entero entre 0 y 2'000.000'000.000</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="sombra panel panel-default">
+                        <div class="panel-heading">Detalle de las acciones a realizar</div>
+                        <div class="panel-body">
+                            <div class="col-sm-12 sin-padding" ng-if="activo==true">
+                                <label class=" col-sm-2 control-label" for="nombre">Acción:</label>
+                                <div class="col-sm-8">
+                                    <input type="text"  ng-disabled="disabled" id="accion_RR" placeholder="acción a realizar" class="form-control input-sm" ng_model="tableroRR.ACCION_RR" ng-trim="true" name="accion_RR" />
+                                    <span class="text-danger">{{errors.ACCION}}</span><br />
+                                </div>
+                                <div class="col-sm-1">
+                                    <button type="button" ng-disabled="disabled" class="btn btnNew" ng-click="agregarAccionRR()">
+                                        <span class="glyphicon glyphicon-plus"></span>Agregar
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 sin-padding" ng-show="accionesRRAgregadas.length>0">
+                                <table class="table table-striped table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-sm-10">Acción</th>
+                                            <th class="col-sm-2 text-center" ng-if="activo">Quitar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-if="accionesRRAgregadas">
+                                        <tr ng-repeat="item in accionesRRAgregadas" ng-if="item.ACTIVO == true ">
+                                            <td>{{item.ACCION}}</td>
+                                            <td align="center" ng-if="activo==true">
+                                                <a class="glyphicon glyphicon-remove-circle text-danger link" title="Borrar acción" ng-click="borrarAccionRR($index)"></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" ng-if="activo">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()"  ng-disabled="flagVariable">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>
+    <div class="modal-footer" ng-if="!activo">
+        <button class="btn btnNew" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

@@ -1,0 +1,82 @@
+﻿<form role="form" class="form-horizontal" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center">Configuración Slider</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="sombra panel panel-default">
+                    <!--<div class="panel-heading">Archivo de Ayuda</div>-->
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="col-md-4" style="border: 1px solid #777; height: 40px;">
+                                    <label class="radio-inline" style="margin-top: 10px;"><input type="radio" name="optTipo" ng-model="type" id="optTipo" value="V" ng-click="doSlider('V');">Video</label>
+                                    <label class="radio-inline" style="margin-top: 10px;"><input type="radio" name="optTipo" ng-model="type" id="optTipo" value="I" ng-click="doSlider('I');">Imagen</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-12" id="divVideo" ng-show="showVid">
+
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-md-12">
+                                        <div class="col-md-2">
+                                            Video:
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <input type="file" ngf-select ng-model="fileVidSL" name="fileVidSL" accept=".mp4" ngf-max-size="300MB" 
+                                                   ngf-model-invalid="errorFile" style="width:100%;" />
+                                            <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 300MB</label></div>
+                                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.fileVidSL.$error.required">
+                                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                                            </span>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="btnSLVUp" class="btnNew" name="btnSLVUp" ng-disabled="!fileVidSL" ng-click="submitted=true;agregarVid()">Cargar Video</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" id="divImagen" ng-show="showImg">
+
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="col-md-12">
+                                        <div class="col-md-2">
+                                            Imagen:
+                                        </div>
+                                        <div class="col-md-6">
+                                            
+                                            <input type="file" ngf-select ng-model="fileImgSL" name="fileImgSL" accept=".png,.jpg,.jpeg" ngf-max-size="4MB" 
+                                                   ngf-model-invalid="errorFile" style="width:100%;" />
+                                            <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 4MB</label></div>
+                                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.fileImgSL.$error.required">
+                                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                                            </span>
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="btnSLUp" class="btnNew" name="btnSLUp" ng-disabled="!fileImgSL" ng-click="submitted=true;agregarImg()">Cargar Imagen</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

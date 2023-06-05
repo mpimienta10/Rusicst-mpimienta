@@ -1,0 +1,48 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Cambiar Contraseña</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="Password" id="Password">Contraseña actual</label>
+                        <div class="separar col-sm-9">
+                            <input autocomplete="off" class="form-control input-sm" name="Password" type="password" ng-model="registro.Password" id="Password" required />
+                            <span class="text-danger" ng-show="submitted && myForm.Password.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="newPassword" id="LblNewPassword">Nueva contraseña</label>
+                        <div class="separar col-sm-9">
+                            <input autocomplete="off" class="form-control input-sm" name="newPassword" type="password" ng-model="registro.newPassword" id="newPassword" valid-Pwd="newPassword" required />
+                            <span class="text-danger" ng-show="submitted && myForm.Password.$error.required">{{errorMessages.inputText}}</span>
+                            <span class='text-danger' ng-show='submitted && myForm.newPassword.$error.pwdValid'>
+                                {{errorMessages.passInvalid}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="confirmNewPassword" id="confirmNewPassword">Confirmación nueva contraseña</label>
+                        <div class="separar col-sm-9">
+                            <input autocomplete="off" class="form-control input-sm" name="confirmNewPassword" type="password" ng-model="registro.confirmNewPassword" id="confirmNewPassword" pw-check='newPassword' required />
+                            <span class="text-danger" ng-show="submitted && myForm.Password.$error.required">{{errorMessages.inputText}}</span>
+                            <span class='text-danger' ng-show='submitted && myForm.confirmNewPassword.$error.pwmatch'>
+                                {{errorMessages.comparePasswords}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span class="col-sm-12 alert-danger text-center" ng-show="submitted && error">{{error}}</span>
+        <span ng-show="cargando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        <button class="btnNew" type="submit" ng-click="submitted=true; aceptar()">Enviar</button>
+        <button class="btnNew" type="submit" ng-click="logout()">Cerrar</button>
+    </div>
+</form>

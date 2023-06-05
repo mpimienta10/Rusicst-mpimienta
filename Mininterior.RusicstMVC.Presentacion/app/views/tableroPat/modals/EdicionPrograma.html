@@ -1,0 +1,18 @@
+﻿<form role="form" class="form-horizontal" id="editForm" name="editForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <p><b>Programa:</b>                {{datos.PROGRAMA}}</p>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <textarea style="max-width: 100% !important;" class="form-control input-sm ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-maxlength" rows="4" placeholder="Nuevo programa a realizar" id="programa" ng_model="datos.PROGRAMA" name="programa" ng-trim="true" ng-maxlength="4000" required></textarea>
+                <span class="text-danger">{{errors.PROGRAMAEDIT}}</span><br />
+                <span class="text-danger" ng-show="submitted && !editForm.programa.$valid">El Nombre del Programa no puede ir vacío</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btnNew" ng-click="submitted=true;guardar()" style="margin:0px;">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()" style="margin:0px;">Cancelar</button>
+    </div>
+</form>

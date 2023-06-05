@@ -1,0 +1,56 @@
+﻿
+
+<div style="background-color:#e8e8e8;border-top:1px solid #F0E7E5;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <!--CARROUSEL-->
+                <div ng-include="'app/views/layouts/_ParcialCarrusel.html'"> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Ingreso-->
+<div style="background-color:#63002D" ui-view="login">
+  
+</div>
+
+<!--Aún no te has registrado-->
+<div class="login-form line-border">
+    <div class="wrap-content">
+        <span class="side">¿Aún no te has registrado? <a ui-sref="home.registro">Hazlo aquí</a></span>
+        <span class="side -bar-">|</span>
+        <span class="side" ng-controller="RecuperarContrasenaController">¿Olvidó su contraseña? <a href="#" ng-click="abrirModalRecuperarContrasena()">Haz click aquí</a> </span>
+        <span class="side -bar-">|</span>
+        <span class="side"> Ingreso usuarios internos <a href="#">Hazlo aquí</a></span>
+        &nbsp;<span class="report" ng-controller="ContactanosController">
+            Si presenta dificultades para ingresar al sistema contáctenos a través del correo: <a href="#" ng-click="abrirModalContactanos()">
+                reporteunificado@mininterior.gov.co
+            </a>
+        </span>
+    </div>
+</div>
+
+<!--contenido-->
+<div class="">
+    <div id="divLoginText" class="wrap-content -parraf">
+
+        <!--<a ui-sref="index.index">Ingresar</a>
+        <a ui-sref="home.confirmarsolicitud">home.confirmarsolicitud</a>-->
+        Text Home
+        <!--@*@{
+        Html.RenderAction("PartialBody", "Sistema", new { page = 2 });
+        }*@-->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div ui-view="login"></div>

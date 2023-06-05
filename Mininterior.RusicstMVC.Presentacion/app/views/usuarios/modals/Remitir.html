@@ -1,0 +1,58 @@
+﻿<form role="form" class="form-horizontal" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center">Tramitar Solicitud de Usuario</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-12" for="usuario">Usuario:</label>
+            <div class="col-sm-12">
+                <label class="control-label" id="usuario" name="usuario" style="font-weight:500">{{registro.Nombres}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12" for="respuesta">Acepta Solicitud:</label>
+            <div class="col-sm-12">
+                <select id="respuesta" name="respuesta" ng-model="registro.Acepta" class="form-control input-sm ng-valid" ng-change="MostrarRol(registro.Acepta)" required>
+                    <option ng-repeat="item in respuestas" value="{{item.value}}">{{item.label}}</option>
+                </select>
+                <span class="text-danger" ng-show="submitted && myForm.respuesta.$error.required">{{errorMessages.select}}</span>
+            </div>
+        </div>
+        <div ng-if="registro.Acepta == 'false'" class="form-group">
+            <label class="col-sm-12 " for="motivo">Motivo :</label>
+            <div class="col-sm-12">
+                <textarea id="motivo" ng-model="registro.ExcepcionMensaje" class="form-control" style="resize:none" rows="3" placeholder="" ng-trim="true"></textarea>
+            </div>
+        </div>
+        <div ng-if="registro.Acepta == 'false'" class="form-group">
+            <label class="col-sm-12">Adjunto:</label>
+            <div class="col-sm-12">
+                <input type="file" ngf-select ng-model="registro.file" name="file" accept="" ngf-max-size="25MB" ngf-model-invalid="errorFile" style="width:100%;" />
+                <span class="col-sm-12 text-danger text-center" ng-show="myForm.file.$error.maxSize">
+                    menor a 25MB
+                </span>
+                <span class="col-sm-12 text-danger text-center" ng-show="submitted && extension">
+                    {{errorMessages.extension}}
+                </span>
+            </div>
+        </div>
+        <div ng-if="registro.Acepta == 'true'" class="form-group">
+            <label class="col-sm-12" for="rol">Rol:</label>
+            <div class="col-sm-12">
+                <select id="rol" name="rol" ng-model="registro.IdTipoUsuario" class="form-control input-sm ng-valid" ng-required="registro.Acepta == 'true'" >
+                    <option ng-repeat="item in roles" value="{{item.Id}}">{{item.Nombre}}</option>
+                </select>
+                <span class="text-danger" ng-show="submitted && myForm.rol.$error.required">{{errorMessages.select}}</span>
+            </div>
+        </div>
+     
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span ng-show="enviando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        <button class="btnNew" ng-disabled="enviando" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

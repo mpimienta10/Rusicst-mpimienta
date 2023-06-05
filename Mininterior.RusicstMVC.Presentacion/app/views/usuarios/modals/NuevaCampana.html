@@ -1,0 +1,75 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Nueva campaña</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Segmento</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-12" for="tipoUsuario">Tipo de Usuario:</label>
+                            <div class="col-sm-12">
+                                <select id="tipoUsuario" name="tipoUsuario" ng-model="registro.IdTipoUsuario" class="form-control input-sm ng-valid" required>
+                                    <option ng-repeat="item in tipoUsuarios" value="{{item.Id}}">{{item.Nombre}}</option>
+                                </select>
+                                <span class="text-danger" ng-show="(submitted || submittedPrueba) && myForm.tipoUsuario.$error.required">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sombra panel panel-default">
+                    <div class="panel-heading">Redacción</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="Asunto" class="col-sm-12">Asunto:</label>
+                            <div class="col-sm-12">
+                                <input class="form-control" ng-model="registro.Asunto" id="Asunto" name="Asunto" required />
+                                <span class="text-danger" ng-show="(submitted || submittedPrueba) && myForm.Asunto.$error.required">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-12">Adjunto:</label>
+                            <div class="col-sm-12">
+                                <input type="file" ngf-select ng-model="file" name="file"
+                                       accept="" ngf-max-size="25MB" ng-change="extension=false"
+                                       ngf-model-invalid="errorFile" style="width:100%;" />
+                                <span class="col-sm-12 text-danger text-center" ng-show="(submitted || submittedPrueba) && errorFile.$errorMessages.maxSize">
+                                    {{errorMessages.fileRequired}} menor a 25MB
+                                </span>
+                                <span class="col-sm-12 text-danger text-center" ng-show="(submitted || submittedPrueba) && extension">
+                                    {{errorMessages.extension}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <textarea ui-tinymce="tinymceOptions" ng-model="registro.Mensaje" name="mensaje"></textarea>
+                                <span class="text-danger" ng-show="(submitted || submittedPrueba) && !mensajeDiligenciado">{{errorMessages.inputText}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="EmailPrueba" class="col-sm-12">Dirección destino de prueba:</label>
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" ng-model="registro.CorreoPrueba" id="EmailPrueba" name="EmailPrueba" ng-required="submittedPrueba" />
+                                <span class="text-danger" ng-show="submittedPrueba && myForm.EmailPrueba.$error.required">{{errorMessages.inputText}}</span>
+                                <span class="text-danger" ng-show="submittedPrueba && myForm.EmailPrueba.$error.email">{{errorMessages.email}}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-sm-12 alert-success text-center" ng-show="submittedPrueba && enviado">Correo de Prueba enviado satisfactoriamente</span>
+                            <span class="col-sm-12 alert-danger text-center" ng-show="submitted && error">{{error}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <span ng-show="cargando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+        <button class="btnNew" type="submit" ng-click="enviado=false;submittedPrueba=true;enviar('prueba')">Enviar correo de prueba</button>
+        <button class="btnNew" type="submit" ng-click="submitted=true;submittedPrueba=false;enviar('normal')">Enviar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

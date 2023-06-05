@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Test1";
+}
+
+<div data-ng-app="APIModule" id="tblSubs" ng-controller="Test1Controller">
+    <h2 class="">Test1</h2>
+    @*Div grilla*@
+    <div class="row">
+        <div id="filterTable" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla ">Titulo de la Grilla</h3>
+            <div id="grid" ui-grid="gridOptions" class="grid"  ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+
+    </div>
+    <div>
+        <table  class="table table-striped" >
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Ernst Handel</td>
+                <td>Roland Mendel</td>
+                <td>Austria</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winecellars</td>
+                <td>Yoshi Tannamuri</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr>
+        </table>
+        <table id="TableToExport" class="table table-striped" border="1" >
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Telephone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jack</td>
+                    <td>Sales</td>
+                    <td>555-5555</td>
+                </tr>
+                <tr>
+                    <td>John</td>
+                    <td>Admin</td>
+                    <td>555-5555</td>
+                </tr>
+                <tr>
+                    <td>James</td>
+                    <td>Sales</td>
+                    <td>555-5555</td>
+                </tr>
+            <tbody>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td>Total</td>
+                    <td>Total</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+
+@section Scripts{
+  
+<script src="~/scripts/table-export/tableExport.js"></script>
+<script src="~/scripts/table-export/jquery.base64.js"></script>
+<script src="~/scripts/APIScripts/Controllers/Home/HomeController.js"></script>
+<script src="~/scripts/APIScripts/Controllers/Usuarios/Test1Controller.js"></script>
+}

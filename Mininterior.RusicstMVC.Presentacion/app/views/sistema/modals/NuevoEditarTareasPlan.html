@@ -1,0 +1,159 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Creación Acciones Plan de Mejoramiento</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Estrategia</div>
+                    <div class="panel-body">
+
+                        <div class="form-group-sm">
+                            <div class="col-sm-7">
+                                <button class="btnNew" type="button" ng-click="PopUpBuscarEstrategias('')">Buscar Estrategias</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group-sm">
+                            <label class="col-sm-12 control-label-left required" for="areaEstrategia">Estrategia:</label>
+                            <div class="col-sm-12">
+                                <textarea style="max-width: 100% !important;" class="form-control input-sm" rows="3" id="areaEstrategia" 
+                                          name="areaEstrategia" ng-model="estrategia.estrategia" ng-trim="true" ng-maxlength="1024"
+                                          required>
+                                </textarea>
+                                <span class="text-danger" ng-show="submitted && myForm.areaEstrategia.$error.required">{{errorMessages.inputText}}</span>
+                                <span class="text-danger" ng-show="myForm.areaEstrategia.$error.maxlength">La estrategia debe tener menos de 1024 caracteres.</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-sm">
+                            <label class="col-sm-12 control-label-left required" for="preguntasObjetivo">Listado Preguntas:</label>
+                            <div class="col-sm-12">
+                                <input type="text" id="preguntasObjetivo" name="preguntasObjetivo" 
+                                       ng-model="estrategia.Pregunta" 
+                                       uib-typeahead="pregunta as pregunta.NombrePregunta for pregunta in getLocation($viewValue)" 
+                                       class="form-control input-sm" required>
+                                <span class="text-danger" ng-show="submitted && myForm.preguntasObjetivo.$error.required">Debe Seleccionar una pregunta para asociar las opciones a la(s) tarea(s)</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btnNew" type="button" ng-click="submitted=true;asociar()">Asociar</button>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Opciones y Acciones</div>
+                    <div class="panel-body">
+
+                        <!--<div class="form-group-sm" ng-show="listaOpciones.length > 0">
+                            <div class="col-sm-7">
+                                <button class="btnNew" type="button" ng-click="PopUpBuscarEstrategias(estrategia.Pregunta.IdPregunta)">Buscar Recomendaciones</button>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                        </div>-->
+
+                        <div ng-repeat="item in listaOpciones" ng-init="outerIndex = $index">
+                            
+                            <div class="form-group-sm">
+                                <label class="col-sm-5 control-label-left" for="chkTarea{{$index}}" style="margin-top: 10px;">Aplica Acción</label>
+                                <div class="col-sm-3">
+                                    <input type="checkbox" class="form-control input-sm" id="chkTarea{{$index}}" name="chkTarea{{$index}}" ng-model="tarea[$index].aplica"
+                                           ng-change="applyPattern($index)" />
+                                </div>
+                            </div>
+
+                            <div class="form-group-sm">
+                                <label class="col-sm-12 control-label-left" style="margin-top: 5px;">Si la respuesta es: &nbsp; {{item.Valor}}</label>
+                            </div>
+
+                            <div class="form-group-sm">
+                                <label class="col-sm-12 control-label-left" for="divTareas{{$index}}" style="margin-top: 5px;">Acciones:</label>
+                                <div class="col-sm-12" id="divTareas{{$index}}" name="divTareas{{$index}}">
+                                    
+                                    <!-- Tabla con tareas -->
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-1 control-label-left" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;" for="areaTarea{{$index}}">Acción: </label>
+                                        <div class="col-sm-7">
+                                            <textarea style="max-width: 100% !important;" class="form-control input-sm" rows="3" id="areaTarea{{$index}}"
+                                                      name="areaTarea{{$index}}" ng-model="tarea[$index].textoTarea" ng-trim="true" ng-maxlength="1024"></textarea>
+                                            <span class="text-danger" ng-show="tarea[$index].aplica && tarea[$index].textoTareaError.length > 0">{{tarea[$index].textoTareaError}}</span>
+                                            <span class="text-danger" ng-show="myForm.areaTarea{{$index}}.$error.maxlength">La acción debe tener menos de 1024 caracteres.</span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button type="button" class="btnNew" ng-click="agregarTarea(outerIndex)" style="margin:0px;">
+                                                <span class="glyphicon glyphicon-plus"></span>Agregar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12" ng-show="tarea[outerIndex].tareas">
+                                        <!--Tabla-->
+                                        <table class="table table-striped table-bordered table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-sm-8">Acción</th>
+                                                    <th class="col-sm-2">Eliminar</th>
+                                                    <th class="col-sm-2">Editar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-if="tarea[outerIndex].tareas">
+                                                <tr ng-repeat="item in tarea[outerIndex].tareas" ng-init="tareasIndex = $index">
+                                                    <td>{{item}}</td>
+                                                    <td><a class="glyphicon glyphicon-remove-circle text-danger link" title="Borrar Tarea" ng-click="borrarTarea(outerIndex, $index)"></a></td>
+                                                    <td><a class="glyphicon glyphicon-edit text-danger link" title="Editar Tarea" ng-click="editarTarea(outerIndex, $index)"></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <script type="text/ng-template" id="edicionTarea.html">
+                                        <form role="form" class="form-horizontal" id="editForm" name="editForm" novalidate>
+
+                                            <div class="modal-header modal-rejilla">
+                                                <h3 class="text-center" id="modal-title">Acción: {{datos}}</h3>
+                                            </div>
+
+                                            <div class="modal-body">
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <input type="text" id="programa" placeholder="Tarea" class="form-control input-sm" ng_model="datos" ng-trim="true" name="tarea" required />
+                                                        <span class="text-danger">{{errors.PROGRAMAEDIT}}</span><br />
+                                                        <span class="text-danger" ng-show="submitted && !editForm.tarea.$valid">La acción no puede ir vacía</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btnNew" ng-click="submitted=true;guardar()" style="margin:0px;">Guardar</button>
+                                                <button class="btn btn-default" ng-click="cancelar()" style="margin:0px;">Cancelar</button>
+                                            </div>
+                                        </form>
+                                    </script>
+
+                                </div>
+                            </div>
+                                                      
+                        </div>                     
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted2=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

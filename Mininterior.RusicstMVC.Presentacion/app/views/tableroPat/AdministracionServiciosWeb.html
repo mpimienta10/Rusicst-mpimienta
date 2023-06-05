@@ -1,0 +1,110 @@
+﻿
+<div>
+    <div class="row"> <h2>Administración de Servicios Web</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="registerForm" id="registerForm" novalidate>
+            <!--@*configuracion del correo*@-->
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">E-Signa</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="idmetodo">Metodo:</label>
+                        <div class="separar col-sm-9">
+                            <select class="form-control input-sm ng-pristine ng-valid" id="idmetodos" name="idmetodo" ng-model="idmetodo" required ng-options="item.Id as item.nombre for (key, item)  in metodos"></select>
+                            <span class="text-danger" ng-show="registerForm.idmetodo.$error.required">El método es requerido</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="idmetodo > 1" >
+                        <label class="col-sm-3 control-label" for="IdTablero">Tablero</label>
+                        <div class="separar col-sm-9">
+                            <select class="form-control input-sm ng-pristine ng-valid" id="IdTablero" name="IdTablero" ng-model="IdTablero" required ng-options="item.Id as item.Etiqueta for (key, item)  in Tableros"></select>
+                            <span class="text-danger" ng-show="registerForm.IdTablero.$error.required && idmetodo > 1">El tablero es requerido</span>
+                        </div>
+                    </div>           
+                    <div class="form-group" ng-show="idmetodo == 3 || idmetodo == 5 || idmetodo == 6">
+                        <label class="col-sm-3 control-label" for="numSeguimiento">Número de seguimiento</label>
+                        <div class="separar col-sm-9">
+                            <select class="form-control input-sm ng-pristine ng-valid" id="numSeguimiento" name="numSeguimiento" ng-model="numSeguimiento" required ng-options="item.Id as item.nombre for (key, item)  in seguimientos"></select>
+                            <span class="text-danger" ng-show="registerForm.numSeguimiento.$error.required && (idmetodo == 3 || idmetodo == 5 || idmetodo == 6)">El numero de seguimiento requerido</span>
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <button type="button" class="btnNew ancho" ng-click="submitted=true;wsEntidadesNacionales()">Cargar información</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="registerFormSigo" id="registerForm" novalidate>
+            <!--@*configuracion del correo*@-->
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Sistema de Información del grupo de gestión de oferta - SIGO</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="idmetodoSISGO">Metodo:</label>
+                        <div class="separar col-sm-9">
+                            <select class="form-control input-sm ng-pristine ng-valid" id="idmetodoSIGO" name="idmetodoSIGO" ng-model="idmetodoSIGO" required ng-options="item.Id as item.nombre for (key, item)  in metodosSIGO"></select>
+                            <span class="text-danger" ng-show="registerFormSigo.idmetodo.$error.required">El método es requerido</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="ano">Año</label>
+                        <div class="separar col-sm-9">
+                            <select class="form-control input-sm ng-pristine ng-valid" id="ano" name="ano" ng-model="ano" required ng-options="item.Id as item.nombre for (key, item)  in anos"></select>
+                            <span class="text-danger" ng-show="registerFormSigo.ano.$error.required">El año es requerido</span>
+                        </div>
+                    </div>                    
+                    <div class="form-group" ng-show="idmetodoSIGO == 1" >
+                        <label class="col-sm-3 control-label" for="VigenciaInicio">Vigencia Inicio:</label>
+                        <div class="separar col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="tablero.VigenciaInicio" id="VigenciaInicio" required is-open="popup1.opened"
+                                       name="VigenciaInicio" ng-change='checkErr(tablero.VigenciaInicio, tablero.VigenciaFin)' datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                <span class="text-danger" ng-show="registerFormSigo.VigenciaInicio.$error.required && (idmetodoSIGO == 1 )">La Fecha Inicio es Obligatoria</span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group " ng-show="idmetodoSIGO == 1" >
+                        <label class="col-sm-3 control-label" for="VigenciaFin">Vigencia Fin:</label>
+                        <div class="separar col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="tablero.VigenciaFin" required is-open="popup2.opened"
+                                       name="VigenciaFin" ng-change='checkErr(tablero.VigenciaInicio, tablero.VigenciaFin)' datepicker-options="dateOptions2" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                                <span class="text-danger" ng-show="registerFormSigo.VigenciaFin.$error.required && (idmetodoSIGO == 1 )">La Fecha Fin es Obligatoria</span>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="idmetodoSIGO != 1">
+                        <label class="col-sm-3 control-label" for="numSeguimiento">Número de seguimiento</label>
+                        <div class="separar col-sm-9">
+                            <select class="form-control input-sm ng-pristine ng-valid" id="numSeguimiento" name="numSeguimiento" ng-model="numSeguimiento" required ng-options="item.Id as item.nombre for (key, item)  in seguimientos"></select>
+                            <span class="text-danger" ng-show="registerFormSigo.numSeguimiento.$error.required && (idmetodoSIGO == 2 || idmetodoSIGO == 3 )">El numero de seguimiento requerido</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <button type="button" class="btnNew ancho" ng-click="submittedSIGO=true;wsSGO()">Cargar información</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="row">
+        <div class="alert alert-success" ng-if="alerta" role="alert">{{alerta}}</div>
+        <div class="alert alert-danger" ng-if="error" role="alert">{{error}}</div>
+    </div>
+</div>

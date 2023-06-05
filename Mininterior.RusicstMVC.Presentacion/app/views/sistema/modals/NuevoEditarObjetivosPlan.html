@@ -1,0 +1,29 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Creación/Edición Objetivos Generales Plan de Mejoramiento</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group-sm">
+                    <label class="col-sm-5 control-label required" for="objetivo">Objetivo General:</label>
+                    <div class="separar col-sm-7">
+                        <textarea style="max-width: 100% !important;" class="form-control input-sm" rows="3" id="objetivo"
+                                  name="objetivo" ng-model="objetivo.objetivoGeneral" ng-trim="true" ng-maxlength="4000"
+                                  required></textarea>
+                        <span class="text-danger" ng-show="submitted && myForm.objetivo.$error.required">{{errorMessages.inputText}}</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

@@ -1,0 +1,55 @@
+﻿<form role="form" class="form-horizontal" name="myFormReporte" novalidate>
+    <div class="modal-header modal-rejilla">
+        <a href="" ng-click="cancelar()"><i class="fa fa-window-close icono-cerrar pull-right"></i></a>
+        <h3 class="text-center">Consultar Reporte</h3>
+    </div>
+    <div class="modal-body">
+        <h4 class="text-center">{{registro.Titulo}}</h4>
+        <div class="sombra panel panel-default">
+            <div class="panel-body">
+                <uib-accordion close-others="false">
+                    <div uib-accordion-group class="panel-info" is-open="config.disenho.abierto">
+                        <uib-accordion-heading>
+                            Diseño <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': config.disenho.abierto, 'glyphicon-chevron-right': !config.disenho.abierto}"></i>
+                        </uib-accordion-heading>
+                        <ul>
+                            <li ng-repeat="item in registro.disenho"><a class="text-info" href="">{{item.valor}}</a></li>
+                        </ul>
+                    </div>
+                    <div uib-accordion-group class="panel-success" is-open="config.implementacion.abierto">
+                        <uib-accordion-heading>
+                            Implementación <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': config.implementacion.abierto, 'glyphicon-chevron-right': !config.implementacion.abierto}"></i>
+                        </uib-accordion-heading>
+                        <ul>
+                            <li ng-repeat="item in registro.implementacion"><a class="text-success" href="">{{item.valor}}</a></li>
+                        </ul>
+                    </div>
+                    <div uib-accordion-group class="panel-warning" is-open="config.evaluacionYSeguimiento.abierto">
+                        <uib-accordion-heading>
+                            Evaluación y Seguimiento <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': config.evaluacionYSeguimiento.abierto, 'glyphicon-chevron-right': !config.evaluacionYSeguimiento.abierto}"></i>
+                        </uib-accordion-heading>
+                        <ul>
+                            <li ng-repeat="item in registro.evaluacionYSeguimiento"><a class="text-warning" href="">{{item.valor}}</a></li>
+                        </ul>
+                    </div>
+                </uib-accordion>
+            </div>
+        </div>
+        <div class="sombra panel panel-default">
+            <div class="panel-heading text-center">
+                Autoevaluación
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="text-center col-sm-12 text-muted">Luego de competar todo el reporte debe proceder con la autoevaluación</div>
+                    <div class="col-sm-4 col-sm-offset-4"><button class="btnNew ancho" ng-click="irAutoevaluacion()">Ir a autoevaluación</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        
+
+        <button class="btn btn-default" ng-click="cancelar()">Cerrar</button>
+    </div>
+</form>

@@ -1,0 +1,39 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Precargue Nivel Nacional</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" id="myForm">
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Cargue de archivo de precargue Nivel Nacional</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-4">Archivo con información del precargue:</label>
+                        <div class="col-sm-8">
+                            <input type="file" ngf-select ng-model="file" name="file" id="file" accept=".xls,.xlsx" ngf-max-size="25MB" ngf-model-invalid="errorFile" style="width:100%;" />
+                            <span class="col-sm-12 text-danger" ng-show="errorFile.$errorMessages.maxSize">Debe seleccionar un archivo de excel con peso menor a 25MB</span>
+                            <span class="col-sm-12 text-danger" ng-show="submitted && !extension">{{errorMessages.extension}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 col-sm-offset-2"><button type="button" class="btnNew ancho" ng-click="submitted=true;guardarDatos()">Cargar archivo</button></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="realizoPrecargue"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta || !file" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>
+
+
+
+
+
+
+

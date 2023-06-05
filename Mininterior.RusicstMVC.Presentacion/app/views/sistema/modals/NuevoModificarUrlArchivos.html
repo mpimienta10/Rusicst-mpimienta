@@ -1,0 +1,54 @@
+﻿<form role="form" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">{{titulo}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group" ng-show="isUrl">
+                    <label for="Tipo" class="col-sm-12 required">URL</label>
+                    <div class="col-sm-12">
+                        <input class="form-control" ng-model="entidad.ParametroValor" id="URL" name="URL" ng-required="isUrl" />
+                        <span class="text-danger" ng-show="submitted && myForm.URL.$error.required">{{errorMessages.inputText}}</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="!isUrl">
+                    <label for="Nombre" class="col-sm-12 required">Archivo</label>
+                    <div class="col-sm-12">                        
+                        <input type="file" ngf-select ng-model="archivo" name="file" ngf-max-size="25MB" accept=".pdf,.png,.jpg,.jpeg,.tiff,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.xlsx,.rar,.zip,.7z" ngf-model-invalid="errorFile" style="width:100%;"  />
+                    </div>
+                    <span class="col-sm-12 text-danger text-center" ng-show="errorArchivo">El archivo es obligatorio.</span>
+                    <div class="col-sm-12"><span>{{progressPercentage}}</span></div>
+                    <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 25MB</label></div>
+                    <span class="col-sm-12 text-danger" ng-show="errorFile.$errorMessages.maxSize">{{errorMessages.fileRequired}} {{errorMessages.maxSize}}</span>
+                    <span class="col-sm-12 text-danger" ng-show="submitted && !extension"> {{errorMessages.extension}} </span>
+                </div>
+                <div class="form-group">
+                    <label for="Nombre" class="col-sm-12 required">Texto</label>
+                    <div class="col-sm-12">
+                        <input class="form-control" ng-model="entidad.Texto" id="Texto" name="Texto" required />
+                        <span class="text-danger" ng-show="submitted && myForm.Texto.$error.required">{{errorMessages.inputText}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Nombre" class="col-sm-12">Descripción</label>
+                    <div class="col-sm-12">
+                        <textarea class="form-control" style="resize: none" rows="3" ng-model="entidad.Descripcion" id="Texto" name="Texto" maxlength="300" />
+                    </div>
+                    <span  class="col-sm-12">Caracteres restantes: {{300 - entidad.Descripcion.length}}</span>
+                </div>
+                <div class="form-group">
+                    <span class="alert-danger col-sm-12 text-center" ng-show="error">
+                        {{error}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btnNew" type="button" ng-click="submitted=true;adicionar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>
+

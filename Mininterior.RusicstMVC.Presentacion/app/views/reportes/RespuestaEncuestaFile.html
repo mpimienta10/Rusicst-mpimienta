@@ -1,0 +1,31 @@
+﻿<div class="">
+    <div class="rusicst-overlay rusicst-overlay-loading" ng-hide="started">
+    </div>
+    <div class="row"> <h2>Listado de Respuestas</h2></div>
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <div class="row">
+        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">Listado de Respuestas</h3>
+            <div id="grid" ui-grid="gridOptions" class="grid" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+        </div>
+        <!--<div class="margin-top">
+             <button type="button" class="btn btn-primary" ng-click="openPopUp()" ng-if="isGrid">
+                 <span class="glyphicon glyphicon-plus"></span> Crear Filtro
+             </button>
+         </div>-->
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="form-group">
+        <div class="alert alert-warning" ng-if="alerta" role="alert">{{alerta}}</div>
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>
+
+
+
+
+
+
+

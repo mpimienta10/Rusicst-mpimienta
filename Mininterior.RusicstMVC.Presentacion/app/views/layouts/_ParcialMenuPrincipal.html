@@ -1,0 +1,32 @@
+﻿<nav class="navbar navbar-inverse" style="margin-bottom:0">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#navbar-ex1-collapse">
+                <span class="sr-only">Desplegar navegación</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+
+        <div class="collapse navbar-collapse " id="navbar-ex1-collapse">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group" ng-controller="BuscadorController">
+                    <!--<a href="" ng-click="openBuscador(nmtextBuscador)" class="search-icon"><i class="fa fa-search" style="color: inherit;"></i></a>-->
+                    <a ui-sref="Index.Buscador({textoBusqueda : nmtextBuscador})" class="search-icon"><i class="fa fa-search" style="color: inherit;"></i></a>
+                    <input class="search-input" type="text" value="Qué desea buscar..." onclick="if(this.value=='Qué desea buscar...') this.value=''" onblur="if(this.value=='') this.value='Qué desea buscar...'" ng-model="nmtextBuscador" id="idTextBuscador" name="nTextBuscador" />
+                </div>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right" style="background-color: inherit;">
+                <li><a href="#" class="name user-actv icono-texto-usuario"><i class="fa fa-user-circle"></i><span> {{autenticacion.userName.toUpperCase()}}</span></a></li>
+                <li ng-show="autenticado && permisos.subrecurso_14" ng-controller="MiCuentaController"><a href="" ng-click="abrirModal()"><i class="fa fa-key"></i><span> MI CUENTA</span></a></li>
+                <!--<li><a href="#" class="chat"><i class="fa fa-weixin"></i><span> CHAT</span></a></li>-->
+                <li><a ui-sref="Index.Ayuda" class="help"><i class="fa fa-question-circle-o"></i><span> AYUDA</span></a></li>
+                <li><a href="#" ng-click="salir()" class="out"><i class="fa fa-sign-out"></i><span> SALIR</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,74 @@
+﻿<form role="form" class="form-horizontal" id="editForm" name="editForm" novalidate>
+    <div class="modal-header  modal-rejilla">
+        <h4 class="text-center"> Derecho: {{datos.Derecho}} </h4>
+        <h4 class="text-center"> Componente: {{datos.Componente}} </h4>
+        <h4 class="text-center"> Medida: {{datos.Medida}} </h4>
+        <h4 class="text-center">Pregunta Indicativa: {{datos.PreguntaIndicativa}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered table-condensed">
+                    <thead>
+                        <tr class="titulo-rejilla">
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle" rowspan="2">MUNICIPIO</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle" rowspan="2">NECESIDAD</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle" rowspan="2">COMPROMISO ALCALDÍA</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle" colspan="3">SEGUIMIENTO ALCALDÍA</th>   
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle" rowspan="2">COMPROMISO GOBERNACIÓN</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle" colspan="3">SEGUIMIENTO GOBERNACIÓN</th>   
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle" rowspan="2">OPCIONES</th>                                                     
+                        </tr>
+                        <tr class="titulo-rejilla">
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle">PRIMER SEMESTRE</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle">SEGUNDO SEMESTRE</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle">TOTAL</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle">PRIMER SEMESTRE</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle">SEGUNDO SEMESTRE</th>
+                            <th class="col-sm-1 titulo-tabla-pat-consolidado" style="vertical-align:middle">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-if="datosRespuesta">
+                        <tr ng-repeat="item in datosRespuesta">
+                            <td>{{item.Municipio}}</td>
+                            <td align="right">{{item.NecesidadIdentificada | number:0}}</td>
+                            <td align="right">{{item.RespuestaCompromiso | number:0}}</td>
+                            <!--ALCALDIAS-->
+                            <td align="right" ng-if="item.CantidadPrimerSemestre > -1 ">{{item.CantidadPrimerSemestre | number:0}}</td>
+                            <td align="right" ng-if="item.CantidadPrimerSemestre == -1"></td>
+
+                            <td align="right" ng-if="item.CantidadSegundoSemestre > -1 ">{{item.CantidadSegundoSemestre | number:0}}</td>
+                            <td align="right" ng-if="item.CantidadSegundoSemestre == -1"></td>
+
+                            <td align="right" ng-if="item.CantidadPrimerSemestre > -1 || item.CantidadSegundoSemestre > -1">{{item.CantidadPrimerSemestre > -1 || item.CantidadSegundoSemestre > -1 ? (item.CantidadPrimerSemestre > -1 ? item.CantidadPrimerSemestre: 0) + (item.CantidadSegundoSemestre > -1 ? item.CantidadSegundoSemestre: 0): '' | number:0}}</td>
+                            <td align="right" ng-if="item.CantidadPrimerSemestre == -1"></td>
+
+                            <td align="right">{{item.IdSeguimiento > 0 ? (item.CompromisoDefinitivo > -1 ? item.CompromisoDefinitivo : item.CompromisoGobernacion) : (item.CompromisoGobernacion > -1 ? item.CompromisoGobernacion : '') | number:0 }}</td>
+
+                            <!--GOBERNACION-->
+                            <td align="right" ng-if="item.CantidadPrimerSemestreGobernaciones > -1 ">{{item.CantidadPrimerSemestreGobernaciones | number:0}}</td>
+                            <td align="right" ng-if="item.CantidadPrimerSemestreGobernaciones == -1"></td>
+
+                            <td align="right" ng-if="item.CantidadSegundoSemestreGobernaciones > -1 ">{{item.CantidadSegundoSemestreGobernaciones | number:0}}</td>
+                            <td align="right" ng-if="item.CantidadSegundoSemestreGobernaciones == -1"></td>
+
+                            <td align="right" ng-if="item.CantidadPrimerSemestreGobernaciones > -1 || item.CantidadSegundoSemestreGobernaciones > -1">{{item.CantidadPrimerSemestreGobernaciones > -1 || item.CantidadSegundoSemestreGobernaciones > -1 ? (item.CantidadPrimerSemestreGobernaciones > -1 ? item.CantidadPrimerSemestreGobernaciones: 0) + (item.CantidadSegundoSemestreGobernaciones > -1 ? item.CantidadSegundoSemestreGobernaciones: 0): '' | number:0}}</td>
+                            <td align="right" ng-if="item.CantidadPrimerSemestreGobernaciones == -1"></td>
+
+
+
+                 
+
+                            <td align="center">
+                                <a href="" class="text-center" title="{{activo? (item.IdSeguimiento>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}" ng-click="EditarDetalleConsolidado($index)">{{activo? (item.IdSeguimiento>0 ? ' Modificar': ' Ingresar'): 'Consultar'}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btnNew" ng-click="cancelar()" style="margin:0px;">Cerrar</button>
+    </div>
+</form>

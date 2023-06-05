@@ -1,0 +1,78 @@
+﻿<form role="form" id="myForm" name="myForm" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center" id="modal-title">Configuración Plan de Mejoramiento</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+
+                <div class="form-group-sm">
+                    <label class="col-sm-3 control-label required" for="nombre">Nombre Plan:</label>
+                    <div class="separar col-sm-9">
+                        <input class="form-control input-sm" name="nombre" type="text" ng-model="plan.nombrePlan" id="nombre" required />
+                        <span class="text-danger" ng-show="submitted && myForm.nombre.$error.required">{{errorMessages.inputText}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group-sm">
+                    <label class="col-sm-3 control-label required" for="fecha">Fecha Límite:</label>
+                    <div class="separar col-sm-9">
+                        <div class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="plan.fechaLimite" id="fecha" required is-open="popup1.opened"
+                                   name="fecha" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" disabled />
+
+                            <span class="text-danger" ng-show="submitted && myForm.fecha.$error.required">{{errorMessages.inputText}}</span>
+
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open1()" style="height: 30px; padding: 4px 12px;" disabled ><i class="fa fa-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group-sm">
+                    <label class="col-sm-3 control-label required" for="encuesta">Encuesta:</label>
+                    <div class="separar col-sm-9">
+                        
+                        <select id="IdEncuesta" name="IdEncuesta" ng-model="plan.idEncuesta" class="form-control input-sm ng-valid"
+                                required
+                                ng-options="c.Id as c.Titulo for c in encuestasSinResponder"></select>
+
+                        <span class="text-danger" ng-show="submitted && myForm.IdEncuesta.$error.required">{{errorMessages.select}}</span>
+                    </div>
+                </div>
+
+
+                <div class="form-group-lg">
+                    <div class="row">
+                        <button class="btnNew" type="button" ng-click="PopUpActivarPlan(plan)">Activar Plan</button>
+
+                        <button class="btnNew" type="button" ng-click="PopUpNuevaSeccion('')">Nueva Sección</button>
+                    </div>
+                    <div class="row" ng-if="isGrid2">
+                        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion2();">
+                            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+                        </button>
+                    </div>
+                    <div class="row">
+                        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+                    </div>
+                    <div class="row">
+                        <div id="filterTable" ng-if="isGrid2" ui-i18n="{{lang}}">
+                            <h3 id="titulo" class="titulo-rejilla">Listado Secciones</h3>
+                            <div id="grid2" ui-grid="gridOptions2" class="grid2" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+        <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

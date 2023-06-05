@@ -1,0 +1,30 @@
+﻿
+
+ <!--creditos-->
+<div class="row">
+    <div class="col-md-3 col-lg-offset-1">
+
+        <img data-ng-src="data:image/jpg;base64,{{datosHome.ImageGobContent}}"
+             class="img-responsive center-block imgCenter" alt="mininterior"
+             style="max-width:90%; max-height: 90%;" id="imgGob" />
+
+        <!--<img ng-src="images/log-gobern.png"
+             class="img-responsive center-block" alt="Gobierno de Colombia"
+             style="width:80%; max-height: 80%;" id="imgGob" />-->
+    </div>
+    <div class="col-md-7">
+        <div class="credits">
+            <div class="col-md-2">
+                <ul style="text-align: left; margin: 0px; padding: 0px;" id="ulLinks">
+                    <li ng-repeat="item in datosHome.listLinks">
+                        <a href="{{item.Url}}" target="_blank" style="text-decoration:none;">
+                            <span style="background-color: {{item.Color}}"></span>
+                            <span>{{item.Nombre}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

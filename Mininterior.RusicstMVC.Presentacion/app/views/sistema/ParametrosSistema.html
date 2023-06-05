@@ -1,0 +1,174 @@
+﻿
+<div >
+    <div class="row"> <h2>Parámetros del sistema</h2></div>
+    <div class="row">
+        <form role="form" class="form-horizontal" name="myForm" novalidate>
+            <!--@*configuracion del correo*@-->
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Configuración envío de correo</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="Remitente">Remitente:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.FromEmail" id="Remitente" name="Remitente" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="ServidorSMTP">Servidor SMTP:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.SmtpHost" id="ServidorSMTP" name="ServidorSMTP" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="PuertoSMTP">Puerto SMTP:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control input-lg" ng-model="registro.SmtpPort" id="PuertoSMTP" name="PuertoSMTP" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="SSLhabilitado">¿SMTP SSL habilitado?</label>
+                        <div class="col-sm-10">
+                            <div class="checkbox checkbox-primary">
+                                <input type="checkbox" id="SSLhabilitado" class="styled" ng-model="parregistroametro.SmtpEnableSslo">
+                                <label for="SSLhabilitado">
+                                    Activo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="NombreUsuarioSMTP">Nombre de usuario SMTP:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.SmtpUsername" id="NombreUsuarioSMTP" name="NombreUsuarioSMTP" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="ContrasenaSMTP">Contraseña SMTP:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.SmtpPassword" id="ContrasenaSMTP" name="ContrasenaSMTP" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="AsuntoER">Asunto envío Rusicst:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.AsuntoEnvioR" id="AsuntoER" name="AsuntoEnvioR" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="AsuntoPT">Asunto envío Planeación Tablero PAT:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.AsuntoEnvioPT" id="AsuntoPT" name="AsuntoEnvioPT" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="AsuntoST1">Asunto envío Seguimiento 1 Tablero PAT:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.AsuntoEnvioSeguimientoT1" id="AsuntoST1" name="AsuntoEnvioSeguimientoT1" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="AsuntoST2">Asunto envío Seguimiento 2 Tablero PAT:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.AsuntoEnvioSeguimientoT2" id="AsuntoST2" name="AsuntoEnvioSeguimientoT2" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="AsuntoSP">Asunto envío Seguimiento Plan de Mejoramiento:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.AsuntoEnvioSP" id="AsuntoSP" name="AsuntoEnvioSP" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--@*Plantillas*@-->
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Plantillas</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="mensajeemail">Texto Correo electrónico:</label>
+                        <div class="col-sm-10">
+                            <textarea ui-tinymce="tinymceOptions" ng-model="registro.PlantillaEmailConfirmacion" name="mensaje" required></textarea>
+                            <span class="text-danger" ng-show="submitted && myForm.mensaje.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                    <!--para el envio de pat-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="mensajeemailPat1">Texto Correo electrónico Planeación Pat:</label>
+                        <div class="col-sm-10">
+                            <textarea ui-tinymce="tinymceOptions" ng-model="registro.PlantillaEmailConfirmacionPlaneacionPat" name="mensajeemailPat1" required></textarea>
+                            <span class="text-danger" ng-show="submitted && myForm.mensajeemailPat1.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="mensajeemailPat2">Texto Correo electrónico Primer Seguimiento Pat:</label>
+                        <div class="col-sm-10">
+                            <textarea ui-tinymce="tinymceOptions" ng-model="registro.PlantillaEmailConfirmacionSeguimiento1Pat" name="mensajeemailPat2" required></textarea>
+                            <span class="text-danger" ng-show="submitted && myForm.mensajeemailPat2.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="mensajeemailPat3">Texto Correo electrónico Segundo Seguimiento Pat:</label>
+                        <div class="col-sm-10">
+                            <textarea ui-tinymce="tinymceOptions" ng-model="registro.PlantillaEmailConfirmacionSeguimiento2Pat" name="mensajeemailPat3" required></textarea>
+                            <span class="text-danger" ng-show="submitted && myForm.mensajeemailPat3.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="mensajeemailSP">Texto Correo electrónico Seguimiento Plan de Mejoramiento:</label>
+                        <div class="col-sm-10">
+                            <textarea ui-tinymce="tinymceOptions" ng-model="registro.PlantillaEmailConfirmacionSeguimientoPlan" name="mensajeemailSP" required></textarea>
+                            <span class="text-danger" ng-show="submitted && myForm.mensajeemailSP.$error.required">{{errorMessages.inputText}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--@*Formatos*@-->
+            <div ng-show="false" class="sombra panel panel-default">
+                <div class="panel-heading">Formatos</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="FormatoFecha">Formato de Fecha:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.FormatoFecha" id="FormatoFecha" name="FormatoFecha" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--@*Rutas de archivos*@-->
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Rutas de archivos</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="RutaArchivo">Ruta de archivos adjuntos:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control input-lg" ng-model="registro.UploadDirectory" id="RutaArchivo" name="RutaArchivo" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--@*Mensaje Confirmacion*@-->
+            <div class="sombra panel panel-default">
+                <div class="panel-heading">Mensaje Confirmacion</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="mensaje">Mensaje de confirmación de guardar reporte:</label>
+                        <div class="col-sm-10">
+                            <textarea ui-tinymce="tinymceOptions" ng-model="registro.SaveMessageConfirmPopup"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <button type="button" class="btnNew ancho" ng-click="submitted=true;guardar()">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--@*Div de errores y alertas*@-->
+    <div class="row">
+        <div class="alert alert-success" ng-if="alerta" role="alert">{{alerta}}</div>
+        <div class="alert alert-danger" ng-if="error" role="alert">{{error}}</div>
+    </div>
+</div>

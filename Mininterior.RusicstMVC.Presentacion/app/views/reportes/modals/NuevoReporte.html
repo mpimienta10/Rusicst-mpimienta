@@ -1,0 +1,97 @@
+﻿<form role="form" class="form-horizontal" name="myFormReporte" novalidate>
+    <div class="modal-header modal-rejilla">
+        <h3 class="text-center">Información general del reporte</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="tipoReporte">Tipo de reporte:</label>
+            <div class="mrg-top50">
+                <multiple-autocomplete ng-model="reporte.TipoReporte" name="multipleSelect" required="true"
+                                       object-property="Nombre"
+                                       before-select-item="selectItemCallback"
+                                       after-select-item="selectItemCallback"
+                                       before-remove-item="removeItemCallback"
+                                       after-remove-item="removeItemCallback"
+                                       suggestions-arr="tiposReporte">
+                </multiple-autocomplete>
+                <div class="col-sm-12">
+                <span class="text-danger" ng-show="submitted && myFormReporte.multipleSelect.$error.required">El tipo de reporte es obligatorio</span>
+                    </div>
+            </div>
+        <!--<div class="col-sm-12">
+            <select id="tipoReporte" name="tipoReporte" ng-model="reporte.TipoReporte" required class="form-control input-sm ng-pristine">
+                <option ng-repeat="item in tiposReporte" ng-selected="{{item.IdRol == reporte.TipoReporte}}" value="{{item.IdRol}}">{{item.Nombre}}</option>
+            </select>
+            <span class="text-danger" ng-show="submitted && myFormReporte.tipoReporte.$error.required">El tipo de reporte es obligatorio</span>
+        </div>-->
+        </div>        
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="titulo">Título:</label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control input-sm" ng-model="reporte.Titulo" ng-pattern="/^[a-zA-Z0-9 À-ÿ\u00f1\u00d1]*$/" id="titulo" name="titulo" required ng-maxlength="255" />
+                <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.required">El título es obligatorio</span>
+                <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.maxlength">El título supera los 255 caracteres</span>
+                <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.pattern">El título debe ir sin caracteres especiales</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="ayuda">Ayuda:</label>
+            <div class="col-sm-12">
+                <textarea class="form-control" style="resize:none" rows="3" placeholder="" id="ayuda" ng_model="reporte.Ayuda" name="ayuda" ng-trim="true"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-12 control-label-left" for="fechainicio">Fecha de inicio:</label>
+            <div class="col-sm-12">
+                <div class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="reporte.FechaInicio" id="fechainicio" required is-open="popup1.opened" 
+                           name="fechainicio" ng-change='checkErr(reporte.FechaInicio, reporte.FechaFin)' datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                    <span class="text-danger" ng-show="submitted && myFormReporte.fechainicio.$error.required">La Fecha de Inicio es Obligatoria</span>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open1()"><i class="fa fa-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <label class="col-sm-12 control-label-left" for="fechafin">Fecha de Finalización:</label>
+            <div class="col-sm-12">
+                <div class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="reporte.FechaFin" required is-open="popup2.opened" 
+                           name="fechafin" ng-change='checkErr(reporte.FechaInicio, reporte.FechaFin)' datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
+                    <span class="text-danger" ng-show="submitted && myFormReporte.fechafin.$error.required">La Fecha de Fin es Obligatoria</span>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open2()"><i class="fa fa-calendar"></i></button>
+                    </span>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Prueba" class="col-sm-12">Encuesta de Prueba</label>
+            <div class="col-sm-12">
+                <div class="checkbox checkbox-primary">
+                    <input type="checkbox" id="checkbox1" class="styled" ng-model="reporte.IsPrueba">
+                    <label for="checkbox1">
+                        Prueba
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label class="col-sm-12 control-label-left" for="encuesta">Reporte Asociado:</label>
+            <div class="col-sm-12">
+                <select class="form-control input-sm ng-pristine ng-valid" id="modalidad" name="modalidad" ng-model="reporte.EncuestaRelacionada" required ng-options="item.Id as item.Titulo for (key, item)  in encuestas">
+                </select>
+            </div>
+        </div>-->
+        <div ng-if="error">
+            <label class="text-danger">{{error}}</label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btnNew" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+    </div>
+</form>

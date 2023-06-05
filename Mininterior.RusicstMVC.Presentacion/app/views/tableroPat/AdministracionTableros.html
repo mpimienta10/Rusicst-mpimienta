@@ -1,0 +1,27 @@
+﻿<div>
+    <div class="row"> <h2>Administración de Tableros PAT</h2></div>
+    <div class="row"> <a id="MainContent_newLink" href="" ng-click="abrirModalNuevoTablero()">Nuevo Tablero</a></div>
+    <div class="row">
+        <button class="btn btn-default pull-right" ng-click="limpiarAgrupacion();">
+            <i class="fa fa-object-ungroup"></i> limpiar Agrupación
+        </button>
+    </div>
+    <!--@*Loading*@-->
+    <div class="row">
+        <span class="col-sm-12 rusicst-center" ng-hide="cargoDatos"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+    </div>
+    <!--@*Div grilla*@-->
+    <div class="row">
+        <div id="filterTable" ng-if="isGrid" ui-i18n="{{lang}}">
+            <h3 id="titulo" class="titulo-rejilla">{{tituloadmintablero}}</h3>
+            <div id="grid1" ui-grid="gridOptions" class="grid1" ui-grid-exporter ui-grid-grouping ui-grid-move-columns ui-grid-pagination ui-grid-resize-columns ui-grid-pinning ui-grid-auto-scroll ui-grid-auto-resize></div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+
+    </div>
+    <!--@*Div de errores y alertas*@-->
+    <div class="form-group">
+        <label class="text-danger" ng-if="error">{{error}}</label>
+    </div>
+</div>
