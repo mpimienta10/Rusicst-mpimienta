@@ -35,10 +35,13 @@
                                             <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.fileVidSL.$error.required">
                                                 {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
                                             </span>
+                                            <span class="col-sm-12 text-danger text-center" ng-show="myForm.fileVidSL.$error.maxSize">
+                                                El archivo adjuntado excede el límite de tamaño permitido (300MB).
+                                            </span>
 
                                         </div>
                                         <div class="col-md-2">
-                                            <button id="btnSLVUp" class="btnNew" name="btnSLVUp" ng-disabled="!fileVidSL" ng-click="submitted=true;agregarVid()">Cargar Video</button>
+                                            <button id="btnSLVUp" class="btnNew" name="btnSLVUp" ng-disabled="myForm.$invalid || submitted" ng-click="submitted=true;agregarVid()">Cargar Video</button>
                                         </div>
                                     </div>
                                 </div>
