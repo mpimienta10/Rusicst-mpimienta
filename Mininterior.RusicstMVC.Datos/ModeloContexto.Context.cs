@@ -283,7 +283,8 @@ namespace Mininterior.RusicstMVC.Entidades
             var idMunicipioParameter = idMunicipio.HasValue ?
                 new ObjectParameter("IdMunicipio", idMunicipio) :
                 new ObjectParameter("IdMunicipio", typeof(int));
-    
+
+            ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = 300;
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<C_ReportesXEntidadesTerritoriales_Result>("C_ReportesXEntidadesTerritoriales", idDepartamentoParameter, idMunicipioParameter);
         }
     
