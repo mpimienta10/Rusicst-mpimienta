@@ -28,7 +28,7 @@
         <div class="form-group">
             <label class="col-sm-12 control-label-left" for="titulo">Título:</label>
             <div class="col-sm-12">
-                <input type="text" class="form-control input-sm" ng-model="reporte.Titulo" ng-pattern="/^[a-zA-Z0-9 À-ÿ\u00f1\u00d1]*$/" id="titulo" name="titulo" required ng-maxlength="255" />
+                <input type="text" class="form-control input-sm" ng-model="reporte.Titulo" ng-pattern="/^[a-zA-Z0-9 À-ÿ\u00f1\u00d1]*$/" id="titulo" name="titulo" ng-disabled="inactivarInputsModal" required ng-maxlength="255" />
                 <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.required">El título es obligatorio</span>
                 <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.maxlength">El título supera los 255 caracteres</span>
                 <span class="text-danger" ng-show="submitted && myFormReporte.titulo.$error.pattern">El título debe ir sin caracteres especiales</span>
@@ -38,14 +38,14 @@
         <div class="form-group">
             <label class="col-sm-12 control-label-left" for="ayuda">Ayuda:</label>
             <div class="col-sm-12">
-                <textarea class="form-control" style="resize:none" rows="3" placeholder="" id="ayuda" ng_model="reporte.Ayuda" name="ayuda" ng-trim="true"></textarea>
+                <textarea class="form-control" style="resize:none" rows="3" placeholder="" id="ayuda" ng_model="reporte.Ayuda" name="ayuda" ng-trim="true" ng-disabled="inactivarInputsModal"></textarea>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-12 control-label-left" for="fechainicio">Fecha de inicio:</label>
             <div class="col-sm-12">
                 <div class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="reporte.FechaInicio" id="fechainicio" required is-open="popup1.opened" 
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="reporte.FechaInicio" id="fechainicio" ng-disabled="inactivarInputsModal" required is-open="popup1.opened" 
                            name="fechainicio" ng-change='checkErr(reporte.FechaInicio, reporte.FechaFin)' datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
                     <span class="text-danger" ng-show="submitted && myFormReporte.fechainicio.$error.required">La Fecha de Inicio es Obligatoria</span>
                     <span class="input-group-btn">
@@ -58,7 +58,7 @@
             <label class="col-sm-12 control-label-left" for="fechafin">Fecha de Finalización:</label>
             <div class="col-sm-12">
                 <div class="input-group">
-                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="reporte.FechaFin" required is-open="popup2.opened" 
+                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="reporte.FechaFin" ng-disabled="inactivarInputsModal" required is-open="popup2.opened" 
                            name="fechafin" ng-change='checkErr(reporte.FechaInicio, reporte.FechaFin)' datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar="false" />
                     <span class="text-danger" ng-show="submitted && myFormReporte.fechafin.$error.required">La Fecha de Fin es Obligatoria</span>
                     <span class="input-group-btn">
@@ -72,7 +72,7 @@
             <label for="Prueba" class="col-sm-12">Encuesta de Prueba</label>
             <div class="col-sm-12">
                 <div class="checkbox checkbox-primary">
-                    <input type="checkbox" id="checkbox1" class="styled" ng-model="reporte.IsPrueba">
+                    <input type="checkbox" id="checkbox1" class="styled" ng-model="reporte.IsPrueba"  ng-disabled="inactivarInputsModal">
                     <label for="checkbox1">
                         Prueba
                     </label>
@@ -91,7 +91,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button class="btnNew" ng-click="submitted=true;aceptar()">Guardar</button>
+        <button class="btnNew" ng-disabled="inactivarInputsModal" ng-click="submitted=true;aceptar()">Guardar</button>
         <button class="btn btn-default" ng-click="cancelar()">Cancelar</button>
     </div>
 </form>

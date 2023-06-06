@@ -243,6 +243,7 @@ app.controller('ModalNuevoReporteController', function ($scope, APIService, $fil
     $scope.EncuestaRelacionada = 0;
     $scope.tiposReporteSeleccionados = {};
     $scope.tiposReporte = {};
+    $scope.inactivarInputsModal = false;
 
     function cargarComboTiposReporteMod() {
         var url = '/api/Reportes/DisenoReporte/RolxEncuesta/' + $scope.Idreporte;
@@ -290,6 +291,12 @@ app.controller('ModalNuevoReporteController', function ($scope, APIService, $fil
                 $scope.reporte.TipoReporte = $scope.tiposReporte;
             $scope.reporte.FechaInicio = new Date($scope.reporte.FechaInicio);
             $scope.reporte.FechaFin = new Date($scope.reporte.FechaFin);
+
+            var fechaActual = new Date();
+            if ($scope.reporte.FechaInicio < fechaActual) {
+                $scope.error = "El registro no puede ser modificado despues de la fecha de inicio de la encuesta (comuníquese con el administrador)";
+                $scope.inactivarInputsModal = true;
+            }
         }, function (error) {
             $scope.error = "Se generó un error en la petición de cargue de datos del reporte indicado";
         });
