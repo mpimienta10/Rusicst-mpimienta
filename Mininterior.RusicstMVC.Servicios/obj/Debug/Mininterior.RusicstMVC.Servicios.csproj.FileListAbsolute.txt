@@ -147,3 +147,6 @@ C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SO
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Servicios\obj\Debug\Mininterior.RusicstMVC.Servicios.csprojResolveAssemblyReference.cache
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Servicios\obj\Debug\Mininterior.RusicstMVC.Servicios.dll
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Servicios\obj\Debug\Mininterior.RusicstMVC.Servicios.pdb
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Servicios\obj\Debug\Mininterior.RusicstMVC.Servicios.csprojResolveAssemblyReference.cache
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Servicios\obj\Debug\Mininterior.RusicstMVC.Servicios.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Servicios\obj\Debug\Mininterior.RusicstMVC.Servicios.pdb

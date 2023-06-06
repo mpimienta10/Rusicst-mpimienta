@@ -16,3 +16,12 @@ C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SO
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.dll
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.pdb
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.csprojResolveAssemblyReference.cache
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Mininterior.RusicstMVC.Presentacion.dll.config
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Mininterior.RusicstMVC.Presentacion.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Mininterior.RusicstMVC.Presentacion.pdb
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Antlr3.Runtime.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Owin.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Antlr3.Runtime.pdb
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.csprojResolveAssemblyReference.cache
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.pdb

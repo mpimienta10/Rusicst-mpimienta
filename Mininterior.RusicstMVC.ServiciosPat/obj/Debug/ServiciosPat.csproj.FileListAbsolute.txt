@@ -28,3 +28,18 @@ C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SO
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.csprojResolveAssemblyReference.cache
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.dll
 C:\Users\Hp\Desktop\FREELANCER\Proyecto Rusicst\Arquitectura SOA\Arquitectura SOA\Rusicst-MVC\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.pdb
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll.config
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.pdb
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.pdb
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll.config
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.xml
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.csprojResolveAssemblyReference.cache
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.dll
+C:\Users\maikol.martinez\source\repos\PER\Rusicst\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.pdb

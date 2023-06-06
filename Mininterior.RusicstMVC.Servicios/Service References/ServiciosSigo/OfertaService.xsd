@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SIGO.Entidades" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SIGO.Entidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfConjuntoDatosViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConjuntoDatosViewModel" nillable="true" type="tns:ConjuntoDatosViewModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConjuntoDatosViewModel" nillable="true" type="tns:ArrayOfConjuntoDatosViewModel" />
+  <xs:complexType name="ConjuntoDatosViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConjuntoDatosViewModel" nillable="true" type="tns:ConjuntoDatosViewModel" />
+  <xs:complexType name="ArrayOfSP_GetOfertasMapaPorFiltro_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SP_GetOfertasMapaPorFiltro_Result" nillable="true" type="tns:SP_GetOfertasMapaPorFiltro_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSP_GetOfertasMapaPorFiltro_Result" nillable="true" type="tns:ArrayOfSP_GetOfertasMapaPorFiltro_Result" />
+  <xs:complexType name="SP_GetOfertasMapaPorFiltro_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COBERTURA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONTACTABILIDAD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPCION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENTIDADES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHA_FIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHA_INICIO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FILA" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NOMBRE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SP_GetOfertasMapaPorFiltro_Result" nillable="true" type="tns:SP_GetOfertasMapaPorFiltro_Result" />
+  <xs:complexType name="ArrayOfSP_GETSEGUIMIENTO_OFERTA_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SP_GETSEGUIMIENTO_OFERTA_Result" nillable="true" type="tns:SP_GETSEGUIMIENTO_OFERTA_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSP_GETSEGUIMIENTO_OFERTA_Result" nillable="true" type="tns:ArrayOfSP_GETSEGUIMIENTO_OFERTA_Result" />
+  <xs:complexType name="SP_GETSEGUIMIENTO_OFERTA_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ACREDITADO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CODIGO_DANE" type="xs:int" />
+      <xs:element minOccurs="0" name="DESCRIPCION_PROGRAMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ESTA_EN_TABLEROPAT" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_DERECHO" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_PREGUNTA" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_RESPUESTA" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_RESPUESTA_PROGRAMA" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NIVEL" type="xs:int" />
+      <xs:element minOccurs="0" name="NOMBRE_PROGRAMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMEROBENEFICIARIOS" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NUMEROVICTIMAS" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NUMERO_PROGRAMA" type="xs:int" />
+      <xs:element minOccurs="0" name="TIPO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VIGENCIA" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SP_GETSEGUIMIENTO_OFERTA_Result" nillable="true" type="tns:SP_GETSEGUIMIENTO_OFERTA_Result" />
+  <xs:complexType name="ArrayOfSP_GETNECESIDADES_PLANEACION_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SP_GETNECESIDADES_PLANEACION_Result" nillable="true" type="tns:SP_GETNECESIDADES_PLANEACION_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSP_GETNECESIDADES_PLANEACION_Result" nillable="true" type="tns:ArrayOfSP_GETNECESIDADES_PLANEACION_Result" />
+  <xs:complexType name="SP_GETNECESIDADES_PLANEACION_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CODIGO_DANE" type="xs:int" />
+      <xs:element minOccurs="0" name="FECHA_INGRESO" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FECHA_NACIMIENTO" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IDENTIFICADOR_MEDIDA" type="xs:short" />
+      <xs:element minOccurs="0" name="IDENTIFICADOR_NECESIDAD" type="xs:short" />
+      <xs:element minOccurs="0" name="MUNICIPIO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOMBRE_MEDIDA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOMBRE_NECESIDAD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOMBRE_VICTIMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMERO_DOCUMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TIPO_DOCUMETO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SP_GETNECESIDADES_PLANEACION_Result" nillable="true" type="tns:SP_GETNECESIDADES_PLANEACION_Result" />
+  <xs:complexType name="ArrayOfSP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result" nillable="true" type="tns:SP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result" nillable="true" type="tns:ArrayOfSP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result" />
+  <xs:complexType name="SP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CODIGO_DANE" type="xs:int" />
+      <xs:element minOccurs="0" name="FECHA_ATENCION" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FECHA_INGRESO" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FECHA_NACIMIENTO" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IDENTIFICADOR_MEDIDA" type="xs:short" />
+      <xs:element minOccurs="0" name="IDENTIFICADOR_NECESIDAD" type="xs:short" />
+      <xs:element minOccurs="0" name="MUNICIPIO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOMBRE_MEDIDA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOMBRE_NECESIDAD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMERO_DOCUMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRIMER_APELLIDO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRIMER_NOMBRE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RESPUESTA_RETROALIMENTACION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEGUNDO_APELLIDO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEGUNDO_NOMBRE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TIPO_DOCUMETO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result" nillable="true" type="tns:SP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result" />
+  <xs:complexType name="ArrayOfSP_GetDatosRemisionesXVictima_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SP_GetDatosRemisionesXVictima_Result" nillable="true" type="tns:SP_GetDatosRemisionesXVictima_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSP_GetDatosRemisionesXVictima_Result" nillable="true" type="tns:ArrayOfSP_GetDatosRemisionesXVictima_Result" />
+  <xs:complexType name="SP_GetDatosRemisionesXVictima_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ABREV_TIPO_DOCUMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ATENCION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ATENCION_OBS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BARRIO_VEREDA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DANE_DEPARTAMENTO" type="xs:int" />
+      <xs:element minOccurs="0" name="DANE_MUNICIPIO" type="xs:int" />
+      <xs:element minOccurs="0" name="DEPARTAMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DIRECCION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMAIL_USUARIO_RECIBIO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENTIDAD_REMITIR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXTREMA_VULNERABILIDAD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHAATENCION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHAINGRESO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHANACIMIENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHAREMISION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GENERO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDRETRO" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_DEPARTAMENTO" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_MEDIDA" type="xs:short" />
+      <xs:element minOccurs="0" name="ID_MUNICIPIO" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_NECESIDAD" type="xs:short" />
+      <xs:element minOccurs="0" name="ID_TIPO_DOCUMENTO" type="xs:short" />
+      <xs:element minOccurs="0" name="LOTE" type="xs:int" />
+      <xs:element minOccurs="0" name="MEDIDA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MUNICIPIO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NECESIDAD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOMBRE_COMPLETO_VICTIMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NO_ATENCION_OBS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMERO_DOCUMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OBSERVACION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PERTENENCIA_GRUPO_ESPECIAL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RUTA_INGRESO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFONO_CELULAR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFONO_FIJO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TIPO_DOCUMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USUARIO_RECIBIO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USUARIO_REMISIONO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SP_GetDatosRemisionesXVictima_Result" nillable="true" type="tns:SP_GetDatosRemisionesXVictima_Result" />
+  <xs:complexType name="ArrayOfSP_GetDatosBeneficiosXVictima_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SP_GetDatosBeneficiosXVictima_Result" nillable="true" type="tns:SP_GetDatosBeneficiosXVictima_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSP_GetDatosBeneficiosXVictima_Result" nillable="true" type="tns:ArrayOfSP_GetDatosBeneficiosXVictima_Result" />
+  <xs:complexType name="SP_GetDatosBeneficiosXVictima_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ABREV_TIPO_DOCUMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BARRIO_VEREDA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DANE_BENEFICIO" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DANE_RESIDENCIA" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DIRECCION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHACERTIFICACION" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FECHA_CORTE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHA_NACIMIENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FECHA_ULTIMA_ENTREGA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GENERO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_PROGRAMA" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_TIPODOCUMENTO" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="LOCALIDAD_CORREGIMIENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MUNICIPIO_BENEFICIO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MUNICIPIO_RECIDENCIA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOMBRE_COMPLETO_VICTIMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUMERO_DOCUMENTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUM_TELEFONO_CELULAR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NUM_TELEFONO_CONTACTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OBJETIVO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OBSERVACION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRODUCTO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROGRAMA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOPORTE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TELEFONO_FIJO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TIPO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VICTIMA" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SP_GetDatosBeneficiosXVictima_Result" nillable="true" type="tns:SP_GetDatosBeneficiosXVictima_Result" />
+  <xs:complexType name="ArrayOfSP_GetProgramasParaPresidencia_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SP_GetProgramasParaPresidencia_Result" nillable="true" type="tns:SP_GetProgramasParaPresidencia_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSP_GetProgramasParaPresidencia_Result" nillable="true" type="tns:ArrayOfSP_GetProgramasParaPresidencia_Result" />
+  <xs:complexType name="SP_GetProgramasParaPresidencia_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CapacidadAtención" type="xs:int" />
+      <xs:element minOccurs="0" name="CapitalHumano" type="xs:int" />
+      <xs:element minOccurs="0" name="Clasificacion_Entidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Clasificación" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo_Dane" type="xs:int" />
+      <xs:element minOccurs="0" name="Componente_Politica_Pblica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DerechosAsociados" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion_Oferta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Entidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecha_Finalizacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecha_Inicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Genero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grupo_Etario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_Oferta" type="xs:int" />
+      <xs:element minOccurs="0" name="MayorInformación" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Municipio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Oferta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Vereda_Corregimiento_Inspección_localidad_Barrio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroBeneficiarios" type="xs:int" />
+      <xs:element minOccurs="0" name="Observaciones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Orden_Entidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pertenencia_Etnica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Poblacion_Objeto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Presupuesto" type="xs:int" />
+      <xs:element minOccurs="0" name="SeEncuentraFuncionamiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sector" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subsistemas_Ejes_Politica_DDHH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_Cobertura" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_de_Oferta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Unidades_Territoriales_DDHH" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SP_GetProgramasParaPresidencia_Result" nillable="true" type="tns:SP_GetProgramasParaPresidencia_Result" />
+</xs:schema>

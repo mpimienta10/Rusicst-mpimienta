@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SIGO.Entidades" />
+  <xs:element name="GetEntidadesMapaPorDane">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idDane" type="xs:int" />
+        <xs:element minOccurs="0" name="busqueda" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuarioWS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="claveWS" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntidadesMapaPorDaneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetEntidadesMapaPorDaneResult" nillable="true" type="q1:ArrayOfConjuntoDatosViewModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOfertasMapaPorFiltro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idDepartamento" type="xs:int" />
+        <xs:element minOccurs="0" name="idMunicipio" type="xs:int" />
+        <xs:element minOccurs="0" name="idEntidad" type="xs:int" />
+        <xs:element minOccurs="0" name="idGenero" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="idEtario" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="busqueda" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuarioWS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="claveWS" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOfertasMapaPorFiltroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetOfertasMapaPorFiltroResult" nillable="true" type="q2:ArrayOfSP_GetOfertasMapaPorFiltro_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSeguimientoProgramasCaracterizados">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuariosw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwordsw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ano" type="xs:int" />
+        <xs:element minOccurs="0" name="semestre" type="xs:int" />
+        <xs:element minOccurs="0" name="territorial" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSeguimientoProgramasCaracterizadosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetSeguimientoProgramasCaracterizadosResult" nillable="true" type="q3:ArrayOfSP_GETSEGUIMIENTO_OFERTA_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNecesidadesPlaneacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuariosw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwordsw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ano" type="xs:int" />
+        <xs:element minOccurs="0" name="fechaInicial" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechafinal" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNecesidadesPlaneacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetNecesidadesPlaneacionResult" nillable="true" type="q4:ArrayOfSP_GETNECESIDADES_PLANEACION_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccesosEfectivosSegumiento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuariosw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwordsw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ano" type="xs:int" />
+        <xs:element minOccurs="0" name="mes" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccesosEfectivosSegumientoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetAccesosEfectivosSegumientoResult" nillable="true" type="q5:ArrayOfSP_GETSEGUIMIENTO_ACCESOS_EFECTIVOS_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemisionPorVictima">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipo_documento" type="xs:int" />
+        <xs:element minOccurs="0" name="numero_documento" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemisionPorVictimaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetRemisionPorVictimaResult" nillable="true" type="q6:ArrayOfSP_GetDatosRemisionesXVictima_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBeneficiosPorVictima">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipo_documento" type="xs:int" />
+        <xs:element minOccurs="0" name="numero_documento" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBeneficiosPorVictimaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetBeneficiosPorVictimaResult" nillable="true" type="q7:ArrayOfSP_GetDatosBeneficiosXVictima_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramasParaPresidencia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuariosw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="passwordsw" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ano" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProgramasParaPresidenciaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SIGO.Entidades" minOccurs="0" name="GetProgramasParaPresidenciaResult" nillable="true" type="q8:ArrayOfSP_GetProgramasParaPresidencia_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

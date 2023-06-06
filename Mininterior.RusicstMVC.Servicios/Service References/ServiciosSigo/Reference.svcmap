@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4e83805a-1428-4f99-9ba8-27750787d9c3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OfertaService.wsdl" MetadataType="Wsdl" ID="3786873e-ca4d-40b6-8994-547d7c31cb7f" SourceId="1" SourceUrl="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc?wsdl" />
+    <MetadataFile FileName="OfertaService.xsd" MetadataType="Schema" ID="e835c8c6-3b00-4466-894e-88020157ef62" SourceId="1" SourceUrl="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OfertaService1.wsdl" MetadataType="Wsdl" ID="07af7545-69db-4bc7-b451-d30cf32a6228" SourceId="1" SourceUrl="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="OfertaService.disco" MetadataType="Disco" ID="fe4a44ed-0c04-49b0-88ff-bae2168388e7" SourceId="1" SourceUrl="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc?disco" />
+    <MetadataFile FileName="OfertaService1.xsd" MetadataType="Schema" ID="de07248a-58f6-4e9b-a14c-740006454fbf" SourceId="1" SourceUrl="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="OfertaService2.xsd" MetadataType="Schema" ID="a88a85fa-8698-4521-a95a-1d4042b21a9e" SourceId="1" SourceUrl="http://pruebas.unidadvictimas.gov.co/WcfSIGO/OfertaService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

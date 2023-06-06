@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.uariv.esigna.indenova.com/" targetNamespace="http://ws.uariv.esigna.indenova.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="obtenerCompromisosEntidades" type="tns:obtenerCompromisosEntidades" />
+  <xs:element name="obtenerCompromisosEntidadesRC" type="tns:obtenerCompromisosEntidadesRC" />
+  <xs:element name="obtenerCompromisosEntidadesRCResponse" type="tns:obtenerCompromisosEntidadesRCResponse" />
+  <xs:element name="obtenerCompromisosEntidadesRR" type="tns:obtenerCompromisosEntidadesRR" />
+  <xs:element name="obtenerCompromisosEntidadesRRResponse" type="tns:obtenerCompromisosEntidadesRRResponse" />
+  <xs:element name="obtenerCompromisosEntidadesResponse" type="tns:obtenerCompromisosEntidadesResponse" />
+  <xs:element name="obtenerEntidadesNacionales" type="tns:obtenerEntidadesNacionales" />
+  <xs:element name="obtenerEntidadesNacionalesResponse" type="tns:obtenerEntidadesNacionalesResponse" />
+  <xs:element name="obtenerSeguimientoEntidades" type="tns:obtenerSeguimientoEntidades" />
+  <xs:element name="obtenerSeguimientoEntidadesRC" type="tns:obtenerSeguimientoEntidadesRC" />
+  <xs:element name="obtenerSeguimientoEntidadesRCResponse" type="tns:obtenerSeguimientoEntidadesRCResponse" />
+  <xs:element name="obtenerSeguimientoEntidadesRR" type="tns:obtenerSeguimientoEntidadesRR" />
+  <xs:element name="obtenerSeguimientoEntidadesRRResponse" type="tns:obtenerSeguimientoEntidadesRRResponse" />
+  <xs:element name="obtenerSeguimientoEntidadesResponse" type="tns:obtenerSeguimientoEntidadesResponse" />
+  <xs:complexType name="obtenerCompromisosEntidadesRR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoDaneDepartamento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCompromisosEntidadesRRResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObtenerCompromisoEntidadesRRResult" type="tns:ObtenerCompromisoEntidadesRRResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerCompromisoEntidadesRRResult">
+    <xs:sequence>
+      <xs:element name="resultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="compromisos" type="tns:CompromisoEntidadRR" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CompromisoEntidadRR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="vigencia" type="xs:int" />
+      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="daneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="daneMunicipio" type="xs:int" />
+      <xs:element minOccurs="0" name="idEntidadNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="accionEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="presupuestoNivelNacional" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerSeguimientoEntidadesRR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoDaneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="semestre" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerSeguimientoEntidadesRRResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObtenerSeguimientoEntidadesRRResult" type="tns:ObtenerSeguimientoEntidadesRRResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerSeguimientoEntidadesRRResult">
+    <xs:sequence>
+      <xs:element name="resultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="seguimientos" type="tns:SeguimientoEntidadRR" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SeguimientoEntidadRR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="vigencia" type="xs:int" />
+      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="daneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="daneMunicipio" type="xs:int" />
+      <xs:element minOccurs="0" name="idEntidadNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="avanceAccionEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="compromisoCumplido" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dificultadesEncontradas" type="xs:string" />
+      <xs:element minOccurs="0" name="accionesParaSuperarDificultades" type="xs:string" />
+      <xs:element minOccurs="0" name="soporte" type="xs:string" />
+      <xs:element minOccurs="0" name="presupuestoEjecutado" type="xs:int" />
+      <xs:element minOccurs="0" name="observaciones" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerSeguimientoEntidadesRC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoDaneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="semestre" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerSeguimientoEntidadesRCResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObtenerSeguimientoEntidadesRCResult" type="tns:ObtenerSeguimientoEntidadesRCResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerSeguimientoEntidadesRCResult">
+    <xs:sequence>
+      <xs:element name="resultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="seguimientos" type="tns:SeguimientoEntidadRC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SeguimientoEntidadRC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="vigencia" type="xs:int" />
+      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="daneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="daneMunicipio" type="xs:int" />
+      <xs:element minOccurs="0" name="idEntidadNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="avanceAccionEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="compromisoCumplido" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dificultadesEncontradas" type="xs:string" />
+      <xs:element minOccurs="0" name="accionesParaSuperarDificultades" type="xs:string" />
+      <xs:element minOccurs="0" name="soporte" type="xs:string" />
+      <xs:element minOccurs="0" name="presupuestoEjecutado" type="xs:int" />
+      <xs:element minOccurs="0" name="observaciones" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEntidadesNacionales">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="obtenerEntidadesNacionalesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObtenerEntidadesNacionalesResult" type="tns:ObtenerEntidadesNacionalesResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerEntidadesNacionalesResult">
+    <xs:sequence>
+      <xs:element name="resultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entidades" type="tns:EntidadNacional" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EntidadNacional">
+    <xs:sequence>
+      <xs:element name="idEntidadNacional" type="xs:int" />
+      <xs:element name="nombreEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="codigoEntidadNacional" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCompromisosEntidades">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoDaneDepartamento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCompromisosEntidadesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObtenerCompromisosEntidadesResult" type="tns:ObtenerCompromisosEntidadesResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerCompromisosEntidadesResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="resultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="compromisos" type="tns:CompromisoEntidad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CompromisoEntidad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="vigencia" type="xs:int" />
+      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="daneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="daneMunicipio" type="xs:int" />
+      <xs:element minOccurs="0" name="idEntidadNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="compromisoNivelNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="reporteCompromisos" type="xs:string" />
+      <xs:element minOccurs="0" name="presupuestoNivelNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreProyectoInversion" type="xs:string" />
+      <xs:element minOccurs="0" name="codBPINProyecto" type="xs:string" />
+      <xs:element minOccurs="0" name="observaciones" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCompromisosEntidadesRC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoDaneDepartamento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerCompromisosEntidadesRCResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObtenerCompromisosEntidadesRCResult" type="tns:ObtenerCompromisosEntidadesRCResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerCompromisosEntidadesRCResult">
+    <xs:sequence>
+      <xs:element name="resultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="compromisos" type="tns:CompromisoEntidadRC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CompromisoEntidadRC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="vigencia" type="xs:int" />
+      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="daneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="daneMunicipio" type="xs:int" />
+      <xs:element minOccurs="0" name="idEntidadNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="accionEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="presupuestoNivelNacional" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerSeguimientoEntidades">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoDaneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="semestre" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerSeguimientoEntidadesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObtenerSeguimientoEntidadesResult" type="tns:ObtenerSeguimientoEntidadesResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObtenerSeguimientoEntidadesResult">
+    <xs:sequence>
+      <xs:element name="resultCode" type="xs:int" />
+      <xs:element minOccurs="0" name="errMessage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="seguimientos" type="tns:SeguimientoEntidad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SeguimientoEntidad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTablero" type="xs:int" />
+      <xs:element minOccurs="0" name="vigencia" type="xs:int" />
+      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="daneDepartamento" type="xs:int" />
+      <xs:element minOccurs="0" name="daneMunicipio" type="xs:int" />
+      <xs:element minOccurs="0" name="idEntidadNacional" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreEntidadNacional" type="xs:string" />
+      <xs:element minOccurs="0" name="cantidadEjecutada" type="xs:int" />
+      <xs:element minOccurs="0" name="compromisoCumplido" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dificultadesEncontradas" type="xs:string" />
+      <xs:element minOccurs="0" name="accionesParaSuperarDificultades" type="xs:string" />
+      <xs:element minOccurs="0" name="soporte" type="xs:string" />
+      <xs:element minOccurs="0" name="presupuestoEjecutado" type="xs:int" />
+      <xs:element minOccurs="0" name="observaciones" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
