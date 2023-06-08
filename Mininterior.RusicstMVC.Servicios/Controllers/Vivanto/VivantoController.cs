@@ -59,8 +59,15 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         [Route("api/v1/active-users")]
         public async Task<IHttpActionResult> UserActives()
         {
-            List<C_Usuario_Result> result = await _repo.GetAllUserActives();
-            return Ok(result);
+            try
+            {
+                List<C_Usuario_Result> result = await _repo.GetAllUserActives();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
         }
     }
 }
