@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Presentacion", "1-Presentacion", "{CFF3DAF0-1A5C-4923-A088-7502280BE919}"
 EndProject
@@ -32,6 +32,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7-ServiciosWebPAT", "7-ServiciosWebPAT", "{4D1F630C-2CE5-4551-9456-5D28F2102E20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiciosPat", "Mininterior.RusicstMVC.ServiciosPat\ServiciosPat.csproj", "{5D74CBEB-F3C9-4B20-9F83-2E6980053CC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "8-Utilidades", "8-Utilidades", "{C1CB116C-3B8E-431B-B629-57BD53F47A13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilidades", "UtilidadesFM\Utilidades.csproj", "{5BBAED77-8954-4BB5-8477-3D834CA56F79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDecripts", "TestDecripts\TestDecripts.csproj", "{5C1BEACC-E91F-4A7B-8961-BBEF5C0D0088}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +77,14 @@ Global
 		{5D74CBEB-F3C9-4B20-9F83-2E6980053CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D74CBEB-F3C9-4B20-9F83-2E6980053CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D74CBEB-F3C9-4B20-9F83-2E6980053CC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BBAED77-8954-4BB5-8477-3D834CA56F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BBAED77-8954-4BB5-8477-3D834CA56F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BBAED77-8954-4BB5-8477-3D834CA56F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BBAED77-8954-4BB5-8477-3D834CA56F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C1BEACC-E91F-4A7B-8961-BBEF5C0D0088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C1BEACC-E91F-4A7B-8961-BBEF5C0D0088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C1BEACC-E91F-4A7B-8961-BBEF5C0D0088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C1BEACC-E91F-4A7B-8961-BBEF5C0D0088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,43 +98,7 @@ Global
 		{AB187E7D-6D75-4EA5-B2AC-BBF0546887A3} = {1D883196-EB2C-4AF2-A3B5-E72C91C6BC3C}
 		{31BAE4F9-172C-42F0-9560-CD186EC35C3F} = {1D883196-EB2C-4AF2-A3B5-E72C91C6BC3C}
 		{5D74CBEB-F3C9-4B20-9F83-2E6980053CC1} = {4D1F630C-2CE5-4551-9456-5D28F2102E20}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://mininterior.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Mininterior.RusicstMVC.Aplicacion\\Mininterior.RusicstMVC.Aplicacion.csproj
-		SccProjectTopLevelParentUniqueName1 = Rusicst-MVC.sln
-		SccProjectName1 = Mininterior.RusicstMVC.Aplicacion
-		SccLocalPath1 = Mininterior.RusicstMVC.Aplicacion
-		SccProjectUniqueName2 = Mininterior.RusicstMVC.Datos\\Mininterior.RusicstMVC.Datos.csproj
-		SccProjectTopLevelParentUniqueName2 = Rusicst-MVC.sln
-		SccProjectName2 = Mininterior.RusicstMVC.Datos
-		SccLocalPath2 = Mininterior.RusicstMVC.Datos
-		SccProjectUniqueName3 = Mininterior.RusicstMVC.Entidades\\Mininterior.RusicstMVC.Entidades.csproj
-		SccProjectTopLevelParentUniqueName3 = Rusicst-MVC.sln
-		SccProjectName3 = Mininterior.RusicstMVC.Entidades
-		SccLocalPath3 = Mininterior.RusicstMVC.Entidades
-		SccProjectUniqueName4 = Mininterior.RusicstMVC.Presentacion\\Mininterior.RusicstMVC.Presentacion.csproj
-		SccProjectTopLevelParentUniqueName4 = Rusicst-MVC.sln
-		SccProjectName4 = Mininterior.RusicstMVC.Presentacion
-		SccLocalPath4 = Mininterior.RusicstMVC.Presentacion
-		SccProjectUniqueName5 = Mininterior.RusicstMVC.Servicios\\Mininterior.RusicstMVC.Servicios.csproj
-		SccProjectTopLevelParentUniqueName5 = Rusicst-MVC.sln
-		SccProjectName5 = Mininterior.RusicstMVC.Servicios
-		SccLocalPath5 = Mininterior.RusicstMVC.Servicios
-		SccProjectUniqueName6 = RusicstBI\\RusicstBI.csproj
-		SccProjectTopLevelParentUniqueName6 = Rusicst-MVC.sln
-		SccProjectName6 = RusicstBI
-		SccLocalPath6 = RusicstBI
-		SccProjectUniqueName7 = ServicioRusicstBI\\Miniterior.RusicstMVC.ServicioRusicstBI.csproj
-		SccProjectTopLevelParentUniqueName7 = Rusicst-MVC.sln
-		SccProjectName7 = ServicioRusicstBI
-		SccLocalPath7 = ServicioRusicstBI
-		SccProjectUniqueName8 = Mininterior.RusicstMVC.ServiciosPat\\ServiciosPat.csproj
-		SccProjectTopLevelParentUniqueName8 = Rusicst-MVC.sln
-		SccProjectName8 = Mininterior.RusicstMVC.ServiciosPat
-		SccLocalPath8 = Mininterior.RusicstMVC.ServiciosPat
+		{5BBAED77-8954-4BB5-8477-3D834CA56F79} = {C1CB116C-3B8E-431B-B629-57BD53F47A13}
+		{5C1BEACC-E91F-4A7B-8961-BBEF5C0D0088} = {C1CB116C-3B8E-431B-B629-57BD53F47A13}
 	EndGlobalSection
 EndGlobal
