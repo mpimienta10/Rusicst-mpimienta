@@ -977,6 +977,7 @@
     <Compile Include="D_PrecargueSegxPreguntaMunicipio_Result.cs">
       <DependentUpon>ModeloContexto.tt</DependentUpon>
     </Compile>
+    <Compile Include="Genericas\Crypts.cs" />
     <Compile Include="Genericas\C_LogXCategoria_Result.cs" />
     <Compile Include="Genericas\C_LogXExcepcion_Result.cs" />
     <Compile Include="Genericas\C_Usuario_Result.cs" />
