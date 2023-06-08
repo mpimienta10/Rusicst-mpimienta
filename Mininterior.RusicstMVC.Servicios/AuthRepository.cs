@@ -27,6 +27,7 @@ namespace Mininterior.RusicstMVC.Servicios
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Mininterior.RusicstMVC.Servicios.Entities.DTO;
 
     /// <summary>
     /// Class AuthRepository.
@@ -86,12 +87,12 @@ namespace Mininterior.RusicstMVC.Servicios
 
             //// Si existe, actualiza el usuario con los nuevos datos
             if (null != user)
-            {               
+            {
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     //// Obtiene todos los que estan aprobados, los inactiva y les coloca el estado retirado
                     ListaUsuario = BD.C_Usuario(null, null, null, null, null, userModel.UserName, null).FirstOrDefault();
-                    if(Usuario.IdTipoUsuario == 2 || Usuario.IdTipoUsuario == 7) // alcaldia y gobernacion
+                    if (Usuario.IdTipoUsuario == 2 || Usuario.IdTipoUsuario == 7) // alcaldia y gobernacion
                         //BD.U_UsuarioUpdate(ListaUsuario.Id, null, null, null, null, (int)EstadoSolicitud.Retiro, Usuario.IdUsuarioTramite, null, ListaUsuario.Nombres, ListaUsuario.Cargo, ListaUsuario.TelefonoFijo, ListaUsuario.TelefonoFijoIndicativo, ListaUsuario.TelefonoFijoExtension, ListaUsuario.TelefonoCelular, ListaUsuario.Email, ListaUsuario.EmailAlternativo, false, false, null, false, ListaUsuario.DocumentoSolicitud, ListaUsuario.FechaSolicitud, Usuario.FechaNoRepudio, ListaUsuario.FechaTramite, DateTime.Now, null, null, null, Usuario.Id);
                         BD.U_UsuarioUpdate(ListaUsuario.Id, user.Id, null, null, null, (int)EstadoSolicitud.Aprobada, Usuario.IdUsuarioTramite != null ? Usuario.IdUsuarioTramite : null, user.UserName, Usuario.Nombres, Usuario.Cargo, Usuario.TelefonoFijo, Usuario.TelefonoFijoIndicativo, Usuario.TelefonoFijoExtension, Usuario.TelefonoCelular, Usuario.Email, Usuario.EmailAlternativo, true, true, null, true, Usuario.DocumentoSolicitud, Usuario.FechaSolicitud, Usuario.FechaNoRepudio, Usuario.FechaTramite, null, DateTime.Now, null, null, Usuario.Id);
                     else
@@ -122,7 +123,7 @@ namespace Mininterior.RusicstMVC.Servicios
                     if (Usuario.IdTipoUsuario == 2 || Usuario.IdTipoUsuario == 7) // alcaldia y gobernacion
                         BD.U_UsuarioUpdate(Usuario.Id, null, null, null, null, (int)EstadoSolicitud.Retiro, Usuario.IdUsuarioTramite, null, ListaUsuario.Nombres, ListaUsuario.Cargo, ListaUsuario.TelefonoFijo, ListaUsuario.TelefonoFijoIndicativo, ListaUsuario.TelefonoFijoExtension, ListaUsuario.TelefonoCelular, ListaUsuario.Email, ListaUsuario.EmailAlternativo, false, false, null, false, ListaUsuario.DocumentoSolicitud, ListaUsuario.FechaSolicitud, Usuario.FechaNoRepudio, ListaUsuario.FechaTramite, DateTime.Now, null, null, null, ListaUsuario.Id);
                     else if (nuevo)
-                        BD.U_UsuarioUpdate(Usuario.Id, user.Id, null, null, null, (int)EstadoSolicitud.Aprobada, Usuario.IdUsuarioTramite, user.UserName, Usuario.Nombres, Usuario.Cargo, Usuario.TelefonoFijo, Usuario.TelefonoFijoIndicativo, Usuario.TelefonoFijoExtension, Usuario.TelefonoCelular, Usuario.Email, Usuario.EmailAlternativo, true, true, null, true, Usuario.DocumentoSolicitud, Usuario.FechaSolicitud, Usuario.FechaNoRepudio, Usuario.FechaTramite, null, DateTime.Now, null, null,null);
+                        BD.U_UsuarioUpdate(Usuario.Id, user.Id, null, null, null, (int)EstadoSolicitud.Aprobada, Usuario.IdUsuarioTramite, user.UserName, Usuario.Nombres, Usuario.Cargo, Usuario.TelefonoFijo, Usuario.TelefonoFijoIndicativo, Usuario.TelefonoFijoExtension, Usuario.TelefonoCelular, Usuario.Email, Usuario.EmailAlternativo, true, true, null, true, Usuario.DocumentoSolicitud, Usuario.FechaSolicitud, Usuario.FechaNoRepudio, Usuario.FechaTramite, null, DateTime.Now, null, null, null);
                 }
             }
 
@@ -134,16 +135,28 @@ namespace Mininterior.RusicstMVC.Servicios
         /// Get all user actives
         /// </summary>
         /// <returns>List of users actives</returns>
-        public async Task<List<C_Usuario_Result>> GetAllUserActives()
+        public async Task<List<ActiveUserVIvanto>> GetAllUserActives()
         {
             await Task.Delay(100);
-            List<C_Usuario_Result> result = new List<C_Usuario_Result>();
+            List<C_Usuario_Result> resultC_Usuarios = new List<C_Usuario_Result>();
+            List<ActiveUserVIvanto> result = new List<ActiveUserVIvanto>();
             using (EntitiesRusicst BD = new EntitiesRusicst())
             {
                 //// Trae el usuario que esta registrandose
-                result = BD.C_Usuario(null, null, null, null, null, null, null).ToList();
+                resultC_Usuarios = BD.C_Usuario(null, null, null, null, null, null, null).ToList();
             }
-            result = result.Where(w => w.Activo).ToList();
+            resultC_Usuarios = resultC_Usuarios.Where(w => w.Activo).ToList();
+            foreach (var item in resultC_Usuarios)
+            {
+                ActiveUserVIvanto user = new ActiveUserVIvanto
+                {
+                    activo=item.Activo,
+                    Email=item.Email,
+                    Nombres=item.Nombres,
+                    role=item.Cargo
+                };
+                result.Add(user);
+            }
             return result;
         }
 

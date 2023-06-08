@@ -20,6 +20,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
     using Microsoft.Owin.Security.OAuth;
     using Mininterior.RusicstMVC.Aplicacion;
     using Mininterior.RusicstMVC.Entidades;
+    using Mininterior.RusicstMVC.Servicios.Entities.DTO;
     using Mininterior.RusicstMVC.Servicios.Models;
     using Newtonsoft.Json.Linq;
     using Providers;
@@ -61,7 +62,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         {
             try
             {
-                List<C_Usuario_Result> result = await _repo.GetAllUserActives();
+                List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
                 return Ok(result);
             }
             catch (Exception ex)
