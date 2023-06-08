@@ -47,5 +47,20 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         {
             _repo = new AuthRepository();
         }
+
+
+        /// <summary>
+        /// Obtener usuarios activos
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>C_GetUserActives.</returns>
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("api/v1/active-users")]
+        public async Task<IHttpActionResult> UserActives()
+        {
+            List<C_Usuario_Result> result = await _repo.GetAllUserActives();
+            return Ok(result);
+        }
     }
 }

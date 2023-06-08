@@ -129,6 +129,24 @@ namespace Mininterior.RusicstMVC.Servicios
             return result;
         }
 
+
+        /// <summary>
+        /// Get all user actives
+        /// </summary>
+        /// <returns>List of users actives</returns>
+        public async Task<List<C_Usuario_Result>> GetAllUserActives()
+        {
+            await Task.Delay(100);
+            List<C_Usuario_Result> result = new List<C_Usuario_Result>();
+            using (EntitiesRusicst BD = new EntitiesRusicst())
+            {
+                //// Trae el usuario que esta registrandose
+                result = BD.C_Usuario(null, null, null, null, null, null, null).ToList();
+            }
+            result = result.Where(w => w.Activo).ToList();
+            return result;
+        }
+
         /// <summary>
         /// Finds the user.
         /// </summary>
