@@ -20,6 +20,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
     using Microsoft.Owin.Security.OAuth;
     using Mininterior.RusicstMVC.Aplicacion;
     using Mininterior.RusicstMVC.Entidades;
+    using Mininterior.RusicstMVC.Servicios.Entities.DTO;
     using Mininterior.RusicstMVC.Servicios.Models;
     using Newtonsoft.Json.Linq;
     using Providers;
@@ -46,6 +47,28 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         public VivantoController()
         {
             _repo = new AuthRepository();
+        }
+
+
+        /// <summary>
+        /// Obtener usuarios activos
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>C_GetUserActives.</returns>
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("api/v1/active-users")]
+        public async Task<IHttpActionResult> UserActives()
+        {
+            try
+            {
+                List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
         }
     }
 }
