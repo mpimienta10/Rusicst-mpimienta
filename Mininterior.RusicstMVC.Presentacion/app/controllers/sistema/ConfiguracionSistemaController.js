@@ -426,6 +426,7 @@ app.controller('ModalModificarSLController', ['$scope', 'APIService', '$filter',
     $scope.showVid = false;
     $scope.showImg = false;
     $scope.serviceBase = ngSettings.apiServiceBaseUri;
+    $scope.isDisabledVideoButton = false;
 
     $scope.cancelar = function () {
         $uibModalInstance.dismiss('cancel');
@@ -454,30 +455,32 @@ app.controller('ModalModificarSLController', ['$scope', 'APIService', '$filter',
     }
 
     $scope.upload = function (file) {
-        $scope.sl.type = $scope.type;
-        $scope.sl.content = file.name;
+        if (file) {
+            $scope.isDisabledVideoButton = true;
+            $scope.sl.type = $scope.type;
+            $scope.sl.content = file.name;
 
-        $scope.sl.AudUserName = authService.authentication.userName;
-        $scope.sl.AddIdent = authService.authentication.isAddIdent;
-        $scope.sl.UserNameAddIdent = authService.authentication.userNameAddIdent;
+            $scope.sl.AudUserName = authService.authentication.userName;
+            $scope.sl.AddIdent = authService.authentication.isAddIdent;
+            $scope.sl.UserNameAddIdent = authService.authentication.userNameAddIdent;
 
-        Upload.upload({
-            url: $scope.serviceBase + '/api/Sistema/ConfiguracionSistema/ModificarSL',
-            method: "POST",
-            data: $scope.sl,
-            file: file,
-        }).then(function (resp) {
-            var mensaje = { msn: "Se ha actualizado satisfactoriamente el Slide", tipo: "alert alert-success" };
-            UtilsService.abrirRespuesta(mensaje);
-            $uibModalInstance.close();
-        }, function (resp) {
-            var mensaje = { msn: 'Error: ' + resp.status, tipo: "alert alert-danger" };
-            UtilsService.abrirRespuesta(mensaje);
-        }, function (evt) {
-            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-            $scope.progressPercentage = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
-        });
+            Upload.upload({
+                url: $scope.serviceBase + '/api/Sistema/ConfiguracionSistema/ModificarSL',
+                method: "POST",
+                data: $scope.sl,
+                file: file,
+            }).then(function (resp) {
+                var mensaje = { msn: "Se ha actualizado satisfactoriamente el Slide", tipo: "alert alert-success" };
+                UtilsService.abrirRespuesta(mensaje);
+                $uibModalInstance.close();
+            }, function (resp) {
+                var mensaje = { msn: 'Error: ' + resp.status, tipo: "alert alert-danger" };
+                UtilsService.abrirRespuesta(mensaje);
+            }, function (evt) {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                $scope.progressPercentage = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
+            });
+        }
     };
 
     $scope.validar = function () {
