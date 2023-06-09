@@ -497,6 +497,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AuthContext.cs" />
     <Compile Include="AuthRepository.cs" />
+    <Compile Include="Controllers\Crypst\CryptsController.cs" />
     <Compile Include="Controllers\General\BuscadorController.cs" />
     <Compile Include="Controllers\General\ListasController.cs" />
     <Compile Include="Controllers\Informes\ConsolidadoDiligenciamientoController.cs" />
@@ -654,6 +655,10 @@
     <ProjectReference Include="..\Mininterior.RusicstMVC.Entidades\Mininterior.RusicstMVC.Entidades.csproj">
       <Project>{ddc92ec1-c09a-4db3-88c9-fdc0cbf90e6d}</Project>
       <Name>Mininterior.RusicstMVC.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilidadesFM\Utilidades.csproj">
+      <Project>{5bbaed77-8954-4bb5-8477-3d834ca56f79}</Project>
+      <Name>Utilidades</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
