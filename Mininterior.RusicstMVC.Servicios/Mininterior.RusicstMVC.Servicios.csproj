@@ -553,7 +553,9 @@
     <Compile Include="Controllers\Usuarios\HabilitarReportesController.cs" />
     <Compile Include="Controllers\Usuarios\TipoUsuarioController.cs" />
     <Compile Include="Controllers\Usuarios\UsuariosController.cs" />
+    <Compile Include="Controllers\Vivanto\VivantoController.cs" />
     <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\DTO\ActiveUserVIvanto.cs" />
     <Compile Include="Entities\RefreshToken.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Helpers\EncuestaExcelUtils.cs" />
@@ -663,6 +665,9 @@
     <WCFMetadataStorage Include="Service References\ServiciosESignaProduccion\" />
     <WCFMetadataStorage Include="Service References\ServiciosESigna\" />
     <WCFMetadataStorage Include="Service References\ServiciosSigo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Vivanto\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

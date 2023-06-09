@@ -124,13 +124,21 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Reportes
         [Route("api/Reportes/DisenoReporte/Modificar/")]
         public C_AccionesResultado Modificar(EncuestaModels model)
         {
+            DateTime FechaActual = DateTime.Today;
             C_AccionesResultado resultado = new C_AccionesResultado();
+
+            if (DateTime.Parse(model.FechaInicio.ToString("yyyy-MM-dd")) < DateTime.Parse(FechaActual.ToString("yyyy-MM-dd")))
+            {
+                resultado.estado = 0;
+                resultado.respuesta = "El registro no puede ser modificado despues de la fecha de inicio de la encuesta (comuníquese con el administrador)";
+                return resultado;
+            }
 
             try
             {
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
-                    resultado = BD.U_EncuestaUpdate(model.Id, model.Titulo, model.Ayuda, DateTime.Parse(model.FechaInicio.ToString("yyyy-MM-dd")), DateTime.Parse(model.FechaFin.ToString("yyyy-MM-dd")).AddMinutes(1439), model.IsDeleted, model.TipoEncuesta, model.EncuestaRelacionada, model.AutoevaluacionHabilitada, model.ObtenerTiposReporte(model.TipoReporte), model.IsPrueba).FirstOrDefault();
+                    resultado = BD.U_EncuestaUpdate(model.Id, model.Titulo, model.Ayuda, DateTime.Parse(model.FechaInicio.ToString("yyyy-MM-dd")), DateTime.Parse(model.FechaFin.ToString("yyyy-MM-dd")).AddDays(1).AddSeconds(1), model.IsDeleted, model.TipoEncuesta, model.EncuestaRelacionada, model.AutoevaluacionHabilitada, model.ObtenerTiposReporte(model.TipoReporte), model.IsPrueba).FirstOrDefault();
                 }
             }
             catch (Exception ex)
@@ -156,7 +164,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Reportes
             {
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
-                    resultado = BD.I_EncuestaInsert(model.Titulo, model.Ayuda, DateTime.Parse(model.FechaInicio.ToString("yyyy-MM-dd")), DateTime.Parse(model.FechaFin.ToString("yyyy-MM-dd")).AddMinutes(1439), model.IsDeleted, model.TipoEncuesta, model.EncuestaRelacionada, model.AutoevaluacionHabilitada, model.ObtenerTiposReporte(model.TipoReporte), model.IsPrueba).FirstOrDefault();
+                    resultado = BD.I_EncuestaInsert(model.Titulo, model.Ayuda, DateTime.Parse(model.FechaInicio.ToString("yyyy-MM-dd")), DateTime.Parse(model.FechaFin.ToString("yyyy-MM-dd")).AddDays(1).AddSeconds(1), model.IsDeleted, model.TipoEncuesta, model.EncuestaRelacionada, model.AutoevaluacionHabilitada, model.ObtenerTiposReporte(model.TipoReporte), model.IsPrueba).FirstOrDefault();
                 }
             }
             catch (Exception ex)

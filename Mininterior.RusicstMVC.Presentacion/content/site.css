@@ -447,6 +447,10 @@ a.btnNew, button.btnNew {
         text-decoration: none;
     }
 
+.btnNew:disabled, .btnNew:disabled:hover {
+    cursor: not-allowed;
+    background-color: #9C9C9C;
+}
 
 /*Ícono cerrar*/
 .icono-close {

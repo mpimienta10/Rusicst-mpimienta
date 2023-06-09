@@ -1,4 +1,4 @@
-﻿app.controller('DisenoReportesController', ['$scope', 'APIService', 'UtilsService', 'i18nService', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$log', '$uibModal', 'authService', function ($scope, APIService, UtilsService, i18nService, $http, uiGridConstants, $interval, uiGridGroupingConstants, $log, $uibModal, authService) {
+﻿﻿app.controller('DisenoReportesController', ['$scope', 'APIService', 'UtilsService', 'i18nService', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$log', '$uibModal', 'authService', function ($scope, APIService, UtilsService, i18nService, $http, uiGridConstants, $interval, uiGridGroupingConstants, $log, $uibModal, authService) {
 
     //------------------- Inicio logica de la grilla -------------------
     $scope.lang = 'es';
@@ -96,7 +96,7 @@
                 if (resultado.estado === 2) mensaje = "La encuesta fue actualizada satisfactoriamente";
                 openRespuesta(mensaje);
             }
-           );
+        );
     };
 
     $scope.openPopUpSeccionesReporte = function (idReporte) {
@@ -144,10 +144,10 @@
             backdrop: 'static', keyboard: false
         });
         modalInstance.result.then(
-             function () {
-                 buscar();
-             }
-           );
+            function () {
+                buscar();
+            }
+        );
     };
 
     function agregarColumnasFijas() {
@@ -243,12 +243,13 @@ app.controller('ModalNuevoReporteController', function ($scope, APIService, $fil
     $scope.EncuestaRelacionada = 0;
     $scope.tiposReporteSeleccionados = {};
     $scope.tiposReporte = {};
+    $scope.inactivarInputsModal = false;
 
     function cargarComboTiposReporteMod() {
         var url = '/api/Reportes/DisenoReporte/RolxEncuesta/' + $scope.Idreporte;
         var servCall = APIService.getSubs(url);
         servCall.then(function (response) {
-            if (response.length > 0 )
+            if (response.length > 0)
                 $scope.tiposReporteSeleccionados = response;
         }, function (error) {
             $scope.error = "Se generó un error en la petición de cargue de los tipos de encuesta Modificación";
@@ -290,6 +291,12 @@ app.controller('ModalNuevoReporteController', function ($scope, APIService, $fil
                 $scope.reporte.TipoReporte = $scope.tiposReporte;
             $scope.reporte.FechaInicio = new Date($scope.reporte.FechaInicio);
             $scope.reporte.FechaFin = new Date($scope.reporte.FechaFin);
+
+            var fechaActual = new Date();
+            if ($scope.reporte.FechaInicio < fechaActual) {
+                $scope.error = "El registro no puede ser modificado despues de la fecha de inicio de la encuesta (comuníquese con el administrador)";
+                $scope.inactivarInputsModal = true;
+            }
         }, function (error) {
             $scope.error = "Se generó un error en la petición de cargue de datos del reporte indicado";
         });
@@ -548,8 +555,8 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
                         $scope.isGrid2 = true;
                         $scope.gridOptions2.data = datos;
                         agregarColumnasFijasSeccion();
-                        var columsNoVisibles = ["Id", "IdUsuario" , "IdEncuesta", "Ayuda", "SuperSeccion", "IsDeleted", "Archivo", "OcultaTitulo", "Estilos", "Disenos", "Preguntas", "AudUserName", "AddIdent", "UserNameAddIdent", "Excepcion", "ExcepcionMensaje"];
-                        
+                        var columsNoVisibles = ["Id", "IdUsuario", "IdEncuesta", "Ayuda", "SuperSeccion", "IsDeleted", "Archivo", "OcultaTitulo", "Estilos", "Disenos", "Preguntas", "AudUserName", "AddIdent", "UserNameAddIdent", "Excepcion", "ExcepcionMensaje"];
+
                         if (!$scope.isColumnDefs2) {
                             UtilsService.getColumnDefs($scope.gridOptions2, $scope.isColumnDefs2, $scope.columnDefsFijas2, columsNoVisibles);
                             $scope.isColumnDefs2 = true;
@@ -698,7 +705,7 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
             seccion.AddIdent = authService.authentication.isAddIdent;
             seccion.UserNameAddIdent = authService.authentication.userNameAddIdent;
 
-            var enviar = { url: '/api/Reportes/DisenoReporte/EliminarSeccion/', msn: "¿Está seguro de realizar la eliminación?", entity:seccion };
+            var enviar = { url: '/api/Reportes/DisenoReporte/EliminarSeccion/', msn: "¿Está seguro de realizar la eliminación?", entity: seccion };
             var templateUrl = 'app/views/modals/ConfirmacionEliminar.html';
             var controller = 'ModalEliminarController';
             var cont = 0;
