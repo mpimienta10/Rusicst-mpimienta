@@ -72,16 +72,13 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                 bool isValueExistKey = Request.Headers.TryGetValues(HeaderKeyName, out var value);
                 if (isValueExistKey && value.FirstOrDefault() != null)
                 {
-                    /*using (EntitiesRusicst BD = new EntitiesRusicst())
-                    {
-                        BD.Database.CommandTimeout = 120;
-                        keyPrivada = BD.C_LeerCrypts(value.FirstOrDefault()).FirstOrDefault().keyPrivate;
-                    }
-
-                    var de = Utilidades.Encrypt.Decrypt(keyPrivada, value.FirstOrDefault());*/
+                    List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
+                    return Ok(result);
                 }
-                List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
-                return Ok(result);
+                else
+                {
+                    return Ok("No se encontro key valida en el header.");
+                }
             }
             catch (Exception ex)
             {
@@ -142,7 +139,8 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                         if (externalAccess.segundoNombre != null && externalAccess.segundoApellido != null)
                         {
                             model.Nombres = $"{externalAccess.primerNombre} {externalAccess.segundoNombre} {externalAccess.primerApellido} {externalAccess.segundoApellido}";
-                        }else if(externalAccess.segundoNombre != null && externalAccess.segundoApellido == null)
+                        }
+                        else if (externalAccess.segundoNombre != null && externalAccess.segundoApellido == null)
                         {
                             model.Nombres = $"{externalAccess.primerNombre} {externalAccess.segundoNombre} {externalAccess.primerApellido}";
                         }
