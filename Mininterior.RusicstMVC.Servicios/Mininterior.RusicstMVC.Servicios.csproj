@@ -556,6 +556,8 @@
     <Compile Include="Controllers\Vivanto\VivantoController.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\DTO\ActiveUserVIvanto.cs" />
+    <Compile Include="Entities\DTO\ExternalAccess.cs" />
+    <Compile Include="Entities\DTO\XIdentify.cs" />
     <Compile Include="Entities\RefreshToken.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Helpers\EncuestaExcelUtils.cs" />
