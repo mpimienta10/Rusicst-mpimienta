@@ -72,6 +72,13 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                 bool isValueExistKey = Request.Headers.TryGetValues(HeaderKeyName, out var value);
                 if (isValueExistKey && value.FirstOrDefault() != null)
                 {
+                    using (EntitiesRusicst BD = new EntitiesRusicst())
+                    {
+                        BD.Database.CommandTimeout = 120;
+                        keyPrivada = BD.C_LeerCrypts(value.FirstOrDefault()).FirstOrDefault().keyPrivate;
+                    }
+                    if (keyPrivada.Any())
+                        return Ok("No se encontro key valida en el header.");
                     List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
                     return Ok(result);
                 }
