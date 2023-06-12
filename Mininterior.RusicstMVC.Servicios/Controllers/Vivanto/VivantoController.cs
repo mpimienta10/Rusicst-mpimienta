@@ -77,7 +77,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                         BD.Database.CommandTimeout = 120;
                         keyPrivada = BD.C_LeerCrypts(value.FirstOrDefault()).FirstOrDefault().keyPrivate;
                     }
-                    if (keyPrivada.Any())
+                    if (!keyPrivada.Any())
                         return Ok("No se encontro key valida en el header.");
                     List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
                     return Ok(result);
@@ -118,6 +118,14 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     {
                         BD.Database.CommandTimeout = 120;
                         keyPrivada = BD.C_LeerCrypts(value.FirstOrDefault()).FirstOrDefault().keyPrivate;
+                    }
+                    if (String.IsNullOrEmpty(keyPrivada))
+                    {
+                        JObject jsonError = new JObject(
+                                                new JProperty("estado", false),
+                                                new JProperty("message", "No se encontro key valida en el header.")
+                           );
+                        return jsonError;
                     }
                 }
 
@@ -180,13 +188,20 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                                 //// Guardar los datos de solicitud de usuario
                                 using (EntitiesRusicst BD = new EntitiesRusicst())
                                 {
-                                    Resultado = BD.I_UsuarioInsert(8, 5001, (int)EstadoSolicitud.Solicitada, model.Nombres, model.Cargo, model.TelefonoFijo,
+                                    int IdDepartamento = BD.C_ObtenerIdDepartamento("Bogotá, D.C.").FirstOrDefault();
+                                    int IdMunicipio = BD.C_ObtenerIdMunicipio("Bogotá, D.C.").FirstOrDefault(); //obj.municipio
+                                    Resultado = BD.I_UsuarioInsert(IdDepartamento, IdMunicipio, (int)EstadoSolicitud.Solicitada, model.Nombres, model.Cargo, model.TelefonoFijo,
                                                                    model.TelefonoFijoIndicativo, model.TelefonoFijoExtension, model.TelefonoCelular, model.Email,
                                                                    model.EmailAlternativo, model.Token, DateTime.Now, model.DocumentoSolicitud).FirstOrDefault();
 
                                     if (Resultado.estado > 0)
                                     {
                                         var resultController = new GestionarSolicitudesController().ConfirmarSolicitud(model);
+                                        
+                                        int IdTipoUsuario = BD.C_ObtenerIdTipoUsuario("ALCALDIA").FirstOrDefault();
+                                        BD.U_UsuarioUpdate(null, null, model.IdTipoUsuario, null, null, null, null, model.UserName, model.Nombres, null, null, null,
+                                                           null, null, model.Email, null, null, true, null, true, null, null, null, null, null, null,
+                                                           null, null, null).FirstOrDefault();
 
                                         (new AuditExecuted(Category.CrearSolicitud)).ActionExecutedManual(model);
                                     }
@@ -211,7 +226,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                         }
                     }
                     // se genera el Token para X-IDENTIFY
-                    Token = GenerateLocalAccessTokenResponse(values.FirstOrDefault());
+                    Token = GenerateLocalAccessTokenResponse(userNameAspNetUsers);
                     //crear SPs a partir de la tabla AspNetUsers y actualizar o crear la data en la tabla [dbo].[Usuario]
                     //Enviar el token con la data encriptada de X-IDENTIFY y url de rusicst
                     //Crear endpoint de validacion de token donde se llama el endpoint de GenerateLocalAccessTokenResponse
@@ -242,13 +257,13 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         /// </summary>
         /// <param name="xidentify">Encript of X-IDENTIFY.</param>
         /// <returns>JObject.</returns>
-        private JObject GenerateLocalAccessTokenResponse(string xidentify)
+        private JObject GenerateLocalAccessTokenResponse(string userName)
         {
             var tokenExpiration = TimeSpan.FromDays(1);
 
             ClaimsIdentity identity = new ClaimsIdentity(OAuthDefaults.AuthenticationType);
 
-            identity.AddClaim(new Claim(ClaimTypes.Name, xidentify));
+            identity.AddClaim(new Claim(ClaimTypes.Name, userName));
             identity.AddClaim(new Claim("role", "user"));
 
             var props = new AuthenticationProperties()
@@ -262,7 +277,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
             var accessToken = Startup.OAuthBearerOptions.AccessTokenFormat.Protect(ticket);
 
             JObject tokenResponse = new JObject(
-                                        new JProperty("X-IDENTIFY", xidentify),
+                                        new JProperty("userName", userName),
                                         new JProperty("access_token", accessToken),
                                         new JProperty("token_type", "bearer"),
                                         new JProperty("expires_in", tokenExpiration.TotalSeconds.ToString()),

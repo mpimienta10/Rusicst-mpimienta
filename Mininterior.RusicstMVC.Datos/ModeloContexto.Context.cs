@@ -8459,5 +8459,20 @@ namespace Mininterior.RusicstMVC.Entidades
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<Crypts>($"exec C_LeerCryps'{keyPublic}'").AsQueryable().ToList();
         }
+
+        public virtual List<int> C_ObtenerIdDepartamento(string nombreDepartamento)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<int>($"exec C_ObtenerIdDepartamento'{nombreDepartamento}'").AsQueryable().ToList();
+        }
+
+        public virtual List<int> C_ObtenerIdMunicipio(string nombreMunicipio)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<int>($"exec C_ObtenerIdMunicipio'{nombreMunicipio}'").AsQueryable().ToList();
+        }
+
+        public virtual List<int> C_ObtenerIdTipoUsuario(string nombreTipoUsuario)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<int>($"exec C_ObtenerIdTipoUsuario'{nombreTipoUsuario}'").AsQueryable().ToList();
+        }
     }
 }
