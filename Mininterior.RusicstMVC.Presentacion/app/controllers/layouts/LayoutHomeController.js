@@ -4,6 +4,20 @@ app.controller('LayoutHomeController', ['$scope', 'authService', 'APIService', '
     $scope.serviceBase = ngSettings.apiServiceBaseUri;
     $scope.datosHome = {};
     $scope.datosAuditoria = {};
+    console.log('STATING APP');
+    $scope.url = $location.absUrl();
+
+    console.log($scope.url);
+
+    var params = $location.search();
+    $scope.parametro = params.access_token;
+    console.log($scope.parametro);
+    localStorage.setItem('access_token', $scope.parametro);
+    //http://localhost:1053/#!/home/login?access_token=123456789
+    var urlSinParametro = window.location.href.split('?')[0];
+    history.replaceState({}, document.title, urlSinParametro);
+
+    if ($scope.parametro) authService.validateToken($scope.parametro);
 
     cargarHome();
     function cargarHome() {
@@ -72,7 +86,7 @@ app.controller('LayoutHomeController', ['$scope', 'authService', 'APIService', '
             authService.authentication.idUsuario = 0;
             authService.authentication.idTipoUsuario = 0;
             authService.authentication.logOut = false;
-            $location.url('home/login');
+            $location.url('home/login?access_token=123456789');
 
         }, function (error) {
             $scope.error = "Se generó un error en la petición, no se guardaron los datos";

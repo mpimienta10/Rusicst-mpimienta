@@ -493,6 +493,11 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Usuarios
             return retorno;
         }
 
+        public JObject TokenResponse(string userName)
+        {
+            return GenerateLocalAccessTokenResponse(userName);
+        }
+
         /// <summary>
         /// Generates the local access token response.
         /// </summary>
