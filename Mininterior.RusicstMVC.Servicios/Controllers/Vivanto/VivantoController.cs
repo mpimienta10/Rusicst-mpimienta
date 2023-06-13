@@ -38,6 +38,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Net.Http;
     using Mininterior.RusicstMVC.Servicios.Controllers.Usuarios;
+    using System.Text;
 
     public class VivantoController : ApiController
     {
@@ -141,6 +142,10 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     externalAccess.departamento = obj.departamento.Replace(" ", "_").ToLower();
                     externalAccess.municipio = obj.municipio.Replace(" ", "_").ToLower();
 
+                    //Se eliminan las tildes y caracteres especiales
+                    externalAccess.departamento = Regex.Replace(externalAccess.departamento.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+                    externalAccess.municipio = Regex.Replace(externalAccess.municipio.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+
                     userNameAspNetUsers = $"{externalAccess.role}_{externalAccess.municipio}_{externalAccess.departamento}";
                     using (AuthRepository _repo = new AuthRepository())
                     {
@@ -191,8 +196,8 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                                 //// Guardar los datos de solicitud de usuario
                                 using (EntitiesRusicst BD = new EntitiesRusicst())
                                 {
-                                    int IdDepartamento = BD.C_ObtenerIdDepartamento("Bogotá, D.C.").FirstOrDefault();
-                                    int IdMunicipio = BD.C_ObtenerIdMunicipio("Bogotá, D.C.").FirstOrDefault(); //obj.municipio
+                                    int IdDepartamento = BD.C_ObtenerIdDepartamento("Bogotá").FirstOrDefault();
+                                    int IdMunicipio = BD.C_ObtenerIdMunicipio("Bogotá").FirstOrDefault(); //obj.municipio
                                     Resultado = BD.I_UsuarioInsert(IdDepartamento, IdMunicipio, (int)EstadoSolicitud.Solicitada, model.Nombres, model.Cargo, model.TelefonoFijo,
                                                                    model.TelefonoFijoIndicativo, model.TelefonoFijoExtension, model.TelefonoCelular, model.Email,
                                                                    model.EmailAlternativo, model.Token, DateTime.Now, model.DocumentoSolicitud).FirstOrDefault();
