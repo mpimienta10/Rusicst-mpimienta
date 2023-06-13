@@ -67,8 +67,26 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
         _authentication.idUsuario = 0;
         _authentication.idTipoUsuario = 0;
         _authentication.logOut = false;
-        $location.url('home/login');
+        $location.url('home/login?access_token=123456789');
     };
+
+    var _validateToken = function (token) {
+        $http.post(serviceBase + '/token', { token: token }, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
+            localStorageService.set(
+                'authorizationData',
+                { token: response.data.access_token, userName: response.data.userName, refreshToken: "", useRefreshTokens: false }
+            );
+
+            _authentication.isAuth = true;
+            _authentication.userName = response.data.userName;
+            _authentication.useRefreshTokens = false;
+
+            deferred.resolve(response);
+        }, function (err, status) {
+            _logOutLogin();
+            deferred.reject(err);
+        });
+    }
 
     ////===================================================================
     //// Este método se independizo para poder auditar el cierre de sesión
@@ -149,6 +167,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
     authServiceFactory.refreshToken = _refreshToken;
     authServiceFactory.addIdentity = _addIdentity;
     authServiceFactory.logOutLogin = _logOutLogin;
+    authServiceFactory.validateToken = _validateToken;
 
     return authServiceFactory;
 }]);

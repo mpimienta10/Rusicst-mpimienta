@@ -39,6 +39,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
     using System.Net.Http;
     using Mininterior.RusicstMVC.Servicios.Controllers.Usuarios;
     using System.Text;
+    using System.Net;
 
     public class VivantoController : ApiController
     {
@@ -62,7 +63,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         /// </summary>
         /// <param name="model">The model.</param>
         /// <returns>C_GetUserActives.</returns>
-        [AllowAnonymous]
+        [JwtAuthentication]
         [HttpGet]
         [Route("api/v1/active-users")]
         public async Task<IHttpActionResult> UserActives()
@@ -94,6 +95,156 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
             }
         }
 
+        /// <summary>
+        /// Verificar token jwt y retornar token rusicts
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>JObject</returns>
+        [JwtAuthentication]
+        [HttpGet]
+        [Route("api/v1/verify-access/")]
+        public async Task<HttpResponseMessage> ExternalVerifyAsync()
+        {
+            HttpResponseMessage response;
+
+            try
+            {
+
+                var user = this.User.Identity.Name;
+                var auth = new AutenticacionController();
+
+                response = Request.CreateResponse(HttpStatusCode.OK);
+
+                response.Content = new StringContent(new JObject(
+                     new JProperty("estado", true),
+                     new JProperty("token", auth.TokenResponse(user))
+                ).ToString(), Encoding.UTF8, "application/json");
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                (new AuditExecuted(Category.Excepciones)).ActionExecutedException(string.Empty, string.Empty, Mininterior.RusicstMVC.Aplicacion.Excepciones.ManagerException.RetornarError(ex));
+                response = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                response.Content = new StringContent(new JObject(
+                     new JProperty("estado", false),
+                     new JProperty("message", "Error")
+                ).ToString(), Encoding.UTF8, "application/json");
+
+                return response;
+            }
+        }
+
+
+        /// <summary>
+        /// Obtener usuarios activos
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>JObject</returns>
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("api/v1/token-jwt/")]
+        public async Task<HttpResponseMessage> GenerateTokenJwtAsync()
+        {
+            HttpResponseMessage response;
+            var decryptIdentify = "";
+            JObject Token = new JObject();
+            string userNameAspNetUsers = "";
+
+            try
+            {
+
+                const string HeaderKeyName = "X-KEY";
+                bool isValueExistKey = Request.Headers.TryGetValues(HeaderKeyName, out var value);
+                if (isValueExistKey && value.FirstOrDefault() != null)
+                {
+                    using (EntitiesRusicst BD = new EntitiesRusicst())
+                    {
+                        BD.Database.CommandTimeout = 120;
+                        keyPrivada = BD.C_LeerCrypts(value.FirstOrDefault()).FirstOrDefault().keyPrivate;
+                    }
+                    if (String.IsNullOrEmpty(keyPrivada))
+                    {
+
+                        response = Request.CreateResponse(HttpStatusCode.OK);
+
+                        response.Content = new StringContent(new JObject(
+                             new JProperty("estado", true),
+                             new JProperty("token", "No se encontro key valida en el header.")
+                        ).ToString(), Encoding.UTF8, "application/json");
+
+                        return response;
+                    }
+                }
+
+                const string HeaderIdentifyName = "X-IDENTIFY";
+                bool isValueExist = Request.Headers.TryGetValues(HeaderIdentifyName, out var values);
+                if (isValueExist && values.FirstOrDefault() != null)
+                {
+                    decryptIdentify = Utilidades.Encrypt.Decrypt(keyPrivada, values.FirstOrDefault());
+                    XIdentify xidentify = new XIdentify();
+                    //var json = JsonConvert.SerializeObject(decryptIdentify);
+                    var obj = JsonConvert.DeserializeObject<XIdentify>(decryptIdentify);
+                    var role = obj.role.Replace(" ", "_").ToLower();
+                    var departamento = obj.departamento.Replace(" ", "_").ToLower();
+                    var municipio = obj.municipio.Replace(" ", "_").ToLower();
+
+                    userNameAspNetUsers = $"{role}_{municipio}_{departamento}";
+                    using (AuthRepository _repo = new AuthRepository())
+                    {
+                        IdentityUser user = await _repo.FindByName(userNameAspNetUsers);
+
+                        if (user != null)
+                        {
+
+                            response = Request.CreateResponse(HttpStatusCode.OK);
+
+                            response.Content = new StringContent(new JObject(
+                                 new JProperty("estado", true),
+                                 new JProperty("token", JwtManager.GenerateToken(userNameAspNetUsers))
+                            ).ToString(), Encoding.UTF8, "application/json");
+
+                            return response;
+                        }
+
+
+                        response = Request.CreateResponse(HttpStatusCode.NotFound);
+
+                        response.Content = new StringContent(new JObject(
+                             new JProperty("estado", false),
+                             new JProperty("message", "Usuario no encontrado")
+                        ).ToString(), Encoding.UTF8, "application/json");
+
+                        return response;
+
+                    }
+
+                }
+
+                response = Request.CreateResponse(HttpStatusCode.Unauthorized);
+
+                response.Content = new StringContent(new JObject(
+                     new JProperty("estado", false),
+                     new JProperty("message", "Unauthorized")
+                ).ToString(), Encoding.UTF8, "application/json");
+
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+
+                (new AuditExecuted(Category.Excepciones)).ActionExecutedException(string.Empty, string.Empty, Mininterior.RusicstMVC.Aplicacion.Excepciones.ManagerException.RetornarError(ex));
+                response = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                response.Content = new StringContent(new JObject(
+                     new JProperty("estado", false),
+                     new JProperty("message", "Error")
+                ).ToString(), Encoding.UTF8, "application/json");
+
+                return response;
+            }
+        }
+
 
         /// <summary>
         /// Obtener acceso externo con usuario de VIVANTO
@@ -106,8 +257,8 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         public async Task<JObject> ExternalAccessAsync([FromBody] ExternalAccess externalAccess)
         {
             var decryptIdentify = "";
-            JObject Token = new JObject();
-            string userName = "", userNameAspNetUsers = "";
+            string Token = "";
+            string userNameAspNetUsers = "";
 
             try
             {
@@ -238,12 +389,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                         }
                     }
                     // se genera el Token para X-IDENTIFY
-                    Token = GenerateLocalAccessTokenResponse(userNameAspNetUsers);
-                    //crear SPs a partir de la tabla AspNetUsers y actualizar o crear la data en la tabla [dbo].[Usuario]
-                    //Enviar el token con la data encriptada de X-IDENTIFY y url de rusicst
-                    //Crear endpoint de validacion de token donde se llama el endpoint de GenerateLocalAccessTokenResponse
-                    //GrantResourceOwnerCredentials - ObtainLocalAccessToken
-
+                    Token = JwtManager.GenerateToken(userNameAspNetUsers);
                 }
 
                 JObject jsonData = new JObject(
@@ -264,40 +410,5 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
             }
         }
 
-        /// <summary>
-        /// Generates the local access token response for X-IDENTIFY.
-        /// </summary>
-        /// <param name="xidentify">Encript of X-IDENTIFY.</param>
-        /// <returns>JObject.</returns>
-        private JObject GenerateLocalAccessTokenResponse(string userName)
-        {
-            var tokenExpiration = TimeSpan.FromDays(1);
-
-            ClaimsIdentity identity = new ClaimsIdentity(OAuthDefaults.AuthenticationType);
-
-            identity.AddClaim(new Claim(ClaimTypes.Name, userName));
-            identity.AddClaim(new Claim("role", "user"));
-
-            var props = new AuthenticationProperties()
-            {
-                IssuedUtc = DateTime.UtcNow,
-                ExpiresUtc = DateTime.UtcNow.Add(tokenExpiration),
-            };
-
-            var ticket = new AuthenticationTicket(identity, props);
-
-            var accessToken = Startup.OAuthBearerOptions.AccessTokenFormat.Protect(ticket);
-
-            JObject tokenResponse = new JObject(
-                                        new JProperty("userName", userName),
-                                        new JProperty("access_token", accessToken),
-                                        new JProperty("token_type", "bearer"),
-                                        new JProperty("expires_in", tokenExpiration.TotalSeconds.ToString()),
-                                        new JProperty(".issued", ticket.Properties.IssuedUtc.ToString()),
-                                        new JProperty(".expires", ticket.Properties.ExpiresUtc.ToString())
-            );
-
-            return tokenResponse;
-        }
     }
 }
