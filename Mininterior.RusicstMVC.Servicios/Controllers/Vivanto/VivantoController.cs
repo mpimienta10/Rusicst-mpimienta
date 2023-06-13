@@ -137,9 +137,9 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     XIdentify xidentify = new XIdentify();
                     //var json = JsonConvert.SerializeObject(decryptIdentify);
                     var obj = JsonConvert.DeserializeObject<XIdentify>(decryptIdentify);
-                    externalAccess.role = obj.role.Replace(" ", "_");
-                    externalAccess.departamento = obj.departamento.Replace(" ", "_");
-                    externalAccess.municipio = obj.municipio.Replace(" ", "_");
+                    externalAccess.role = obj.role.Replace(" ", "_").ToLower();
+                    externalAccess.departamento = obj.departamento.Replace(" ", "_").ToLower();
+                    externalAccess.municipio = obj.municipio.Replace(" ", "_").ToLower();
 
                     userNameAspNetUsers = $"{externalAccess.role}_{externalAccess.municipio}_{externalAccess.departamento}";
                     using (AuthRepository _repo = new AuthRepository())
@@ -175,7 +175,10 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                             //actualizar el usuario
                             using (EntitiesRusicst BD = new EntitiesRusicst())
                             {
-                                Resultado = BD.U_UsuarioUpdate(null, null, model.IdTipoUsuario, null, null, null, null, model.UserName, model.Nombres, null, null, null,
+                                model.IdTipoUsuario = BD.C_ObtenerIdTipoUsuario("ENTIDAD").FirstOrDefault();
+                                //// Trae el usuario al que se va actualizar
+                                C_Usuario_Result Usuario = BD.C_Usuario(null, null, null, null, null, model.UserName, null).FirstOrDefault();
+                                Resultado = BD.U_UsuarioUpdate(Usuario.Id, null, model.IdTipoUsuario, null, null, null, null, model.UserName, model.Nombres, model.Cargo, null, null,
                                                            null, null, model.Email, null, null, true, null, true, null, null, null, null, null, null,
                                                            null, null, null).FirstOrDefault();
                             }
@@ -197,12 +200,6 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                                     if (Resultado.estado > 0)
                                     {
                                         var resultController = new GestionarSolicitudesController().ConfirmarSolicitud(model);
-                                        
-                                        int IdTipoUsuario = BD.C_ObtenerIdTipoUsuario("ALCALDIA").FirstOrDefault();
-                                        BD.U_UsuarioUpdate(null, null, model.IdTipoUsuario, null, null, null, null, model.UserName, model.Nombres, null, null, null,
-                                                           null, null, model.Email, null, null, true, null, true, null, null, null, null, null, null,
-                                                           null, null, null).FirstOrDefault();
-
                                         (new AuditExecuted(Category.CrearSolicitud)).ActionExecutedManual(model);
                                     }
                                     else
@@ -218,6 +215,16 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                                 //Crear el usuario en la tabla AspNetUsers
                                 LoginModel loginModel = new Models.LoginModel() { Token = model.Token, Password = model.Password, UserName = model.UserName, Email = model.Email, Telefono = model.TelefonoFijo };
                                 IdentityResult result = await _repo.RegisterUser(loginModel);
+
+                                using (EntitiesRusicst BD = new EntitiesRusicst())
+                                {
+                                    model.IdTipoUsuario = BD.C_ObtenerIdTipoUsuario("ALCALDIA").FirstOrDefault();
+                                    //// Trae el usuario al que se le va actualizar el IdTipoUsuario
+                                    C_Usuario_Result Usuario = BD.C_Usuario(null, null, null, null, null, model.UserName, null).FirstOrDefault();
+                                    BD.U_UsuarioUpdate(Usuario.Id, null, model.IdTipoUsuario, null, null, null, null, model.UserName, model.Nombres, model.Cargo, null, null,
+                                                       null, null, model.Email, null, null, true, null, true, null, null, null, null, null, null,
+                                                       null, null, null).FirstOrDefault();
+                                }
                             }
                             catch (Exception ex)
                             {
