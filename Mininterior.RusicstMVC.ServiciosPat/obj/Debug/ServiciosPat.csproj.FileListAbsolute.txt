@@ -1,0 +1,17 @@
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll.config
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\ServiciosPat.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Datos.dll.config
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.xml
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\bin\Debug\EntityFramework.SqlServer.xml
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.csprojAssemblyReference.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.csproj.CoreCompileInputs.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.csproj.CopyComplete
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.ServiciosPat\obj\Debug\ServiciosPat.pdb

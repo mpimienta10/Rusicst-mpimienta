@@ -1,0 +1,14 @@
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.dll.config
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Datos.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.xml
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\bin\Debug\EntityFramework.SqlServer.xml
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.csprojAssemblyReference.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.csproj.CoreCompileInputs.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.csproj.CopyComplete
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Datos\obj\Debug\Mininterior.RusicstMVC.Datos.pdb

@@ -1,0 +1,11 @@
+D:\Proyectos\Git\Rusicst\TestDecripts\bin\Debug\TestDecripts.exe.config
+D:\Proyectos\Git\Rusicst\TestDecripts\bin\Debug\TestDecripts.exe
+D:\Proyectos\Git\Rusicst\TestDecripts\bin\Debug\TestDecripts.pdb
+D:\Proyectos\Git\Rusicst\TestDecripts\bin\Debug\Newtonsoft.Json.dll
+D:\Proyectos\Git\Rusicst\TestDecripts\bin\Debug\UtilidadesFM.dll
+D:\Proyectos\Git\Rusicst\TestDecripts\bin\Debug\UtilidadesFM.pdb
+D:\Proyectos\Git\Rusicst\TestDecripts\obj\Debug\TestDecripts.csprojAssemblyReference.cache
+D:\Proyectos\Git\Rusicst\TestDecripts\obj\Debug\TestDecripts.csproj.CoreCompileInputs.cache
+D:\Proyectos\Git\Rusicst\TestDecripts\obj\Debug\TestDecripts.csproj.CopyComplete
+D:\Proyectos\Git\Rusicst\TestDecripts\obj\Debug\TestDecripts.exe
+D:\Proyectos\Git\Rusicst\TestDecripts\obj\Debug\TestDecripts.pdb

@@ -1,0 +1,5 @@
+D:\Proyectos\Git\Rusicst\UtilidadesFM\bin\Debug\UtilidadesFM.dll
+D:\Proyectos\Git\Rusicst\UtilidadesFM\bin\Debug\UtilidadesFM.pdb
+D:\Proyectos\Git\Rusicst\UtilidadesFM\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
+D:\Proyectos\Git\Rusicst\UtilidadesFM\obj\Debug\UtilidadesFM.dll
+D:\Proyectos\Git\Rusicst\UtilidadesFM\obj\Debug\UtilidadesFM.pdb

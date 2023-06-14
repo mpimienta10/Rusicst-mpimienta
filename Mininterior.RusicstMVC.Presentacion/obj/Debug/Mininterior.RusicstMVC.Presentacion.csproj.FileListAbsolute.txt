@@ -1,0 +1,11 @@
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Mininterior.RusicstMVC.Presentacion.dll.config
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Mininterior.RusicstMVC.Presentacion.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Mininterior.RusicstMVC.Presentacion.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Antlr3.Runtime.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Owin.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\bin\Antlr3.Runtime.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.csprojAssemblyReference.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.csproj.CoreCompileInputs.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.csproj.CopyComplete
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Presentacion\obj\Debug\Mininterior.RusicstMVC.Presentacion.pdb

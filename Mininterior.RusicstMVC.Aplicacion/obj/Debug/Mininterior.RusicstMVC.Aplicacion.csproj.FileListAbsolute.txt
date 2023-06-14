@@ -1,0 +1,14 @@
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\bin\Debug\Mininterior.RusicstMVC.Aplicacion.dll.config
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\bin\Debug\Mininterior.RusicstMVC.Aplicacion.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\bin\Debug\Mininterior.RusicstMVC.Aplicacion.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\bin\Debug\reactive-commons.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.csprojAssemblyReference.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.Mensajeria.MensajesCorreo.resources
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.Mensajes.resources
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.csproj.GenerateResource.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.csproj.CoreCompileInputs.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.csproj.CopyComplete
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Aplicacion\obj\Debug\Mininterior.RusicstMVC.Aplicacion.pdb

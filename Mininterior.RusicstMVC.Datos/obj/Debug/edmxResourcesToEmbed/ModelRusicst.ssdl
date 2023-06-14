@@ -1,0 +1,2375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelRusicst.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="C_BateriaCodigosPregunta_BancoPreguntas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_BuscadorBI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SearchTerms" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_CampanaEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ClasificadoresBancoPreguntas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ClasificadoresPreguntasBancoPreguntas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaInicioSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroalimentacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ConsultaRetroAnaRecomendacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroDesPreguntas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroDesPreguntasXIdRetro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="Municipio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroEncuestaNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="IdUser" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroEncuestaPreguntaXCodigoArchivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdAlcaldia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroEncuestaPreguntaXCodigoArchivoAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroEncuestaPreguntaXCodigoDesarrollo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="idsEncuesta" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroGraficaDesarrollo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroGraficaNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroHistoricoXMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdMunicipio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroRevPreguntasXIdRetro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroRevPreguntasXIdRetroMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroRevPreguntasXIdRetroxUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultaRetroUsuarioDesarrollo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConsultarRespuestasArchivoFileServer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_DatosGraficaDesAdecuacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosGraficaDesArticulacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosGraficaDesComite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosGraficaDesDinamica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosGraficaDesParticipacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosGraficaDesRetorno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosGraficaDesTerritorial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosGraficaDesTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroConsultaEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUserName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_DatosPregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosSeccionDescarga" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosSistema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_DetallesClasificadoresPreguntasBancoPreguntas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdClasificador" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DibujarAutoEvaluacionV1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DibujarEncuestaSeccionesSubsecciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DibujarGlosario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_DibujarPreguntasSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DibujarPreguntasSeccionExcel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DibujarSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_EncuestaConsultar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Titulo" Type="varchar" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+    <Parameter Name="TipoEncuesta" Type="varchar" Mode="In" />
+    <Parameter Name="EncuestaRelacionada" Type="int" Mode="In" />
+    <Parameter Name="AutoevaluacionHabilitada" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="C_EncuestaGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_EncuestaSeccionesSubseccionesDraw" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_EncuestasXUsuarioCompletadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_EncuestasXUsuarioNoCompletadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ExtensionesTiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_GlosarioConsultar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clave" Type="varchar" Mode="In" />
+    <Parameter Name="Termino" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="C_HistoricoXUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsername" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_InformePrecargueRespuestas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_InformeRespuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="listaIdSubsecciones" Type="varchar" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_InformesAutoevaluacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaDeptosYMunicipios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ListadoPreguntasSoloSiXIdPregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaGrupo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaMunicipiosXUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaRecurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ListaRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ListaSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEncuesta" Type="int" Mode="In" />
+    <Parameter Name="idGrupo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaSubRecurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRecurso" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaSubSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEncuesta" Type="int" Mode="In" />
+    <Parameter Name="idseccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListaTipoEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ListaTipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_ObtenerDatosGuardadoArchivosEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="idSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_OpcionesMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_OpcionesTipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_OpcionesXPregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ParametrosSistema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreGrupo" Type="varchar" Mode="In" />
+    <Parameter Name="NombreParametro" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_PermisosUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PermisosUsuarioPorRecurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdRecurso" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasBancoPreguntas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoPregunta" Type="int" Mode="In" />
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="Exportable" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasSeccionEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEncuesta" Type="int" Mode="In" />
+    <Parameter Name="idGrupo" Type="int" Mode="In" />
+    <Parameter Name="idseccion" Type="int" Mode="In" />
+    <Parameter Name="idSubseccion" Type="int" Mode="In" />
+    <Parameter Name="nombrePregunta" Type="varchar" Mode="In" />
+    <Parameter Name="idPregunta" Type="int" Mode="In" />
+    <Parameter Name="codigoBanco" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntaXCodigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntaXCodigoNuevo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntaXNombre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombrePregunta" Type="varchar" Mode="In" />
+    <Parameter Name="IDSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntaXNombrePasada" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombrePregunta" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ReporteConsolidadoDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ReporteConsolidadoTotales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ReportesXEntidadesTerritoriales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_RespuestasEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_RespuestaXIdPreguntaUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_RolXEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_Salida_Departamental" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="departamento" Type="int" Mode="In" />
+    <Parameter Name="encuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_Salida_Gobernacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="departamento" Type="int" Mode="In" />
+    <Parameter Name="encuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_Salida_Municipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="municipio" Type="int" Mode="In" />
+    <Parameter Name="departamento" Type="int" Mode="In" />
+    <Parameter Name="encuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_SeccionEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_SeccionExcelEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TiposPregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_TipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Tipo" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="C_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Token" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_UsuariosEnSistema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_UsuariosEnviaronReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_UsuariosGuardaronInformacionAutoevaluacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Encuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_UsuariosGuardaronInformacionSistema" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_UsuariosHistoricoSolicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="C_UsuariosHistoricoUsuarioSolicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_UsuariosPasaronAutoevaluacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Encuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_UsuariosXRol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRol" Type="varchar" Mode="In" />
+    <Parameter Name="Incluidos" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarPermisoGuardadoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="idSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarPermisosGuardado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="idEncuesta" Type="int" Mode="In" />
+    <Parameter Name="idTipoExtension" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarRespuestasXSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_ContenidoSeccionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_DetalleClasificadorBancoPreguntasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdClasificador" Type="int" Mode="In" />
+    <Parameter Name="IdDetalle" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_EncuestaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_EncuestaPruebaContenidoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_GlosarioDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clave" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="D_OpcionesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdOpcion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_ParametrosSistemaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupo" Type="int" Mode="In" />
+    <Parameter Name="NombreParametro" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="D_PrecargueRespuestasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PreguntaBancoPreguntasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PreguntaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_RespuestaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_RetroalimentacionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetro" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_RetroArcPreguntasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroArc" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_RetroDesPreguntasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_RetroDesPreguntaXIdDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_SeccionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_TipoUsuarioDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_TipoUsuarioRecursoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdRecurso" Type="int" Mode="In" />
+    <Parameter Name="IdSubRecurso" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_UsuarioDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdUsuarioTramite" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_BancoPreguntas_DetalleClasificadorInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdClasificador" Type="int" Mode="In" />
+    <Parameter Name="NombreDetalle" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_BancoPreguntas_PreguntaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePregunta" Type="varchar" Mode="In" />
+    <Parameter Name="TipoPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_CampanaEmailInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="Asunto" Type="varchar" Mode="In" />
+    <Parameter Name="Mensaje" Type="text" Mode="In" />
+    <Parameter Name="Total" Type="int" Mode="In" />
+    <Parameter Name="Enviados" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_DatosPrincipalesRetroEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdminEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_DisenoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="Texto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ColumnSpan" Type="int" Mode="In" />
+    <Parameter Name="RowSpan" Type="int" Mode="In" />
+    <Parameter Name="RowIndex" Type="int" Mode="In" />
+    <Parameter Name="ColumnIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_EncuestaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Titulo" Type="varchar" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+    <Parameter Name="TipoEncuesta" Type="varchar" Mode="In" />
+    <Parameter Name="EncuestaRelacionada" Type="int" Mode="In" />
+    <Parameter Name="AutoevaluacionHabilitada" Type="bit" Mode="In" />
+    <Parameter Name="TipoReporte" Type="varchar" Mode="In" />
+    <Parameter Name="IsPrueba" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_GlosarioInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clave" Type="varchar" Mode="In" />
+    <Parameter Name="Termino" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_OpcionesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_ParametrosSistemaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupo" Type="int" Mode="In" />
+    <Parameter Name="NombreParametro" Type="varchar" Mode="In" />
+    <Parameter Name="ParametroValor" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_PermisoUsuarioEncuestaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="UsuarioAutenticado" Type="varchar" Mode="In" />
+    <Parameter Name="IdTipoExtension" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PrecargueRespuestaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsuarioGuardo" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="CodigoHomologacion" Type="varchar" Mode="In" />
+    <Parameter Name="Divipola" Type="int" Mode="In" />
+    <Parameter Name="valor" Type="varchar" Mode="In" />
+    <Parameter Name="isHGL" Type="bit" Mode="In" />
+    <Parameter Name="userHGL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_PreguntaEncuestaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="RowIndex" Type="int" Mode="In" />
+    <Parameter Name="ColumnIndex" Type="int" Mode="In" />
+    <Parameter Name="TipoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="EsObligatoria" Type="bit" Mode="In" />
+    <Parameter Name="EsMultiple" Type="bit" Mode="In" />
+    <Parameter Name="SoloSi" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Texto" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_PreguntaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="TipoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="EsObligatoria" Type="bit" Mode="In" />
+    <Parameter Name="EsMultiple" Type="bit" Mode="In" />
+    <Parameter Name="SoloSi" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Texto" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaEncuestaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaSeccionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RetroalimentacionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreRealimentacion" Type="varchar" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RetroArcPreguntasInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="Documento" Type="varchar" Mode="In" />
+    <Parameter Name="Check" Type="bit" Mode="In" />
+    <Parameter Name="Sumar" Type="bit" Mode="In" />
+    <Parameter Name="Pertenece" Type="int" Mode="In" />
+    <Parameter Name="Observacion" Type="varchar" Mode="In" />
+    <Parameter Name="Observacion2" Type="varchar" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_RetroDesPreguntasInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="IdsEncuestas" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="ValorCalculo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_RetroHistorialTodosInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Encuesta" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_SeccionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="Titulo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="SuperSeccion" Type="int" Mode="In" />
+    <Parameter Name="Eliminado" Type="bit" Mode="In" />
+    <Parameter Name="Archivo" Type="image" Mode="In" />
+    <Parameter Name="OcultaTitulo" Type="bit" Mode="In" />
+    <Parameter Name="Estilos" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_TipoUsuarioInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Tipo" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_TipoUsuarioRecursoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdRecurso" Type="int" Mode="In" />
+    <Parameter Name="ListaIdSubRecurso" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_UsuarioInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="int" Mode="In" />
+    <Parameter Name="Nombres" Type="varchar" Mode="In" />
+    <Parameter Name="Cargo" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoFijo" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoFijoIndicativo" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoFijoExtension" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoCelular" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="EmailAlternativo" Type="varchar" Mode="In" />
+    <Parameter Name="Token" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="FechaSolicitud" Type="datetime" Mode="In" />
+    <Parameter Name="DocumentoSolicitud" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_BancoPreguntas_ClasificadorUpdateDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdClasificador" Type="int" Mode="In" />
+    <Parameter Name="IdDetalle" Type="int" Mode="In" />
+    <Parameter Name="NombreDetalle" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_BancoPreguntas_PreguntaUpdatae" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="NombrePregunta" Type="varchar" Mode="In" />
+    <Parameter Name="TipoPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_BancoPreguntas_PreguntaUpdateClasificador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdDetalleClasificador" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_EncuestaRetroGrafDesarrolloUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="ColorDis" Type="varchar" Mode="In" />
+    <Parameter Name="ColorImp" Type="varchar" Mode="In" />
+    <Parameter Name="ColorEval" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie1" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie2" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie3" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie4" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie5" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie6" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie7" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie8" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie9" Type="varchar" Mode="In" />
+    <Parameter Name="NombreGrafica" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_EncuestaRetroGrafNivelUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="TipoGrafica" Type="int" Mode="In" />
+    <Parameter Name="Color1serie" Type="varchar" Mode="In" />
+    <Parameter Name="TituloGraf" Type="varchar" Mode="In" />
+    <Parameter Name="NombreSerie1" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_EncuestaRetroUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+    <Parameter Name="Presentacion" Type="varchar" Mode="In" />
+    <Parameter Name="PresTexto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Nivel" Type="varchar" Mode="In" />
+    <Parameter Name="NivTexto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Nivel2" Type="varchar" Mode="In" />
+    <Parameter Name="Niv2Texto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NivIdGrafica" Type="int" Mode="In" />
+    <Parameter Name="Desarrollo" Type="varchar" Mode="In" />
+    <Parameter Name="DesTexto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Desarrollo2" Type="varchar" Mode="In" />
+    <Parameter Name="Des2Texto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DesIdGrafica" Type="int" Mode="In" />
+    <Parameter Name="Analisis" Type="varchar" Mode="In" />
+    <Parameter Name="AnaTexto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Revision" Type="varchar" Mode="In" />
+    <Parameter Name="RevTexto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Historial" Type="varchar" Mode="In" />
+    <Parameter Name="HisTexto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Observa" Type="varchar" Mode="In" />
+    <Parameter Name="ObsTexto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="IdTipoGuardado" Type="int" Mode="In" />
+    <Parameter Name="Municipio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_EncuestaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="Titulo" Type="varchar" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IsDeleted" Type="bit" Mode="In" />
+    <Parameter Name="TipoEncuesta" Type="varchar" Mode="In" />
+    <Parameter Name="EncuestaRelacionada" Type="int" Mode="In" />
+    <Parameter Name="AutoevaluacionHabilitada" Type="bit" Mode="In" />
+    <Parameter Name="TipoReporte" Type="varchar" Mode="In" />
+    <Parameter Name="IsPrueba" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_GlosarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Clave" Type="varchar" Mode="In" />
+    <Parameter Name="Termino" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_OpcionesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdOpcion" Type="int" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_ParametrosSistemaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupo" Type="int" Mode="In" />
+    <Parameter Name="NombreParametro" Type="varchar" Mode="In" />
+    <Parameter Name="NombreParametroNuevo" Type="varchar" Mode="In" />
+    <Parameter Name="ParametroValor" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ParametroValorNuevo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_PreguntaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="IdTipoPregunta" Type="int" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="EsObligatoria" Type="bit" Mode="In" />
+    <Parameter Name="SoloSi" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Texto" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_RetroalimentacionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="IdRetroAdmin" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_RetroAnaRecomendacionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroAna" Type="int" Mode="In" />
+    <Parameter Name="AccionPermite" Type="int" Mode="In" />
+    <Parameter Name="AccionCumplio" Type="int" Mode="In" />
+    <Parameter Name="Observacion" Type="varchar" Mode="In" />
+    <Parameter Name="alcaldiaRespuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_RetroArcPreguntasUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroArc" Type="int" Mode="In" />
+    <Parameter Name="CodigoPregunta" Type="varchar" Mode="In" />
+    <Parameter Name="Documento" Type="varchar" Mode="In" />
+    <Parameter Name="Check" Type="bit" Mode="In" />
+    <Parameter Name="Sumar" Type="bit" Mode="In" />
+    <Parameter Name="Pertenece" Type="int" Mode="In" />
+    <Parameter Name="Observacion" Type="varchar" Mode="In" />
+    <Parameter Name="Observacion2" Type="varchar" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+    <Parameter Name="UltimoUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_RetroArcPreguntasUpdateXUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdRetroArc" Type="int" Mode="In" />
+    <Parameter Name="Check" Type="bit" Mode="In" />
+    <Parameter Name="Pertenece" Type="int" Mode="In" />
+    <Parameter Name="Observacion" Type="varchar" Mode="In" />
+    <Parameter Name="Observacion2" Type="varchar" Mode="In" />
+    <Parameter Name="Valor" Type="varchar" Mode="In" />
+    <Parameter Name="UltimoUsuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_SeccionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="Titulo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar(max)" Mode="In" />
+    <Parameter Name="SuperSeccion" Type="int" Mode="In" />
+    <Parameter Name="Eliminado" Type="bit" Mode="In" />
+    <Parameter Name="Archivo" Type="image" Mode="In" />
+    <Parameter Name="OcultaTitulo" Type="bit" Mode="In" />
+    <Parameter Name="Estilos" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_SistemaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FromEmail" Type="varchar" Mode="In" />
+    <Parameter Name="SmtpHost" Type="varchar" Mode="In" />
+    <Parameter Name="SmtpPort" Type="int" Mode="In" />
+    <Parameter Name="SmtpEnableSsl" Type="bit" Mode="In" />
+    <Parameter Name="SmtpUsername" Type="varchar" Mode="In" />
+    <Parameter Name="SmtpPassword" Type="varchar" Mode="In" />
+    <Parameter Name="TextoBienvenida" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FormatoFecha" Type="varchar" Mode="In" />
+    <Parameter Name="PlantillaEmailPassword" Type="varchar(max)" Mode="In" />
+    <Parameter Name="UploadDirectory" Type="varchar" Mode="In" />
+    <Parameter Name="PlantillaEmailConfirmacion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="SaveMessageConfirmPopup" Type="varchar" Mode="In" />
+    <Parameter Name="PlantillaEmailConfirmacionPlaneacionPat" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PlantillaEmailConfirmacionSeguimiento1Pat" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PlantillaEmailConfirmacionSeguimiento2Pat" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AsuntoEnvioR" Type="varchar" Mode="In" />
+    <Parameter Name="AsuntoEnvioPT" Type="varchar" Mode="In" />
+    <Parameter Name="AsuntoEnvioSeguimientoT1" Type="varchar" Mode="In" />
+    <Parameter Name="AsuntoEnvioSeguimientoT2" Type="varchar" Mode="In" />
+    <Parameter Name="AsuntoEnvioSP" Type="varchar" Mode="In" />
+    <Parameter Name="PlantillaEmailConfirmacionSeguimientoPlan" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_TipoUsuarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Tipo" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_UsuarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdUser" Type="varchar" Mode="In" />
+    <Parameter Name="IdTipoUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="int" Mode="In" />
+    <Parameter Name="IdUsuarioTramite" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Nombres" Type="varchar" Mode="In" />
+    <Parameter Name="Cargo" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoFijo" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoFijoIndicativo" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoFijoExtension" Type="varchar" Mode="In" />
+    <Parameter Name="TelefonoCelular" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="EmailAlternativo" Type="varchar" Mode="In" />
+    <Parameter Name="Enviado" Type="bit" Mode="In" />
+    <Parameter Name="DatosActualizados" Type="bit" Mode="In" />
+    <Parameter Name="Token" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="DocumentoSolicitud" Type="varchar" Mode="In" />
+    <Parameter Name="FechaSolicitud" Type="datetime" Mode="In" />
+    <Parameter Name="FechaNoRepudio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaTramite" Type="datetime" Mode="In" />
+    <Parameter Name="FechaRetiro" Type="datetime" Mode="In" />
+    <Parameter Name="FechaConfirmacion" Type="datetime" Mode="In" />
+    <Parameter Name="NombreGrupo" Type="varchar" Mode="In" />
+    <Parameter Name="NombreParametro" Type="varchar" Mode="In" />
+    <Parameter Name="IdUsuarioHistorico" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_AccionesPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="OPCION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_AvanceMunicipioWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_AvanceTableroSeguimientoMunicipioWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ComponentesSeguimientoOtrosDerechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ConfiguracionDerechosPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDerecho" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_ConsolidadosMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idPregunta" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_ContarTableroDepartamentoReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_ContarTableroDepartamentoRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_ContarTableroMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_ContarTableroMunicipioRC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_ContarTableroMunicipioRR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_ContarTableroMunicipioTotales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_DatosConsolidadoMunicipiosGobernacionesWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosConsolidadoMunicipiosSeguimientoGobernacionesWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosDepartamentalesDiligenciadosRCWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosDepartamentalesDiligenciadosRRWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosDepartamentalesSeguimientoODWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosDepartamentalesSeguimientoRCWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosDepartamentalesSeguimientoRRWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosDepartamentalesSeguimientoWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_Gobernaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_Gobernaciones_municipios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_GobernacionesReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_GobernacionesRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_Municipios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_MunicipiosReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_MunicipiosRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcel_PrecargueEntidadesNacionales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcelSeguimientoAlcaldias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcelSeguimientoAlcaldiasReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcelSeguimientoAlcaldiasRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcelSeguimientoGobernacionAlcaldias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcelSeguimientoGobernacionAlcaldiasRC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcelSeguimientoGobernacionAlcaldiasRR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosExcelSeguimientoGobernaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosMunicipalesDiligenciadosRCWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosMunicipalesDiligenciadosRRWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosMunicipalesDiligenciadosWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosMunicipalesSeguimientoODWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosMunicipalesSeguimientoRCWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosMunicipalesSeguimientoRRWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosMunicipalesSeguimientoWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="DivipolaMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosPreguntasDepartamentoDiligenciadasWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="DivipolaDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosRespuestaSeguimientoDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_datosRespuestaSeguimientoMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosSeguimientoDepartamentoPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="idSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosSeguimientoDepartamentoReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuarioAlcaldia" Type="int" Mode="In" />
+    <Parameter Name="idPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdRespuestaRC" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DatosSeguimientoDepartamentoRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuarioAlcaldia" Type="int" Mode="In" />
+    <Parameter Name="idPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DepartamentosXPregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="Incluidos" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="C_Derechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="GestionDepartamental" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="C_DerechosSeguimientoOtrosDerechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_DerechosWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_EntidadesConRespuestaMunicipal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_EnvioTableroPat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_EvaluacionConsolidado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_EvaluacionSeguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_FuentePresupuesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_FuentePresupuestoPATDiligenciamiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdRespuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_IdEntidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListadoAdministracionTableros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_ListadoSeguimientoConRespuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDept" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ListadoTableros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_ListadoTablerosSeguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_MapaPoliticaPublicaWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_MedidasSeguimientoOtrosDerechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdComponente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_MunicipiosOtrosDerechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_MunicipiosReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_MunicipiosRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_MunicipiosSeguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDept" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_MunicipiosXPregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="Incluidos" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="C_NecesidadesIdentificadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="USUARIO" Type="int" Mode="In" />
+    <Parameter Name="PREGUNTA" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="C_NecesidadesIdentificadasSeguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="C_NumeroSeguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PrecargueEntidadesNacionales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntaPATPrecargueEntidadesNacionales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasPat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasRCPat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasReparacionColectivaWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasRetornosReubicacionesWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasRRPat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_PreguntasWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ProgramasDepartamentoPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ProgramasDepartamentoPAT_IDS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ProgramasPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ProgramasPlaneacionWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ProgramasSeguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ProgramasSeguimientoDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ProgramasSeguimientoSIGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="NumeroSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="int" Mode="In" />
+    <Parameter Name="Divipola" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="C_SeguimientoDepartamentoPorMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_SeguimientoNacionalPorDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_SeguimientoNacionalPorMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroDepartamentoAvance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroDepartamentoReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="page" Type="smallint" Mode="In" />
+    <Parameter Name="pageSize" Type="smallint" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroDepartamentoRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="page" Type="smallint" Mode="In" />
+    <Parameter Name="pageSize" Type="smallint" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroFechaActivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="NIVEL" Type="tinyint" Mode="In" />
+    <Parameter Name="IDTABLERO" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="sortOrder" Type="varchar" Mode="In" />
+    <Parameter Name="page" Type="smallint" Mode="In" />
+    <Parameter Name="pageSize" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroMunicipioAvance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroMunicipioRC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="sortOrder" Type="varchar" Mode="In" />
+    <Parameter Name="page" Type="smallint" Mode="In" />
+    <Parameter Name="pageSize" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroMunicipioRR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="sortOrder" Type="varchar" Mode="In" />
+    <Parameter Name="page" Type="smallint" Mode="In" />
+    <Parameter Name="pageSize" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroMunicipioTotales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="sortOrder" Type="varchar" Mode="In" />
+    <Parameter Name="page" Type="smallint" Mode="In" />
+    <Parameter Name="pageSize" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoConsolidadoDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoDepartamentoAvance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoDepartamentoOtrosDerechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoDepartamentoReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoDepartamentoRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoDetalleConsolidadoDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoMunicipioAvance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoMunicipioOtrosDerechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoMunicipioReparacionColectiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoMunicipioRetornosReubicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TableroSeguimientoVigencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TablerosWebService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_TableroVigencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="idTablero" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="C_TodasMedidas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_TodasUnidadesMedida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_TodosComponentes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_TodosDerechos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_TodosTableros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_TodosTablerosDepartamentosCompletos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosDepartamentosPorCompletar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosMunicipiosCompletos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosMunicipiosPorCompletar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosPlaneacionActivos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="C_TodosTablerosSeguimientoDepartamentosCompletados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosSeguimientoDepartamentosPorCompletar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosSeguimientoMunicipiosCompletados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosSeguimientoMunicipiosPorCompletar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_TodosTablerosSeguimientosActivos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_UnoaUnoPrecargueSIGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarEnvioTableroPat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="TipoEnvio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="D_AccesosEfectivosSeguimientoSIGODelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_ConfiguracionDerechosPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_NecesidadesSIGODelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PrecargueSegxPreguntaMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_RespuestaPATFuentePresupuesto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdFuente" Type="int" Mode="In" />
+    <Parameter Name="IdRespuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_SeguimientoDepartamentalOtrosDerechosMedidasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimientoMedida" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_SeguimientoDepartamentoProgramaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_SeguimientoMunicipalOtrosDerechosMedidasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimientoMedida" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_SeguimientoMunicipalProgramaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_AccesosEfectivosSeguimientoSIGOInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="FechaIngreso" Type="datetime" Mode="In" />
+    <Parameter Name="TipoDocumento" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="float" Mode="In" />
+    <Parameter Name="PrimerNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="SegundoNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="PrimerApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="SegundoApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaNacimiento" Type="datetime" Mode="In" />
+    <Parameter Name="IdMedida" Type="float" Mode="In" />
+    <Parameter Name="NombreMedida" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdNecesidad" Type="float" Mode="In" />
+    <Parameter Name="NombreNecesidad" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodigoDane" Type="float" Mode="In" />
+    <Parameter Name="Municipio" Type="nvarchar" Mode="In" />
+    <Parameter Name="RespuestaRetroalimentacion" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaAtencion" Type="datetime" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_AuditoriaConsumoErrorWSInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdAuditoria" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Datos" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_AuditoriaConsumoWSInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Metodo" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroRegistros" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_CompromisoEntidadNacionalInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Vigencia" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="DaneDepartamento" Type="int" Mode="In" />
+    <Parameter Name="DaneMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEntidadNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreEntidadNacional" Type="varchar" Mode="In" />
+    <Parameter Name="CompromisoNivelNacional" Type="int" Mode="In" />
+    <Parameter Name="ReporteCompromisos" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PresupuestoNivelNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreProyectoInversion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CodBPINProyecto" Type="varchar" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_CompromisoEntidadNacionalRCInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Vigencia" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="DaneDepartamento" Type="int" Mode="In" />
+    <Parameter Name="DaneMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEntidadNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreEntidadNacional" Type="varchar" Mode="In" />
+    <Parameter Name="AccionEntidadNacional" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PresupuestoNivelNacional" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_CompromisoEntidadNacionalRRInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Vigencia" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="DaneDepartamento" Type="int" Mode="In" />
+    <Parameter Name="DaneMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEntidadNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreEntidadNacional" Type="varchar" Mode="In" />
+    <Parameter Name="AccionEntidadNacional" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PresupuestoNivelNacional" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_ConfiguracionDerechoPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="Papel" Type="varchar" Mode="In" />
+    <Parameter Name="Tipo" Type="varchar" Mode="In" />
+    <Parameter Name="NombreParametro" Type="varchar" Mode="In" />
+    <Parameter Name="ParametroValor" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Texto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_EntidadNacionalInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdEntidadNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreEntidadNacional" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodigoEntidadNacional" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="I_EnvioTableroPat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="TipoEnvio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_NecesdadesPlaneacionSIGOInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="FechaNacimiento" Type="varchar" Mode="In" />
+    <Parameter Name="FechaIngreso" Type="varchar" Mode="In" />
+    <Parameter Name="IdentificadorMedida" Type="bigint" Mode="In" />
+    <Parameter Name="NombreMedida" Type="varchar" Mode="In" />
+    <Parameter Name="IdentificadorNecesidad" Type="bigint" Mode="In" />
+    <Parameter Name="NombreNecesidad" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoDane" Type="bigint" Mode="In" />
+    <Parameter Name="Municipio" Type="varchar" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="TipoDocumento" Type="varchar" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="float" Mode="In" />
+    <Parameter Name="NombreVictima" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_PrecargueArchivosSegInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Titulo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Archivo" Type="image" Mode="In" />
+  </Function>
+  <Function Name="I_PrecargueSegxPreguntaMunicipio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="EntidadNacional" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PlanCompromiso" Type="bigint" Mode="In" />
+    <Parameter Name="PlanPresupuesto" Type="money" Mode="In" />
+    <Parameter Name="SegCompromiso1" Type="bigint" Mode="In" />
+    <Parameter Name="SegPresupuesto1" Type="money" Mode="In" />
+    <Parameter Name="SegCompromiso2" Type="bigint" Mode="In" />
+    <Parameter Name="SegPresupuesto2" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Programas" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_PreguntaPatInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDerecho" Type="smallint" Mode="In" />
+    <Parameter Name="IdComponente" Type="int" Mode="In" />
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="tinyint" Mode="In" />
+    <Parameter Name="PreguntaIndicativa" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdUnidadMedida" Type="tinyint" Mode="In" />
+    <Parameter Name="PreguntaCompromiso" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApoyoDepartamental" Type="bit" Mode="In" />
+    <Parameter Name="ApoyoEntidadNacional" Type="bit" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdsNivel" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="RequiereAdjunto" Type="bit" Mode="In" />
+    <Parameter Name="MensajeAdjunto" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ExplicacionPregunta" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CodigosDane" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_PreguntaRCPatInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="Sujeto" Type="nvarchar" Mode="In" />
+    <Parameter Name="MedidaReparacionColectiva" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_PreguntaRRPatInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Hogares" Type="int" Mode="In" />
+    <Parameter Name="Personas" Type="int" Mode="In" />
+    <Parameter Name="Sector" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Componente" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Comunidad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Ubicacion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="MedidaRetornoReubicacion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IndicadorRetornoReubicacion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EntidadResponsable" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_ProgramasSeguimientoSIGOInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Tipo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ANO" Type="int" Mode="In" />
+    <Parameter Name="NumeroSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="NumeroPrograma" Type="int" Mode="In" />
+    <Parameter Name="NombrePrograma" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DescripcionPrograma" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Vigencia" Type="nvarchar" Mode="In" />
+    <Parameter Name="Acreditado" Type="bit" Mode="In" />
+    <Parameter Name="NumeroBeneficiaios" Type="int" Mode="In" />
+    <Parameter Name="NumeroVictimas" Type="int" Mode="In" />
+    <Parameter Name="EstaEnTableroPAT" Type="bit" Mode="In" />
+    <Parameter Name="CodigoDane" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdRespuesta" Type="int" Mode="In" />
+    <Parameter Name="IdRespuestaPrograma" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaAccionesDepartamentoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaAccionesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaAccionesRCInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaAccionesRRInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaDepartamentoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPreguntaPAT" Type="smallint" Mode="In" />
+    <Parameter Name="RespuestaCompromiso" Type="int" Mode="In" />
+    <Parameter Name="Presupuesto" Type="money" Mode="In" />
+    <Parameter Name="ObservacionCompromiso" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdMunicipioRespuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaDepartamentoRCInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPreguntaPATReparacionColectiva" Type="smallint" Mode="In" />
+    <Parameter Name="AccionDepartamento" Type="nvarchar" Mode="In" />
+    <Parameter Name="PresupuestoDepartamento" Type="money" Mode="In" />
+    <Parameter Name="IdMunicipioRespuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdRespuestaRCMunicipio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaDepartamentoRRInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPreguntaPATRetornoReubicacion" Type="smallint" Mode="In" />
+    <Parameter Name="AccionDepartamento" Type="nvarchar" Mode="In" />
+    <Parameter Name="PresupuestoDepartamento" Type="money" Mode="In" />
+    <Parameter Name="IdMunicipioRespuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaFuentePresupuestoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdRespuesta" Type="int" Mode="In" />
+    <Parameter Name="IdFuentePresupuesto" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IDUSUARIO" Type="int" Mode="In" />
+    <Parameter Name="IDPREGUNTA" Type="smallint" Mode="In" />
+    <Parameter Name="NECESIDADIDENTIFICADA" Type="int" Mode="In" />
+    <Parameter Name="RESPUESTAINDICATIVA" Type="int" Mode="In" />
+    <Parameter Name="RESPUESTACOMPROMISO" Type="int" Mode="In" />
+    <Parameter Name="PRESUPUESTO" Type="money" Mode="In" />
+    <Parameter Name="OBSERVACIONNECESIDAD" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACCIONCOMPROMISO" Type="nvarchar" Mode="In" />
+    <Parameter Name="NOMBREADJUNTO" Type="nvarchar" Mode="In" />
+    <Parameter Name="OBSERVACIONPRESUPUESTO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaProgramaDepartamentoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID_PAT_RESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="PROGRAMA" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaProgramaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID_PAT_RESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="PROGRAMA" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaRCInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IDUSUARIO" Type="int" Mode="In" />
+    <Parameter Name="IDENTIDAD" Type="int" Mode="In" />
+    <Parameter Name="IDPREGUNTARC" Type="smallint" Mode="In" />
+    <Parameter Name="ACCION" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PRESUPUESTO" Type="money" Mode="In" />
+  </Function>
+  <Function Name="I_RespuestaRRInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IDUSUARIO" Type="int" Mode="In" />
+    <Parameter Name="IDPREGUNTARR" Type="smallint" Mode="In" />
+    <Parameter Name="ACCION" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PRESUPUESTO" Type="money" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoDepartamentalOtrosDerechosInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdUsuarioAlcaldia" Type="int" Mode="In" />
+    <Parameter Name="Accion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Cantidad" Type="bigint" Mode="In" />
+    <Parameter Name="IdUnidad" Type="tinyint" Mode="In" />
+    <Parameter Name="Presupuesto" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="Programa" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoDepartamentalOtrosDerechosMedidasInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="IdComponente" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoDepartamentalRCInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdUsuarioAlcaldia" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="IdRespuestaRC" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoDepartamentalRRInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdUsuarioAlcaldia" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoDepartamentoProgramaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="Programa" Type="varchar" Mode="In" />
+    <Parameter Name="NumeroSeguimiento" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoEntidadNacionalInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Vigencia" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="DaneDepartamento" Type="int" Mode="In" />
+    <Parameter Name="DaneMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEntidadNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreEntidadNacional" Type="varchar" Mode="In" />
+    <Parameter Name="CantidadEjecutada" Type="int" Mode="In" />
+    <Parameter Name="CompromisoCumplido" Type="bit" Mode="In" />
+    <Parameter Name="DificultadesEncontradas" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AccionesParaSuperarDificultades" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Soporte" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PresupuestoEjecutado" Type="int" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Semestre" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoGobernacionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdUsuarioAlcaldia" Type="int" Mode="In" />
+    <Parameter Name="CantidadPrimer" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoPrimer" Type="money" Mode="In" />
+    <Parameter Name="CantidadSegundo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoSegundo" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="ObservacionesSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjuntoSegundo" Type="varchar" Mode="In" />
+    <Parameter Name="CompromisoDefinitivo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoDefinitivo" Type="money" Mode="In" />
+    <Parameter Name="ObservacionesDefinitivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoMunicipalInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="CantidadPrimer" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoPrimer" Type="money" Mode="In" />
+    <Parameter Name="CantidadSegundo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoSegundo" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="ObservacionesSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjuntoSegundo" Type="varchar" Mode="In" />
+    <Parameter Name="CompromisoDefinitivo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoDefinitivo" Type="money" Mode="In" />
+    <Parameter Name="ObservacionesDefinitivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoMunicipalOtrosDerechosInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Accion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NumSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdUnidad" Type="tinyint" Mode="In" />
+    <Parameter Name="Presupuesto" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="Programa" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoMunicipalOtrosDerechosMedidasInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="IdComponente" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoMunicipalProgramaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="Programa" Type="varchar" Mode="In" />
+    <Parameter Name="NumeroSeguimiento" Type="tinyint" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoMunicipalRCInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="IdRespuestaRC" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoMunicipalRRInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoRCEntidadNacionalInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Vigencia" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="DaneDepartamento" Type="int" Mode="In" />
+    <Parameter Name="DaneMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEntidadNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreEntidadNacional" Type="varchar" Mode="In" />
+    <Parameter Name="AvanceAccionEntidadNacional" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompromisoCumplido" Type="bit" Mode="In" />
+    <Parameter Name="DificultadesEncontradas" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AccionesParaSuperarDificultades" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Soporte" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PresupuestoEjecutado" Type="int" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Semestre" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_SeguimientoRREntidadNacionalInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Vigencia" Type="int" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="DaneDepartamento" Type="int" Mode="In" />
+    <Parameter Name="DaneMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdEntidadNacional" Type="int" Mode="In" />
+    <Parameter Name="NombreEntidadNacional" Type="varchar" Mode="In" />
+    <Parameter Name="AvanceAccionEntidadNacional" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompromisoCumplido" Type="bit" Mode="In" />
+    <Parameter Name="DificultadesEncontradas" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AccionesParaSuperarDificultades" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Soporte" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PresupuestoEjecutado" Type="int" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Semestre" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_TableroPatInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT" />
+  <Function Name="U_ConfiguracionDerechosPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="NombreParametro" Type="varchar" Mode="In" />
+    <Parameter Name="ParametroValor" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Texto" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_DerechosPAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdDerecho" Type="int" Mode="In" />
+    <Parameter Name="TextoExplicativoGOB" Type="varchar(max)" Mode="In" />
+    <Parameter Name="TextoExplicativoALC" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DescripcionDetallada" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_PreguntaPatUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdDerecho" Type="smallint" Mode="In" />
+    <Parameter Name="IdComponente" Type="int" Mode="In" />
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="tinyint" Mode="In" />
+    <Parameter Name="PreguntaIndicativa" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdUnidadMedida" Type="tinyint" Mode="In" />
+    <Parameter Name="PreguntaCompromiso" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApoyoDepartamental" Type="bit" Mode="In" />
+    <Parameter Name="ApoyoEntidadNacional" Type="bit" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdsNivel" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Incluir" Type="bit" Mode="In" />
+    <Parameter Name="RequiereAdjunto" Type="bit" Mode="In" />
+    <Parameter Name="MensajeAdjunto" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ExplicacionPregunta" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CodigosDane" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_PreguntaRCPatUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdMedida" Type="int" Mode="In" />
+    <Parameter Name="Sujeto" Type="nvarchar" Mode="In" />
+    <Parameter Name="MedidaReparacionColectiva" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_PreguntaRRPatUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Hogares" Type="int" Mode="In" />
+    <Parameter Name="Personas" Type="int" Mode="In" />
+    <Parameter Name="Sector" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Componente" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Comunidad" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Ubicacion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="MedidaRetornoReubicacion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IndicadorRetornoReubicacion" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EntidadResponsable" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IdDepartamento" Type="int" Mode="In" />
+    <Parameter Name="IdMunicipio" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaAccionesDepartamentoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaAccionesRCUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaAccionesRRUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaAccionesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDPATRESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="ACCION" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaDepartamentoRCUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="AccionDepartamento" Type="nvarchar" Mode="In" />
+    <Parameter Name="PresupuestoDepartamento" Type="money" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaDepartamentoRRUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="AccionDepartamento" Type="nvarchar" Mode="In" />
+    <Parameter Name="PresupuestoDepartamento" Type="money" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaDepartamentoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPreguntaPAT" Type="smallint" Mode="In" />
+    <Parameter Name="RespuestaCompromiso" Type="int" Mode="In" />
+    <Parameter Name="Presupuesto" Type="money" Mode="In" />
+    <Parameter Name="ObservacionCompromiso" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdMunicipioRespuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaProgramaDepartamentoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="ID_PAT_RESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="PROGRAMA" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaProgramaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="ID_PAT_RESPUESTA" Type="int" Mode="In" />
+    <Parameter Name="PROGRAMA" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTIVO" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaRCUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDPREGUNTARC" Type="smallint" Mode="In" />
+    <Parameter Name="ACCION" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PRESUPUESTO" Type="money" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaRRUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDPREGUNTARR" Type="smallint" Mode="In" />
+    <Parameter Name="ACCION" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PRESUPUESTO" Type="money" Mode="In" />
+  </Function>
+  <Function Name="U_RespuestaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="IDPREGUNTA" Type="smallint" Mode="In" />
+    <Parameter Name="NECESIDADIDENTIFICADA" Type="int" Mode="In" />
+    <Parameter Name="RESPUESTAINDICATIVA" Type="int" Mode="In" />
+    <Parameter Name="RESPUESTACOMPROMISO" Type="int" Mode="In" />
+    <Parameter Name="PRESUPUESTO" Type="money" Mode="In" />
+    <Parameter Name="OBSERVACIONNECESIDAD" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACCIONCOMPROMISO" Type="nvarchar" Mode="In" />
+    <Parameter Name="IDUSUARIO" Type="int" Mode="In" />
+    <Parameter Name="NOMBREADJUNTO" Type="nvarchar" Mode="In" />
+    <Parameter Name="OBSERVACIONPRESUPUESTO" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="U_SeguimientoGobernacionRCUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="IdRespuestaRC" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_SeguimientoGobernacionRRUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_SeguimientoGobernacionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdUsuarioAlcaldia" Type="int" Mode="In" />
+    <Parameter Name="CantidadPrimer" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoPrimer" Type="money" Mode="In" />
+    <Parameter Name="CantidadSegundo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoSegundo" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="ObservacionesSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjuntoSegundo" Type="varchar" Mode="In" />
+    <Parameter Name="CompromisoDefinitivo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoDefinitivo" Type="money" Mode="In" />
+    <Parameter Name="ObservacionesDefinitivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_SeguimientoMunicipalOtrosDerechosUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Accion" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NumSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdUnidad" Type="tinyint" Mode="In" />
+    <Parameter Name="Presupuesto" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="Programa" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_SeguimientoMunicipalRCUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="IdRespuestaRC" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_SeguimientoMunicipalRRUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="AvancePrimer" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AvanceSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_SeguimientoMunicipalUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="tinyint" Mode="In" />
+    <Parameter Name="IdPregunta" Type="smallint" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="CantidadPrimer" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoPrimer" Type="money" Mode="In" />
+    <Parameter Name="CantidadSegundo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoSegundo" Type="money" Mode="In" />
+    <Parameter Name="Observaciones" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjunto" Type="varchar" Mode="In" />
+    <Parameter Name="ObservacionesSegundo" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NombreAdjuntoSegundo" Type="varchar" Mode="In" />
+    <Parameter Name="CompromisoDefinitivo" Type="bigint" Mode="In" />
+    <Parameter Name="PresupuestoDefinitivo" Type="money" Mode="In" />
+    <Parameter Name="ObservacionesDefinitivo" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="U_TableroPatUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="Nivel" Type="tinyint" Mode="In" />
+    <Parameter Name="VigenciaInicio" Type="smalldatetime" Mode="In" />
+    <Parameter Name="VigenciaFin" Type="smalldatetime" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="Seguimiento1Inicio" Type="datetime" Mode="In" />
+    <Parameter Name="Seguimiento1Fin" Type="datetime" Mode="In" />
+    <Parameter Name="Seguimiento2Inicio" Type="datetime" Mode="In" />
+    <Parameter Name="Seguimiento2Fin" Type="datetime" Mode="In" />
+    <Parameter Name="ActivoEnvioPATPlaneacion" Type="bit" Mode="In" />
+    <Parameter Name="ActivoEnvioPATSeguimiento" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_UndoArchivoSeguimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PAT">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdTablero" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ListadoUsuariosActivosPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento" />
+  <Function Name="C_ObtenerCantidadRecomendacionesObjetivo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdObjetivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerCantidadTareasEstrategia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEstrategia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerColorSemaforo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="Porcentaje" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerDatosAccionesSeguimientoPlanV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdObjetivo" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerDatosActivacionPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerDatosObjetivosSeguimientoPlanV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerDatosPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerDatosSeguimientoPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerEnvioPlanMejoramientoV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerFinalizacionPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerIdEncuestaByTitulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="NombreEncuesta" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerIdPadrePregunta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerIdPlanByEncuestaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerIdPlanEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerIdTipoPlanEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionAccionesPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionEstadosAcciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento" />
+  <Function Name="C_ObtenerInformacionEstrategiasPlanes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento" />
+  <Function Name="C_ObtenerInformacionObjetivosGeneralesPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeccionPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionObjetivosPlanes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento" />
+  <Function Name="C_ObtenerInformacionPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+    <Parameter Name="IdSeccionPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionPlanMejoramientoV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+    <Parameter Name="IdSeccionPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionPorcentajeCumplimientoPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionRecomendaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionRecomendacionesPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionSeccionesPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionSeccionesPlanMejoramientoV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionSeccionesSeguimientoPlanV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionSeguimientoPlanV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionSeguimientosPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionTareasDiligenciadasPlanMejoramientoV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEstrategia" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionTareasPlanes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionTareasPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdObjetivoGeneral" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerInformacionTareasPlanMejoramientoV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEstrategia" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Opcion" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerListadoEncuestasPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="idPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerListadoEncuestasSinResponder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerListadoPlanes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="TipoPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerListadoSeccionesPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="idPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerPorcentajeTotalObjetivosPM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerPreguntasPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerRecursosRecomendacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerRutaSeguimientoPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerSeccionesEncuestasPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerTipoPlanEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ObtenerTiposAutoEvaluacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento" />
+  <Function Name="C_ObtenerTiposAvance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento" />
+  <Function Name="C_ObtenerTiposRecurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento" />
+  <Function Name="C_ObtenerTotalesParaEnviar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarActivarPlanMejoramiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarActivarPlanMejoramientoV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarEnvioPlanV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="idPlan" Type="int" Mode="In" />
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="tipoEnvio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarPermisoGuardadoPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="idPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="C_ValidarPermisoGuardadoSeguimientoPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="idUsuario" Type="int" Mode="In" />
+    <Parameter Name="idPlan" Type="int" Mode="In" />
+    <Parameter Name="idSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="c_ValidarRespuestasPreguntasObligatorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoEstadoAccionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEstadoAccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoEstrategiaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEstrategia" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoObjetivoEspecificoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdObjetivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoObjetivoGeneralDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdObjetivoGeneral" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoRecomendacionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoRecursoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecurso" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoRespuestasDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoRespuestasV3Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdTarea" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoSeccionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoSeccionV3Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoSeguimientoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="D_PlanMejoramientoTareaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdTarea" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_GuardarEnvioPlanMejoramientoEncuesta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoAccionesPlanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Accion" Type="varchar" Mode="In" />
+    <Parameter Name="Responsable" Type="varchar" Mode="In" />
+    <Parameter Name="FechaCumplimiento" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoActivacionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlanMejoramiento" Type="int" Mode="In" />
+    <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="MuestraPorc" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoAutoEvaluacionPlanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdAutoevaluacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoAvancesPlanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdAvance" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoEncuestaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoEnvioPlanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="RutaArchivo" Type="varchar" Mode="In" />
+    <Parameter Name="TipoEnvio" Type="varchar" Mode="In" />
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoEstadoAccionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="EstadoAccion" Type="varchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoEstrategiaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="Estrategia" Type="varchar" Mode="In" />
+    <Parameter Name="IdObjetivo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoFinalizacionPlanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="RutaArchivo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="NombrePlan" Type="varchar" Mode="In" />
+    <Parameter Name="FechaLimite" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoObjetivoEspecificoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="ObjetivoEspecifico" Type="varchar" Mode="In" />
+    <Parameter Name="PorcentajeObjetivo" Type="int" Mode="In" />
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoObjetivoGeneralInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="ObjetivoGeneral" Type="varchar" Mode="In" />
+    <Parameter Name="IdSeccion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoRecomendacionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="Recomendacion" Type="varchar" Mode="In" />
+    <Parameter Name="Calificacion" Type="int" Mode="In" />
+    <Parameter Name="IdObjetivo" Type="int" Mode="In" />
+    <Parameter Name="Opcion" Type="varchar" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdEtapa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoRecursoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="NombreTipo" Type="varchar" Mode="In" />
+    <Parameter Name="Clase" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoRecursoPlanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecomendacion" Type="int" Mode="In" />
+    <Parameter Name="IdTipoRecurso" Type="int" Mode="In" />
+    <Parameter Name="ValorRecurso" Type="varchar" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoSeguimientoAccionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdAccion" Type="int" Mode="In" />
+    <Parameter Name="IdAccionPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="IdEstadoAccion" Type="int" Mode="In" />
+    <Parameter Name="DescripcionEstado" Type="varchar" Mode="In" />
+    <Parameter Name="IdAutoevaluacion" Type="int" Mode="In" />
+    <Parameter Name="CoincideRusicst" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoSeguimientoArchivoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Ruta" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoSeguimientoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="NumeroSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="MensajeSeguimiento" Type="varchar" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoTareaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="Tarea" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstrategia" Type="int" Mode="In" />
+    <Parameter Name="Opcion" Type="varchar" Mode="In" />
+    <Parameter Name="IdPregunta" Type="int" Mode="In" />
+    <Parameter Name="IdEtapa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_PlanMejoramientoTareasPlanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdTarea" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+    <Parameter Name="Responsable" Type="varchar" Mode="In" />
+    <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IdAutoEvaluacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="I_SeccionPlanMejoramientoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="Titulo" Type="varchar" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar" Mode="In" />
+    <Parameter Name="IdSeccionPadre" Type="int" Mode="In" />
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_ObjetivoGeneralPlanMejoramientoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdObjetivoGeneral" Type="int" Mode="In" />
+    <Parameter Name="ObjetivoGeneral" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_PlanMejoramientoEstadoAccionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdEstadoAccion" Type="int" Mode="In" />
+    <Parameter Name="EstadoAccion" Type="varchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="U_PlanMejoramientoFinalizacionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_PlanMejoramientoRecursoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdRecurso" Type="int" Mode="In" />
+    <Parameter Name="NombreTipo" Type="varchar" Mode="In" />
+    <Parameter Name="Clase" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="U_PlanMejoramientoSeguimientoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdSeguimientoPlan" Type="int" Mode="In" />
+    <Parameter Name="NumeroSeguimiento" Type="int" Mode="In" />
+    <Parameter Name="MensajeSeguimiento" Type="varchar" Mode="In" />
+    <Parameter Name="FechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="IdEncuesta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="U_PlanMejoramientoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="NombrePlan" Type="varchar" Mode="In" />
+    <Parameter Name="FechaLimite" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="U_SeccionPlanMejoramientoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PlanesMejoramiento">
+    <Parameter Name="Titulo" Type="varchar" Mode="In" />
+    <Parameter Name="Ayuda" Type="varchar" Mode="In" />
+    <Parameter Name="IdSeccionPadre" Type="int" Mode="In" />
+    <Parameter Name="IdPlan" Type="int" Mode="In" />
+    <Parameter Name="IdSeccionPlan" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="ModelRusicstStoreContainer" />
+</Schema>

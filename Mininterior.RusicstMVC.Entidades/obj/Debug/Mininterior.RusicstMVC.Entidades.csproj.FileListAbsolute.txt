@@ -1,0 +1,6 @@
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Entidades\bin\Debug\Mininterior.RusicstMVC.Entidades.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Entidades\bin\Debug\Mininterior.RusicstMVC.Entidades.pdb
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Entidades\obj\Debug\Mininterior.RusicstMVC.Entidades.csprojAssemblyReference.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Entidades\obj\Debug\Mininterior.RusicstMVC.Entidades.csproj.CoreCompileInputs.cache
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Entidades\obj\Debug\Mininterior.RusicstMVC.Entidades.dll
+D:\Proyectos\Git\Rusicst\Mininterior.RusicstMVC.Entidades\obj\Debug\Mininterior.RusicstMVC.Entidades.pdb
