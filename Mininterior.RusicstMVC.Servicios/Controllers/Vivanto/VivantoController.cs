@@ -26,16 +26,20 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
     using Providers;
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
+    using System.DirectoryServices;
+    using System.DirectoryServices.AccountManagement;
     using System.Linq;
     using System.Security.Claims;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Web.Http;
     using Newtonsoft.Json;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Mininterior.RusicstMVC.Servicios.Controllers.Usuarios;
-    using System.Net;
-    using System.Text;
     using System.Net.Http;
+    using Mininterior.RusicstMVC.Servicios.Controllers.Usuarios;
+    using System.Text;
+    using System.Net;
 
     public class VivantoController : ApiController
     {
@@ -105,7 +109,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
 
             try
             {
-                
+
                 var user = this.User.Identity.Name;
                 var auth = new AutenticacionController();
 
@@ -254,7 +258,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         {
             var decryptIdentify = "";
             string Token = "";
-            string userName = "", userNameAspNetUsers = "";
+            string userNameAspNetUsers = "";
 
             try
             {
@@ -288,6 +292,10 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     externalAccess.role = obj.role.Replace(" ", "_").ToLower();
                     externalAccess.departamento = obj.departamento.Replace(" ", "_").ToLower();
                     externalAccess.municipio = obj.municipio.Replace(" ", "_").ToLower();
+
+                    //Se eliminan las tildes y caracteres especiales
+                    externalAccess.departamento = Regex.Replace(externalAccess.departamento.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
+                    externalAccess.municipio = Regex.Replace(externalAccess.municipio.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
 
                     userNameAspNetUsers = $"{externalAccess.role}_{externalAccess.municipio}_{externalAccess.departamento}";
                     using (AuthRepository _repo = new AuthRepository())
@@ -339,8 +347,8 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                                 //// Guardar los datos de solicitud de usuario
                                 using (EntitiesRusicst BD = new EntitiesRusicst())
                                 {
-                                    int IdDepartamento = BD.C_ObtenerIdDepartamento("Bogotá, D.C.").FirstOrDefault();
-                                    int IdMunicipio = BD.C_ObtenerIdMunicipio("Bogotá, D.C.").FirstOrDefault(); //obj.municipio
+                                    int IdDepartamento = BD.C_ObtenerIdDepartamento("Bogotá").FirstOrDefault();
+                                    int IdMunicipio = BD.C_ObtenerIdMunicipio("Bogotá").FirstOrDefault(); //obj.municipio
                                     Resultado = BD.I_UsuarioInsert(IdDepartamento, IdMunicipio, (int)EstadoSolicitud.Solicitada, model.Nombres, model.Cargo, model.TelefonoFijo,
                                                                    model.TelefonoFijoIndicativo, model.TelefonoFijoExtension, model.TelefonoCelular, model.Email,
                                                                    model.EmailAlternativo, model.Token, DateTime.Now, model.DocumentoSolicitud).FirstOrDefault();
@@ -382,11 +390,6 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     }
                     // se genera el Token para X-IDENTIFY
                     Token = JwtManager.GenerateToken(userNameAspNetUsers);
-                    //crear SPs a partir de la tabla AspNetUsers y actualizar o crear la data en la tabla [dbo].[Usuario]
-                    //Enviar el token con la data encriptada de X-IDENTIFY y url de rusicst
-                    //Crear endpoint de validacion de token donde se llama el endpoint de GenerateLocalAccessTokenResponse
-                    //GrantResourceOwnerCredentials - ObtainLocalAccessToken
-
                 }
 
                 JObject jsonData = new JObject(
