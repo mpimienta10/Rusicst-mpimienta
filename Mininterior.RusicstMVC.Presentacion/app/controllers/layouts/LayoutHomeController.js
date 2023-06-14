@@ -5,15 +5,16 @@ app.controller('LayoutHomeController', ['$scope', 'authService', 'APIService', '
     $scope.datosHome = {};
     $scope.datosAuditoria = {};
     $scope.url = $location.absUrl();
+    
+    var currentUrl = window.location.href;
+    if (currentUrl.includes('access_token')) {
+        $scope.parametro = currentUrl.substring(currentUrl.indexOf('=') + 1);
+        var urlSinParametro = window.location.href.split('?')[0];
+        history.replaceState({}, document.title, urlSinParametro);
 
-
-    var params = $location.search();
-    $scope.parametro = params.access_token;
-    var urlSinParametro = window.location.href.split('?')[0];
-    history.replaceState({}, document.title, urlSinParametro);
-
-    if ($scope.parametro) {
-        authService.getTokenValidation($scope.parametro);
+        if ($scope.parametro) {
+            authService.getTokenValidation($scope.parametro);
+        }
     }
 
     cargarHome();
