@@ -4,6 +4,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
     var serviceBase = ngSettings.apiServiceBaseUri;
     var authServiceFactory = {};
     var self = this;
+    var getToken = '';
 
     var _authentication = {
         isAuth: false,
@@ -67,25 +68,48 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
         _authentication.idUsuario = 0;
         _authentication.idTipoUsuario = 0;
         _authentication.logOut = false;
-        $location.url('home/login?access_token=123456789');
+        $location.url('home/login');
     };
 
-    var _validateToken = function (token) {
-        $http.post(serviceBase + '/token', { token: token }, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
+    var _getTokenValidation = function (token) {
+        getToken = token;
+    }
+
+    var _isTokenValidation = function () {
+        if (getToken.trim() !== '') {
+            return true;
+        }
+        return false;
+    }
+
+    var _validateToken = function () {
+        var deferred = $q.defer();
+        _authentication.logOut = undefined;
+
+        $http.post(serviceBase + '/api/v1/verify-access', null, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Bearer ' + getToken
+            }
+        }).then(function (response) {
             localStorageService.set(
                 'authorizationData',
-                { token: response.data.access_token, userName: response.data.userName, refreshToken: "", useRefreshTokens: false }
+                { token: response.data.token.access_token, userName: response.data.token.userName, refreshToken: "", useRefreshTokens: false }
             );
 
             _authentication.isAuth = true;
-            _authentication.userName = response.data.userName;
+            _authentication.userName = response.data.token.userName;
             _authentication.useRefreshTokens = false;
 
             deferred.resolve(response);
         }, function (err, status) {
             _logOutLogin();
             deferred.reject(err);
-        });
+            });
+
+        getToken = '';
+
+        return deferred.promise;
     }
 
     ////===================================================================
@@ -168,6 +192,8 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
     authServiceFactory.addIdentity = _addIdentity;
     authServiceFactory.logOutLogin = _logOutLogin;
     authServiceFactory.validateToken = _validateToken;
+    authServiceFactory.getTokenValidation = _getTokenValidation;
+    authServiceFactory.isTokenValidation = _isTokenValidation;
 
     return authServiceFactory;
 }]);
