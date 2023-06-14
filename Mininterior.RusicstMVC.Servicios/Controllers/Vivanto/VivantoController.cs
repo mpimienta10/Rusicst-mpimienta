@@ -80,18 +80,18 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                         keyPrivada = BD.C_LeerCrypts(value.FirstOrDefault()).FirstOrDefault().keyPrivate;
                     }
                     if (!keyPrivada.Any())
-                        return Ok("No se encontro key valida en el header.");
+                        return BadRequest("No se encontro key valida en el header.");
                     List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
                     return Ok(result);
                 }
                 else
                 {
-                    return Ok("No se encontro key valida en el header.");
+                    return BadRequest("No se encontro key valida en el header.");
                 }
             }
             catch (Exception ex)
             {
-                return Ok(ex);
+                return BadRequest(ex.Message);
             }
         }
 
