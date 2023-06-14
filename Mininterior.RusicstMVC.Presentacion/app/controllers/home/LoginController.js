@@ -27,6 +27,37 @@
         $scope.IE = true;
     }
 
+    //------------Acción de Validación de Token de Rusicts---------------------
+    if (authService.isTokenValidation()) {
+        TokenValidation();
+    }
+
+    function TokenValidation() {
+        $scope.errors = [];
+        $scope.registro.useRefreshTokens = false;
+        $scope.cargando = true;
+
+        authService.validateToken().then(function (response) {
+            $location.url('/Index');
+        },
+        function (err) {
+            ////===========================================================================
+            //// Si en el primer intento no se loguea se intentará hacer una vez más.
+            ////===========================================================================
+            if (err.data === null && $scope.intento === false) {
+                $scope.cargando = true;
+                $scope.intento === true;
+                validateToken();
+            };
+
+            if (err.data.error) {
+                var mensaje = { msn: 'Error: La información ingresada no es valida.', tipo: "alert alert-danger" };
+                UtilsService.abrirRespuesta(mensaje);
+            }
+        });
+        $scope.cargando = false;
+    }
+
     //------------Acción de Loguearse---------------------
     $scope.aceptar = function () {
         $scope.errors = [];

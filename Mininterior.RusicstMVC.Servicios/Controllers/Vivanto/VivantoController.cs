@@ -97,7 +97,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         /// <param name="model">The model.</param>
         /// <returns>JObject</returns>
         [JwtAuthentication]
-        [HttpGet]
+        [HttpPost]
         [Route("api/v1/verify-access/")]
         public async Task<HttpResponseMessage> ExternalVerifyAsync()
         {
