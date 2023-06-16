@@ -185,7 +185,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     XIdentify xidentify = new XIdentify();
                     //var json = JsonConvert.SerializeObject(decryptIdentify);
                     var obj = JsonConvert.DeserializeObject<XIdentify>(decryptIdentify);
-                    var role = obj.role.Replace(" ", "_").ToLower();
+                    var role = obj.rol.Replace(" ", "_").ToLower();
                     var departamento = obj.departamento.Replace(" ", "_").ToLower();
                     var municipio = obj.municipio.Replace(" ", "_").ToLower();
 
@@ -254,8 +254,9 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         [AllowAnonymous]
         [HttpPost]
         [Route("api/v1/external-access/")]
-        public async Task<JObject> ExternalAccessAsync([FromBody] ExternalAccess externalAccess)
+        public async Task<HttpResponseMessage> ExternalAccessAsync([FromBody] ExternalAccess externalAccess)
         {
+            HttpResponseMessage response;
             var decryptIdentify = "";
             string Token = "";
             string userNameAspNetUsers = "";
@@ -273,11 +274,14 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     }
                     if (String.IsNullOrEmpty(keyPrivada))
                     {
-                        JObject jsonError = new JObject(
-                                                new JProperty("estado", false),
-                                                new JProperty("message", "No se encontro key valida en el header.")
-                           );
-                        return jsonError;
+                        response = Request.CreateResponse(HttpStatusCode.BadRequest);
+
+                        response.Content = new StringContent(new JObject(
+                                            new JProperty("estado", false),
+                                            new JProperty("message", "No se encontro key valida en el header.")
+                        ).ToString(), Encoding.UTF8, "application/json");
+
+                        return response;
                     }
                 }
 
@@ -289,7 +293,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     XIdentify xidentify = new XIdentify();
                     //var json = JsonConvert.SerializeObject(decryptIdentify);
                     var obj = JsonConvert.DeserializeObject<XIdentify>(decryptIdentify);
-                    externalAccess.role = obj.role.Replace(" ", "_").ToLower();
+                    externalAccess.rol = obj.rol.Replace(" ", "_").ToLower();
                     externalAccess.departamento = obj.departamento.Replace(" ", "_").ToLower();
                     externalAccess.municipio = obj.municipio.Replace(" ", "_").ToLower();
 
@@ -297,7 +301,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     externalAccess.departamento = Regex.Replace(externalAccess.departamento.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
                     externalAccess.municipio = Regex.Replace(externalAccess.municipio.Normalize(NormalizationForm.FormD), @"[^a-zA-z0-9 ]+", "");
 
-                    userNameAspNetUsers = $"{externalAccess.role}_{externalAccess.municipio}_{externalAccess.departamento}";
+                    userNameAspNetUsers = $"{externalAccess.rol}_{externalAccess.municipio}_{externalAccess.departamento}";
                     using (AuthRepository _repo = new AuthRepository())
                     {
                         IdentityUser user = await _repo.FindByName(userNameAspNetUsers);
@@ -331,7 +335,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                             //actualizar el usuario
                             using (EntitiesRusicst BD = new EntitiesRusicst())
                             {
-                                model.IdTipoUsuario = BD.C_ObtenerIdTipoUsuario("ENTIDAD").FirstOrDefault();
+                                model.IdTipoUsuario = BD.C_ObtenerIdTipoUsuario(obj.rol).FirstOrDefault();
                                 //// Trae el usuario al que se va actualizar
                                 C_Usuario_Result Usuario = BD.C_Usuario(null, null, null, null, null, model.UserName, null).FirstOrDefault();
                                 Resultado = BD.U_UsuarioUpdate(Usuario.Id, null, model.IdTipoUsuario, null, null, null, null, model.UserName, model.Nombres, model.Cargo, null, null,
@@ -347,8 +351,8 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                                 //// Guardar los datos de solicitud de usuario
                                 using (EntitiesRusicst BD = new EntitiesRusicst())
                                 {
-                                    int IdDepartamento = BD.C_ObtenerIdDepartamento("Bogotá").FirstOrDefault();
-                                    int IdMunicipio = BD.C_ObtenerIdMunicipio("Bogotá").FirstOrDefault(); //obj.municipio
+                                    int IdDepartamento = BD.C_ObtenerIdDepartamento(obj.departamento).FirstOrDefault();
+                                    int IdMunicipio = BD.C_ObtenerIdMunicipio(obj.municipio).FirstOrDefault();
                                     Resultado = BD.I_UsuarioInsert(IdDepartamento, IdMunicipio, (int)EstadoSolicitud.Solicitada, model.Nombres, model.Cargo, model.TelefonoFijo,
                                                                    model.TelefonoFijoIndicativo, model.TelefonoFijoExtension, model.TelefonoCelular, model.Email,
                                                                    model.EmailAlternativo, model.Token, DateTime.Now, model.DocumentoSolicitud).FirstOrDefault();
@@ -360,11 +364,14 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                                     }
                                     else
                                     {
-                                        JObject jsonError = new JObject(
-                                                                new JProperty("estado", false),
-                                                                new JProperty("message", Resultado.respuesta)
-                                           );
-                                        return jsonError;
+                                        response = Request.CreateResponse(HttpStatusCode.InternalServerError);
+
+                                        response.Content = new StringContent(new JObject(
+                                                            new JProperty("estado", false),
+                                                            new JProperty("message", Resultado.respuesta)
+                                        ).ToString(), Encoding.UTF8, "application/json");
+
+                                        return response;
                                     }
                                 }
 
@@ -374,7 +381,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
 
                                 using (EntitiesRusicst BD = new EntitiesRusicst())
                                 {
-                                    model.IdTipoUsuario = BD.C_ObtenerIdTipoUsuario("ALCALDIA").FirstOrDefault();
+                                    model.IdTipoUsuario = BD.C_ObtenerIdTipoUsuario(obj.rol).FirstOrDefault();
                                     //// Trae el usuario al que se le va actualizar el IdTipoUsuario
                                     C_Usuario_Result Usuario = BD.C_Usuario(null, null, null, null, null, model.UserName, null).FirstOrDefault();
                                     BD.U_UsuarioUpdate(Usuario.Id, null, model.IdTipoUsuario, null, null, null, null, model.UserName, model.Nombres, model.Cargo, null, null,
@@ -392,21 +399,27 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
                     Token = JwtManager.GenerateToken(userNameAspNetUsers);
                 }
 
-                JObject jsonData = new JObject(
-                                       new JProperty("estado", true),
-                                       new JProperty("url", UtilGeneral.UrlLogin),
-                                       new JProperty("token", Token)
-                );
+                response = Request.CreateResponse(HttpStatusCode.OK);
 
-                return jsonData;
+                response.Content = new StringContent(new JObject(
+                                    new JProperty("estado", true),
+                                    new JProperty("url", UtilGeneral.UrlLogin),
+                                    new JProperty("token", Token)
+                ).ToString(), Encoding.UTF8, "application/json");
+
+                return response;
             }
             catch (Exception ex)
             {
-                JObject jsonError = new JObject(
-                                        new JProperty("estado", false),
-                                        new JProperty("message", ex.Message)
-                   );
-                return jsonError;
+
+                response = Request.CreateResponse(HttpStatusCode.InternalServerError);
+
+                response.Content = new StringContent(new JObject(
+                                    new JProperty("estado", false),
+                                    new JProperty("message", ex.Message)
+                ).ToString(), Encoding.UTF8, "application/json");
+
+                return response;
             }
         }
 

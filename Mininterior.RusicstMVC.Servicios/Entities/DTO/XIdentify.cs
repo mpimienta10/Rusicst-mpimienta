@@ -8,7 +8,7 @@ namespace Mininterior.RusicstMVC.Servicios.Entities.DTO
 {
     public class XIdentify
     {
-        public string role { get; set; }
+        public string rol { get; set; }
         public string departamento { get; set; }
         public string municipio { get; set; }
     }
