@@ -52,6 +52,14 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Reportes
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     resultado = BD.C_EncuestaGrid().Cast<C_EncuestaGrid_Result>().ToList();
+
+                    List<C_EncuestaGrid_Result> listaResultado = new List<C_EncuestaGrid_Result>();
+                    foreach (var item in resultado)
+                    {
+                        item.FechaFin=item.FechaFin.AddDays(-1);
+                        listaResultado.Add(item);
+                    }
+                    return listaResultado;
                 }
 
             }
@@ -79,6 +87,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Reportes
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     resultado = BD.C_EncuestaConsultar(id, null, null, null, null, false, null, null, null).Cast<C_EncuestaConsultar_Result>().FirstOrDefault();
+                    resultado.FechaFin = resultado.FechaFin.AddDays(-1);
                 }
             }
             catch (Exception ex)
