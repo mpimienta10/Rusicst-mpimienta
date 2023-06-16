@@ -76,12 +76,12 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Sistema
         [HttpGet]
         [AllowAnonymous]
         [Route("api/Sistema/LogXCategoriaExportar/")]
-        public HttpResponseMessage LogXCategoriaExportar(int pCategoria, string pUserName, string pFechaIni, string pFechaFin)
+        public HttpResponseMessage LogXCategoriaExportar(int pCategoria, string pUserName, DateTime pFechaIni, DateTime pFechaFin)
         {
             List<C_LogXCategoriaExportar_Result> resultado = new List<C_LogXCategoriaExportar_Result>();
 
-            DateTime FechaInicio = DateTime.Parse(pFechaIni).AddDays(-1).Date.Add(DateTime.MaxValue.TimeOfDay);
-            DateTime FechaFin = DateTime.Parse(pFechaFin).Date.Add(DateTime.MaxValue.TimeOfDay);
+            DateTime FechaInicio = pFechaIni.AddDays(-1).Date.Add(DateTime.MaxValue.TimeOfDay);
+            DateTime FechaFin = pFechaFin.Date.Add(DateTime.MaxValue.TimeOfDay);
 
             HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
             // Create the workbook
