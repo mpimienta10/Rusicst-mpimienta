@@ -99,15 +99,15 @@
         );
     };
 
-    $scope.openPopUpSeccionesReporte = function (idReporte) {
+    $scope.openPopUpSeccionesReporte = function (reporte) {
         var modalInstance = $uibModal.open({
             templateUrl: 'app/views/reportes/modals/SeccionesReporte.html',
             controller: 'ModalSeccionesReporteController',
             size: 'lg',
             resolve: {
-                idReporte: function () {
-                    if (idReporte) {
-                        return idReporte
+                reporte: function () {
+                    if (reporte) {
+                        return reporte
                     } else {
                         return null;
                     }
@@ -166,7 +166,7 @@
             width: 100,
             field: 'Secciones',
             name: 'Secciones',
-            cellTemplate: '<div class="text-center"><a href="" ng-click="grid.appScope.openPopUpSeccionesReporte(row.entity.Id)">Secciones</a></div>',
+            cellTemplate: '<div class="text-center"><a href="" ng-click="grid.appScope.openPopUpSeccionesReporte(row.entity)">Secciones</a></div>',
             enableFiltering: false,
             pinnedRight: true,
             exporterSuppressExport: true,
@@ -401,8 +401,8 @@ app.controller('ModalNuevoReporteController', function ($scope, APIService, $fil
     $scope.format = "dd/MM/yyyy";
 });
 
-app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'UtilsService', 'Upload', 'ngSettings', 'i18nService', '$uibModalInstance', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$uibModal', 'idReporte', 'authService', '$anchorScroll', '$location',
-    function ($scope, APIService, UtilsService, Upload, ngSettings, i18nService, $uibModalInstance, $http, uiGridConstants, $interval, uiGridGroupingConstants, $uibModal, idReporte, authService, $anchorScroll, $location) {
+app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'UtilsService', 'Upload', 'ngSettings', 'i18nService', '$uibModalInstance', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$uibModal', 'reporte', 'authService', '$anchorScroll', '$location',
+    function ($scope, APIService, UtilsService, Upload, ngSettings, i18nService, $uibModalInstance, $http, uiGridConstants, $interval, uiGridGroupingConstants, $uibModal, reporte, authService, $anchorScroll, $location) {
         $scope.url = '/api/Reportes/DisenoReporte/InsertarSeccion/';
         $scope.isGrid2 = false;
         $scope.Secciones = {};
@@ -410,6 +410,14 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
         $scope.SubSeccion = {};
         $scope.lang = "es";
         $scope.errorMessages = UtilsService.getErrorMessages();
+
+        var fechaInicio = new Date(reporte.FechaInicio);
+        var fechaActual = new Date();
+        if (fechaInicio < fechaActual) {
+            $scope.inactivarInputsModalSecciones = true;
+        } else {
+            $scope.inactivarInputsModalSecciones = false;
+        }
 
         //-----UPLOAD FILE---------------------------------------------
         // upload on file select or drop
@@ -455,7 +463,7 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
                         openRespuesta(mensaje);
                         break;
                 }
-                buscarSeccion(idReporte);
+                buscarSeccion(reporte.Id);
             }, function (Resultado) {
                 $scope.deshabiltarSeccion = false;
                 var mensaje = { msn: 'Error: ' + resultado.data.exceptionMessage, tipo: "alert alert-danger" };
@@ -578,7 +586,7 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
             if ($scope.Seccion.SuperSeccion == null)
                 $scope.Seccion.SuperSeccion = 0;
             $scope.Seccion.IsDeleted = false;
-            $scope.Seccion.IdEncuesta = idReporte;
+            $scope.Seccion.IdEncuesta = reporte.Id;
             $scope.Seccion.IdUsuario = 0;
         }
 
@@ -611,11 +619,16 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
             var $panel = angular.element($("#PanelCM")).scope();
             $panel.mostrarSeccionNueva = 1;
             $anchorScroll('PanelFull');
+
+            if (fechaInicio < fechaActual) {
+                $scope.error = "El registro no puede ser modificado despues de la fecha de inicio de la encuesta (comuníquese con el administrador)";
+                $scope.inactivarInputsModalSecciones = true;
+            }
         };
 
-        buscarSeccion(idReporte);
+        buscarSeccion(reporte.Id);
 
-        cargarComboSeccion(idReporte);
+        cargarComboSeccion(reporte.Id);
 
         var actionJsonSeccion = {
             action: "CambiarDefinicion",
@@ -686,7 +699,7 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
                     datos: function () {
                         $scope.deshabiltarSeccion = false;
                         var enviar = mensaje
-                        cargarComboSeccion(idReporte);
+                        cargarComboSeccion(reporte.Id);
                         return enviar;
                     }
                 },
@@ -694,7 +707,7 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
             });
             modalInstance.result.then(
                 function () {
-                    buscarSeccion(idReporte);
+                    buscarSeccion(reporte.Id);
                     $scope.file = null;
                 });
         };
@@ -729,8 +742,8 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
             });
             modalInstance.result.then(
                 function () {
-                    buscarSeccion(idReporte);
-                    cargarComboSeccion(idReporte);
+                    buscarSeccion(reporte.Id);
+                    cargarComboSeccion(reporte.Id);
                 }
             );
         };
