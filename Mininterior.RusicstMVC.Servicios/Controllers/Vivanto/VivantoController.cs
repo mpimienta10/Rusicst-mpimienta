@@ -48,6 +48,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         /// </summary>
         private AuthRepository _repo = null;
         private string keyPrivada = "";
+        private const string urlRusicst = "https://rusicst.mininterior.gov.co/#!/home/login";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VivantoController" /> class.
@@ -403,7 +404,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
 
                 response.Content = new StringContent(new JObject(
                                     new JProperty("estado", true),
-                                    new JProperty("url", UtilGeneral.UrlLogin),
+                                    new JProperty("url", urlRusicst),
                                     new JProperty("token", Token)
                 ).ToString(), Encoding.UTF8, "application/json");
 
