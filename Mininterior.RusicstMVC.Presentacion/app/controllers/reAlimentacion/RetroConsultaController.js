@@ -126,12 +126,12 @@
                                                                 html2canvas(document.getElementById('PrintContent5'), {
                                                                     onrendered: function (canvas) {
                                                                         data5 = canvas.toDataURL();
-                                                                        html2canvas(document.getElementById('PrintContent6'), {
-                                                                            onrendered: function (canvas) {
-                                                                                data6 = canvas.toDataURL();
-                                                                                html2canvas(document.getElementById('PrintContent7'), {
-                                                                                    onrendered: function (canvas) {
-                                                                                        data7 = canvas.toDataURL();
+                                                                       // html2canvas(document.getElementById('PrintContent6'), {
+                                                                         //   onrendered: function (canvas) {
+                                                                           //     data6 = canvas.toDataURL();
+                                                                             //   html2canvas(document.getElementById('PrintContent7'), {
+                                                                               //     onrendered: function (canvas) {
+                                                                                 //       data7 = canvas.toDataURL();
                                                                                         var docDefinition = {
                                                                                             content: [{
                                                                                                 image: data0,
@@ -160,21 +160,22 @@
                                                                                             {
                                                                                                 image: data5,
                                                                                                 width: 500,
-                                                                                            },
-                                                                                            {
-                                                                                                image: data6,
-                                                                                                width: 500,
-                                                                                            },
-                                                                                            {
-                                                                                                image: data7,
-                                                                                                width: 500,
-                                                                                            }]
+                                                                                            }
+                                                                                           // {
+                                                                                             //   image: data6,
+                                                                                               // width: 500,
+                                                                                            //},
+                                                                                            //{
+                                                                                              //  image: data7,
+                                                                                               // width: 500,
+                                                                                            //}
+                                                                                          ]
                                                                                         };
                                                                                         pdfMake.createPdf(docDefinition).download("RetroAlimentación" + $scope.Usuario.UserName + ".pdf");
-                                                                                    }
-                                                                                });
-                                                                            }
-                                                                        });
+                                                                                  //  }
+                                                                                //});
+                                                                         //   }
+                                                                       // });
                                                                     }
                                                                 });
 
