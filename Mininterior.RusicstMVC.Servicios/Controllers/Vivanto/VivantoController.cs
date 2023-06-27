@@ -48,7 +48,6 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         /// </summary>
         private AuthRepository _repo = null;
         private string keyPrivada = "";
-        private const string urlRusicst = "https://rusicst.mininterior.gov.co/#!/home/login";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VivantoController" /> class.
@@ -71,24 +70,8 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
         {
             try
             {
-                const string HeaderKeyName = "X-KEY";
-                bool isValueExistKey = Request.Headers.TryGetValues(HeaderKeyName, out var value);
-                if (isValueExistKey && value.FirstOrDefault() != null)
-                {
-                    using (EntitiesRusicst BD = new EntitiesRusicst())
-                    {
-                        BD.Database.CommandTimeout = 120;
-                        keyPrivada = BD.C_LeerCrypts(value.FirstOrDefault()).FirstOrDefault().keyPrivate;
-                    }
-                    if (!keyPrivada.Any())
-                        return BadRequest("No se encontro key valida en el header.");
-                    List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
-                    return Ok(result);
-                }
-                else
-                {
-                    return BadRequest("No se encontro key valida en el header.");
-                }
+                List<ActiveUserVIvanto> result = await _repo.GetAllUserActives();
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -404,7 +387,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Vivanto
 
                 response.Content = new StringContent(new JObject(
                                     new JProperty("estado", true),
-                                    new JProperty("url", urlRusicst),
+                                    new JProperty("url", ConfigurationManager.AppSettings["URL_LOGIN_RUSICST"]),
                                     new JProperty("token", Token)
                 ).ToString(), Encoding.UTF8, "application/json");
 
