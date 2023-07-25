@@ -133,15 +133,15 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Reportes
         [Route("api/Reportes/DisenoReporte/Modificar/")]
         public C_AccionesResultado Modificar(EncuestaModels model)
         {
-            DateTime FechaActual = DateTime.Today;
+            //DateTime FechaActual = DateTime.Today;
             C_AccionesResultado resultado = new C_AccionesResultado();
 
-            if (DateTime.Parse(model.FechaInicio.ToString("yyyy-MM-dd")) < DateTime.Parse(FechaActual.ToString("yyyy-MM-dd")))
+            /*if (DateTime.Parse(model.FechaInicio.ToString("yyyy-MM-dd")) < DateTime.Parse(FechaActual.ToString("yyyy-MM-dd")))
             {
                 resultado.estado = 0;
                 resultado.respuesta = "El registro no puede ser modificado despues de la fecha de inicio de la encuesta (comuníquese con el administrador)";
                 return resultado;
-            }
+            }*/
 
             try
             {

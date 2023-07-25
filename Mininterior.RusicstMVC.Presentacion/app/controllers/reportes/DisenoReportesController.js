@@ -292,11 +292,11 @@ app.controller('ModalNuevoReporteController', function ($scope, APIService, $fil
             $scope.reporte.FechaInicio = new Date($scope.reporte.FechaInicio);
             $scope.reporte.FechaFin = new Date($scope.reporte.FechaFin);
 
-            var fechaActual = new Date();
+            /*var fechaActual = new Date();
             if ($scope.reporte.FechaInicio < fechaActual) {
                 $scope.error = "El registro no puede ser modificado despues de la fecha de inicio de la encuesta (comuníquese con el administrador)";
                 $scope.inactivarInputsModal = true;
-            }
+            }*/
         }, function (error) {
             $scope.error = "Se generó un error en la petición de cargue de datos del reporte indicado";
         });
@@ -410,14 +410,15 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
         $scope.SubSeccion = {};
         $scope.lang = "es";
         $scope.errorMessages = UtilsService.getErrorMessages();
+        $scope.inactivarInputsModalSecciones = false;
 
-        var fechaInicio = new Date(reporte.FechaInicio);
+        /*var fechaInicio = new Date(reporte.FechaInicio);
         var fechaActual = new Date();
         if (fechaInicio < fechaActual) {
             $scope.inactivarInputsModalSecciones = true;
         } else {
             $scope.inactivarInputsModalSecciones = false;
-        }
+        }*/
 
         //-----UPLOAD FILE---------------------------------------------
         // upload on file select or drop
@@ -620,10 +621,10 @@ app.controller('ModalSeccionesReporteController', ['$scope', 'APIService', 'Util
             $panel.mostrarSeccionNueva = 1;
             $anchorScroll('PanelFull');
 
-            if (fechaInicio < fechaActual) {
+            /*if (fechaInicio < fechaActual) {
                 $scope.error = "El registro no puede ser modificado despues de la fecha de inicio de la encuesta (comuníquese con el administrador)";
                 $scope.inactivarInputsModalSecciones = true;
-            }
+            }*/
         };
 
         buscarSeccion(reporte.Id);
