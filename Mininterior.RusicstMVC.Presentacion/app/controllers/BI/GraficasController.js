@@ -12,6 +12,7 @@
     }
 
     $scope.registro = { tipo: 'Columnas'}
+    console.log($scope.datos);
 
     var i = 0;
     $scope.labels = [];
@@ -68,6 +69,9 @@
 
 
     
+    console.log($scope.labels);
+    console.log($scope.dataX);
+    console.log($scope.series);
 
    
     $scope.options = {
@@ -104,6 +108,7 @@
     };
 
     $scope.onClick = function (points, evt) {
+        console.log(points, evt);
     };
     $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     $scope.options3 = {

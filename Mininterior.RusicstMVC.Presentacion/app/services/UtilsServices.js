@@ -357,10 +357,12 @@
     //------------Obtener el Menú De Exportación Personalizado------------------
     this.getMenuGridCustom = function (gridApi, isExporterPDF) {
         var filename = $(".titulo").text();
+        // debugger;
         gridMenuCustomItems = [
             {
                 icon: 'icono-exportacion pdf', title: 'PDF Todos',
                 action: function ($event) {
+                    debugger;
                     gridApi.exporter.pdfExport(uiGridExporterConstants.ALL, uiGridExporterConstants.ALL);
                 },
                 order: 110
@@ -472,6 +474,7 @@
 
     //-------------Exportat PDF para columnas muy anchas-------------------------
     this.exportPdfColumnLarge = function (col, value) {
+        // debugger
         var separador = "\n", i = 1;
         var numLetras = Math.floor(col.drawnWidth / 8);
         while (value.charAt(i * numLetras + i - 1)) {
@@ -736,6 +739,7 @@
 
     this.getDatosUsuarioAutenticado = function () {
         var respuesta = function () {
+            debugger
             var deferred = $q.defer();
             var autenticacion = authService.authentication;
             var url = '/api/Usuarios/Usuarios/BuscarXUsuario';
@@ -743,6 +747,7 @@
             var datosUsuario = {};
             var servCall = APIService.saveSubscriber(registro, url);
             servCall.then(function (response) {
+                debugger;
                 if (response.data[0]) {
                     datosUsuario = response.data[0];
                 }

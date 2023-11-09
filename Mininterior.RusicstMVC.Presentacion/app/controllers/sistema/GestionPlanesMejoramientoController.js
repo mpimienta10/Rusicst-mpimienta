@@ -256,6 +256,7 @@ app.controller('ModalNuevoPlanController', ['$scope', 'APIService', '$filter', '
 
     function guardarDatos() {
 
+        console.log($scope.plan);
 
         $scope.plan.AudUserName = authService.authentication.userName;
         $scope.plan.AddIdent = authService.authentication.isAddIdent;
@@ -628,6 +629,7 @@ app.controller('ModalConfigurarPlanController', ['$scope', 'APIService', '$filte
 
     function guardarDatos() {
 
+        console.log($scope.plan);
 
         var servCall = APIService.saveSubscriber($scope.plan, $scope.url);
         servCall.then(function (response) {
@@ -1468,6 +1470,7 @@ app.controller('ModalNuevaRecomendacionPlanController', ['$scope', 'APIService',
         var servCall = APIService.getSubs(url);
         servCall.then(function (datos) {
             $scope.listaPreguntas = datos;
+            //console.log($scope.listaPreguntas);
         }, function (error) {
         });
     }
@@ -1603,6 +1606,7 @@ app.controller('ModalNuevaRecomendacionPlanController', ['$scope', 'APIService',
         modalInstance.result.then(
              function (resultado) {
                  //aca va la copia del objetivo seleccionado
+                 //console.log(resultado);
                  $scope.objetivo.objetivoEspecifico = resultado.ObjetivoEspecifico;
              }
         );
@@ -1671,6 +1675,7 @@ app.controller('ModalBuscarObjetivosController', ['$scope', 'APIService', '$filt
             //Selección de datos
             gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                 if (row.isSelected) {
+                    //console.log(row.entity);
                     $scope.objetivo = row.entity;
                 } else {
                     //var index = $scope.registro.idsUsuariosArray.indexOf(row.entity.IdUser);
@@ -1815,6 +1820,7 @@ app.controller('ModalBuscarRecomendacionesController', ['$scope', 'APIService', 
             //Selección de datos
             gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                 if (row.isSelected) {
+                    //console.log(row.entity);
                     $scope.recomendacion.push(row.entity);
                 } else {
                     var index = $scope.recomendacion.IdRecomendacion.indexOf(row.entity.IdRecomendacion);
@@ -1954,12 +1960,14 @@ app.controller('ModalActivarPlanController', ['$scope', 'APIService', '$filter',
         var servCall = APIService.getSubs(url);
         servCall.then(function (response) {
 
+            console.log(response);
 
             $scope.activacion.muestraPorc = response.bitShowPorcentaje;
             $scope.activacion.fechaIni = new Date(response.FechaInicio);
             $scope.activacion.fechaFin = new Date(response.FechaFin);
 
         }, function (error) {
+            console.log(error);
         });
     };
 
@@ -1988,6 +1996,7 @@ app.controller('ModalActivarPlanController', ['$scope', 'APIService', '$filter',
 
 
         }, function (error) {
+            console.log(error);
         });
     };
 

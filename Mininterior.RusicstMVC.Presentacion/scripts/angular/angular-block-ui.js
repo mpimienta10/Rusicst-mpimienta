@@ -22,6 +22,7 @@ blkUI.config(["$provide", "$httpProvider", function ($provide, $httpProvider) {
             blockUI = blockUI || $injector.get('blockUI');
             blockUI.instances.reset();
           } catch (ex) {
+            console.log('$exceptionHandler', exception);
           }
         }
 
@@ -74,6 +75,7 @@ var decorateLocation = [
         var s = $delegate[f];
         $delegate[f] = function () {
 
+          //        console.log(f, Date.now(), arguments);
 
           var result = s.apply($delegate, arguments);
 
@@ -107,6 +109,7 @@ function blockNavigation($scope, mainBlockUI, blockUIConfig) {
 
       $scope.$on('$locationChangeStart', function (event) {
 
+        //        console.log('$locationChangeStart', mainBlockUI.$_blockLocationChange + ' ' + mainBlockUI.state().blockCount);
 
         if (mainBlockUI.$_blockLocationChange && mainBlockUI.state().blockCount > 0) {
           event.preventDefault();
@@ -116,6 +119,7 @@ function blockNavigation($scope, mainBlockUI, blockUIConfig) {
       $scope.$on('$locationChangeSuccess', function () {
         mainBlockUI.$_blockLocationChange = blockUIConfig.blockBrowserNavigation;
 
+        //        console.log('$locationChangeSuccess', mainBlockUI.$_blockLocationChange + ' ' + mainBlockUI.state().blockCount);
       });
     }
 
@@ -324,6 +328,7 @@ blkUI.factory('blockUIHttpInterceptor', ["$q", "$injector", "blockUIConfig", "$t
     try {
       stopBlockUI(rejection.config);
     } catch(ex) {
+      console.log('httpRequestError', ex);
     }
 
     return $q.reject(rejection);

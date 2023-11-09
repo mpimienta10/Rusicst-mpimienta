@@ -254,6 +254,7 @@
 
     //// Confirmación para adquirir identidad
     $scope.openPopUpConfirmacion = function (entity) {
+        debugger;
         var modalInstance = $uibModal.open({
             templateUrl: '/app/views/modals/Confirmacion.html',
             controller: 'ModalConfirmacionController',

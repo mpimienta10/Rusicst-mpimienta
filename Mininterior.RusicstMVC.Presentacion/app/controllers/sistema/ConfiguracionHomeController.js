@@ -106,6 +106,7 @@
 
         var valido = true;
         var msg = '';
+        console.log('URL: ' + $scope.newItemUrl);
         if ($scope.newItemUrl == '' || $scope.newItemUrl == undefined)
         {
             msg = 'La URL ingresada no es válida';
@@ -211,6 +212,7 @@
     }
 
     $scope.agregarMint = function (file, key, value, group) {
+        console.log(file);
         $scope.uploadingMint = true;
         $scope.uploadMint(file, key, value, group);
     }
@@ -409,6 +411,7 @@ app.controller('ModalModificarRSController', ['$scope', 'APIService', '$filter',
             UtilsService.abrirRespuesta(mensaje);
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             $scope.progressPercentage = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
         });
     };
@@ -470,6 +473,7 @@ app.controller('ModalModificarSLController', ['$scope', 'APIService', '$filter',
             UtilsService.abrirRespuesta(mensaje);
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             $scope.progressPercentage = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
         });
     };

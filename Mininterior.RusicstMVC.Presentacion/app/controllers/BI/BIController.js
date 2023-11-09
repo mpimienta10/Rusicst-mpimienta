@@ -325,6 +325,7 @@
                     PintarUbicacionFiltro();
                 }
             }, function (error) {
+                console.log('Se generó un error en la petición')
                 $scope.error = "Se generó un error en la petición";
             });
 
@@ -415,6 +416,7 @@
                     $scope.datosSeleccionados.hechos = $scope.hechoSeleccionado;
                 }
             }, function (error) {
+                console.log('Se generó un error en la petición')
                 $scope.error = "Se generó un error en la petición";
             });
 
@@ -424,10 +426,12 @@
                 $scope.preguntasSeleccionadas = JSON.parse(response.ObtenerPreguntasPorConsultaPredefinidaJSONResult);
                 PintarPreguntsFiltro();
             }, function (error) {
+                console.log('Se generó un error en la petición')
                 $scope.error = "Se generó un error en la petición";
             });
 
         }, function (error) {
+            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición";
             });
     }
@@ -446,6 +450,7 @@
             $scope.gobernaciones = JSON.parse(response.ObtenerDepartamentosJSONResult);
             $scope.registro.idDepartamento = $scope.gobernaciones[0].CodigoDepartamento;
         }, function (error) {
+            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición";
         });
     }
@@ -470,6 +475,7 @@
                 };
             });
             }, function (error) {
+                console.log('Se generó un error en la petición')
                 $scope.error = "Se generó un error en la petición";
             });
         }
@@ -487,6 +493,7 @@
                 $scope.alcaldias = JSON.parse(response.ObtenerMunicipiosJSONResult);
                 $scope.registro.idMunicipio = IdMunicipio;
             }, function (error) {
+                console.log('Se generó un error en la petición')
                 $scope.error = "Se generó un error en la petición";
             });
         }
@@ -563,6 +570,7 @@
 
     //================Funciones de los Checkbox====================================
     $scope.checkboxClick = function (index, $event, array , nivel, item) {
+        debugger;
         $event.stopPropagation();
            //Se selecciona el array
         var label = item.label;

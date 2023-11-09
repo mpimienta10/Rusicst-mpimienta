@@ -445,7 +445,9 @@
     }
 
     //============ Doble Scroll ===============================
+    //debugger;
     //$(".scroll-bar-arriba").scroll(function () {
+    //    debugger
     //    $(".scroll-bar-abajo")
     //        .scrollLeft($(".scroll-bar-arriba").scrollLeft());
     //});

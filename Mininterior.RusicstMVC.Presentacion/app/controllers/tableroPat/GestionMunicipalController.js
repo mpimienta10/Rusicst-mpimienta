@@ -733,6 +733,7 @@ app.controller('MunicipioEdicionCtrl', ['$scope', 'APIService', '$http', 'tabler
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.borrarAdjunto = function () {

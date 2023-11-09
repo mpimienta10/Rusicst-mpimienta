@@ -45,6 +45,7 @@
         }
     }
     $scope.validar = function () {
+        console.log($scope.editForm.$error);
         return $scope.editForm.$valid;
     };
     $scope.init();

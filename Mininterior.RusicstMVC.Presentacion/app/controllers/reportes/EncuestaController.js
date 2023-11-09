@@ -49,6 +49,7 @@
 
         $scope.entityExcel = { seccion: $scope.registro.Id, etapa: $stateParams.SuperSeccion, encuesta: $stateParams.IdEncuesta, usuario: $scope.registro.IdUsuario, serviceBase: $scope.serviceBase };
 
+        //console.log($scope.entityExcel);
 
         var modalInstance = $uibModal.open({
             templateUrl: 'app/views/reportes/modals/ModoDescargaExcel.html',
@@ -82,6 +83,7 @@
         var url = '/api/Reportes/Encuesta/ConsultaDisenoEncuesta';
         var servCall = APIService.saveSubscriber(registro, url);
         servCall.then(function (respuesta) {
+            debugger
             $scope.listaSum = [];
             $scope.secciones = respuesta.data._Secciones;
             $scope.preguntas = respuesta.data._Preguntas;
@@ -101,6 +103,7 @@
             var diferenciaS = 0;
             var maxRow = getMax($scope.secciones, 'RowIndex') + 1;
             var maxCol = getMax($scope.secciones, 'ColumnIndex') + 1;
+            debugger;
             $scope.grilla = new Array(maxRow);
             for (var i = 0; i < maxRow; i++) {
                 $scope.grilla[i] = new Array(maxCol);
@@ -179,6 +182,7 @@
                 //----- Para dibujar el botón NUEVA FILA (si existe) ------
 
                 if (clase != null && clase.includes('sh-no-')) {
+                    //debugger;
                     if (sAnterior !== 0) {
                         diferenciaS = $scope.secciones[s].RowIndex - sAnterior;
                         if (diferenciaS > rowspan) {
@@ -190,6 +194,7 @@
 
                     $scope.cuentador = $scope.cuentador + 1;
                     if (esPrimerRow === true) {
+                        //console.log("rownindex: " + $scope.secciones[s].RowIndex);
                         $scope.rowNuevaFila.push($scope.secciones[s].RowIndex - 1);
                         $scope.columnNuevaFila.push($scope.secciones[s].ColumnIndex);
                         $scope.rowIndexNuevaFila.push($scope.secciones[s].RowIndex);
@@ -257,6 +262,7 @@
                                 }
                                 break;
                             case "disableclear":
+                                //debugger
                                 //Se borra la información
                                 fila.Valor = "";
                                 fila.Respuesta = "";
@@ -264,10 +270,12 @@
                                 $scope.listaPrecargado.push(fila.Funciones);
                                 break;
                             case "disable":
+                                //debugger
                                 //Ponemos el valor en listaprecargado para realizar la acción disableclear.
                                 $scope.listaPrecargado.push(fila.Funciones);
                                 break;
                             case "enable":
+                                //debugger
                                 //Ponemos el valor en listaprecargado para realizar la acción disableclear.
                                 $scope.listaPrecargado.push(fila.Funciones);
                                 break;
@@ -315,6 +323,7 @@
                                                 }
                                                 break;
                                             case "disableclear":
+                                                //debugger
                                                 //Se borra la información
                                                 fila.Valor = "";
                                                 fila.Respuesta = "";
@@ -322,10 +331,12 @@
                                                 $scope.listaPrecargado.push(funcExec);
                                                 break;
                                             case "disable":
+                                                //debugger
                                                 //Ponemos el valor en listaprecargado para realizar la acción disableclear.
                                                 $scope.listaPrecargado.push(funcExec);
                                                 break;
                                             case "enable":
+                                                //debugger
                                                 //Ponemos el valor en listaprecargado para realizar la acción disableclear.
                                                 $scope.listaPrecargado.push(funcExec);
                                                 break;
@@ -419,6 +430,8 @@
                     do {
                         var contador = $scope.rowNuevaFila[ii] - reversa;
                         if ($scope.grilla[contador][$scope.columnNuevaFila[ii]].mostrar === true) {
+                            //console.log("restando");
+                            //console.log("contador: " + contador + " - colunmnuevafila[ii]: " + $scope.columnNuevaFila[ii] + " - rowspanprev: " + $scope.grilla[contador][$scope.columnNuevaFila[ii]].rowspan + " - rowspannuevafila: " + $scope.rowNuevaFila[ii]);
                             $scope.grilla[contador][$scope.columnNuevaFila[ii]].rowspan = $scope.grilla[contador][$scope.columnNuevaFila[ii]].rowspan - 1;
                             escapar = false;
                         }
@@ -439,15 +452,19 @@
                     var accion = $scope.listaPrecargado[n].Func.toLowerCase();
                     switch (accion) {
                         case 'enable':
+                            //debugger
                             $scope.grilla[fila][columna].pregunta.deshabilitar = false;
                             break;
                         case 'disable':
+                            //debugger
                             $scope.grilla[fila][columna].pregunta.deshabilitar = true;
                             break;
                         case 'disableclear':
+                            //debugger
                             $scope.grilla[fila][columna].pregunta.deshabilitar = true;
                             break;
                         case 'sum':
+                            //debugger
                             $scope.grilla[fila][columna].pregunta.deshabilitar = true;
                             break;
                         default:
@@ -647,6 +664,11 @@
         var celda = buscarValorXId(id);
         var fila = celda.pregunta.fila, columna = celda.pregunta.columna;
 
+        //console.log("Ejecutar postcargado");
+        //console.log(accion);
+        //console.log(id);
+        //console.log(valor);
+
         switch (accion) {
             case 'enable':
                 $scope.grilla[fila][columna].pregunta.deshabilitar = false;
@@ -671,6 +693,7 @@
 
     //====================Dibujar Nueva Fila===================================================
     $scope.adicionarNuevaFila = function (celda) {
+        debugger
         for (var rss = 0; rss < $scope.rowSpanNuevaFila; rss++) {
             for (var z = 0; z < $scope.grilla[0].length; z++) {
                 if ($scope.grilla[celda.pregunta.rowIndex + rss][z].id != null) {
@@ -802,6 +825,7 @@
 
     //========================VALIDAR ARCHIVO ADJUNTO===================================
     $scope.validarArchivo = function (celda, file) {
+        debugger;
         var respuestaValidarArchivo = true;
         var indexUltimoPunto = file.name.lastIndexOf(".");
         if (indexUltimoPunto != -1) {
@@ -915,6 +939,9 @@
 
                             if ($scope.grilla[x][y].pregunta.tipo != 'LABEL' && $scope.grilla[x][y].pregunta.tipo != 'NUEVAFILA' && $scope.grilla[x][y].pregunta.tipo != 'ARCHIVO') {
 
+                                //console.log($scope.grilla[x][y].pregunta);
+                                //console.log(typeof $scope.grilla[x][y].pregunta.valor);
+
                                 var pregunta = {
                                     id: $scope.grilla[x][y].id,
                                     valor: $scope.isEmpty($scope.grilla[x][y].pregunta.valor) ? '' : $scope.grilla[x][y].pregunta.valor,
@@ -937,6 +964,7 @@
                             }
 
                             if ($scope.grilla[x][y].pregunta.tipo === 'ARCHIVO' && $scope.grilla[x][y].pregunta.copyEnc && typeof $scope.grilla[x][y].pregunta.valor != 'object') {
+                                //console.log($scope.grilla[x][y].pregunta);
                                 var pregunta = {
                                     id: $scope.grilla[x][y].id,
                                     valor: $scope.grilla[x][y].pregunta.valor,
@@ -956,6 +984,7 @@
                         }
                     };
             }
+        debugger;
         if (!abortar) {
             $scope.datosGuardar = {
                 usuario: $scope.registro.IdUsuario,
@@ -975,7 +1004,9 @@
     }
 
     $scope.upload = function (archivos) {
+        debugger
         $scope.guardando = true;
+        //console.log($scope.datosGuardar);
         var serviceBase = ngSettings.apiServiceBaseUri;
         Upload.upload({
             url: serviceBase + '/api/Reportes/Encuesta/GuardarEncuesta',
@@ -1002,11 +1033,14 @@
             openRespuestaGuardado(mensaje);
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
 
 
     //$scope.$watch('paginaActual', function (newVal, oldVal) {
+    //    console.log(newVal);
+    //    console.log(oldVal);
     //});
 
 
@@ -1024,6 +1058,7 @@
         });
         modalInstance.result.then(
             function (resultado) {
+                debugger;
                 if ($scope.isCerrando && resultado) {
 
                     var fila = $scope.celdaCerrar.pregunta.fila, columna = $scope.celdaCerrar.pregunta.columna;
