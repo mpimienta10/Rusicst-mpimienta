@@ -9,7 +9,6 @@
         servCall.then(function (datos) {
             $scope.alcaldias = datos;
         }, function (error) {
-            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición del combo de Alcaldías";
         });
     }
@@ -87,7 +86,6 @@
 
     //=============== Funcion VER =========================================
     $scope.ver = function (fila) {
-        debugger
         var url = '/api/Usuarios/Usuarios/BuscarXDepYMun';
 
         $scope.registro.AudUserName = authService.authentication.userName;
@@ -96,7 +94,6 @@
 
         var servCall = APIService.saveSubscriber($scope.registro, url);
         servCall.then(function (respuesta) {
-            debugger;
             if (respuesta.data.length > 0) {
                 var idUsuario = '';
                 if ($scope.registro.idMunicipio == undefined || $scope.registro.idMunicipio == '') {

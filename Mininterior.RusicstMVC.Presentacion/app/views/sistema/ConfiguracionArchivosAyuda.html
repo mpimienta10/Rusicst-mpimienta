@@ -32,7 +32,7 @@
                             <div class="col-sm-12"><span>{{progressPercentage}}</span></div>
                             <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 25MB</label></div>
                             <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.file.$error.required">
-                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
+                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">Debe seleccionar un archivo menor de 25 MB</span>
                             </span>
                             <span class="col-sm-12 text-danger text-center" ng-show="submitted && extension">
                                 {{errorMessages.extension}}

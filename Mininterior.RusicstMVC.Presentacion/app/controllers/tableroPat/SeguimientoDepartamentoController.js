@@ -930,7 +930,6 @@ app.controller('SeguimientoDepartamentoEdicionCtrl', ['$scope', 'APIService', '$
             function (datosResponse) {
                 $scope.mensajeWarningEdit = null;
                 $scope.mensajeOKEdit = null;
-                console.log(datosResponse);
                 if (datosResponse) {
                     $scope.programasAgregados1[index] = datosResponse;
                     $scope.mensajeOKEdit = "El Programa se actualizó correctamente";
@@ -960,7 +959,6 @@ app.controller('SeguimientoDepartamentoEdicionCtrl', ['$scope', 'APIService', '$
             function (datosResponse) {
                 $scope.mensajeWarningEdit = null;
                 $scope.mensajeOKEdit = null;
-                console.log(datosResponse);
                 if (datosResponse) {
                     $scope.programasAgregados2[index] = datosResponse;
                     $scope.mensajeOKEdit = "El Programa se actualizó correctamente";
@@ -1059,7 +1057,6 @@ app.controller('SeguimientoDepartamentoEdicionCtrl', ['$scope', 'APIService', '$
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.borrarAdjunto = function (semestre) {
@@ -1080,7 +1077,6 @@ app.controller('SeguimientoDepartamentoEdicionCtrl', ['$scope', 'APIService', '$
         $uibModalInstance.close();
     };
     $scope.validar = function () {
-        console.log($scope.registerForm.$error);
         return $scope.registerForm.$valid;
     };
     $scope.validarExtension = function () {
@@ -1599,7 +1595,6 @@ app.controller('SeguimientoDepartamentoEdicionDetalleConsolidadoCtrl', ['$scope'
             function (datosResponse) {
                 $scope.mensajeWarningEdit = null;
                 $scope.mensajeOKEdit = null;
-                console.log(datosResponse);
                 if (datosResponse) {
                     $scope.programasAgregados1[index] = datosResponse;
                     $scope.mensajeOKEdit = "El Programa se actualizó correctamente";
@@ -1629,7 +1624,6 @@ app.controller('SeguimientoDepartamentoEdicionDetalleConsolidadoCtrl', ['$scope'
             function (datosResponse) {
                 $scope.mensajeWarningEdit = null;
                 $scope.mensajeOKEdit = null;
-                console.log(datosResponse);
                 if (datosResponse) {
                     $scope.programasAgregados2[index] = datosResponse;
                     $scope.mensajeOKEdit = "El Programa se actualizó correctamente";
@@ -1733,7 +1727,6 @@ app.controller('SeguimientoDepartamentoEdicionDetalleConsolidadoCtrl', ['$scope'
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.descargar = function (index, semestre) {
@@ -1754,7 +1747,6 @@ app.controller('SeguimientoDepartamentoEdicionDetalleConsolidadoCtrl', ['$scope'
         $uibModalInstance.dismiss('cancel');
     };
     $scope.validar = function () {
-        console.log($scope.registerForm.$error);
         return $scope.registerForm.$valid;
     };
     $scope.validarExtension = function () {
@@ -1942,7 +1934,6 @@ app.controller('SeguimientoDepartamentoEdicionRCCtrl', ['$scope', 'APIService', 
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.borrarAdjunto = function () {
@@ -2122,7 +2113,6 @@ app.controller('SeguimientoDepartamentoEdicionRRCtrl', ['$scope', 'APIService', 
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.borrarAdjunto = function () {
@@ -2316,8 +2306,6 @@ app.controller('SeguimientoDepartamentoAgregarODCtrl', ['$scope', 'APIService', 
             $scope.MedidasOD.push(medidaOD);
         });
 
-        console.log($scope.unidad);
-        console.log($scope.unidad.ID);
 
         $scope.seguimientoOD = {};
         $scope.seguimientoOD.IdUsuario = $scope.Usuario.Id;
@@ -2377,7 +2365,6 @@ app.controller('SeguimientoDepartamentoAgregarODCtrl', ['$scope', 'APIService', 
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.cancelar = function () {

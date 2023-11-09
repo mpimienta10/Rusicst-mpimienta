@@ -72,7 +72,6 @@
 
     //========================VALIDAR ARCHIVO ADJUNTO===================================
     $scope.validarArchivo = function (file) {
-        debugger;
         var respuestaValidarArchivo = true;
         $scope.datos.deleteFile = false;
         //$scope.fileLocation = file.name;
@@ -112,7 +111,6 @@
         servCall.then(function (response) {
             $scope.mensajeEnvioPlan = response;
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -128,11 +126,7 @@
 
             //$scope.maxDate = new Date((parseInt(annoEncuesta) + 1), 11, 31, 18, 59, 59);
 
-            console.log("maxdate");
-            console.log($scope.maxDate);
-
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -142,7 +136,6 @@
         servCall.then(function (response) {
             $scope.activo = response;
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -153,7 +146,6 @@
             $scope.fileLocation = response;
             $scope.fileIsVacio = !$scope.fileLocation.length > 0;
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -229,7 +221,6 @@
                         item.IdPlan = $scope.plan.IdPlan;
 
                     }, function (error) {
-                        console.log(error);
                     });
 
                 });
@@ -242,11 +233,8 @@
 
             $scope.datos = $scope.listaSeccionesUnica;
 
-            //console.log("datos");
-            //console.log($scope.datosPlan);
 
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -324,7 +312,6 @@
                         item.IdPlan = $scope.plan.IdPlan;
 
                     }, function (error) {
-                        console.log(error);
                     });
 
                 });
@@ -332,11 +319,8 @@
 
             $scope.datosPDF = $scope.listaSeccionesUnicaPDF;
 
-            //console.log("datos");
-            //console.log($scope.datosPlan);
 
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -350,15 +334,12 @@
         servCall.then(function (response) {
             $scope.listaAutoeva = response;
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
     };
 
     $scope.getTareas = function (sIndex, eIndex) {
-        //console.log("sIndex: " + sIndex.toString() + " - eIndex: " + eIndex.toString());
-        //console.log($scope.datos);
 
         var nowDate = new Date();
         var dateWT = nowDate.getFullYear() + '/' + (nowDate.getMonth() + 1) + '/' + nowDate.getDate();
@@ -377,7 +358,6 @@
     };
 
     $scope.borrarTarea = function (sIndex, eIndex, tIndex) {
-        //console.log("sIndex: " + sIndex.toString() + " - eIndex: " + eIndex.toString() + " - tIndex: " + tIndex.toString());
 
         var mensaje = { msn: "¿Está seguro de eliminar la acción seleccionada?", tipo: "alert alert-warning" };
 
@@ -463,7 +443,6 @@
             return false;
         }
 
-        //console.log($scope.datos);
 
         $scope.guardando = true;
 
@@ -510,7 +489,6 @@
 
         }, function (error) {
             $scope.error = "Se generó un error en la petición, no se guardaron los datos";
-            console.log(error);
         });
     }
 
@@ -537,11 +515,7 @@
         $scope.planUpload.IdUsuario = $scope.plan.IdUsuario;
         $scope.planUpload.userName = $scope.plan.userName;
 
-        //console.log("Datos:");
-        //console.log($scope.datos);
 
-        console.log("Plan:");
-        console.log($scope.plan);
 
         //Guardamos las respuestas primero
         var servCall = APIService.saveSubscriber($scope.plan, $scope.url);
@@ -593,7 +567,6 @@
 
         }, function (error) {
             $scope.error = "Se generó un error en la petición, no se guardaron los datos";
-            console.log(error);
         });
     }
 
@@ -615,7 +588,6 @@
         });
         modalInstance.result.then(
             function (resultado) {
-                debugger;
                 if ($scope.isCerrando && resultado) {
                     $scope.fileLocation = '';
                     $scope.fileIsVacio = true;

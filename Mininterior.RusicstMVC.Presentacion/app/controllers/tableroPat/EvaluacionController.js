@@ -144,7 +144,6 @@
         $scope.submitted = false;
     }
     $scope.validar = function () {
-        console.log($scope.editForm.$error);
         return $scope.editForm.$valid;
     };
 }])

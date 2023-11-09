@@ -273,7 +273,6 @@ app.controller('ModalNuevoPlanController', ['$scope', 'APIService', '$filter', '
 
     function guardarDatos() {
 
-        console.log($scope.plan);
 
         $scope.plan.AudUserName = authService.authentication.userName;
         $scope.plan.AddIdent = authService.authentication.isAddIdent;
@@ -678,7 +677,6 @@ app.controller('ModalConfigurarPlanController', ['$scope', 'APIService', '$filte
 
     function guardarDatos() {
 
-        console.log($scope.plan);
 
         var servCall = APIService.saveSubscriber($scope.plan, $scope.url);
         servCall.then(function (response) {
@@ -1591,7 +1589,6 @@ app.controller('ModalNuevaTareaPlanController', ['$scope', 'APIService', '$filte
         var servCall = APIService.getSubs(url);
         servCall.then(function (datos) {
             $scope.listaPreguntas = datos;
-            //console.log($scope.listaPreguntas);
         }, function (error) {
         });
     }
@@ -1624,7 +1621,6 @@ app.controller('ModalNuevaTareaPlanController', ['$scope', 'APIService', '$filte
         $scope.datos.estrategia = $scope.estrategia.estrategia;
         $scope.datos.tareas = $scope.tarea;
 
-        console.log($scope.datos);
 
         guardarDatos();
     };
@@ -1664,7 +1660,6 @@ app.controller('ModalNuevaTareaPlanController', ['$scope', 'APIService', '$filte
 
     $scope.agregarTarea = function (index) {
 
-        console.log($scope.tarea);
 
         var programaExistente = false;
         angular.forEach($scope.tarea[index].tareas, function (tarea) {
@@ -1686,11 +1681,7 @@ app.controller('ModalNuevaTareaPlanController', ['$scope', 'APIService', '$filte
     };
 
     $scope.borrarTarea = function (index, tIndex) {
-        //console.log("Before: index: " + index.toString() + "- tIndex: " + tIndex.toString() );
-        //console.log($scope.tarea[index].tareas);
         $scope.tarea[index].tareas.splice(tIndex, 1);
-        //console.log("After");
-        //console.log($scope.tarea[index].tareas);
     };
 
     $scope.editarTarea = function (index, tIndex) {
@@ -1708,7 +1699,6 @@ app.controller('ModalNuevaTareaPlanController', ['$scope', 'APIService', '$filte
             function (datosResponse) {
                 $scope.mensajeWarningEdit = null;
                 $scope.mensajeOKEdit = null;
-                console.log(datosResponse);
                 if (datosResponse) {
                     $scope.tarea[index].tareas[tIndex] = datosResponse;
                 }
@@ -1764,7 +1754,6 @@ app.controller('ModalNuevaTareaPlanController', ['$scope', 'APIService', '$filte
         modalInstance.result.then(
              function (resultado) {
                  //aca va la copia del objetivo seleccionado
-                 //console.log(resultado);
                  $scope.estrategia.estrategia = resultado.Estrategia;
              }
         );
@@ -1865,7 +1854,6 @@ app.controller('ModalBuscarEstrategiasController', ['$scope', 'APIService', '$fi
             //Selección de datos
             gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                 if (row.isSelected) {
-                    //console.log(row.entity);
                     $scope.estrategia = row.entity;
                 } else {
                     //var index = $scope.registro.idsUsuariosArray.indexOf(row.entity.IdUser);
@@ -2012,7 +2000,6 @@ app.controller('ModalBuscarTareasController', ['$scope', 'APIService', '$filter'
             //Selección de datos
             gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                 if (row.isSelected) {
-                    //console.log(row.entity);
                     $scope.recomendacion.push(row.entity);
                 } else {
                     var index = $scope.recomendacion.IdRecomendacion.indexOf(row.entity.IdRecomendacion);
@@ -2152,7 +2139,6 @@ app.controller('ModalActivarPlanController', ['$scope', 'APIService', '$filter',
             $scope.activacion.fechaFin = new Date(response.FechaFin);
 
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -2181,7 +2167,6 @@ app.controller('ModalActivarPlanController', ['$scope', 'APIService', '$filter',
 
 
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -2612,7 +2597,6 @@ app.controller('ModalNuevoSeguimientoPlanController', ['$scope', 'APIService', '
         servCall.then(function (response) {
             $scope.encuestasSeguimiento = response;
         }, function (error) {
-            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición del combo de encuestas";
         });
     }
@@ -2700,7 +2684,6 @@ app.controller('ModalEditarSeguimientoPlanController', ['$scope', 'APIService', 
     $scope.isNew = $.isEmptyObject(entity);
     $scope.errorMessages = UtilsService.getErrorMessages();
 
-    console.log(entity);
 
     $scope.url = '/api/Sistema/SeguimientoPlanMejoramiento/ActualizarSeguimientoPlanMejoramiento/';
 
@@ -2723,7 +2706,6 @@ app.controller('ModalEditarSeguimientoPlanController', ['$scope', 'APIService', 
         servCall.then(function (response) {
             $scope.encuestasSeguimiento = response;
         }, function (error) {
-            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición del combo de encuestas";
         });
     }
@@ -2741,7 +2723,6 @@ app.controller('ModalEditarSeguimientoPlanController', ['$scope', 'APIService', 
 
     function guardarDatos() {
 
-        console.log("Editar seguimiento: ");
         $log.log($scope.seguimiento);
 
         var servCall = APIService.saveSubscriber($scope.seguimiento, $scope.url);
@@ -3069,7 +3050,6 @@ app.controller('ModalNuevoEstadoSeguimientoPlanController', ['$scope', 'APIServi
     $scope.isNew = $.isEmptyObject(entity);
     $scope.errorMessages = UtilsService.getErrorMessages();
 
-    console.log(entity);
 
     $scope.url = '/api/Sistema/SeguimientoPlanMejoramiento/EstadoAccion/InsertarEstadoAccion/';
     
@@ -3089,7 +3069,6 @@ app.controller('ModalNuevoEstadoSeguimientoPlanController', ['$scope', 'APIServi
 
     function guardarDatos() {
 
-        console.log("Nuevo estado: ");
         $log.log($scope.estado);
 
         var servCall = APIService.saveSubscriber($scope.estado, $scope.url);
@@ -3119,7 +3098,6 @@ app.controller('ModalEditarEstadosSeguimientoPlanController', ['$scope', 'APISer
     $scope.isNew = $.isEmptyObject(entity);
     $scope.errorMessages = UtilsService.getErrorMessages();
 
-    console.log(entity);
 
     $scope.url = '/api/Sistema/SeguimientoPlanMejoramiento/EstadoAccion/ActualizarEstadoAccion/';
 
@@ -3143,7 +3121,6 @@ app.controller('ModalEditarEstadosSeguimientoPlanController', ['$scope', 'APISer
 
     function guardarDatos() {
 
-        console.log("Editar estado: ");
         $log.log($scope.estado);
 
         var servCall = APIService.saveSubscriber($scope.estado, $scope.url);
