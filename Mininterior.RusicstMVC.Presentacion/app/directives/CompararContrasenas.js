@@ -18,11 +18,14 @@ app.directive('validPwd', [function () {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
             ctrl.$parsers.unshift(function (viewValue) {
-                scope.pwdValidLength = (viewValue && viewValue.length >= 6 ? 'valid' : undefined); // Comprueba la longitud de la cadena.
-                scope.pwdHasLetter = (viewValue && /[A-z]/.test(viewValue)) ? 'valid' : undefined; // Compruebe si la cadena contiene letras.
+                console.log(viewValue)
+                scope.pwdValidLength = (viewValue && viewValue.length >= 8 ? 'valid' : undefined); // Comprueba la longitud de la cadena.
+                scope.pwdHasLetterMay = (viewValue && /[A-Z]/.test(viewValue)) ? 'valid' : undefined; // Compruebe si la cadena contiene letras mayusculas.
+                scope.pwdHasLetterMin = (viewValue && /[a-z]/.test(viewValue)) ? 'valid' : undefined; // Compruebe si la cadena contiene letras minusculas.
                 scope.pwdHasNumber = (viewValue && /\d/.test(viewValue)) ? 'valid' : undefined; // Compruebe si la cadena contiene dígitos.
+                scope.pwdHasCharacter = (viewValue && /[^A-Za-z0-9]/.test(viewValue)) ? 'valid' : undefined; // Compruebe si la cadena contiene caracteres espaciales.
 
-                if (scope.pwdValidLength && scope.pwdHasLetter && scope.pwdHasNumber) { 
+                if (scope.pwdValidLength && scope.pwdHasLetterMay && scope.pwdHasLetterMin && scope.pwdHasNumber && scope.pwdHasCharacter) {
                     ctrl.$setValidity('pwdValid', true); 
                     return viewValue; 
                 } else { 

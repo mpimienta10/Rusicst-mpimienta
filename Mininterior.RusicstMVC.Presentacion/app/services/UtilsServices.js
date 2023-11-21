@@ -326,7 +326,7 @@
         errorMessages.delete = 'Se generó un error en la petición, no se eliminaron los datos';
         errorMessages.extension = 'Tipo de archivo no permitido';
         errorMessages.exception = 'Se ha producido una Excepción. Por favor intente nuevamente. Si la inconsistencia persiste por favor comuniquese con el administrador del RUSICST.'
-        errorMessages.passInvalid = 'La contraseña debe contener 6 digitos, contener una letra y un número';
+        errorMessages.passInvalid = 'La contraseña debe contener 8 digitos, contener mayúsculas, minúsculas un número y caracteres especiales';
 
         return errorMessages;
     }
