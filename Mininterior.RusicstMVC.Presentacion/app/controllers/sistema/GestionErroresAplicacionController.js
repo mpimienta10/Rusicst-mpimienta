@@ -116,7 +116,7 @@
 
     $scope.dateOptions = {
         formatYear: 'yy',
-        maxDate: new Date(2020, 5, 22),
+        maxDate: new Date(2030, 5, 22),
         minDate: new Date(2010, 1, 1),
         startingDay: 1
     };

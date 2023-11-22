@@ -139,8 +139,10 @@
     };
 
     $scope.cancelar = function () {
-        $scope.Retro.Titulo = "";
-        $scope.Retro.IdEncuesta = "0";
+        if ($scope.Retro != undefined || $scope.Retro != null) {
+            $scope.Retro.Titulo = "";
+            $scope.Retro.IdEncuesta = "0";
+        }
     };
 
 
