@@ -54,7 +54,7 @@ app.config(function ($stateProvider, $urlRouterProvider, uiGridConstants, $provi
             //El controlador para el login, recuperar contraseña y contáctenos esta en el html.
             authenticate: false,
             ncyBreadcrumb: {
-                label: 'Bienvenidos a Rusicts',
+                label: 'Rusicts',
                 parent: 'home'
             }
         })
