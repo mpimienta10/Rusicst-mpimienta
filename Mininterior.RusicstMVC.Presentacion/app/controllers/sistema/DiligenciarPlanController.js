@@ -59,6 +59,7 @@
 
     //========================VALIDAR ARCHIVO ADJUNTO===================================
     $scope.validarArchivo = function (file) {
+        debugger;
         var respuestaValidarArchivo = true;
         //$scope.fileLocation = file.name;
         var indexUltimoPunto = file.name.lastIndexOf(".");
@@ -96,6 +97,7 @@
         servCall.then(function (response) {
             $scope.mensajeEnvioPlan = response;
         }, function (error) {
+            console.log(error);
         });
     };
 
@@ -105,6 +107,7 @@
         servCall.then(function (response) {
             $scope.datosPlan = response;
         }, function (error) {
+            console.log(error);
         });
     };
 
@@ -114,6 +117,7 @@
         servCall.then(function (response) {
             $scope.progreso = response;
         }, function (error) {
+            console.log(error);
         });
     };
 
@@ -123,6 +127,7 @@
         servCall.then(function (response) {
             $scope.activo = response;
         }, function (error) {
+            console.log(error);
         });
     };
 
@@ -133,6 +138,7 @@
             $scope.fileLocation = response;
             $scope.fileIsVacio = !$scope.fileLocation.length > 0;
         }, function (error) {
+            console.log(error);
         });
     };
 
@@ -170,6 +176,7 @@
                         });
 
                         var parseddate = new Date(subitem.AccionFecha);
+                        //console.log(parseddate);
 
                         subitem.AccionFecha = parseddate;
 
@@ -180,6 +187,7 @@
                     item.IdUsuario = $scope.plan.IdUsuario;
                     item.IdPlan = $scope.plan.IdPlan;
                 }, function (error) {
+                    console.log(error);
                 });                                
 
             });
@@ -192,8 +200,10 @@
 
             $scope.datos = response;
 
+            console.log($scope.datos);
 
         }, function (error) {
+            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -207,6 +217,7 @@
         servCall.then(function (response) {            
             $scope.listaAvances = response;
         }, function (error) {
+            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -220,6 +231,7 @@
         servCall.then(function (response) {
             $scope.listaAutoeva = response;
         }, function (error) {
+            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -250,6 +262,8 @@
 
     //Guardado del  plan
     $scope.aceptar = function () {
+        console.log($scope.datos);
+        
         guardarDatos();
     };
 
@@ -291,12 +305,14 @@
 
                 }, function (error) {
                     $scope.error = "Se generó un error en la petición, no se guardaron los datos";
+                    console.log(error);
                 });
             } else {
                 var mensaje = { msn: "No ha diligenciado todas las Acciones y Responsables de las Recomendaciones del Plan de Mejoramiento. Complete todas las recomendaciones antes de Enviarlo.", tipo: "alert alert-danger" };
                 UtilsService.abrirRespuesta(mensaje);
             }
         }, function (error) {
+            console.log(error);
         });
     }
 
@@ -353,6 +369,7 @@
 
         }, function (error) {
             $scope.error = "Se generó un error en la petición, no se guardaron los datos";
+            console.log(error);
         });
     }
 
@@ -374,6 +391,7 @@
         });
         modalInstance.result.then(
             function (resultado) {
+                debugger;
                 if ($scope.isCerrando && resultado) {
                     $scope.fileLocation = '';
                     $scope.fileIsVacio = true;

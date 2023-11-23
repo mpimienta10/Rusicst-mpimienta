@@ -137,7 +137,7 @@ app.controller('ModalCambiarContrasenaController', ['$scope', 'APIService', '$fi
     $scope.errorMessages = UtilsService.getErrorMessages();
     $scope.url = '/api/Usuarios/Autenticacion/ModificarContrasena';
 
-    $scope.logout = function () { authService.logOut(); $uibModalInstance.close() };
+    $scope.logout = function () { debugger; authService.logOut(); $uibModalInstance.close() };
 
     $scope.aceptar = function () {
         $scope.errors = [];

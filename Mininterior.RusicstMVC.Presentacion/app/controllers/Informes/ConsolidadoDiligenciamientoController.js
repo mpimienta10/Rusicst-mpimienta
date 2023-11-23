@@ -22,6 +22,7 @@
             }
             $scope.gobernaciones = output;
         }, function (error) {
+            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición";
         });
     }

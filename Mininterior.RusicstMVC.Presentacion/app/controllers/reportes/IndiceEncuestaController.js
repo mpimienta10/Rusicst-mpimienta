@@ -23,6 +23,7 @@
         var servCall = APIService.saveSubscriber($scope.registro, url);
         servCall.then(function (respuesta) {
             if (respuesta.status === 200) {
+                debugger;
                 $scope.datos = respuesta.data;
                 angular.forEach($scope.datos, function (valor) {
                     var regex = new RegExp("^[0-9]+(.*)$");
@@ -99,6 +100,7 @@
                                     }
 
                                 }, function (error) {
+                                    console.log(error);
                                 });
 
                                 //plan mejoramiento v3
@@ -106,9 +108,11 @@
                             }
 
                         }, function (error) {
+                            console.log(error);
                         });
 
                     }, function (error) {
+                        console.log(error);
                     });
                 } else 
                 {
@@ -118,6 +122,7 @@
             }
 
         }, function (error) {
+            console.log(error);
         });
 
     };
@@ -154,6 +159,7 @@
            $scope.IdPagina = item.Id;
        }
       
+       debugger;
        if (!cancelar) $location.url('/Index/Reportes/Encuesta/' + idEncuesta + '/' + SuperSeccion + '/' + $scope.IdPagina + '/' + titulo + '/' + $scope.registro.Id );
        };
 

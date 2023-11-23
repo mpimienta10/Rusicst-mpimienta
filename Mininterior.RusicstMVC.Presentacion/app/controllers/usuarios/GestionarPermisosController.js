@@ -225,6 +225,7 @@ app.controller('ModalNuevoEditarGestionarPermisosController', function ($scope, 
             return false;
         }
 
+        //console.log($scope.registro);
 
         guardarDatos();
     };

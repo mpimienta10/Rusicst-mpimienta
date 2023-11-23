@@ -601,6 +601,7 @@ app.controller('ModalArchivosUrlsDerechosController', ['$scope', 'APIService', '
     };
 
     $scope.descargar = function (item) {
+        debugger
         var url = ngSettings.apiServiceBaseUri + '/api/Sistema/ConfiguracionDerechosPAT/Descargar?archivo=' + item.ParametroValor;
         window.open(url)
     }
@@ -840,6 +841,7 @@ app.controller('DepartamentoEdicionCtrl', ['$scope', 'APIService', '$http', 'tab
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.borrarAdjunto = function () {

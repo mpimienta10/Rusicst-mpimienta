@@ -241,6 +241,7 @@ app.controller('ModalNuevoEditarTipoUsuarioController', ['$scope', 'APIService',
     };
 
     function DoubleScroll(element) {
+        debugger
         var scrollbar = document.createElement('div');
         scrollbar.appendChild(document.createElement('div'));
         scrollbar.style.overflow = 'auto';

@@ -228,6 +228,7 @@ app.controller('ModalNuevaCampanaController', ['$scope', 'APIService', '$filter'
 
             if (null != evt.config.data.file) {
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             }
         });
 

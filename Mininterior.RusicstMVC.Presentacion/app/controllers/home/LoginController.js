@@ -151,6 +151,7 @@ app.controller('ModalUsuariosInternosController', ['$scope', 'APIService', '$fil
         $scope.error = '';
         var servCall = APIService.saveSubscriber($scope.registro, $scope.url);
         servCall.then(function successCallback(response) {
+            debugger;
             if (response.data != '' && response.data != '-1' && response.data != '-2') {
                 $scope.cargando = false;
                 authService.loginAD(response);

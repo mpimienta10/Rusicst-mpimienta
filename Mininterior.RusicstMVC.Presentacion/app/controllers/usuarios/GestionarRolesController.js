@@ -271,6 +271,7 @@ app.controller('ModalNuevoEditarRolController', ['$scope', 'APIService', 'UtilsS
             //gridApi.grid.options.exporterPdfTableHeaderStyle = { fontSize: 8, bold: true, color: 'white', fillColor: '#63002D', alignment: 'center' };
             //gridApi.grid.options.exporterPdfDefaultStyle = { fontSize: 7 };
             //gridApi.grid.options.exporterPdfCustomFormatter = function (docDefinition) {
+            //    debugger
             //    docDefinition.styles.headerStyle = { fontSize: 10, bold: true, alignment: 'center', color: '#63002D' };
             //    docDefinition.styles.footerStyle = { fontSize: 8, bold: true, alignment: 'center', color: '#333333' };
             //    return docDefinition;

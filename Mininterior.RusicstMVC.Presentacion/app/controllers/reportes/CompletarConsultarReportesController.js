@@ -145,6 +145,7 @@
         var url = '/api/Reportes/ConsultarCompletarReportes/ListaEncuestasCompletadas/';
         var servCall = APIService.saveSubscriber($scope.registro, url);;
         servCall.then(function (datos) {
+            debugger;
             if (datos.data.length > 0) {
                 $scope.isGrid = true;
                 $scope.gridOptions.data = datos.data;
@@ -211,6 +212,7 @@
      //===============================Ir a consulta============================================
 
     $scope.ConsultarEncuestasNoCompletadas = function (entidad) {
+        debugger
         enviarDatos.datos = entidad;
         $location.url('/Index/Reportes/IndiceEncuesta/' + entidad.Id + '/' + entidad.Titulo + '/' + null);
     }

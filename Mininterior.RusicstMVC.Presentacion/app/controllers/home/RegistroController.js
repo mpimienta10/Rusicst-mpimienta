@@ -69,6 +69,7 @@
             openRespuesta(mensaje);
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     //--------------FIN UPLOADER-----------------------------------
@@ -80,12 +81,15 @@
         key: '6Ld4QxcUAAAAACKpAioYiaNsE4XMREcSfEm-NAKf'
     };
     $scope.setResponse = function (response) {
+        console.info('Response available');
         $scope.response = response;
     };
     $scope.setWidgetId = function (widgetId) {
+        console.info('Created widget ID: %s', widgetId);
         $scope.widgetId = widgetId;
     };
     $scope.cbExpiration = function () {
+        console.info('Captcha expired. Resetting response object');
         vcRecaptchaService.reload($scope.widgetId);
         $scope.response = null;
     };

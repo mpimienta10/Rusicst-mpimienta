@@ -37,6 +37,7 @@
             }
             $scope.gobernaciones = output;
         }, function (error) {
+            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición";
         });
     }
@@ -73,6 +74,7 @@
 
     //=============== Funcion VER =========================================
     $scope.ver = function (fila) {
+        debugger
         //var usuario = '';
         //var departamento = '';
         //var idDepartamento = parseInt($scope.registro.idDepartamento);
@@ -110,6 +112,7 @@
 
         var servCall = APIService.saveSubscriber($scope.registro, url);
         servCall.then(function (respuesta) {
+            debugger;
             if (respuesta.data.length > 0) {
                 var idUsuario = '';
                 if ($scope.registro.idMunicipio == undefined || $scope.registro.idMunicipio == '') {

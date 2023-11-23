@@ -464,6 +464,7 @@ app.controller('ModalEditarTableroController', ['$scope', 'APIService', '$filter
         $scope.tablero.AudUserName = authService.authentication.userName;
         $scope.tablero.AddIdent = authService.authentication.isAddIdent;
         $scope.tablero.UserNameAddIdent = authService.authentication.userNameAddIdent;
+        debugger;
         var url = '/api/TableroPat/ModificarNivelTablero/';
         var servCall = APIService.saveSubscriber($scope.tablero, url);
         servCall.then(function (response) {
