@@ -326,7 +326,7 @@
         errorMessages.delete = 'Se generó un error en la petición, no se eliminaron los datos';
         errorMessages.extension = 'Tipo de archivo no permitido';
         errorMessages.exception = 'Se ha producido una Excepción. Por favor intente nuevamente. Si la inconsistencia persiste por favor comuniquese con el administrador del RUSICST.'
-        errorMessages.passInvalid = 'La contraseña debe contener 6 digitos, contener una letra y un número';
+        errorMessages.passInvalid = 'La contraseña debe contener 8 digitos, contener mayúsculas, minúsculas un número y caracteres especiales';
 
         return errorMessages;
     }
@@ -357,12 +357,10 @@
     //------------Obtener el Menú De Exportación Personalizado------------------
     this.getMenuGridCustom = function (gridApi, isExporterPDF) {
         var filename = $(".titulo").text();
-        // debugger;
         gridMenuCustomItems = [
             {
                 icon: 'icono-exportacion pdf', title: 'PDF Todos',
                 action: function ($event) {
-                    debugger;
                     gridApi.exporter.pdfExport(uiGridExporterConstants.ALL, uiGridExporterConstants.ALL);
                 },
                 order: 110
@@ -474,7 +472,6 @@
 
     //-------------Exportat PDF para columnas muy anchas-------------------------
     this.exportPdfColumnLarge = function (col, value) {
-        // debugger
         var separador = "\n", i = 1;
         var numLetras = Math.floor(col.drawnWidth / 8);
         while (value.charAt(i * numLetras + i - 1)) {
@@ -739,7 +736,6 @@
 
     this.getDatosUsuarioAutenticado = function () {
         var respuesta = function () {
-            debugger
             var deferred = $q.defer();
             var autenticacion = authService.authentication;
             var url = '/api/Usuarios/Usuarios/BuscarXUsuario';
@@ -747,7 +743,6 @@
             var datosUsuario = {};
             var servCall = APIService.saveSubscriber(registro, url);
             servCall.then(function (response) {
-                debugger;
                 if (response.data[0]) {
                     datosUsuario = response.data[0];
                 }

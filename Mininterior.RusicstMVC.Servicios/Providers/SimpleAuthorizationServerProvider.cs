@@ -23,6 +23,7 @@ namespace Mininterior.RusicstMVC.Servicios.Providers
     using System.Threading.Tasks;
     using Entidades;
     using Aplicacion;
+    using System;
 
     /// <summary>
     /// Clase SimpleAuthorizationServerProvider.
@@ -78,6 +79,8 @@ namespace Mininterior.RusicstMVC.Servicios.Providers
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
 
+            bool pideCambio90Dias = false;
+
             using (AuthRepository _repo = new AuthRepository())
             {
                 //// Se realiza el ajuste al pass porque cuando va el caracter especial "+" el sistema lo interpreta como un espacio
@@ -88,6 +91,7 @@ namespace Mininterior.RusicstMVC.Servicios.Providers
                     //// Valida que el usuario que se intenta autenticar esté aprobado
                     using (EntitiesRusicst BD = new EntitiesRusicst())
                     {
+
                         List<C_Usuario_Result> ListaUsuarios = BD.C_Usuario(null, null, null, null, null, user.UserName, null).ToList();
 
                         if (ListaUsuarios.Count() > 0)
@@ -103,13 +107,20 @@ namespace Mininterior.RusicstMVC.Servicios.Providers
                     context.SetError("invalid_grant", "The user name or password is incorrect.");
                     return;
                 }
+                //Valida que la contraseña fue asignada o cambiada en los ultimos 90 dias 
+                if (await _repo.EsMayor90Dias(user.Id))
+                {
+                    pideCambio90Dias = true;
+                }
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
+
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             identity.AddClaim(new Claim(ClaimTypes.Role, "user"));
             identity.AddClaim(new Claim("sub", context.UserName));
+            identity.AddClaim(new Claim("90", pideCambio90Dias.ToString()));
 
             var props = new AuthenticationProperties(new Dictionary<string, string>
                 {
@@ -118,6 +129,9 @@ namespace Mininterior.RusicstMVC.Servicios.Providers
                     },
                     {
                         "userName", context.UserName
+                    },
+                    {
+                        "90",pideCambio90Dias.ToString()
                     }
                 });
 

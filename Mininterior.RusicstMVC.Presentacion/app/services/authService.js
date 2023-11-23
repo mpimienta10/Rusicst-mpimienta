@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', '$location', 'APIService', 'PermPermissionStore', '$state', function ($http, $q, localStorageService, ngSettings, $location, APIService, PermPermissionStore, $state) {
+app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', '$location', 'APIService', 'PermPermissionStore', '$state', '$uibModal', function ($http, $q, localStorageService, ngSettings, $location, APIService, PermPermissionStore, $state, $uibModal) {
     var serviceBase = ngSettings.apiServiceBaseUri;
     var authServiceFactory = {};
     var self = this;
@@ -31,14 +31,20 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
                 localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
             }
             else {
-                localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
+                localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false, validDays: response.data["90"] });
             }
 
             _authentication.isAuth = true;
             _authentication.userName = loginData.userName;
             _authentication.useRefreshTokens = loginData.useRefreshTokens;
-
             deferred.resolve(response);
+            if (response.data["90"].toUpperCase() == "TRUE") {
+
+                abrirModal(response.data, true);
+                
+
+
+            }
 
         }, function (err, status) {
             var count = parseInt(localStorageService.get("loginIntents")) || 0;
@@ -66,6 +72,52 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
 
         return deferred.promise;
     };
+
+    function abrirModal(response, isHidden) {
+        getDatos();
+        function getDatos() {
+            var registro = {};
+
+            registro.UserName = _authentication.userName;
+
+            registro.AudUserName = _authentication.userName;
+            registro.AddIdent = _authentication.isAddIdent;
+            registro.UserNameAddIdent = _authentication.userNameAddIdent;
+
+            var url = '/api/Usuarios/Usuarios/BuscarXUsuario';
+            var servCall = APIService.saveSubscriber(registro, url);
+            servCall.then(function (datos) {
+               var newData = datos.data[0];
+                abrirModalIntern(newData, isHidden);
+            }, function (error) {
+            });
+        };
+
+
+    };
+
+    var abrirModalIntern = function abrirModalIntern(entity, isHidden) {
+        var modalInstance = $uibModal.open({
+            templateUrl: 'app/views/usuarios/modals/NuevoEditarUsuarios.html',
+            controller: 'ModalNuevoEditarUsuarioController',
+            backdrop: 'static', keyboard: false,
+            size: 'lg',
+            resolve: {
+                entity: function () {
+                    return entity;
+                },
+                isHidden: function () {
+                    return isHidden;
+                }
+            }
+        });
+        modalInstance.result.then(
+            function () {
+                var mensaje = "Los datos de contacto de " + entity.Nombres + " han sido actualizados satisfactoriamente";
+                openRespuesta(mensaje);
+            }
+        );
+    }
 
     var _loginAD = function (response) {
         var deferred = $q.defer();

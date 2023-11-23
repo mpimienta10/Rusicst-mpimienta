@@ -8474,5 +8474,19 @@ namespace Mininterior.RusicstMVC.Entidades
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<int>($"exec C_ObtenerIdTipoUsuario'{nombreTipoUsuario}'").AsQueryable().ToList();
         }
+
+        public virtual ObjectResult<C_AccionesResultado> I_CreatePassword (string pswrd, string UserId)
+        {
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<C_AccionesResultado>($"exec I_CreatePassword'{pswrd}','{UserId}' ");
+        }
+
+        public virtual List<Contrasena> C_ConsultarContrasenaAnterior(string pswrd, string UserId)
+        {
+            if(pswrd is null)
+                return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<Contrasena>($"exec C_ConsultarContrasenaAnterior'{UserId}' ").AsQueryable().ToList();
+            else
+               return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<Contrasena>($"exec C_ConsultarContrasenaAnterior'{UserId}','{pswrd}' ").AsQueryable().ToList();
+        }
     }
 }

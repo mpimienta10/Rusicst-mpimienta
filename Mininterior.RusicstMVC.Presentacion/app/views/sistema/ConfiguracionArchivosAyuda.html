@@ -31,12 +31,9 @@
                             </div>
                             <div class="col-sm-12"><span>{{progressPercentage}}</span></div>
                             <div class="col-sm-12"><label class="text-danger">Tamaño Máximo 25MB</label></div>
-                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.file.$error.required">
-                                {{errorMessages.fileRequired}} <span ng-show="submitted && errorFile.$errorMessages.maxSize">{{errorMessages.maxSize}}</span>
-                            </span>
-                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && extension">
-                                {{errorMessages.extension}}
-                            </span>
+                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && myForm.file.$error.required">{{errorMessages.fileRequired}}</span>
+                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && errorFile.$errorMessages.maxSize">Debe seleccionar un archivo menor o igual a 25 MB</span>
+                            <span class="col-sm-12 text-danger text-center" ng-show="submitted && extension">{{errorMessages.extension}}</span>
                         </div>
                         <button type="button" class="btnNew" ng-click="submitted=true;agregar()"><span class="fa fa-plus-square"></span> Agregar</button>
                     </div>

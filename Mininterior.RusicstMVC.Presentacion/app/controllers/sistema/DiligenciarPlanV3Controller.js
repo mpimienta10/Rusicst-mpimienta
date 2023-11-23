@@ -72,7 +72,6 @@
 
     //========================VALIDAR ARCHIVO ADJUNTO===================================
     $scope.validarArchivo = function (file) {
-        debugger;
         var respuestaValidarArchivo = true;
         $scope.datos.deleteFile = false;
         //$scope.fileLocation = file.name;
@@ -615,7 +614,6 @@
         });
         modalInstance.result.then(
             function (resultado) {
-                debugger;
                 if ($scope.isCerrando && resultado) {
                     $scope.fileLocation = '';
                     $scope.fileIsVacio = true;

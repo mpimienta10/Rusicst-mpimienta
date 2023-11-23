@@ -22,7 +22,9 @@
 
             <ul class="nav navbar-nav navbar-right" style="background-color: inherit;">
                 <li><a href="#" class="name user-actv icono-texto-usuario"><i class="fa fa-user-circle"></i><span> {{autenticacion.userName.toUpperCase()}}</span></a></li>
-                <li ng-show="autenticado && permisos.subrecurso_14" ng-controller="MiCuentaController"><a href="" ng-click="abrirModal()"><i class="fa fa-key"></i><span> MI CUENTA</span></a></li>
+                <li ng-show="autenticado && permisos.subrecurso_14" ng-controller="MiCuentaController">
+                    <a href="" ng-click="abrirModal()"><i class="fa fa-key"></i><span> MI CUENTA</span></a>
+                </li>
                 <!--<li><a href="#" class="chat"><i class="fa fa-weixin"></i><span> CHAT</span></a></li>-->
                 <li><a ui-sref="Index.Ayuda" class="help"><i class="fa fa-question-circle-o"></i><span> AYUDA</span></a></li>
                 <li><a href="#" ng-click="salir()" class="out"><i class="fa fa-sign-out"></i><span> SALIR</span></a></li>

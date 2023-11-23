@@ -570,7 +570,6 @@
 
     //================Funciones de los Checkbox====================================
     $scope.checkboxClick = function (index, $event, array , nivel, item) {
-        debugger;
         $event.stopPropagation();
            //Se selecciona el array
         var label = item.label;
