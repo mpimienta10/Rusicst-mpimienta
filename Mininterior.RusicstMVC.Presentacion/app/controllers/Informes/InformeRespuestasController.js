@@ -199,7 +199,6 @@
     $scope.gridOptions = {
         columnDefs: [],
         exporterFieldCallback: function (grid, row, col, value) {
-            // debugger;
             angular.forEach($scope.colPdf, function (fila) {
                 if (col.colDef.displayName === fila.columna) fila.col = col;
             });
@@ -214,7 +213,6 @@
             gridApi.grid.options.exporterPdfTableHeaderStyle = { fontSize: 8, bold: true, color: 'white', fillColor: '#63002D', alignment: 'center' };
             gridApi.grid.options.exporterPdfDefaultStyle = { fontSize: 7 };
             gridApi.grid.options.exporterPdfCustomFormatter = function (docDefinition) {
-                debugger
 
                 var datosPDF = docDefinition.content[0].table.body;
                 UtilsService.personalizarExportPDF(datosPDF, $scope.colPdf)

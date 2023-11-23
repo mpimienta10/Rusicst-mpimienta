@@ -101,7 +101,6 @@
             $topScrollBar.scrollLeft($self.scrollLeft());
 
         }
-        debugger
         return this.each(function () {
 
             var $self = $(this);

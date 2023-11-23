@@ -59,7 +59,6 @@
 
     //========================VALIDAR ARCHIVO ADJUNTO===================================
     $scope.validarArchivo = function (file) {
-        debugger;
         var respuestaValidarArchivo = true;
         //$scope.fileLocation = file.name;
         var indexUltimoPunto = file.name.lastIndexOf(".");
@@ -391,7 +390,6 @@
         });
         modalInstance.result.then(
             function (resultado) {
-                debugger;
                 if ($scope.isCerrando && resultado) {
                     $scope.fileLocation = '';
                     $scope.fileIsVacio = true;
