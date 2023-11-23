@@ -29,15 +29,16 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
         $http.post(serviceBase + '/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
             if (loginData.useRefreshTokens) {
                 localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
+                console.log(response.data);
             }
             else {
+                console.log(response.data);
                 localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false });
             }
 
             _authentication.isAuth = true;
             _authentication.userName = loginData.userName;
             _authentication.useRefreshTokens = loginData.useRefreshTokens;
-
             deferred.resolve(response);
 
         }, function (err, status) {

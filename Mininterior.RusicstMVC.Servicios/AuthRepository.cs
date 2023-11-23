@@ -28,6 +28,7 @@ namespace Mininterior.RusicstMVC.Servicios
     using System.Linq;
     using System.Threading.Tasks;
     using Mininterior.RusicstMVC.Servicios.Entities.DTO;
+    using Mininterior.RusicstMVC.Entities;
 
     /// <summary>
     /// Class AuthRepository.
@@ -88,6 +89,10 @@ namespace Mininterior.RusicstMVC.Servicios
             //// Si existe, actualiza el usuario con los nuevos datos
             if (null != user)
             {
+                //Validacion que la contraseña no haya sido utulizado en los ultimos 5 cambios o asignaciones
+                if (await this.ConsultarContrasenaAnterior(user.Id, user.PasswordHash))
+                    throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
+
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     //// Obtiene todos los que estan aprobados, los inactiva y les coloca el estado retirado
@@ -105,6 +110,7 @@ namespace Mininterior.RusicstMVC.Servicios
                 user.EmailConfirmed = true;
 
                 result = await _userManager.UpdateAsync(user);
+
             }
             else
             {
@@ -126,10 +132,55 @@ namespace Mininterior.RusicstMVC.Servicios
                         BD.U_UsuarioUpdate(Usuario.Id, user.Id, null, null, null, (int)EstadoSolicitud.Aprobada, Usuario.IdUsuarioTramite, user.UserName, Usuario.Nombres, Usuario.Cargo, Usuario.TelefonoFijo, Usuario.TelefonoFijoIndicativo, Usuario.TelefonoFijoExtension, Usuario.TelefonoCelular, Usuario.Email, Usuario.EmailAlternativo, true, true, null, true, Usuario.DocumentoSolicitud, Usuario.FechaSolicitud, Usuario.FechaNoRepudio, Usuario.FechaTramite, null, DateTime.Now, null, null, null);
                 }
             }
-
+            await PasswordHistory(user.Id, userModel.Password);
             return result;
         }
 
+        public async Task PasswordHistory(string userId, string pswrd)
+        {
+            using (EntitiesRusicst db = new EntitiesRusicst())
+            {
+                db.I_CreatePassword(_userManager.PasswordHasher.HashPassword(pswrd), userId);
+            }
+        }
+
+        public async Task<bool> ConsultarContrasenaAnterior(string userId, string pswrd)
+        {
+            using (EntitiesRusicst db = new EntitiesRusicst())
+            {
+                var result = db.C_ConsultarContrasenaAnterior(_userManager.PasswordHasher.HashPassword(pswrd), userId);
+
+                return result?.Count > 0;
+            }
+        }
+
+        public async Task<bool> EsMayor90Dias(string userId)
+        {
+            var contrasenias = new List<Contrasena>();
+            using (EntitiesRusicst db = new EntitiesRusicst())
+            {
+                contrasenias = db.C_ConsultarContrasenaAnterior(null, userId);
+            }
+
+            if (contrasenias is null && contrasenias.Count <= 1)
+            {
+                throw new Exception("Este usuario no tiene ninguna contraseña");
+            }
+
+            contrasenias = contrasenias.OrderByDescending(o => o.FechaCreacion).ToList();
+
+            var hoy = DateTime.UtcNow.AddHours(-5);
+
+            var fechaUltimaActualizacion = contrasenias.FirstOrDefault().FechaCreacion;
+
+            TimeSpan Diff_dates = hoy.Subtract(fechaUltimaActualizacion);
+
+            if (Diff_dates.Days >= 90)
+                return true;
+
+            return false;
+
+        }
 
         /// <summary>
         /// Get all user actives
@@ -150,10 +201,10 @@ namespace Mininterior.RusicstMVC.Servicios
             {
                 ActiveUserVIvanto user = new ActiveUserVIvanto
                 {
-                    activo=item.Activo,
-                    Email=item.Email,
-                    Nombres=item.Nombres,
-                    role=item.Cargo
+                    activo = item.Activo,
+                    Email = item.Email,
+                    Nombres = item.Nombres,
+                    role = item.Cargo
                 };
                 result.Add(user);
             }
@@ -245,11 +296,14 @@ namespace Mininterior.RusicstMVC.Servicios
             if (null != user)
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
+                if (this.ConsultarContrasenaAnterior(user.Id, user.PasswordHash).Result)
+                    throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
                 result = _userManager.Update(user);
             }
 
             if (result.Succeeded)
             {
+                PasswordHistory(user.Id, newPassword).GetAwaiter().GetResult();
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     //// Trae el usuario que esta realizando el cambio de contraseña
@@ -283,12 +337,15 @@ namespace Mininterior.RusicstMVC.Servicios
                 {
                     newPassword = newPassword.Replace("+", "=");
                     user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
+                    if (this.ConsultarContrasenaAnterior(user.Id, user.PasswordHash).Result)
+                        throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
                     result = await _userManager.UpdateAsync(user);
                 }
             }
 
             if (result.Succeeded)
             {
+                await PasswordHistory(user.Id, newPassword);
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     //// Trae el usuario que esta realizando el cambio de contraseña
