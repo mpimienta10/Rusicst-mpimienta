@@ -187,6 +187,9 @@
                     } else {
                         return null;
                     }
+                },
+                isHidden: function () {
+                    return false;
                 }
             }
         });

@@ -52,7 +52,11 @@ app.config(function ($stateProvider, $urlRouterProvider, uiGridConstants, $provi
             url: "/login",
             templateUrl: "/app/views/home/Login.html",
             //El controlador para el login, recuperar contraseña y contáctenos esta en el html.
-            authenticate: false
+            authenticate: false,
+            ncyBreadcrumb: {
+                label: 'Rusicts',
+                parent: 'home'
+            }
         })
         .state('home.registro', {
             url: "/registro",
