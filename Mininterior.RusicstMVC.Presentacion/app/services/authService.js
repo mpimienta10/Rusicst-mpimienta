@@ -29,10 +29,8 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
         $http.post(serviceBase + '/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
             if (loginData.useRefreshTokens) {
                 localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
-                console.log(response.data);
             }
             else {
-                console.log(response.data);
                 localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false, validDays: response.data["90"] });
             }
 
@@ -60,7 +58,6 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
         getDatos();
         function getDatos() {
             var registro = {};
-            console.log('_authentication', _authentication);
 
             registro.UserName = _authentication.userName;
 
@@ -71,11 +68,9 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
             var url = '/api/Usuarios/Usuarios/BuscarXUsuario';
             var servCall = APIService.saveSubscriber(registro, url);
             servCall.then(function (datos) {
-                console.log('datos', datos);
                var newData = datos.data[0];
                 abrirModalIntern(newData, isHidden);
             }, function (error) {
-                console.error("Se generó un error en la petición");
             });
         };
 

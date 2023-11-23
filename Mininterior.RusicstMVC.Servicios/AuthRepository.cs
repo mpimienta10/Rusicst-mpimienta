@@ -30,6 +30,7 @@ namespace Mininterior.RusicstMVC.Servicios
     using Mininterior.RusicstMVC.Servicios.Entities.DTO;
     using Mininterior.RusicstMVC.Entities;
     using Utilidades;
+    using System.Web.Http;
 
     /// <summary>
     /// Class AuthRepository.
@@ -297,8 +298,9 @@ namespace Mininterior.RusicstMVC.Servicios
             if (null != user)
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
-                if (this.ConsultarContrasenaAnterior(user.Id, password).Result)
+                if (this.ConsultarContrasenaAnterior(user.Id, newPassword).Result) {
                     throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
+                }
                 result = _userManager.Update(user);
             }
 
