@@ -41,6 +41,25 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
             deferred.resolve(response);
 
         }, function (err, status) {
+            var count = parseInt(localStorageService.get("loginIntents")) || 0;
+            localStorageService.set('loginIntents', count += 1);
+            if (count >= 3) {
+                localStorageService.remove('loginIntents');
+                $http.post(serviceBase + '/api/Usuarios/Usuarios/ChangeStatus', {
+                    AudUserName: loginData.userName,
+                    Activo: false
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }).then(function (response) {
+                    localStorageService.set(
+                        'authorizationData',
+                        { token: response.data.token.access_token, userName: response.data.token.userName, refreshToken: "", useRefreshTokens: false }
+                    );
+                })
+            }
+            console.log('se me metio ', localStorageService.get("loginIntents"));
             _logOutLogin();
             deferred.reject(err);
         });
