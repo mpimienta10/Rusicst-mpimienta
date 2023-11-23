@@ -70,7 +70,6 @@
 
     //========================VALIDAR ARCHIVO ADJUNTO===================================
     $scope.validarArchivo = function (file) {
-        debugger;
         var respuestaValidarArchivo = true;
         $scope.datos.deleteFile = false;
         //$scope.fileLocation = file.name;
@@ -106,7 +105,6 @@
             $scope.fileLocation = response;
             $scope.fileIsVacio = !$scope.fileLocation.length > 0;
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -124,7 +122,6 @@
         servCall.then(function (response) {
             $scope.listaAutoeva = response;
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -136,7 +133,6 @@
         servCall.then(function (response) {
             $scope.listaEstados = response;
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -170,7 +166,6 @@
             getDatos();
 
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -180,7 +175,6 @@
         servCall.then(function (response) {
             $scope.mensajeEnvioPlan = response;
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -190,7 +184,6 @@
         servCall.then(function (response) {
             $scope.activo = response;
         }, function (error) {
-            console.log(error);
         });
     };
 
@@ -226,14 +219,12 @@
                             subitem.acciones = response;
 
                         }, function (error) {
-                            console.log(error);
                         });
                     });
 
                     item.objetivos = response;
 
                 }, function (error) {
-                    console.log(error);
                 });
             });
 
@@ -244,9 +235,7 @@
 
             $scope.datos = response;
 
-            //console.log($scope.datos);
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -284,23 +273,18 @@
                             subitem.acciones = response;
 
                         }, function (error) {
-                            console.log(error);
                         });
                     });
 
                     item.objetivos = response;
 
                 }, function (error) {
-                    console.log(error);
                 });
             });
 
             $scope.datosPDF = response;
 
-            console.log("Datos PDF");
-            console.log($scope.datosPDF);
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });
@@ -325,7 +309,6 @@
             return false;
         }
 
-        //console.log($scope.datos);
 
         $scope.guardando = true;
 
@@ -369,8 +352,6 @@
         $scope.planUpload.IdUsuario = $scope.seguimiento.IdUsuario;
         $scope.planUpload.userName = $scope.seguimiento.Username;
 
-        //console.log("Seguimiento Plan:");
-        //console.log($scope.seguimiento);
 
         //Guardamos las respuestas primero
         var servCall = APIService.saveSubscriber($scope.seguimiento, $scope.url);
@@ -422,7 +403,6 @@
             getRutaPlan();
         }, function (error) {
             $scope.error = "Se generó un error en la petición, no se guardaron los datos";
-            console.log(error);
         });
     }
 
@@ -465,7 +445,6 @@
 
         }, function (error) {
             $scope.error = "Se generó un error en la petición, no se guardaron los datos";
-            console.log(error);
         });
     }
 
@@ -487,7 +466,6 @@
         });
         modalInstance.result.then(
             function (resultado) {
-                debugger;
                 if ($scope.isCerrando && resultado) {
                     $scope.fileLocation = '';
                     $scope.fileIsVacio = true;

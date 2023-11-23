@@ -49,10 +49,8 @@
 
             $scope.datos = response;
 
-            //console.log($scope.datos);
 
         }, function (error) {
-            console.log(error);
             $scope.cargoDatos = true;
             $scope.error = "Se generó un error en la petición";
         });

@@ -805,7 +805,6 @@ app.controller('SeguimientoMunicipioEdicionCtrl', ['$scope', 'APIService', '$htt
             function (datosResponse) {
                 $scope.mensajeWarningEdit = null;
                 $scope.mensajeOKEdit = null;
-                console.log(datosResponse);
                 if (datosResponse) {
                     $scope.programasAgregados1[index] = datosResponse;
                     $scope.mensajeOKEdit = "El Programa se actualizó correctamente";
@@ -834,7 +833,6 @@ app.controller('SeguimientoMunicipioEdicionCtrl', ['$scope', 'APIService', '$htt
             function (datosResponse) {
                 $scope.mensajeWarningEdit = null;
                 $scope.mensajeOKEdit = null;
-                console.log(datosResponse);
                 if (datosResponse) {
                     $scope.programasAgregados2[index] = datosResponse;
                     $scope.mensajeOKEdit = "El Programa se actualizó correctamente";
@@ -947,7 +945,6 @@ app.controller('SeguimientoMunicipioEdicionCtrl', ['$scope', 'APIService', '$htt
         }
     }
     $scope.validar = function () {
-        console.log($scope.registerForm.$error);
         return $scope.registerForm.$valid;
     };
     $scope.BorraMensaje = function () { // $scope que acciona el ng-kepress
@@ -973,7 +970,6 @@ app.controller('SeguimientoMunicipioEdicionCtrl', ['$scope', 'APIService', '$htt
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
 
@@ -1222,7 +1218,6 @@ app.controller('SeguimientoMunicipioEdicionRCCtrl', ['$scope', 'APIService', 'Ut
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.descargar = function (index) {
@@ -1367,7 +1362,6 @@ app.controller('SeguimientoMunicipioEdicionRRCtrl', ['$scope', 'APIService', 'Ut
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.descargar = function (index) {
@@ -1560,8 +1554,6 @@ app.controller('SeguimientoMunicipioAgregarODCtrl', ['$scope', 'APIService', 'Ut
 
             $scope.MedidasOD.push(medidaOD);
         });
-        console.log($scope.unidad);
-        console.log($scope.unidad.ID);
         $scope.seguimientoOD = {};
         $scope.seguimientoOD.IdUsuario = $scope.Usuario.Id;
         $scope.seguimientoOD.IdTablero = $scope.idTablero;
@@ -1636,14 +1628,12 @@ app.controller('SeguimientoMunicipioAgregarODCtrl', ['$scope', 'APIService', 'Ut
             var mensaje = { msn: 'Error: ' + resultado.data.ExceptionMessage, tipo: "alert alert-danger" };
         }, function (evt) {
             //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
     $scope.cancelar = function () {
         $uibModalInstance.dismiss('cancel');
     };
     $scope.validar = function () {
-        console.log($scope.editForm.$error);
         return $scope.editForm.$valid;
     };
     $scope.BorraMensaje = function () { // $scope que acciona el ng-kepress

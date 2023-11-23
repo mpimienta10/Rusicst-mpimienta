@@ -15,7 +15,6 @@
         servCall.then(function (response) {
             $scope.reportes = response;
         }, function (error) {
-            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición del combo de encuestas";
         });
     }

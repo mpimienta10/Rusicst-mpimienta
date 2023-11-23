@@ -39,7 +39,6 @@
             }
             $scope.gobernaciones = output;
         }, function (error) {
-            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición";
         });
     }
@@ -145,7 +144,6 @@
             gridApi.grid.options.exporterPdfDefaultStyle = { fontSize: 5 };
             gridApi.grid.options.exporterPdfTableStyle = { margin: [0, 0, 0, 0] };
             gridApi.grid.options.exporterPdfCustomFormatter = function (docDefinition) {
-                debugger
                 docDefinition.styles.headerStyle = { fontSize: 10, bold: true, alignment: 'center', color: '#63002D' };
                 docDefinition.styles.footerStyle = { fontSize: 8, bold: true, alignment: 'center', color: '#333333' };
                 docDefinition.content[0].table.widths = [50, 60, 40, 40, 40, 40, 20, 30, 50, 70, 45, 50, 70, 35, 35];

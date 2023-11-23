@@ -15,7 +15,6 @@
         servCall.then(function (response) {
             $scope.reportes = response;
         }, function (error) {
-            console.log('Se generó un error en la petición')
             $scope.error = "Se generó un error en la petición del combo de encuestas";
         });
     }
@@ -175,8 +174,6 @@
         var valido = true;
 
         //codigo banco + idencuesta
-        console.log($scope.filtro);
-        console.log(angular.isDefined($scope.filtro.idPreguntaAnterior));
         valido = ((angular.isDefined($scope.filtro.idEncuesta) && $scope.filtro.idEncuesta != null) || (angular.isDefined($scope.filtro.idPreguntaAnterior) && $scope.filtro.idPreguntaAnterior != null) || (angular.isDefined($scope.filtro.codigoPreguntaBanco) && $scope.filtro.codigoPreguntaBanco != ''));
         return valido;
 

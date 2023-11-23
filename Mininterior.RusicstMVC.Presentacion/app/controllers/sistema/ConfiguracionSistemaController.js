@@ -105,7 +105,6 @@
     $scope.agregarLinkGobierno = function (group) {
         var valido = true;
         var msg = '';
-        console.log('URL: ' + $scope.newItemUrl);
         if ($scope.newItemUrl == '' || $scope.newItemUrl == undefined)
         {
             msg = 'La URL ingresada no es válida';
@@ -410,7 +409,6 @@ app.controller('ModalModificarRSController', ['$scope', 'APIService', '$filter',
             UtilsService.abrirRespuesta(mensaje);
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             $scope.progressPercentage = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
         });
     };

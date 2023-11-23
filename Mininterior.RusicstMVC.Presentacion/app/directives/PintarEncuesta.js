@@ -35,7 +35,6 @@ function tipoElemento() {
         link: function (scope, element, attrs, controller, transcludeFn) {
 
             attrs.$observe('grilla', function () {
-                console.log(' type:', attrs.grilla);
                 var datos = JSON.parse(attrs.grilla);
                 var maxRow = getMax(datos, 'RowIndex') + 1;
                 var maxCol = getMax(datos, 'ColumnIndex') + 1;

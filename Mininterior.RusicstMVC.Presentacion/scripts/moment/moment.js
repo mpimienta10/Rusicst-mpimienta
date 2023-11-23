@@ -288,7 +288,6 @@ function compareArrays(array1, array2, dontConvert) {
 function warn(msg) {
     if (hooks.suppressDeprecationWarnings === false &&
             (typeof console !==  'undefined') && console.warn) {
-        console.warn('Deprecation warning: ' + msg);
     }
 }
 
@@ -2356,7 +2355,6 @@ function configFromStringAndFormat(config) {
     for (i = 0; i < tokens.length; i++) {
         token = tokens[i];
         parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
-        // console.log('token', token, 'parsedInput', parsedInput,
         //         'regex', getParseRegexForToken(token, config));
         if (parsedInput) {
             skipped = string.substr(0, string.indexOf(parsedInput));
