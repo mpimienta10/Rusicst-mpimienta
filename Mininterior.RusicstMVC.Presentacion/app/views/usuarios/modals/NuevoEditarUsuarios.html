@@ -6,7 +6,8 @@
         {{datosUsuario}}
         <div class="container-fluid">
             <div class="form-horizontal">
-                <div class="sombra panel panel-default">
+                <span class="text-danger" ng-show="isHidden">Cambia esa porquería</span>
+                <div class="sombra panel panel-default" ng-show="!isHidden">
                     <div class="panel-heading">Datos generales</div>
                     <div class="panel-body">
                         <div class="form-group-sm">
@@ -44,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="sombra panel panel-default">
+                <div class="sombra panel panel-default" ng-show="!isHidden">
                     <div class="panel-heading">Teléfono fijo</div>
                     <div class="panel-body">
                         <div class="form-group-sm">
@@ -69,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="sombra panel panel-default">
+                <div class="sombra panel panel-default" ng-show="!isHidden">
                     <div class="panel-heading">Otros medios de contacto</div>
                     <div class="panel-body">
                         <div class="form-group-sm">
@@ -134,6 +135,6 @@
             <label class="text-danger">{{error}}</label>
         </div>
         <button class="btnNew" type="button" ng-click="submitted=true;aceptar()">Guardar</button>
-        <button class="btn btn-default" type="button" ng-click="cancelar()">Cancelar</button>
+        <button class="btn btn-default" type="button" ng-click="cancelar()" ng-show="!isHidden">Cancelar</button>
     </div>
 </form>

@@ -35,6 +35,9 @@
             resolve: {
                 entity: function () {
                     return entity;
+                },
+                isHidden: function () {
+                    return false;
                 }
             }
         });
