@@ -29,6 +29,8 @@ namespace Mininterior.RusicstMVC.Servicios
     using System.Threading.Tasks;
     using Mininterior.RusicstMVC.Servicios.Entities.DTO;
     using Mininterior.RusicstMVC.Entities;
+    using Utilidades;
+    using System.Web.Http;
 
     /// <summary>
     /// Class AuthRepository.
@@ -90,7 +92,7 @@ namespace Mininterior.RusicstMVC.Servicios
             if (null != user)
             {
                 //Validacion que la contraseña no haya sido utulizado en los ultimos 5 cambios o asignaciones
-                if (await this.ConsultarContrasenaAnterior(user.Id, user.PasswordHash))
+                if (await this.ConsultarContrasenaAnterior(user.Id, userModel.Password))
                     throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
 
                 using (EntitiesRusicst BD = new EntitiesRusicst())
@@ -140,7 +142,7 @@ namespace Mininterior.RusicstMVC.Servicios
         {
             using (EntitiesRusicst db = new EntitiesRusicst())
             {
-                db.I_CreatePassword(_userManager.PasswordHasher.HashPassword(pswrd), userId);
+                db.I_CreatePassword(Base64.Base64Encode(pswrd), userId);
             }
         }
 
@@ -148,7 +150,7 @@ namespace Mininterior.RusicstMVC.Servicios
         {
             using (EntitiesRusicst db = new EntitiesRusicst())
             {
-                var result = db.C_ConsultarContrasenaAnterior(_userManager.PasswordHasher.HashPassword(pswrd), userId);
+                var result = db.C_ConsultarContrasenaAnterior(Base64.Base64Encode(pswrd), userId);
 
                 return result?.Count > 0;
             }
@@ -296,8 +298,9 @@ namespace Mininterior.RusicstMVC.Servicios
             if (null != user)
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
-                if (this.ConsultarContrasenaAnterior(user.Id, user.PasswordHash).Result)
+                if (this.ConsultarContrasenaAnterior(user.Id, newPassword).Result) {
                     throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
+                }
                 result = _userManager.Update(user);
             }
 
@@ -337,7 +340,7 @@ namespace Mininterior.RusicstMVC.Servicios
                 {
                     newPassword = newPassword.Replace("+", "=");
                     user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
-                    if (this.ConsultarContrasenaAnterior(user.Id, user.PasswordHash).Result)
+                    if (this.ConsultarContrasenaAnterior(user.Id, newPassword).Result)
                         throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
                     result = await _userManager.UpdateAsync(user);
                 }
