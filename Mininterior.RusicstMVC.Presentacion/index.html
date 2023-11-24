@@ -235,8 +235,12 @@
     <script>
 
         $(Document).ready(function () {
-            console.log("Document ready ok");
-            AddAlert();
+            var rest = localStorage.getItem('ls.authorizationData');
+            if (rest != null) {
+                AddAlert();
+            } else {
+                console.log("es nulo")
+            }
         });
 
         var mouseStop = null;
