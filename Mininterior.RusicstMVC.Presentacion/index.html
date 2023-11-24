@@ -24,8 +24,8 @@
         <ui-view></ui-view>
     </div>
 
-    <!--<div class="text-success">{{conexionApi}}</div>-->
 
+    <!--<div class="text-success">{{conexionApi}}</div>-->
     <!-- 3rd party libraries -->
     <!--jQuery y Bootstrap-->
 
@@ -232,6 +232,32 @@
     <script src="app/directives/CheckListDirective.js"></script>
     <script src="app/directives/CompileDirective.js"></script>
     <script src="app/directives/AnalisiRetroalimentacionDirective.js"></script>
+    <script>
+
+        $(window).on('load', function () {
+            AddAlert();
+        });
+
+        var bool = false;
+        var mouseStop = null;
+        var Time = 300000; //tiempo en milisegundos que espera para saefectuarse la funcion
+
+        function AddAlert() {
+            $(document).on('mousemove', function () {
+                clearTimeout(mouseStop);
+                mouseStop = setTimeout(LogOut, Time);
+            });
+        }
+
+        function LogOut() {
+            var rest = localStorage.getItem('ls.authorizationData');
+            if (rest != null) {
+                localStorage.removeItem('ls.authorizationData');
+                window.location.href = '#!/home/login';
+            }
+        }
+    </script>
 
 </body>
+
 </html>

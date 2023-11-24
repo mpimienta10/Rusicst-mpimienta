@@ -18,7 +18,6 @@ app.directive('validPwd', [function () {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
             ctrl.$parsers.unshift(function (viewValue) {
-                console.log(viewValue)
                 scope.pwdValidLength = (viewValue && viewValue.length >= 8 ? 'valid' : undefined); // Comprueba la longitud de la cadena.
                 scope.pwdHasLetterMay = (viewValue && /[A-Z]/.test(viewValue)) ? 'valid' : undefined; // Compruebe si la cadena contiene letras mayusculas.
                 scope.pwdHasLetterMin = (viewValue && /[a-z]/.test(viewValue)) ? 'valid' : undefined; // Compruebe si la cadena contiene letras minusculas.
