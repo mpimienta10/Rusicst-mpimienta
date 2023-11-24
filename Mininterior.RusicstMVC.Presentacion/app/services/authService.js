@@ -65,7 +65,6 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
                     );
                 })
             }
-            console.log('se me metio ', localStorageService.get("loginIntents"));
             _logOutLogin();
             deferred.reject(err);
         });
