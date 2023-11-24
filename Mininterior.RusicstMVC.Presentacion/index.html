@@ -242,30 +242,16 @@
         var mouseStop = null;
         var Time = 5000; //tiempo en milisegundos que espera para saefectuarse la funcion
 
-
-        function RemoveAlert() {
-            $("#add").show();
-            $("#del").hide();
-            $(document).off('mousemove');
-            clearTimeout(mouseStop); //agrego esto porque borra tambien el setTimeout y no ejecuta  Myfuncion.
-
-        }
-
         function AddAlert() {
-            $("#add").hide();
-            $("#del").show();
             $(document).on('mousemove', function () {
                 clearTimeout(mouseStop);
                 mouseStop = setTimeout(Myfunction, Time);
-
             });
         }
 
         function Myfunction() {
             alert("Dejo de mover el raton!!"); //aqui efectua la funcion cuando dejas de mover el raton
         }
-
-
     </script>
 
 </body>
