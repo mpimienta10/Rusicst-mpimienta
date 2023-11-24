@@ -234,27 +234,27 @@
     <script src="app/directives/AnalisiRetroalimentacionDirective.js"></script>
     <script>
 
-        $(Document).ready(function () {
-            var rest = localStorage.getItem('ls.authorizationData');
-            if (rest != null) {
-                AddAlert();
-            } else {
-                console.log("es nulo")
-            }
+        $(window).on('load', function () {
+            AddAlert();
         });
 
+        var bool = false;
         var mouseStop = null;
-        var Time = 5000; //tiempo en milisegundos que espera para saefectuarse la funcion
+        var Time = 300000; //tiempo en milisegundos que espera para saefectuarse la funcion
 
         function AddAlert() {
             $(document).on('mousemove', function () {
                 clearTimeout(mouseStop);
-                mouseStop = setTimeout(Myfunction, Time);
+                mouseStop = setTimeout(LogOut, Time);
             });
         }
 
-        function Myfunction() {
-            alert("Dejo de mover el raton!!"); //aqui efectua la funcion cuando dejas de mover el raton
+        function LogOut() {
+            var rest = localStorage.getItem('ls.authorizationData');
+            if (rest != null) {
+                localStorage.removeItem('ls.authorizationData');
+                window.location.href = '#!/home/login';
+            }
         }
     </script>
 
