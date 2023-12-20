@@ -58,7 +58,18 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
                     headers: {
                         'Content-Type': 'application/json',
                     }
-                }).then(function (response) {
+                    }).then(function (response) {
+                        console.log("response", response);
+                        if (response) {
+
+                            var mensaje = { msn: response.data.respuesta, tipo: "alert alert-danger" };
+                            //UtilsService.abrirRespuesta(mensaje);
+
+                            abrirRespuesta(mensaje);
+
+                        } 
+
+
                     localStorageService.set(
                         'authorizationData',
                         { token: response.data.token.access_token, userName: response.data.token.userName, refreshToken: "", useRefreshTokens: false }
@@ -71,6 +82,26 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
 
         return deferred.promise;
     };
+
+
+    function abrirRespuesta(mensaje) {
+        var modalInstance = $uibModal.open({
+            templateUrl: 'app/views/modals/Respuesta.html',
+            controller: 'ModalRespuestaController',
+            resolve: {
+                datos: function () {
+                    var enviar = mensaje;
+                    return enviar;
+                }
+            },
+            backdrop: 'static', keyboard: false
+        });
+        modalInstance.result.then(
+            function () {
+            });
+    }
+
+    
 
     function abrirModal(response, isHidden) {
         getDatos();
