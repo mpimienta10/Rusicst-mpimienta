@@ -36,11 +36,23 @@ app.config(function ($stateProvider, $urlRouterProvider, uiGridConstants, $provi
     // For any unmatched url, send to /populations
     $urlRouterProvider.otherwise(function ($injector) {
         var $state = $injector.get("$state");
-        $state.go('home.login');
+        $state.go('landing.page');
     });
 
     $stateProvider
         //*========== HOME ===================================
+        .state('landing', {
+            abstract: true,
+            url: '',
+            templateUrl: '/app/views/layouts/LayoutLanding.html',
+            controller: 'LayoutHomeController',
+            authenticate: false,
+        })
+        .state('landing.page', {
+            url: "/",
+            templateUrl: "/app/views/landing/index.html",
+            authenticate: false
+        })
         .state('home', {
             abstract: true,
             url: '/home',
