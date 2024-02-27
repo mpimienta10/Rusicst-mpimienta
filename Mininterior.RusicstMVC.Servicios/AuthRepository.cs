@@ -93,7 +93,7 @@ namespace Mininterior.RusicstMVC.Servicios
             {
                 //Validacion que la contraseña no haya sido utulizado en los ultimos 5 cambios o asignaciones
                 if (await this.ConsultarContrasenaAnterior(user.Id, userModel.Password))
-                    throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
+                    throw new Exception("Esta contraseña ya fue utilizada en los ultimos 5 registros, intente con otra");
 
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
@@ -341,7 +341,7 @@ namespace Mininterior.RusicstMVC.Servicios
                     newPassword = newPassword.Replace("+", "=");
                     user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
                     if (this.ConsultarContrasenaAnterior(user.Id, newPassword).Result)
-                        throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
+                        throw new Exception("Esta contraseña ya fue utilizada en los ultimos 5 registros, intente con otra");
                     result = await _userManager.UpdateAsync(user);
                 }
             }

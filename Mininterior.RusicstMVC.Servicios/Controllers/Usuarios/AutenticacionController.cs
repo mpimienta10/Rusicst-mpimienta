@@ -222,6 +222,9 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Usuarios
             catch (Exception ex)
             {
                 (new AuditExecuted(Category.Excepciones)).ActionExecutedException(model.UserName, string.Empty, Mininterior.RusicstMVC.Aplicacion.Excepciones.ManagerException.RetornarError(ex));
+                resultado.estado = (int)EstadoRespuesta.Excepcion;
+                resultado.respuesta = ex.Message;
+                return resultado;
             }
 
             return resultado;
