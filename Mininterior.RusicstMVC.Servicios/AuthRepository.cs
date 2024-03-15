@@ -75,6 +75,7 @@ namespace Mininterior.RusicstMVC.Servicios
         {
             IdentityResult result = new IdentityResult();
             bool nuevo = false;
+            string pswrd = null;
 
             //// Valida si el usuario existe
             IdentityUser user = await _userManager.FindByNameAsync(userModel.UserName);
@@ -91,8 +92,10 @@ namespace Mininterior.RusicstMVC.Servicios
             //// Si existe, actualiza el usuario con los nuevos datos
             if (null != user)
             {
+                user.PasswordHash = _userManager.PasswordHasher.HashPassword(userModel.Password);
+                pswrd = user.PasswordHash;
                 //Validacion que la contraseña no haya sido utulizado en los ultimos 5 cambios o asignaciones
-                if (await this.ConsultarContrasenaAnterior(user.Id, userModel.Password))
+                if (await this.ConsultarContrasenaAnterior(user.Id, pswrd))
                     throw new Exception("Esta contraseña ya fue utilizada en los ultimos 5 registros, intente con otra");
 
                 using (EntitiesRusicst BD = new EntitiesRusicst())
@@ -108,17 +111,16 @@ namespace Mininterior.RusicstMVC.Servicios
 
                 user.Email = userModel.Email;
                 user.PhoneNumber = userModel.Telefono;
-                user.PasswordHash = _userManager.PasswordHasher.HashPassword(userModel.Password);
                 user.EmailConfirmed = true;
-
                 result = await _userManager.UpdateAsync(user);
 
             }
             else
             {
                 //// Crea el nuevo usuario
-                user = new IdentityUser { Email = userModel.Email, PhoneNumber = userModel.Telefono, UserName = userModel.UserName };
-                result = await _userManager.CreateAsync(user, userModel.Password);
+                pswrd = _userManager.PasswordHasher.HashPassword(userModel.Password);
+                user = new IdentityUser { Email = userModel.Email, PhoneNumber = userModel.Telefono, UserName = userModel.UserName,PasswordHash = pswrd };
+                result = await _userManager.CreateAsync(user);
                 nuevo = true;
             }
 
@@ -134,7 +136,7 @@ namespace Mininterior.RusicstMVC.Servicios
                         BD.U_UsuarioUpdate(Usuario.Id, user.Id, null, null, null, (int)EstadoSolicitud.Aprobada, Usuario.IdUsuarioTramite, user.UserName, Usuario.Nombres, Usuario.Cargo, Usuario.TelefonoFijo, Usuario.TelefonoFijoIndicativo, Usuario.TelefonoFijoExtension, Usuario.TelefonoCelular, Usuario.Email, Usuario.EmailAlternativo, true, true, null, true, Usuario.DocumentoSolicitud, Usuario.FechaSolicitud, Usuario.FechaNoRepudio, Usuario.FechaTramite, null, DateTime.Now, null, null, null);
                 }
             }
-            await PasswordHistory(user.Id, userModel.Password);
+            await PasswordHistory(user.Id, pswrd);
             return result;
         }
 
@@ -285,6 +287,7 @@ namespace Mininterior.RusicstMVC.Servicios
         {
             IdentityResult result = new IdentityResult();
             IdentityUser user = new IdentityUser();
+            string pswrd = null;
 
             if (string.IsNullOrEmpty(password))
             {
@@ -298,15 +301,16 @@ namespace Mininterior.RusicstMVC.Servicios
             if (null != user)
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
-                if (this.ConsultarContrasenaAnterior(user.Id, newPassword).Result) {
+                if (this.ConsultarContrasenaAnterior(user.Id, user.PasswordHash).Result) {
                     throw new Exception("Esta contraseña fue utilizada en los ultimos 5 registros");
                 }
                 result = _userManager.Update(user);
+                pswrd = user.PasswordHash;
             }
 
             if (result.Succeeded)
             {
-                PasswordHistory(user.Id, newPassword).GetAwaiter().GetResult();
+                PasswordHistory(user.Id, pswrd).GetAwaiter().GetResult();
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     //// Trae el usuario que esta realizando el cambio de contraseña
@@ -331,6 +335,7 @@ namespace Mininterior.RusicstMVC.Servicios
         {
             IdentityResult result = new IdentityResult();
             IdentityUser user = new IdentityUser();
+            string pswrd = null;
 
             if (!string.IsNullOrEmpty(userName) && !string.IsNullOrEmpty(userName))
             {
@@ -340,7 +345,8 @@ namespace Mininterior.RusicstMVC.Servicios
                 {
                     newPassword = newPassword.Replace("+", "=");
                     user.PasswordHash = _userManager.PasswordHasher.HashPassword(newPassword);
-                    if (this.ConsultarContrasenaAnterior(user.Id, newPassword).Result)
+                    pswrd = user.PasswordHash;
+                    if (this.ConsultarContrasenaAnterior(user.Id, pswrd).Result)
                         throw new Exception("Esta contraseña ya fue utilizada en los ultimos 5 registros, intente con otra");
                     result = await _userManager.UpdateAsync(user);
                 }
@@ -348,7 +354,8 @@ namespace Mininterior.RusicstMVC.Servicios
 
             if (result.Succeeded)
             {
-                await PasswordHistory(user.Id, newPassword);
+                if(!string.IsNullOrEmpty(pswrd))
+                    await PasswordHistory(user.Id, pswrd);
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
                     //// Trae el usuario que esta realizando el cambio de contraseña
