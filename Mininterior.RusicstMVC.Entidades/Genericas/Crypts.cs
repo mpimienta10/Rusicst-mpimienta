@@ -10,5 +10,6 @@ namespace Mininterior.RusicstMVC.Entities
         public string Password { get; set; }
         public string UserId { get; set; }
         public DateTime FechaCreacion { get; set; }
+        public bool Estado { get; set; }
     }
 }
