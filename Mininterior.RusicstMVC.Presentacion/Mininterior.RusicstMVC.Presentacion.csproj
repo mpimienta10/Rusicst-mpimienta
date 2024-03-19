@@ -755,6 +755,80 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <None Include="content\landing\READ-ME.txt" />
+    <None Include="content\landing\LICENSE.txt" />
+    <Content Include="content\landing\css\bootstrap.min.css" />
+    <Content Include="content\landing\css\style.css" />
+    <Content Include="content\landing\js\main.js" />
+    <Content Include="content\landing\img\modulo10.jpg" />
+    <Content Include="content\landing\img\cursos.PNG" />
+    <Content Include="content\landing\img\Logo-Rusicst-2023.png" />
+    <Content Include="content\landing\img\colombia-potencia-vida-mininterior.png" />
+    <Content Include="content\landing\img\logo-victimas.png" />
+    <Content Include="content\landing\img\feature.jpg" />
+    <Content Include="content\landing\img\modulo9.jpg" />
+    <Content Include="content\landing\img\modulo8.jpg" />
+    <Content Include="content\landing\img\Fondo_Iconos_Home.jpg" />
+    <Content Include="content\landing\img\Landing 2.jpg" />
+    <Content Include="content\landing\img\Rusicst-3.jpg" />
+    <Content Include="content\landing\img\Rusicst-2.jpg" />
+    <Content Include="content\landing\img\Rusicst-1.jpg" />
+    <Content Include="content\landing\img\testimonial-4.jpg" />
+    <Content Include="content\landing\img\vendor-8.jpg" />
+    <Content Include="content\landing\img\user.jpg" />
+    <Content Include="content\landing\img\vendor-9.jpg" />
+    <Content Include="content\landing\img\Rusicst-4.jpg" />
+    <Content Include="content\landing\img\testimonial-1.jpg" />
+    <Content Include="content\landing\img\testimonial-3.jpg" />
+    <Content Include="content\landing\img\Landing-1.jpg" />
+    <Content Include="content\landing\img\testimonial-2.jpg" />
+    <Content Include="content\landing\img\vendor-7.jpg" />
+    <Content Include="content\landing\img\vendor-6.jpg" />
+    <None Include="content\landing\img\Landing-3.jpeg" />
+    <Content Include="content\landing\img\vendor-4.jpg" />
+    <Content Include="content\landing\img\vendor-5.jpg" />
+    <Content Include="content\landing\img\vendor-1.jpg" />
+    <Content Include="content\landing\img\carousel-1.jpg" />
+    <Content Include="content\landing\img\blog-1.jpg" />
+    <Content Include="content\landing\img\blog-3.jpg" />
+    <Content Include="content\landing\img\interior-potencia-vida.png" />
+    <Content Include="content\landing\img\vendor-2.jpg" />
+    <Content Include="content\landing\img\carousel-2.jpg" />
+    <Content Include="content\landing\img\blog-2.jpg" />
+    <Content Include="content\landing\img\vendor-3.jpg" />
+    <Content Include="content\landing\img\modulo5.jpg" />
+    <Content Include="content\landing\img\team-1.jpg" />
+    <Content Include="content\landing\img\modulo4.jpg" />
+    <Content Include="content\landing\img\modulo6.jpg" />
+    <Content Include="content\landing\img\team-3.jpg" />
+    <Content Include="content\landing\img\about.jpg" />
+    <Content Include="content\landing\img\team-2.jpg" />
+    <Content Include="content\landing\img\modulo7.jpg" />
+    <Content Include="content\landing\img\modulo3.jpg" />
+    <Content Include="content\landing\img\modulo2.jpg" />
+    <Content Include="content\landing\img\modulo1.jpg" />
+    <Content Include="content\landing\lib\easing\easing.js" />
+    <Content Include="content\landing\lib\easing\easing.min.js" />
+    <Content Include="content\landing\lib\animate\animate.min.css" />
+    <Content Include="content\landing\lib\animate\animate.css" />
+    <Content Include="content\landing\lib\waypoints\waypoints.min.js" />
+    <None Include="content\landing\lib\waypoints\links.php" />
+    <Content Include="content\landing\lib\wow\wow.js" />
+    <Content Include="content\landing\lib\wow\wow.min.js" />
+    <None Include="content\landing\lib\owlcarousel\LICENSE" />
+    <Content Include="content\landing\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="content\landing\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="content\landing\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="content\landing\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="content\landing\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="content\landing\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="content\landing\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="content\landing\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="content\landing\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="content\landing\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="content\landing\lib\counterup\counterup.min.js" />
+    <Content Include="app\views\landing\index.html" />
+    <Content Include="app\views\layouts\LayoutLanding.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
@@ -791,6 +865,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

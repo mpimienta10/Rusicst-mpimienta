@@ -26,7 +26,9 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Usuarios
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.ServiceModel.Channels;
     using System.Web.Http;
+    using System.Web.Http.Results;
 
     /// <summary>
     /// Class UsuariosController.
@@ -253,7 +255,9 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Usuarios
                     resultado = BD.U_UsuarioUpdate(usuarioTramite.Id, null, usuarioTramite.IdTipoUsuario, usuarioTramite.IdDepartamento, usuarioTramite.IdMunicipio, null,usuarioTramite.IdUsuarioTramite.Value, null, usuarioTramite.Nombres, usuarioTramite.Cargo,
                                                    usuarioTramite.TelefonoFijo, usuarioTramite.TelefonoFijoIndicativo, usuarioTramite.TelefonoFijoExtension, usuarioTramite.TelefonoCelular, usuarioTramite.Email, usuarioTramite.EmailAlternativo,
                                                    null, true, null, model.Activo, null, null, null, null, null, null, null, null, null).FirstOrDefault();
+                    resultado.respuesta = "Se ha bloqueado el usuario por superar el limite de intentos";
                 }
+                return resultado;
             }
             catch (Exception ex)
             {
