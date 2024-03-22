@@ -4,6 +4,7 @@
     $scope.GobernacionAlcaldias = [];
     $scope.alcaldias = [];
     $scope.cargoDatos = null;
+    $scope.seleccionarTodos = false;
 
     //ADMIN, ENLACE, ANALISTA, ALCALDIA, GOBERNACION
     $scope.Usuario = { idUsuario: $scope.autenticacion.idUsuario, idTipoUsuario: $scope.autenticacion.idTipoUsuario, usuario: $scope.autenticacion.userName, nombreTipoUsuario: '', idDepartamento: 0, idMunicipio: 0 };
@@ -29,6 +30,19 @@
     $scope.cargarComboMunicipios = function () {
         cargarMunicipios();
     }
+
+    $scope.seleccionarTodo = function () {
+        angular.forEach($scope.secciones, function (item) {
+            item.check = !$scope.seleccionarTodos;
+            angular.forEach(item.ListaSubsecciones, function (item2) {
+                item2.check = !$scope.seleccionarTodos;
+                angular.forEach(item2.ListaSubsecciones, function (item3) {
+                    item3.check = !$scope.seleccionarTodos;
+                });
+            });
+        });
+        $scope.seleccionarTodos = !$scope.seleccionarTodos;
+    };
 
     function getDatosUsuario() {
         var datos = { UserName: $scope.autenticacion.userName };

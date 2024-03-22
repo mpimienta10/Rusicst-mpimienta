@@ -20,17 +20,27 @@
                         <div class="form-group" ng-show="secciones.length>0">
                             <div class="col-sm-12 col-sm-offset-1">
                                 <label class="col-sm-3 control-label-left-10" for="grupo">Secciones:</label>
+                                <label class="control-label-left-10 col-sm-11">
+                                    <input type="checkbox" ng-click="seleccionarTodo()" class="col-sm-1" />
+                                    Seleccionar Todo
+                                </label>
                                 <div class="col-sm-12" ng-repeat="item in secciones">
-                                    <input type="checkbox" ng-show="item.ListaSubsecciones==null || item.ListaSubsecciones.length==0" ng-model="item.check" ng-checked="item.check" class="col-sm-1" />
-                                    <label class="control-label-left-10 col-sm-11">{{item.Titulo}}</label>
+                                    <label class="control-label-left-10 col-sm-11">
+                                        <input type="checkbox" ng-show="item.ListaSubsecciones==null || item.ListaSubsecciones.length==0" ng-model="item.check" ng-checked="item.check" class="col-sm-1" />
+                                        {{item.Titulo}}
+                                    </label>
 
                                     <div class="col-sm-12" ng-repeat="item2 in item.ListaSubsecciones">
-                                        <input type="checkbox" ng-show="item2.ListaSubsecciones==null || item2.ListaSubsecciones.length==0" ng-model="item2.check" ng-checked="item2.check" class="col-sm-1" />
-                                        <label class="control-label-left-10 col-sm-11">{{item2.Titulo}}</label>
+                                        <label class="control-label-left-10 col-sm-11">
+                                            <input type="checkbox" ng-show="item2.ListaSubsecciones==null || item2.ListaSubsecciones.length==0" ng-model="item2.check" ng-checked="item2.check" class="col-sm-1" />
+                                            {{item2.Titulo}}
+                                        </label>
 
                                         <div class="col-sm-12" ng-repeat="item3 in item2.ListaSubsecciones">
-                                            <input type="checkbox" ng-click="agregarSeccion($index)" ng-model="item3.check" ng-checked="item3.check" class="col-sm-1" />
-                                            <label class="control-label-left-10 col-sm-11">{{item3.Titulo}}</label>
+                                            <label class="control-label-left-10 col-sm-11">
+                                                <input type="checkbox" ng-click="agregarSeccion($index)" ng-model="item3.check" ng-checked="item3.check" class="col-sm-1" />
+                                                {{item3.Titulo}}
+                                            </label>
                                         </div>
                                     </div>
                                 </div>

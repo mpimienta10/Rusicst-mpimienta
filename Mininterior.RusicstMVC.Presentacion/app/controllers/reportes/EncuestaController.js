@@ -922,9 +922,16 @@
                     for (var y = 0; y < $scope.grilla[x].length; y++) {
                         if ($scope.grilla[x][y].pregunta != null) {
 
+                            if ($scope.grilla[x][y].pregunta.esObligatoria && $scope.grilla[x][y].pregunta.valor == "") {
+                                var mensaje = { msn: "Debe completar las preguntas obligatorias.", tipo: "alert alert-warning" };
+                                $scope.completarPreguntas = true;
+                                openRespuestaGuardado(mensaje);
+                                abortar = true;
+                                break;
+                            }
+
                             if ($scope.grilla[x][y].pregunta.tipo != 'LABEL' && $scope.grilla[x][y].pregunta.tipo != 'NUEVAFILA' && $scope.grilla[x][y].pregunta.tipo != 'ARCHIVO') {
 
-                                //console.log($scope.grilla[x][y].pregunta);
                                 //console.log(typeof $scope.grilla[x][y].pregunta.valor);
 
                                 var pregunta = {
@@ -1094,6 +1101,7 @@ app.controller('ModalDescargarExcelController', ['$scope', 'APIService', '$filte
     $scope.idEtapa = entity.etapa;
     $scope.idEncuesta = entity.encuesta;
     $scope.idUsuario = entity.usuario;
+    $scope.completarPreguntas = false;
 
     $scope.cancelar = function () {
         $uibModalInstance.dismiss('cancel');
