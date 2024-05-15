@@ -34,20 +34,17 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngSettings', 
                 localStorageService.set('authorizationData', { token: response.data.access_token, userName: loginData.userName, refreshToken: "", useRefreshTokens: false, validDays: response.data["90"] });
             }
 
+            localStorageService.remove('loginIntents');
             _authentication.isAuth = true;
             _authentication.userName = loginData.userName;
             _authentication.useRefreshTokens = loginData.useRefreshTokens;
             deferred.resolve(response);
             if (response.data["90"].toUpperCase() == "TRUE") {
-
                 abrirModal(response.data, true);
-                
-
-
             }
 
         }, function (err, status) {
-            var count = parseInt(localStorageService.get("loginIntents")) || 0;
+            var count = localStorageService.get("loginIntents") != null ? parseInt(localStorageService.get("loginIntents")) : 0;
             localStorageService.set('loginIntents', count += 1);
             if (count >= 3) {
                 localStorageService.remove('loginIntents');

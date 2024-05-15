@@ -4,6 +4,7 @@ app.controller('RevisionRespuestasAGController', ['$scope', 'APIService', 'Utils
   $scope.GobernacionAlcaldias = [];
   $scope.gobernacionSeleccionada = null;
     $scope.registro = {};
+    $scope.registroAlcaldia = {};
     //---------------Cargar Combo municipios---------------------------
   //  function cargarComboMunicipios() {
   //      var url = '/api/General/ObtenerMunicipiosPorUsuario?audUserName=' + authService.authentication.userName + '&userNameAddIdent=' + authService.authentication.userNameAddIdent;
@@ -38,12 +39,12 @@ app.controller('RevisionRespuestasAGController', ['$scope', 'APIService', 'Utils
 
 		//cargar el combo de las alcaldias de una gobernacion seleccionada
 		$scope.cargarComboAlcaldias = function () {
-			$scope.alcaldias = [];
+            $scope.alcaldias = [];
 			if ($scope.gobernacionSeleccionada == 0) {
 				$scope.alerta = "Debe seleccionar una Gobernación o un Departamento.";
 			}
 			else {
-				angular.forEach($scope.GobernacionAlcaldias, function (alcaldia) {
+                angular.forEach($scope.GobernacionAlcaldias, function (alcaldia) {
 				if (alcaldia.IdDepartamento == $scope.registro.idDepartamento)
 					$scope.alcaldias.push(alcaldia);
 				});
@@ -163,13 +164,14 @@ app.controller('RevisionRespuestasAGController', ['$scope', 'APIService', 'Utils
     $scope.buscar = function () {
         $scope.error = null;
         $scope.alerta = null
-				$scope.cargoDatos = null;
-				$scope.gobernacionSeleccionada = null; //TODO:Eliminar
-				if (!$scope.alcaldiaSeleccionada && !$scope.gobernacionSeleccionada) {
-            $scope.alerta = "Debe seleccionar una alcaldía o una gobernación";
+		$scope.cargoDatos = null;
+        if (!$scope.registro.idDepartamento || !$scope.registroAlcaldia.idMunicipio) {
+            $scope.cargoDatos = true;
+            $scope.alerta = "Debe seleccionar una alcaldía y una gobernación";
         }
-		else {
-            var url = '/api/Reportes/RevisionRespuestasAG?idmunicipio=' + $scope.alcaldiaSeleccionada + '&iddepartamento=' + $scope.gobernacionSeleccionada;
+        else {
+            $scope.alerta = "";
+            var url = '/api/Reportes/RevisionRespuestasAG?idmunicipio=' + $scope.registroAlcaldia.idMunicipio + '&iddepartamento=' + $scope.registro.idDepartamento;
             getDatos();
             function getDatos() {
                 $scope.parametro = {};

@@ -253,6 +253,7 @@
             var rest = localStorage.getItem('ls.authorizationData');
             if (rest != null) {
                 localStorage.removeItem('ls.authorizationData');
+                localStorage.removeItem('ls.loginIntents');
                 window.location.href = '#!/home/login';
             }
         }
