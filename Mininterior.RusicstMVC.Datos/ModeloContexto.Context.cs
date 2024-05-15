@@ -41,9 +41,13 @@ namespace Mininterior.RusicstMVC.Entidades
 	  return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<C_DatosSistema_Result>("C_DatosSistema");
 	}
 
-	public virtual ObjectResult<C_ListaDeptosYMunicipios_Result> C_ListaDeptosYMunicipios()
+	public virtual ObjectResult<C_ListaDeptosYMunicipios_Result> C_ListaDeptosYMunicipios(string userName = null)
 	{
-	  return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<C_ListaDeptosYMunicipios_Result>("C_ListaDeptosYMunicipios");
+	  var nombreParameter = string.IsNullOrEmpty(userName) ?
+		  new ObjectParameter("userName", string.Empty) :
+		  new ObjectParameter("userName", userName);
+
+	  return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<C_ListaDeptosYMunicipios_Result>("C_ListaDeptosYMunicipios", nombreParameter);
 	}
 
 	public virtual ObjectResult<C_ListaGrupo_Result> C_ListaGrupo(Nullable<int> idEncuesta)
