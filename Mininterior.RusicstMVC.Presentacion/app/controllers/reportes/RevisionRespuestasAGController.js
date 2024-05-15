@@ -1,4 +1,4 @@
-﻿app.controller('RevisionRespuestasAGController', ['$scope', 'APIService', 'UtilsService', 'i18nService', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$log', '$uibModal', '$location', 'authService', function ($scope, APIService, UtilsService, i18nService, $http, uiGridConstants, $interval, uiGridGroupingConstants, $log, $uibModal, $location, authService) {
+app.controller('RevisionRespuestasAGController', ['$scope', 'APIService', 'UtilsService', 'i18nService', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$log', '$uibModal', '$location', 'authService', function ($scope, APIService, UtilsService, i18nService, $http, uiGridConstants, $interval, uiGridGroupingConstants, $log, $uibModal, $location, authService) {
     $scope.alcaldias = [];
     $scope.cargoDatos = true;
     $scope.registro = {};
@@ -6,7 +6,7 @@
     function cargarComboMunicipios() {
         var url = '/api/General/ObtenerMunicipiosPorUsuario?audUserName=' + authService.authentication.userName + '&userNameAddIdent=' + authService.authentication.userNameAddIdent;
         var servCall = APIService.getSubs(url);
-        servCall.then(function (datos) {
+	  servCall.then(function (datos) {
             $scope.alcaldias = datos;
         }, function (error) {
             console.log('Se generó un error en la petición')
@@ -124,12 +124,13 @@
     $scope.buscar = function () {
         $scope.error = null;
         $scope.alerta = null
-        $scope.cargoDatos = null;
-        if (!$scope.alcaldiaSeleccionada) {
-            $scope.alerta = "Debe seleccionar una alcaldía";
+				$scope.cargoDatos = null;
+				$scope.gobernacionSeleccionada = null; //TODO:Eliminar
+				if (!$scope.alcaldiaSeleccionada && !$scope.gobernacionSeleccionada) {
+            $scope.alerta = "Debe seleccionar una alcaldía o una gobernación";
         }
-        else {
-            var url = '/api/Reportes/RevisionRespuestasAG?idmunicipio=' + $scope.alcaldiaSeleccionada;
+		else {
+            var url = '/api/Reportes/RevisionRespuestasAG?idmunicipio=' + $scope.alcaldiaSeleccionada + '&iddepartamento=' + $scope.gobernacionSeleccionada;
             getDatos();
             function getDatos() {
                 $scope.parametro = {};
