@@ -1,263 +1,268 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html data-ng-app="APIModule">
 <head>
 
-    <meta name="keywords" content="Reporte,Unificado,Sistema,informacion,coordinacion,seguimiento,Territorial,Política,Pública,Victimas,Conflicto,Armado,Interno,rusicst,mininterior" />
-    <meta name="description" content="Reporte Unificado del Sistema de información, coordinación y Seguimiento Territorial de la Política Pública de Victimas del Conflicto Armado Interno" />
-    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
-    <title ncy-breadcrumb-last="{{ncyBreadcrumbLabel}}"></title>
+	<meta name="keywords" content="Reporte,Unificado,Sistema,informacion,coordinacion,seguimiento,Territorial,Política,Pública,Victimas,Conflicto,Armado,Interno,rusicst,mininterior" />
+	<meta name="description" content="Reporte Unificado del Sistema de información, coordinación y Seguimiento Territorial de la Política Pública de Victimas del Conflicto Armado Interno" />
+	<meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+	<title ncy-breadcrumb-last="{{ncyBreadcrumbLabel}}"></title>
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="content/css/boostrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="content/css/ui-grid/ui-grid.css" rel="stylesheet" />
-    <link href="content/css/loading-bar.css" rel="stylesheet" />
-    <link href="content/css/checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
-    <link href="content/css/ui-bootstrap/ui-bootstrap-csp.css" rel="stylesheet" />
-    <link href="content/css/multiple-select/multiple-select.css" rel="stylesheet" />
-    <link href="content/site.css" rel="stylesheet" />
-    <link href="content/encuesta.css" rel="stylesheet" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="content/css/boostrap/bootstrap.min.css" rel="stylesheet" />
+	<link href="content/css/ui-grid/ui-grid.css" rel="stylesheet" />
+	<link href="content/css/loading-bar.css" rel="stylesheet" />
+	<link href="content/css/checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet" />
+	<link href="content/css/ui-bootstrap/ui-bootstrap-csp.css" rel="stylesheet" />
+	<link href="content/css/multiple-select/multiple-select.css" rel="stylesheet" />
+	<link href="content/site.css" rel="stylesheet" />
+	<link href="content/encuesta.css" rel="stylesheet" />
+	<!-- ui-select CSS -->
+	<link href="/content/css/ui-select/ui-select-0.19.8.min.css" rel="stylesheet"   />
 
 </head>
 <body>
 
-    <div>
-        <ui-view></ui-view>
-    </div>
+	<div>
+		<ui-view></ui-view>
+	</div>
 
 
-    <!--<div class="text-success">{{conexionApi}}</div>-->
-    <!-- 3rd party libraries -->
-    <!--jQuery y Bootstrap-->
+	<!--<div class="text-success">{{conexionApi}}</div>-->
+	<!-- 3rd party libraries -->
+	<!--jQuery y Bootstrap-->
 
-    <script src="scripts/jquery-3.1.1.min.js"></script>
-    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>-->
-    <script src="scripts/bootstrap/bootstrap.min.js"></script>
+	<script src="scripts/jquery-3.1.1.min.js"></script>
+	<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>-->
+	<script src="scripts/bootstrap/bootstrap.min.js"></script>
 
-    <!--Angularjs-->
-    <script src="scripts/angular/angular.min.js"></script>
-    <script src="scripts/angular-ui-router/angular-ui-router.min.js"></script>
-    <script src="scripts/angular/angular-block-ui.min.js"></script>
+	<!--Angularjs-->
+	<script src="scripts/angular/angular.min.js"></script>
+	<script src="scripts/angular-ui-router/angular-ui-router.min.js"></script>
+	<script src="scripts/angular/angular-block-ui.min.js"></script>
 
-    <script src="scripts/angular/angular-local-storage.min.js"></script>
-    <script src="scripts/angular/angular-animate.min.js"></script>
-    <script src="scripts/angular/i18n/angular-locale_es-co.js"></script>
-    <script src="scripts/angular/angular-sanitize.min.js"></script>
-    <script src="scripts/loading-bar.min.js"></script>
+	<script src="scripts/angular/angular-local-storage.min.js"></script>
+	<script src="scripts/angular/angular-animate.min.js"></script>
+	<script src="scripts/angular/i18n/angular-locale_es-co.js"></script>
+	<script src="scripts/angular/angular-sanitize.min.js"></script>
+	<script src="scripts/loading-bar.min.js"></script>
 
-    <!--Angular--Multiselect-->
-    <script src="scripts/angular/multiple-select.min.js"></script>
-    <script src="scripts/angular/multiple-select.js"></script>
+	<!--Angular--Multiselect-->
+	<script src="scripts/angular/multiple-select.min.js"></script>
+	<script src="scripts/angular/multiple-select.js"></script>
 
-    <!--ui-bootstrap-->
-    <script src="scripts/angular-ui/ui-bootstrap.min.js"></script>
-    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+	<!--ui-bootstrap-->
+	<script src="scripts/angular-ui/ui-bootstrap.min.js"></script>
+	<script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
 
-    <!--ui-grid-->
-    <script src="scripts/ui-grid/csv.min.js"></script>
-    <script src="scripts/ui-grid/pdfmake.min.js"></script>
-    <script src="scripts/ui-grid/vfs_fonts.min.js"></script>
-    <script src="scripts/ui-grid/ui-grid.min.js"></script>
-    <script src="scripts/ui-grid/AutoScroll.js"></script>
+	<!--ui-grid-->
+	<script src="scripts/ui-grid/csv.min.js"></script>
+	<script src="scripts/ui-grid/pdfmake.min.js"></script>
+	<script src="scripts/ui-grid/vfs_fonts.min.js"></script>
+	<script src="scripts/ui-grid/ui-grid.min.js"></script>
+	<script src="scripts/ui-grid/AutoScroll.js"></script>
 
-    <!--file-upload-->
-    <script src="scripts/angular-file-upload/ng-file-upload-all.min.js"></script>
+	<!--file-upload-->
+	<script src="scripts/angular-file-upload/ng-file-upload-all.min.js"></script>
 
-    <!--angular recaptcha-->
-    <script src="scripts/angular-recaptcha/angular-recaptcha.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+	<!--angular recaptcha-->
+	<script src="scripts/angular-recaptcha/angular-recaptcha.min.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
 
-    <!--editor de texto-->
-    <script src="scripts/tinymce-for-angular/tinymce.min.js"></script>
-    <script src="scripts/tinymce-for-angular/ui-tinymce.min.js"></script>
+	<!--editor de texto-->
+	<script src="scripts/tinymce-for-angular/tinymce.min.js"></script>
+	<script src="scripts/tinymce-for-angular/ui-tinymce.min.js"></script>
 
-    <!--chart-->
-    <script src="scripts/angular-chart/Chart.min.js"></script>
-    <script src="scripts/angular-chart/angular-chart.min.js"></script>
+	<!--chart-->
+	<script src="scripts/angular-chart/Chart.min.js"></script>
+	<script src="scripts/angular-chart/angular-chart.min.js"></script>
 
-    <!--moment-->
-    <script src="scripts/moment/moment.min.js"></script>
-    <script src="scripts/moment/moment-with-locales.min.js"></script>
+	<!--moment-->
+	<script src="scripts/moment/moment.min.js"></script>
+	<script src="scripts/moment/moment-with-locales.min.js"></script>
 
-    <!--Roles y Permisos-->
-    <script src="scripts/angular-permission/angular-permission.min.js"></script>
-    <script src="scripts/angular-permission/angular-permission-ui.min.js"></script>
+	<!--Roles y Permisos-->
+	<script src="scripts/angular-permission/angular-permission.min.js"></script>
+	<script src="scripts/angular-permission/angular-permission-ui.min.js"></script>
 
-    <!--Máscara-->
-    <script src="scripts/ui-mask/mask.min.js"></script>
+	<!--Máscara-->
+	<script src="scripts/ui-mask/mask.min.js"></script>
 
-    <!--Breadcrumb-->
-    <script src="scripts/angular-breadcrumb/angular-breadcrumb.min.js"></script>
+	<!--Breadcrumb-->
+	<script src="scripts/angular-breadcrumb/angular-breadcrumb.min.js"></script>
 
-    <!--ExportarPDF-->
-    <script src="scripts/dist/html2canvas.js"></script>
+	<!--ExportarPDF-->
+	<script src="scripts/dist/html2canvas.js"></script>
 
-    <script src="app/directives/data-double-scroll-bar-horizontal.js"></script>
+	<!-- ui-select JS -->
+	<script src="/scripts/ui-select/ui-select-0.19.8.min.js"></script>
 
-    <!-- Load app main script -->
-    <script src="app/app.js?v=2"></script>
+	<script src="app/directives/data-double-scroll-bar-horizontal.js"></script>
 
-    <!-- Load services -->
-    <script src="app/services/authInterceptorService.js?v=2"></script>
-    <script src="app/services/authService.js?v=2"></script>
-    <script src="app/services/ordersService.js?v=2"></script>
-    <script src="app/services/tokensManagerService.js?v=2"></script>
-    <script src="app/services/APIService.js"></script>
-    <script src="app/services/UtilsServices.js"></script>
+	<!-- Load app main script -->
+	<script src="app/app.js?v=2"></script>
 
-    <!--Factories-->
-    <script src="app/factories/factories.js"></script>
-    <script src="app/factories/enviarDatos.js"></script>
+	<!-- Load services -->
+	<script src="app/services/authInterceptorService.js?v=2"></script>
+	<script src="app/services/authService.js?v=2"></script>
+	<script src="app/services/ordersService.js?v=2"></script>
+	<script src="app/services/tokensManagerService.js?v=2"></script>
+	<script src="app/services/APIService.js"></script>
+	<script src="app/services/UtilsServices.js"></script>
 
-    <!--Controllers Layout-->
-    <script src="app/controllers/layouts/LayoutIndexController.js"></script>
-    <script src="app/controllers/layouts/LayoutHomeController.js"></script>
-    <script src="app/controllers/layouts/_ParcialRedesSocialesController.js"></script>
-    <script src="app/controllers/layouts/_ParcialCreditosController.js"></script>
-    <script src="app/controllers/layouts/_ParcialCarruselController.js"></script>
+	<!--Factories-->
+	<script src="app/factories/factories.js"></script>
+	<script src="app/factories/enviarDatos.js"></script>
 
-    <!--Controllers modals transversales-->
-    <script src="app/controllers/modals/ModalRespuestaController.js"></script>
-    <script src="app/controllers/modals/ModalEliminarController.js"></script>
-    <script src="app/controllers/modals/ModalConfirmacionController.js"></script>
-    <script src="app/controllers/modals/ModalConfirmacionSalirPaginaController.js"></script>
-    <script src="app/controllers/modals/ModalConfirmacionConManejoDeRespuestaController.js"></script>
+	<!--Controllers Layout-->
+	<script src="app/controllers/layouts/LayoutIndexController.js"></script>
+	<script src="app/controllers/layouts/LayoutHomeController.js"></script>
+	<script src="app/controllers/layouts/_ParcialRedesSocialesController.js"></script>
+	<script src="app/controllers/layouts/_ParcialCreditosController.js"></script>
+	<script src="app/controllers/layouts/_ParcialCarruselController.js"></script>
 
-    <!--Controllers Home-->
-    <script src="app/controllers/home/ConfirmarSolicitudController.js"></script>
-    <script src="app/controllers/home/ContactanosController.js"></script>
-    <script src="app/controllers/home/EstablecerContrasenaController.js"></script>
-    <script src="app/controllers/home/HomeController.js"></script>
-    <script src="app/controllers/home/LoginController.js"></script>
-    <script src="app/controllers/home/RecuperarContrasenaController.js"></script>
-    <script src="app/controllers/home/RegistroController.js"></script>
-    <script src="app/controllers/home/MiCuentaController.js"></script>
+	<!--Controllers modals transversales-->
+	<script src="app/controllers/modals/ModalRespuestaController.js"></script>
+	<script src="app/controllers/modals/ModalEliminarController.js"></script>
+	<script src="app/controllers/modals/ModalConfirmacionController.js"></script>
+	<script src="app/controllers/modals/ModalConfirmacionSalirPaginaController.js"></script>
+	<script src="app/controllers/modals/ModalConfirmacionConManejoDeRespuestaController.js"></script>
 
-    <!--Controllers de usuario-->
-    <script src="app/controllers/usuarios/AdministrarTipoUsuarioController.js"></script>
-    <script src="app/controllers/usuarios/AdministrarUsuariosController.js"></script>
-    <script src="app/controllers/usuarios/EmailMasivosController.js"></script>
-    <script src="app/controllers/usuarios/GestionarSolicitudesController.js"></script>
-    <script src="app/controllers/usuarios/HistoricoUsuariosController.js"></script>
-    <script src="app/controllers/usuarios/GestionarRolesController.js"></script>
-    <script src="app/controllers/usuarios/GestionarPermisosController.js"></script>
-    <script src="app/controllers/usuarios/HabilitarReportesController.js"></script>
-    <script src="app/controllers/usuarios/ExtensionesAnterioresController.js"></script>
+	<!--Controllers Home-->
+	<script src="app/controllers/home/ConfirmarSolicitudController.js"></script>
+	<script src="app/controllers/home/ContactanosController.js"></script>
+	<script src="app/controllers/home/EstablecerContrasenaController.js"></script>
+	<script src="app/controllers/home/HomeController.js"></script>
+	<script src="app/controllers/home/LoginController.js"></script>
+	<script src="app/controllers/home/RecuperarContrasenaController.js"></script>
+	<script src="app/controllers/home/RegistroController.js"></script>
+	<script src="app/controllers/home/MiCuentaController.js"></script>
 
-    <!--Controllers de sistema-->
-    <script src="app/controllers/sistema/ConfiguracionArchivosAyudaController.js"></script>
-    <script src="app/controllers/sistema/ParametrosSistemaController.js"></script>
-    <script src="app/controllers/sistema/ConfiguracionHomeController.js"></script>
-    <script src="app/controllers/sistema/ConfiguracionSistemaController.js"></script>
-    <script src="app/controllers/sistema/GestionBancoPreguntasController.js"></script>
-    <script src="app/controllers/sistema/ClasificadoresBancoPregunta.js"></script>
-    <script src="app/controllers/sistema/GestionAuditoriaEventosController.js"></script>
-    <script src="app/controllers/sistema/GestionAuditoriaOldEventosController.js"></script>
-    <script src="app/controllers/sistema/GestionPlanesMejoramientoController.js"></script>
-    <script src="app/controllers/sistema/GestionErroresAplicacionController.js"></script>
-    <script src="app/controllers/sistema/DiligenciarPlanController.js"></script>
-    <script src="app/controllers/sistema/ConfiguracionDerechosPATController.js"></script>
-    <script src="app/controllers/sistema/GestionPlanesMejoramientoV3Controller.js"></script>
-    <script src="app/controllers/sistema/DiligenciarPlanV3Controller.js"></script>
-    <script src="app/controllers/sistema/SeguimientoPlanV3Controller.js"></script>
+	<!--Controllers de usuario-->
+	<script src="app/controllers/usuarios/AdministrarTipoUsuarioController.js"></script>
+	<script src="app/controllers/usuarios/AdministrarUsuariosController.js"></script>
+	<script src="app/controllers/usuarios/EmailMasivosController.js"></script>
+	<script src="app/controllers/usuarios/GestionarSolicitudesController.js"></script>
+	<script src="app/controllers/usuarios/HistoricoUsuariosController.js"></script>
+	<script src="app/controllers/usuarios/GestionarRolesController.js"></script>
+	<script src="app/controllers/usuarios/GestionarPermisosController.js"></script>
+	<script src="app/controllers/usuarios/HabilitarReportesController.js"></script>
+	<script src="app/controllers/usuarios/ExtensionesAnterioresController.js"></script>
 
-    <!--Controllers de Reportes-->
-    <script src="app/controllers/reportes/ConsultaEntidadesTerritorialesController.js"></script>
-    <script src="app/controllers/reportes/CompletarConsultarReportesController.js"></script>
-    <script src="app/controllers/reportes/DisenoReportesController.js"></script>
-    <script src="app/controllers/reportes/GlosarioReporteController.js"></script>
-    <script src="app/controllers/reportes/ModificarPreguntasController.js"></script>
-    <script src="app/controllers/reportes/RevisionRespuestasAGController.js"></script>
-    <script src="app/controllers/reportes/RespuestaEncuestaFile.js"></script>
+	<!--Controllers de sistema-->
+	<script src="app/controllers/sistema/ConfiguracionArchivosAyudaController.js"></script>
+	<script src="app/controllers/sistema/ParametrosSistemaController.js"></script>
+	<script src="app/controllers/sistema/ConfiguracionHomeController.js"></script>
+	<script src="app/controllers/sistema/ConfiguracionSistemaController.js"></script>
+	<script src="app/controllers/sistema/GestionBancoPreguntasController.js"></script>
+	<script src="app/controllers/sistema/ClasificadoresBancoPregunta.js"></script>
+	<script src="app/controllers/sistema/GestionAuditoriaEventosController.js"></script>
+	<script src="app/controllers/sistema/GestionAuditoriaOldEventosController.js"></script>
+	<script src="app/controllers/sistema/GestionPlanesMejoramientoController.js"></script>
+	<script src="app/controllers/sistema/GestionErroresAplicacionController.js"></script>
+	<script src="app/controllers/sistema/DiligenciarPlanController.js"></script>
+	<script src="app/controllers/sistema/ConfiguracionDerechosPATController.js"></script>
+	<script src="app/controllers/sistema/GestionPlanesMejoramientoV3Controller.js"></script>
+	<script src="app/controllers/sistema/DiligenciarPlanV3Controller.js"></script>
+	<script src="app/controllers/sistema/SeguimientoPlanV3Controller.js"></script>
 
-    <!--Controllers de Reportes: Encuestas-->
-    <script src="app/controllers/reportes/IndiceEncuestaController.js"></script>
-    <script src="app/controllers/reportes/EncuestaController.js"></script>
-    <script src="app/controllers/reportes/AutoevaluacionController.js"></script>
-    <script src="app/controllers/reportes/PrecargueRespuestas.js"></script>
-    <script src="app/controllers/reportes/PrecargueSeguimientoPATController.js"></script>
+	<!--Controllers de Reportes-->
+	<script src="app/controllers/reportes/ConsultaEntidadesTerritorialesController.js"></script>
+	<script src="app/controllers/reportes/CompletarConsultarReportesController.js"></script>
+	<script src="app/controllers/reportes/DisenoReportesController.js"></script>
+	<script src="app/controllers/reportes/GlosarioReporteController.js"></script>
+	<script src="app/controllers/reportes/ModificarPreguntasController.js"></script>
+	<script src="app/controllers/reportes/RevisionRespuestasAGController.js"></script>
+	<script src="app/controllers/reportes/RespuestaEncuestaFile.js"></script>
 
-    <!--Controllers de Informes-->
-    <script src="app/controllers/informes/AutoevaluacionController.js"></script>
-    <script src="app/controllers/informes/ConsolidadoDiligenciamientoController.js"></script>
-    <script src="app/controllers/informes/InformeRespuestasController.js"></script>
-    <script src="app/controllers/informes/OpcionesMenuController.js"></script>
-    <script src="app/controllers/informes/OpcionesRolController.js"></script>
-    <script src="app/controllers/informes/SalidaInformacionGobernacionController.js"></script>
-    <script src="app/controllers/informes/SalidaInformacionMunicipalController.js"></script>
-    <script src="app/controllers/informes/UsuarioReporteController.js"></script>
-    <script src="app/controllers/informes/UsuariosGuardaronAutoevaluacionController.js"></script>
-    <script src="app/controllers/informes/UsuariosGuardaronInformacionController.js"></script>
-    <script src="app/controllers/informes/UsuariosPasaronAutoevaluacionController.js"></script>
-    <script src="app/controllers/informes/UsuariosSistemaController.js"></script>
-    <script src="app/controllers/informes/UsuariosIniciarionSesionController.js"></script>
-    <script src="app/controllers/tableroPat/EnvioTableroController.js"></script>
-    <script src="app/controllers/informes/InformePrecargueRespuestasController.js"></script>
+	<!--Controllers de Reportes: Encuestas-->
+	<script src="app/controllers/reportes/IndiceEncuestaController.js"></script>
+	<script src="app/controllers/reportes/EncuestaController.js"></script>
+	<script src="app/controllers/reportes/AutoevaluacionController.js"></script>
+	<script src="app/controllers/reportes/PrecargueRespuestas.js"></script>
+	<script src="app/controllers/reportes/PrecargueSeguimientoPATController.js"></script>
 
-    <!--Controllers de Ayuda-->
-    <script src="app/controllers/ayuda/VerAyudaController.js"></script>
-    <script src="app/controllers/ayuda/BuscadorController.js"></script>
+	<!--Controllers de Informes-->
+	<script src="app/controllers/informes/AutoevaluacionController.js"></script>
+	<script src="app/controllers/informes/ConsolidadoDiligenciamientoController.js"></script>
+	<script src="app/controllers/informes/InformeRespuestasController.js"></script>
+	<script src="app/controllers/informes/OpcionesMenuController.js"></script>
+	<script src="app/controllers/informes/OpcionesRolController.js"></script>
+	<script src="app/controllers/informes/SalidaInformacionGobernacionController.js"></script>
+	<script src="app/controllers/informes/SalidaInformacionMunicipalController.js"></script>
+	<script src="app/controllers/informes/UsuarioReporteController.js"></script>
+	<script src="app/controllers/informes/UsuariosGuardaronAutoevaluacionController.js"></script>
+	<script src="app/controllers/informes/UsuariosGuardaronInformacionController.js"></script>
+	<script src="app/controllers/informes/UsuariosPasaronAutoevaluacionController.js"></script>
+	<script src="app/controllers/informes/UsuariosSistemaController.js"></script>
+	<script src="app/controllers/informes/UsuariosIniciarionSesionController.js"></script>
+	<script src="app/controllers/tableroPat/EnvioTableroController.js"></script>
+	<script src="app/controllers/informes/InformePrecargueRespuestasController.js"></script>
 
-    <!--Controllers de PAT-->
-    <script src="app/controllers/tableroPat/ListadoTableroMunicipiosController.js"></script>
-    <script src="app/controllers/tableroPat/GestionMunicipalController.js"></script>
-    <script src="app/controllers/tableroPat/ListadoTableroDepartamentosController.js"></script>
-    <script src="app/controllers/tableroPat/GestionDepartamentalController.js"></script>
-    <script src="app/controllers/tableroPat/PreguntasController.js"></script>
-    <script src="app/controllers/tableroPat/ConsultaDiligenciamientoEntidadesController.js"></script>
-    <script src="app/controllers/tableroPat/ListadoTableroSeguimientoMunicipiosController.js"></script>
-    <script src="app/controllers/tableroPat/SeguimientoMunicipioController.js"></script>
-    <script src="app/controllers/tableroPat/SeguimientoDepartamentoController.js"></script>
-    <script src="app/controllers/tableroPat/ConsultaSeguimientoController.js"></script>
-    <script src="app/controllers/tableroPat/EvaluacionConsolidadoController.js"></script>
-    <script src="app/controllers/tableroPat/EvaluacionController.js"></script>
-    <script src="app/controllers/tableroPat/TablerosController.js"></script>
-    <script src="app/controllers/tableroPat/AdministracionServiciosWebController.js"></script>
+	<!--Controllers de Ayuda-->
+	<script src="app/controllers/ayuda/VerAyudaController.js"></script>
+	<script src="app/controllers/ayuda/BuscadorController.js"></script>
 
-    <!--Controllers de Reportes-->
-    <script src="app/controllers/reAlimentacion/ReAlimentacionController.js"></script>
-    <script src="app/controllers/reAlimentacion/RetroConsultaController.js"></script>
-    <script src="app/controllers/tableroPat/ListadoTableroSeguimientoDepartamentosController.js"></script>
-    <script src="app/controllers/reAlimentacion/AdminRetroController.js"></script>
+	<!--Controllers de PAT-->
+	<script src="app/controllers/tableroPat/ListadoTableroMunicipiosController.js"></script>
+	<script src="app/controllers/tableroPat/GestionMunicipalController.js"></script>
+	<script src="app/controllers/tableroPat/ListadoTableroDepartamentosController.js"></script>
+	<script src="app/controllers/tableroPat/GestionDepartamentalController.js"></script>
+	<script src="app/controllers/tableroPat/PreguntasController.js"></script>
+	<script src="app/controllers/tableroPat/ConsultaDiligenciamientoEntidadesController.js"></script>
+	<script src="app/controllers/tableroPat/ListadoTableroSeguimientoMunicipiosController.js"></script>
+	<script src="app/controllers/tableroPat/SeguimientoMunicipioController.js"></script>
+	<script src="app/controllers/tableroPat/SeguimientoDepartamentoController.js"></script>
+	<script src="app/controllers/tableroPat/ConsultaSeguimientoController.js"></script>
+	<script src="app/controllers/tableroPat/EvaluacionConsolidadoController.js"></script>
+	<script src="app/controllers/tableroPat/EvaluacionController.js"></script>
+	<script src="app/controllers/tableroPat/TablerosController.js"></script>
+	<script src="app/controllers/tableroPat/AdministracionServiciosWebController.js"></script>
 
-    <!--Controllers de BI-->
-    <script src="app/controllers/BI/BIController.js"></script>
-    <script src="app/controllers/BI/GraficasController.js"></script>
+	<!--Controllers de Reportes-->
+	<script src="app/controllers/reAlimentacion/ReAlimentacionController.js"></script>
+	<script src="app/controllers/reAlimentacion/RetroConsultaController.js"></script>
+	<script src="app/controllers/tableroPat/ListadoTableroSeguimientoDepartamentosController.js"></script>
+	<script src="app/controllers/reAlimentacion/AdminRetroController.js"></script>
 
-    <!-- Load custom filters -->
-    <!-- Load custom directives -->
-    <script src="app/directives/CompararContrasenas.js"></script>
-    <script src="app/directives/PintarEncuesta.js"></script>
-    <script src="app/directives/CheckListDirective.js"></script>
-    <script src="app/directives/CompileDirective.js"></script>
-    <script src="app/directives/AnalisiRetroalimentacionDirective.js"></script>
-    <script>
+	<!--Controllers de BI-->
+	<script src="app/controllers/BI/BIController.js"></script>
+	<script src="app/controllers/BI/GraficasController.js"></script>
 
-        $(window).on('load', function () {
-            AddAlert();
-        });
+	<!-- Load custom filters -->
+	<!-- Load custom directives -->
+	<script src="app/directives/CompararContrasenas.js"></script>
+	<script src="app/directives/PintarEncuesta.js"></script>
+	<script src="app/directives/CheckListDirective.js"></script>
+	<script src="app/directives/CompileDirective.js"></script>
+	<script src="app/directives/AnalisiRetroalimentacionDirective.js"></script>
+	<script>
 
-        var bool = false;
-        var mouseStop = null;
-        var Time = 300000; //tiempo en milisegundos que espera para saefectuarse la funcion
+		$(window).on('load', function () {
+			AddAlert();
+		});
 
-        function AddAlert() {
-            $(document).on('mousemove', function () {
-                clearTimeout(mouseStop);
-                mouseStop = setTimeout(LogOut, Time);
-            });
-        }
+		var bool = false;
+		var mouseStop = null;
+		var Time = 300000; //tiempo en milisegundos que espera para saefectuarse la funcion
 
-        function LogOut() {
-            var rest = localStorage.getItem('ls.authorizationData');
-            if (rest != null) {
-                localStorage.removeItem('ls.authorizationData');
-                localStorage.removeItem('ls.loginIntents');
-                window.location.href = '#!/home/login';
-            }
-        }
-    </script>
+		function AddAlert() {
+			$(document).on('mousemove', function () {
+				clearTimeout(mouseStop);
+				mouseStop = setTimeout(LogOut, Time);
+			});
+		}
+
+		function LogOut() {
+			var rest = localStorage.getItem('ls.authorizationData');
+			if (rest != null) {
+				localStorage.removeItem('ls.authorizationData');
+				localStorage.removeItem('ls.loginIntents');
+				window.location.href = '#!/home/login';
+			}
+		}
+	</script>
 
 </body>
 

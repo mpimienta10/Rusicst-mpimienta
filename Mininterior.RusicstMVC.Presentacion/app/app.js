@@ -1,4 +1,4 @@
-﻿/// <reference path="views/tableroPat/TablerosEnviados.html" />
+/// <reference path="views/tableroPat/TablerosEnviados.html" />
 var app = angular.module('APIModule', [
     'ui.grid',
     'ui.grid.grouping',
@@ -26,7 +26,8 @@ var app = angular.module('APIModule', [
     'permission.ui',
     'multipleSelect',
     'checklist-model',
-    'ui.mask',
+		'ui.mask',
+		'ui.select',
     'ncy-angular-breadcrumb',
     'doubleScrollBars',
     'blockUI'
@@ -36,23 +37,11 @@ app.config(function ($stateProvider, $urlRouterProvider, uiGridConstants, $provi
     // For any unmatched url, send to /populations
     $urlRouterProvider.otherwise(function ($injector) {
         var $state = $injector.get("$state");
-        $state.go('landing.page');
+				$state.go('home.login');
     });
 
     $stateProvider
         //*========== HOME ===================================
-        .state('landing', {
-            abstract: true,
-            url: '',
-            templateUrl: '/app/views/layouts/LayoutLanding.html',
-            controller: 'LayoutHomeController',
-            authenticate: false,
-        })
-        .state('landing.page', {
-            url: "/",
-            templateUrl: "/app/views/landing/index.html",
-            authenticate: false
-        })
         .state('home', {
             abstract: true,
             url: '/home',
