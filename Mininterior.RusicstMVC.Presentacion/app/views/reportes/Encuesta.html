@@ -1,129 +1,158 @@
-﻿<form class="" role="form" name="myForm">
-    <br />
-    <div class="row"><h2 class="">{{registro.Titulo}}</h2></div>
-    <div class="row">
-        <div style="margin: 0 0%">
-            <table id="encuesta" class="rus-encuesta" style="padding-right: 20px" ng-if="!cargando">
-                <tbody>
-                    <tr ng-repeat="filas in grilla track by $index">
-                        <td ng-repeat="celda in filas track by $index" class="{{celda.class}}" colspan="{{celda.colspan}}" rowspan="{{celda.rowspan}}"
-                            ng-if="celda.mostrar || celda.mostrar2" id="{{celda.posicion}}">
-                            <!--<tipo-pregunta pregunta="celda.pregunta" ng-if="celda.pregunta"></tipo-pregunta>-->
-                            <div ng-if="celda.pregunta" id="{{celda.id}}">
-                                <div ng-switch on="celda.pregunta.tipo" ng-class="{'deshabilitado':  celda.pregunta.deshabilitar}">
-                                    <div ng-switch-when="TEXTO">
-                                        <input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="text" maxlength="100" ng-model="celda.pregunta.valor" 
-                                               ng-disabled="celda.pregunta.deshabilitar"  ng-blur="postcargado(celda)"/>
-                                    </div>
-                                    <div ng-switch-when="PARAGRAFO">
-                                        <textarea class="{{celda.pregunta.claseElemento}} full" type="text" ng-model="celda.pregunta.valor" ng-trim="false"
-                                                  ng-disabled="celda.pregunta.deshabilitar" />
-                                    </div>
-                                    <div ng-switch-when="NUMERO">
-                                        <input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="number" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar" 
-                                              ng-blur="postcargado(celda)"/>
-                                    </div>
-                                    <div ng-switch-when="MONEDA">
-                                        <input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="text" min="1" step="any" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar" 
-                                                ng-blur="postcargado(celda)"/>
-                                    </div>
-                                    <div ng-switch-when="DECIMAL">
-                                        <input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="number" step="0.01" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
-                                                ng-blur="postcargado(celda)">
-                                    </div>
-                                    <div ng-switch-when="PORCENTAJE">
-                                        <!--<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="text" ng-model="celda.pregunta.valor" ui-mask="% ?999.99" ui-mask-placeholder ui-mask-placeholder-char="0" ng-disabled="celda.pregunta.deshabilitar"
-                                                ng-blur="postcargado(celda)"/>-->
-                                        <div style="display:inline-block">%</div>
-                                        <input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="number" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
-                                               ng-blur="postcargado(celda)" style="display:inline-block; width:75%;"/>
-                                    </div>
-                                    <!--accept="'.docx,.doc,.xls,.xlsx,.ppt,.pptx,.pdf,.txt,.bmp,.jpg,.gif,.jpg,.jpeg,.tif,.tiff,.png'"
-                                     ng-pattern="'.docx,.doc,.xls,.xlsx,.ppt,.pptx,.pdf,.txt,.bmp,.jpg,.gif,.jpg,.jpeg,.tif,.tiff,.png'"-->
+<form class="" role="form" name="myForm">
+	<br />
+	<div class="row"><h2 class="">{{registro.Titulo}}</h2></div>
+	<div class="row">
+		<div style="margin: 0 0%">
+			<table id="encuesta" class="rus-encuesta" style="padding-right: 20px" ng-if="!cargando">
+				<tbody>
+					<tr ng-repeat="filas in grilla track by $index">
+						<td ng-repeat="celda in filas track by $index" class="{{celda.class}}" colspan="{{celda.colspan}}" rowspan="{{celda.rowspan}}"
+								ng-if="celda.mostrar || celda.mostrar2" id="{{celda.posicion}}">
+							<!--<tipo-pregunta pregunta="celda.pregunta" ng-if="celda.pregunta"></tipo-pregunta>-->
+							<div ng-if="celda.pregunta" id="{{celda.id}}">
+								<div ng-switch on="celda.pregunta.tipo" ng-class="{'deshabilitado':  celda.pregunta.deshabilitar}">
+									<div ng-switch-when="TEXTO">
+										<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="text" maxlength="100" ng-model="celda.pregunta.valor"
+													 ng-disabled="celda.pregunta.deshabilitar" ng-blur="postcargado(celda)" ng-required="true"
+													 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="PARAGRAFO">
+										<textarea class="{{celda.pregunta.claseElemento}} full" type="text" ng-model="celda.pregunta.valor" ng-trim="false"
+															ng-disabled="celda.pregunta.deshabilitar" ng-required="celda.pregunta.esObligatoria || false"
+															ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="NUMERO">
+										<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="number" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
+													 ng-blur="postcargado(celda)" ng-required="celda.pregunta.esObligatoria || false"
+													 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="MONEDA">
+										<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="text" min="1" step="any" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
+													 ng-blur="postcargado(celda)" ng-required="celda.pregunta.esObligatoria || false"
+													 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="DECIMAL">
+										<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="number" step="0.01" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
+													 ng-blur="postcargado(celda)" ng-required="celda.pregunta.esObligatoria || false"
+													 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="PORCENTAJE">
+										<!--<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="text" ng-model="celda.pregunta.valor" ui-mask="% ?999.99" ui-mask-placeholder ui-mask-placeholder-char="0" ng-disabled="celda.pregunta.deshabilitar"
+										ng-blur="postcargado(celda)"/>-->
+										<div style="display:inline-block">%</div>
+										<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="number" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
+													 ng-blur="postcargado(celda)" style="display:inline-block; width:75%;" ng-required="celda.pregunta.esObligatoria || false"
+													 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<!--accept="'.docx,.doc,.xls,.xlsx,.ppt,.pptx,.pdf,.txt,.bmp,.jpg,.gif,.jpg,.jpeg,.tif,.tiff,.png'"
+									ng-pattern="'.docx,.doc,.xls,.xlsx,.ppt,.pptx,.pdf,.txt,.bmp,.jpg,.gif,.jpg,.jpeg,.tif,.tiff,.png'"-->
 
-                                    <div ng-switch-when="ARCHIVO">
-                                        <input id="archivo" type="file" ngf-select ng-model="celda.pregunta.valor" name="file" ng-show="celda.pregunta.isVacia"
-                                               ngf-validate-fn="validarArchivo(celda, $file)"
-                                               ngf-model-invalid="errorFile" />
-                                        <div uib-alert class="alert alert-link archivo-alerta {{celda.pregunta.claseElemento}}" close="cerrar(celda);" ng-show="!celda.pregunta.isVacia">
-                                            <a href="" ng-disabled="celda.pregunta.deshabilitar" ng-click="descargarArchivo(celda.pregunta.valor, celda.id)">{{celda.pregunta.valor}}</a>
-                                        </div>
-                                    </div>
-                                    <div ng-switch-when="FECHA">
-                                        <input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="date" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
-                                               ng-change="postcargado(celda)"/>
-                                    </div>
-                                    <div ng-switch-when="CHECK">
-                                        <div class="checkbox checkbox-primary">
-                                            <input ng-click="postcargado(celda)" type="checkbox" class="styled" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar">
-                                            <label>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div ng-switch-when="UNICA">
-                                        <select class="{{celda.pregunta.claseElemento}} full" ng-model="celda.pregunta.valor" ng-change="postcargado(celda)" ng-disabled="celda.pregunta.deshabilitar">
-                                            <option ng-repeat="item in celda.pregunta.LOpciones" value="{{item.Valor}}">{{item.Valor}}</option>
-                                        </select>
-                                    </div>
-                                    <div ng-switch-when="MULTIPLE">
-                                        <div class="checkbox checkbox-primary" ng-repeat="item in celda.pregunta.LOpciones">
-                                            <input type="checkbox" class="styled" checklist-model="pregunta.idRespuesta" checklist-value="item" ng-disabled="celda.pregunta.deshabilitar">
-                                            <label>
-                                                {{item}}
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div ng-switch-when="LABEL">
-                                        <div compile="celda.pregunta.valor" style="word-wrap:break-word"></div>
-                                    </div>
-                                    <div ng-switch-when="NUEVAFILA">
-                                        <button ng-click="adicionarNuevaFila(celda)"  >Nueva Fila</button>
-                                    </div>
-                                    <div ng-switch-default>
-                                        <input type="text" maxlength="100" value="default" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+									<div ng-switch-when="ARCHIVO">
+										<input id="archivo" type="file" ngf-select ng-model="celda.pregunta.valor" name="file" ng-show="celda.pregunta.isVacia"
+													 ngf-validate-fn="validarArchivo(celda, $file)"
+													 ngf-model-invalid="errorFile" ng-required="celda.pregunta.esObligatoria || false"
+													 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<div uib-alert class="alert alert-link archivo-alerta {{celda.pregunta.claseElemento}}" close="cerrar(celda);" ng-show="!celda.pregunta.isVacia">
+											<a href="" ng-disabled="celda.pregunta.deshabilitar" ng-click="descargarArchivo(celda.pregunta.valor, celda.id)">{{celda.pregunta.valor}}</a>
+										</div>
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="FECHA">
+										<input class="estilo-numero {{celda.pregunta.claseElemento}} full" type="date" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
+													 ng-change="postcargado(celda)" ng-required="celda.pregunta.esObligatoria || false"
+													 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="CHECK">
+										<div class="checkbox checkbox-primary">
+											<input ng-click="postcargado(celda)" type="checkbox" class="styled" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar"
+														 ng-required="celda.pregunta.esObligatoria || false"
+														 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+											<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+										</div>
+									</div>
+									<div ng-switch-when="UNICA">
+										<ui-select class="{{celda.pregunta.claseElemento}} full" ng-model="celda.pregunta.valor" ng-change="postcargado(celda)" ng-disabled="celda.pregunta.deshabilitar"
+															 ng-required="celda.pregunta.esObligatoria || false" ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}">
+											<ui-select-match placeholder="Selecciona una opción...">{{$select.selected.Valor}}</ui-select-match>
+											<ui-select-choices repeat="item.Valor as item in celda.pregunta.LOpciones | filter: $select.search">
+												<div ng-bind-html="item.Valor | highlight: $select.search"></div>
+											</ui-select-choices>
+										</ui-select>
+										<!-- <select class="{{celda.pregunta.claseElemento}} full" ng-model="celda.pregunta.valor" ng-change="postcargado(celda)" ng-disabled="celda.pregunta.deshabilitar"
+														ng-required="celda.pregunta.esObligatoria || false" ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}">
+												<option ng-repeat="item in celda.pregunta.LOpciones" value="{{item.Valor}}">{{item.Valor}}</option>
+										</select> -->
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="MULTIPLE">
+										<div class="checkbox checkbox-primary" ng-repeat="item in celda.pregunta.LOpciones">
+											<input type="checkbox" class="styled" checklist-model="pregunta.idRespuesta" checklist-value="item"
+														 ng-disabled="celda.pregunta.deshabilitar" ng-required="celda.pregunta.esObligatoria || false"
+														 ng-style="completarPreguntas && celda.pregunta.esObligatoria ? {'border': '1px solid red'} : {}" />
+											<label>
+												{{item}}
+											</label>
+										</div>
+										<span ng-if="completarPreguntas && celda.pregunta.esObligatoria" style="color: red;">Campo requerido</span>
+									</div>
+									<div ng-switch-when="LABEL">
+										<div compile="celda.pregunta.valor" style="word-wrap:break-word"></div>
+									</div>
+									<div ng-switch-when="NUEVAFILA">
+										<button ng-click="adicionarNuevaFila(celda)">Nueva Fila</button>
+									</div>
+									<div ng-switch-default>
+										<input type="text" maxlength="100" value="default" ng-model="celda.pregunta.valor" ng-disabled="celda.pregunta.deshabilitar" />
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-    <div class="row">
-        <span class="col-sm-1 col-sm-offset-6" ng-show="cargando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
-    </div>
-    
+	<div class="row">
+		<span class="col-sm-1 col-sm-offset-6" ng-show="cargando"><i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i></span>
+	</div>
 
-    <!--<a href="" uib-tooltip="I can have a custom class applied to me!">test</a>-->
-    <nav class="navbar navbar-inverse navbar-fixed-bottom barra-inferior">
 
-        <div class="container ">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" ng-click="volverIndice()" href="" style="font-size:12px"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Volver al índice</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a class="btn btn-default btn-sm" href="" style="margin:7px 15px" ng-click="PopUpModoDescarga()"><i class="fa fa-file-excel-o"></i> Descargar copia en Excel </a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <ul uib-pagination total-items="totalPaginas" ng-model="paginaActual" max-size="MaximoTamanho"
-                            class="pagination-sm" boundary-links="true" rotate="false" style="padding: 8px 15px; margin:0"
-                            previous-text="&lsaquo; Anterior" next-text="Siguiente &rsaquo;"
-                            first-text="&laquo; Primero" last-text="Último &raquo;"
-                            ng-change="cambiarPagina(paginaActual)"></ul>
-                    </li>
-                    <li><a ng-if="!isConsulta" ng-disabled="guardando" class="btn btn-default btn-sm" href="" style="margin:7px 15px" ng-click="submitted=true;guardar()"><i class="fa fa-save"></i> Guardar </a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<!--<a href="" uib-tooltip="I can have a custom class applied to me!">test</a>-->
+	<nav class="navbar navbar-inverse navbar-fixed-bottom barra-inferior">
+
+		<div class="container ">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" ng-click="volverIndice()" href="" style="font-size:12px"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Volver al índice</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a class="btn btn-default btn-sm" href="" style="margin:7px 15px" ng-click="PopUpModoDescarga()"><i class="fa fa-file-excel-o"></i> Descargar copia en Excel </a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<ul uib-pagination total-items="totalPaginas" ng-model="paginaActual" max-size="MaximoTamanho"
+								class="pagination-sm" boundary-links="true" rotate="false" style="padding: 8px 15px; margin:0"
+								previous-text="&lsaquo; Anterior" next-text="Siguiente &rsaquo;"
+								first-text="&laquo; Primero" last-text="Último &raquo;"
+								ng-change="cambiarPagina(paginaActual)"></ul>
+					</li>
+					<li><a ng-if="!isConsulta" ng-disabled="guardando" class="btn btn-default btn-sm" href="" style="margin:7px 15px" ng-click="submitted=true;guardar()"><i class="fa fa-save"></i> Guardar </a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
 </form>

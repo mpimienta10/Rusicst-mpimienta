@@ -187,6 +187,9 @@
                     } else {
                         return null;
                     }
+                },
+                isHidden: function () {
+                    return false;
                 }
             }
         });
@@ -254,7 +257,6 @@
 
     //// Confirmación para adquirir identidad
     $scope.openPopUpConfirmacion = function (entity) {
-        debugger;
         var modalInstance = $uibModal.open({
             templateUrl: '/app/views/modals/Confirmacion.html',
             controller: 'ModalConfirmacionController',
@@ -275,8 +277,9 @@
     };
 }]);
 
-app.controller('ModalNuevoEditarUsuarioController', ['$scope', 'APIService', '$filter', '$log', '$uibModalInstance', '$http', 'entity', 'UtilsService', 'authService', function ($scope, APIService, $filter, $log, $uibModalInstance, $http, entity, UtilsService, authService) {
+app.controller('ModalNuevoEditarUsuarioController', ['$scope', 'APIService', '$filter', '$log', '$uibModalInstance', '$http', 'entity', 'isHidden', 'UtilsService', 'authService', function ($scope, APIService, $filter, $log, $uibModalInstance, $http, entity, isHidden, UtilsService, authService) {
     $scope.registro = entity || {};
+    $scope.isHidden = isHidden || false;
     $scope.registro.IdTipoUsuario = null != entity.IdTipoUsuario ? entity.IdTipoUsuario.toString() : null;
     $log.log(entity);
     $scope.isNew = $.isEmptyObject($scope.registro);

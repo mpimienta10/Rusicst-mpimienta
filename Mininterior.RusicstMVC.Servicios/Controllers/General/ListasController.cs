@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : Mininterior.RusicstMVC.Servicios
 // Author           : Equipo de desarrollo OIM
 // Created          : 04-27-2017
@@ -218,7 +218,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.General
         /// <returns>Lista de departamentos con sus municipios</returns>
         [HttpGet]
         [Route("api/General/Listas/DepartamentosMunicipios/")]
-        public IEnumerable<C_ListaDeptosYMunicipios_Result> DepartamentosMunicipios(string audUserName, string userNameAddIdent)
+        public IEnumerable<C_ListaDeptosYMunicipios_Result> DepartamentosMunicipios(string audUserName, string userNameAddIdent, bool isFiltered = false)
         {
             IEnumerable<C_ListaDeptosYMunicipios_Result> resultado = Enumerable.Empty<C_ListaDeptosYMunicipios_Result>();
 
@@ -226,7 +226,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.General
             {
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
-                    resultado = BD.C_ListaDeptosYMunicipios().Cast<C_ListaDeptosYMunicipios_Result>().ToList();
+                    resultado = BD.C_ListaDeptosYMunicipios(isFiltered ? audUserName : null).Cast<C_ListaDeptosYMunicipios_Result>().ToList();
                 }
             }
             catch (Exception ex)
@@ -257,7 +257,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.General
             {
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
-                    resultado = BD.C_ListaMunicipiosXUsuario(idUsuario, idTipoUsuario).Cast<C_ListaMunicipiosXUsuario_Result>().ToList(); ;
+                    resultado = BD.C_ListaMunicipiosXUsuario(idUsuario, idTipoUsuario).Cast<C_ListaMunicipiosXUsuario_Result>().ToList();
                 }
             }
             catch (Exception ex)

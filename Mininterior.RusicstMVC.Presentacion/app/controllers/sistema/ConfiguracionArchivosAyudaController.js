@@ -57,8 +57,8 @@
                 UtilsService.abrirRespuesta(mensaje);
                 cargarAyudas();
             }, function (evt) {
-                //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                //$scope.progressPercentage = 'progreso: ' + progressPercentage + '% ' + evt.config.data.file.name;
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                $scope.progressPercentage = 'progreso: ' + progressPercentage + '% ' + evt.config.data.file.name;
             });
             $scope.nombre = null;
             $scope.progressPercentage = '';
@@ -185,7 +185,6 @@ app.controller('ModalModificarAyudaController', ['$scope', 'APIService', '$filte
                 UtilsService.abrirRespuesta(mensaje);
             }, function (evt) {
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
                 $scope.progressPercentage = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name;
             });
         } else {

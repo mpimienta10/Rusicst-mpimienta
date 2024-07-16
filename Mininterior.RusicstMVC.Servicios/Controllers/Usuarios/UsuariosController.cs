@@ -26,7 +26,9 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Usuarios
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.ServiceModel.Channels;
     using System.Web.Http;
+    using System.Web.Http.Results;
 
     /// <summary>
     /// Class UsuariosController.
@@ -214,6 +216,48 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Usuarios
                                                    model.TelefonoFijo, model.TelefonoFijoIndicativo, model.TelefonoFijoExtension, model.TelefonoCelular, model.Email, model.EmailAlternativo,
                                                    null, true, null, model.Activo, null, null, null, null, null, null, null, null, null).FirstOrDefault();
                 }
+            }
+            catch (Exception ex)
+            {
+                (new AuditExecuted(Category.Excepciones)).ActionExecutedException(model.AudUserName, model.UserNameAddIdent, Mininterior.RusicstMVC.Aplicacion.Excepciones.ManagerException.RetornarError(ex));
+
+                resultado.estado = (int)EstadoRespuesta.Excepcion;
+                resultado.respuesta = ex.Message;
+                return resultado;
+            }
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Modifica la información de los usuarios.
+        /// </summary>
+        /// <param name="model">Entidad con los datos a actualizar.</param>
+        /// <returns>Estado y respuesta.</returns>
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/Usuarios/Usuarios/ChangeStatus")]
+        public C_AccionesResultado ChangeStatus(UsuariosModels model)
+        {
+            C_AccionesResultado resultado = new C_AccionesResultado();
+
+            try
+            {
+                using (EntitiesRusicst BD = new EntitiesRusicst())
+                {
+                    //// En el model.AudUserName llega el UserName, con éste, pregunta en la consulta y a esa variable se le 
+                    //// asigna el id del usuario que esta tramitando para colocarlo en el Update que finaliza el proceso
+                    C_Usuario_Result usuarioTramite = BD.C_Usuario(null, null, null, null, null, model.AudUserName, null).First();
+                    model.IdUsuarioTramite = usuarioTramite.Id.ToString();
+
+                    
+                    //// Actualiza los datos del usuario
+                    resultado = BD.U_UsuarioUpdate(usuarioTramite.Id, null, usuarioTramite.IdTipoUsuario, usuarioTramite.IdDepartamento, usuarioTramite.IdMunicipio, null,usuarioTramite.IdUsuarioTramite.Value, null, usuarioTramite.Nombres, usuarioTramite.Cargo,
+                                                   usuarioTramite.TelefonoFijo, usuarioTramite.TelefonoFijoIndicativo, usuarioTramite.TelefonoFijoExtension, usuarioTramite.TelefonoCelular, usuarioTramite.Email, usuarioTramite.EmailAlternativo,
+                                                   null, true, null, model.Activo, null, null, null, null, null, null, null, null, null).FirstOrDefault();
+                    resultado.respuesta = "Se ha bloqueado el usuario por superar el limite de intentos";
+                }
+                return resultado;
             }
             catch (Exception ex)
             {

@@ -1,19 +1,59 @@
-﻿app.controller('RevisionRespuestasAGController', ['$scope', 'APIService', 'UtilsService', 'i18nService', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$log', '$uibModal', '$location', 'authService', function ($scope, APIService, UtilsService, i18nService, $http, uiGridConstants, $interval, uiGridGroupingConstants, $log, $uibModal, $location, authService) {
+app.controller('RevisionRespuestasAGController', ['$scope', 'APIService', 'UtilsService', 'i18nService', '$http', 'uiGridConstants', '$interval', 'uiGridGroupingConstants', '$log', '$uibModal', '$location', 'authService', function ($scope, APIService, UtilsService, i18nService, $http, uiGridConstants, $interval, uiGridGroupingConstants, $log, $uibModal, $location, authService) {
     $scope.alcaldias = [];
-    $scope.cargoDatos = true;
+  $scope.cargoDatos = true;
+  $scope.GobernacionAlcaldias = [];
+  $scope.gobernacionSeleccionada = null;
     $scope.registro = {};
+    $scope.registroAlcaldia = {};
     //---------------Cargar Combo municipios---------------------------
-    function cargarComboMunicipios() {
-        var url = '/api/General/ObtenerMunicipiosPorUsuario?audUserName=' + authService.authentication.userName + '&userNameAddIdent=' + authService.authentication.userNameAddIdent;
-        var servCall = APIService.getSubs(url);
-        servCall.then(function (datos) {
-            $scope.alcaldias = datos;
-        }, function (error) {
-            console.log('Se generó un error en la petición')
-            $scope.error = "Se generó un error en la petición del combo de Alcaldías";
-        });
-    }
-    cargarComboMunicipios();
+  //  function cargarComboMunicipios() {
+  //      var url = '/api/General/ObtenerMunicipiosPorUsuario?audUserName=' + authService.authentication.userName + '&userNameAddIdent=' + authService.authentication.userNameAddIdent;
+  //      var servCall = APIService.getSubs(url);
+	 // servCall.then(function (datos) {
+  //          $scope.alcaldias = datos;
+  //      }, function (error) {
+  //          console.log('Se generó un error en la petición')
+  //          $scope.error = "Se generó un error en la petición del combo de Alcaldías";
+  //      });
+  //}
+
+		//cargar el combo de gobernaciones
+		function cargarComboGobernacion() {
+		  var url = '/api/General/Listas/DepartamentosMunicipios?audUserName=' + authService.authentication.userName + '&userNameAddIdent=' + authService.authentication.userNameAddIdent + '&isFiltered=' + false;
+			//var url = '/api/General/Listas/DepartamentosMunicipios?audUserName=' + authService.authentication.userName + '&userNameAddIdent=' + authService.authentication.userNameAddIdent;
+			var servCall = APIService.getSubs(url);
+			servCall.then(function (response) {
+				$scope.GobernacionAlcaldias = response;
+				var flags = [], output = [], l = response.length, i;
+				for (i = 0; i < l; i++) {
+				if (flags[response[i].IdDepartamento]) continue;
+				flags[response[i].IdDepartamento] = true;
+				output.push(response[i]);
+				}
+				$scope.gobernaciones = output;
+			}, function (error) {
+				console.log('Se generó un error en la petición')
+				$scope.error = "Se generó un error en la petición";
+			});
+		}
+
+		//cargar el combo de las alcaldias de una gobernacion seleccionada
+		$scope.cargarComboAlcaldias = function () {
+            $scope.alcaldias = [];
+			if ($scope.gobernacionSeleccionada == 0) {
+				$scope.alerta = "Debe seleccionar una Gobernación o un Departamento.";
+			}
+			else {
+                angular.forEach($scope.GobernacionAlcaldias, function (alcaldia) {
+				if (alcaldia.IdDepartamento == $scope.registro.idDepartamento)
+					$scope.alcaldias.push(alcaldia);
+				});
+			}
+
+		}
+
+  cargarComboGobernacion();
+  //cargarComboMunicipios();
 
     //------------------- Inicio logica de la grilla -------------------
     $scope.lang = 'es';
@@ -87,7 +127,6 @@
 
     //=============== Funcion VER =========================================
     $scope.ver = function (fila) {
-        debugger
         var url = '/api/Usuarios/Usuarios/BuscarXDepYMun';
 
         $scope.registro.AudUserName = authService.authentication.userName;
@@ -96,7 +135,6 @@
 
         var servCall = APIService.saveSubscriber($scope.registro, url);
         servCall.then(function (respuesta) {
-            debugger;
             if (respuesta.data.length > 0) {
                 var idUsuario = '';
                 if ($scope.registro.idMunicipio == undefined || $scope.registro.idMunicipio == '') {
@@ -126,12 +164,14 @@
     $scope.buscar = function () {
         $scope.error = null;
         $scope.alerta = null
-        $scope.cargoDatos = null;
-        if (!$scope.alcaldiaSeleccionada) {
-            $scope.alerta = "Debe seleccionar una alcaldía";
+		$scope.cargoDatos = null;
+        if (!$scope.registro.idDepartamento || !$scope.registroAlcaldia.idMunicipio) {
+            $scope.cargoDatos = true;
+            $scope.alerta = "Debe seleccionar una alcaldía y una gobernación";
         }
         else {
-            var url = '/api/Reportes/RevisionRespuestasAG?idmunicipio=' + $scope.alcaldiaSeleccionada;
+            $scope.alerta = "";
+            var url = '/api/Reportes/RevisionRespuestasAG?idmunicipio=' + $scope.registroAlcaldia.idMunicipio + '&iddepartamento=' + $scope.registro.idDepartamento;
             getDatos();
             function getDatos() {
                 $scope.parametro = {};

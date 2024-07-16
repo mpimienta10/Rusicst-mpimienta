@@ -601,7 +601,6 @@ app.controller('ModalArchivosUrlsDerechosController', ['$scope', 'APIService', '
     };
 
     $scope.descargar = function (item) {
-        debugger
         var url = ngSettings.apiServiceBaseUri + '/api/Sistema/ConfiguracionDerechosPAT/Descargar?archivo=' + item.ParametroValor;
         window.open(url)
     }

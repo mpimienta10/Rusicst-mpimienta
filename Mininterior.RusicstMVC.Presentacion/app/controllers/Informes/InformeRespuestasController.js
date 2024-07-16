@@ -4,6 +4,7 @@
     $scope.GobernacionAlcaldias = [];
     $scope.alcaldias = [];
     $scope.cargoDatos = null;
+    $scope.seleccionarTodos = false;
 
     //ADMIN, ENLACE, ANALISTA, ALCALDIA, GOBERNACION
     $scope.Usuario = { idUsuario: $scope.autenticacion.idUsuario, idTipoUsuario: $scope.autenticacion.idTipoUsuario, usuario: $scope.autenticacion.userName, nombreTipoUsuario: '', idDepartamento: 0, idMunicipio: 0 };
@@ -29,6 +30,19 @@
     $scope.cargarComboMunicipios = function () {
         cargarMunicipios();
     }
+
+    $scope.seleccionarTodo = function () {
+        angular.forEach($scope.secciones, function (item) {
+            item.check = !$scope.seleccionarTodos;
+            angular.forEach(item.ListaSubsecciones, function (item2) {
+                item2.check = !$scope.seleccionarTodos;
+                angular.forEach(item2.ListaSubsecciones, function (item3) {
+                    item3.check = !$scope.seleccionarTodos;
+                });
+            });
+        });
+        $scope.seleccionarTodos = !$scope.seleccionarTodos;
+    };
 
     function getDatosUsuario() {
         var datos = { UserName: $scope.autenticacion.userName };
@@ -199,7 +213,6 @@
     $scope.gridOptions = {
         columnDefs: [],
         exporterFieldCallback: function (grid, row, col, value) {
-            // debugger;
             angular.forEach($scope.colPdf, function (fila) {
                 if (col.colDef.displayName === fila.columna) fila.col = col;
             });
@@ -214,7 +227,6 @@
             gridApi.grid.options.exporterPdfTableHeaderStyle = { fontSize: 8, bold: true, color: 'white', fillColor: '#63002D', alignment: 'center' };
             gridApi.grid.options.exporterPdfDefaultStyle = { fontSize: 7 };
             gridApi.grid.options.exporterPdfCustomFormatter = function (docDefinition) {
-                debugger
 
                 var datosPDF = docDefinition.content[0].table.body;
                 UtilsService.personalizarExportPDF(datosPDF, $scope.colPdf)

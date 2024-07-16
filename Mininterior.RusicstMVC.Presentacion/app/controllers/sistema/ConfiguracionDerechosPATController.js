@@ -130,7 +130,6 @@
 
     //================== ABRIR GLOSARIO ==========================================================
     $scope.mostrarDescripcion = function (elemento) {
-        debugger;
         if (elemento) {
             var termino = elemento.outerText;
             $scope.tituloTermino = termino;

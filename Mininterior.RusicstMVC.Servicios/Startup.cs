@@ -80,7 +80,7 @@ namespace Mininterior.RusicstMVC.Servicios
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(180),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(300),
                 Provider = new SimpleAuthorizationServerProvider()
             };
 

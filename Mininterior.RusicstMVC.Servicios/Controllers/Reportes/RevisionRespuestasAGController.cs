@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : Mininterior.RusicstMVC.Servicios
 // Author           : Equipo de desarrollo OIM
 // Created          : 05-03-2017
@@ -37,7 +37,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Reportes
         /// <param name="username">nombre del usuario.</param>
         /// <returns>Lista C_RespuestasEncuestaXUsuario_Result</returns>
         [Route("api/Reportes/RevisionRespuestasAG/")]
-        public IEnumerable<C_RespuestasEncuesta_Result> Get(int idmunicipio)
+        public IEnumerable<C_RespuestasEncuesta_Result> Get(int? idmunicipio, int? iddepartamento)
         {
             IEnumerable<C_RespuestasEncuesta_Result> resultado = Enumerable.Empty<C_RespuestasEncuesta_Result>();
 
@@ -45,7 +45,7 @@ namespace Mininterior.RusicstMVC.Servicios.Controllers.Reportes
             {
                 using (EntitiesRusicst BD = new EntitiesRusicst())
                 {
-                    resultado = BD.C_RespuestasEncuesta(idMunicipio: idmunicipio).Cast<C_RespuestasEncuesta_Result>().ToList();
+                    resultado = BD.C_RespuestasEncuesta(idMunicipio: idmunicipio, idDepartamento: iddepartamento).Cast<C_RespuestasEncuesta_Result>().ToList();
                 }
             }
             catch (Exception ex)

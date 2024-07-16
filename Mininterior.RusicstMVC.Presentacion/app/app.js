@@ -1,4 +1,4 @@
-﻿/// <reference path="views/tableroPat/TablerosEnviados.html" />
+/// <reference path="views/tableroPat/TablerosEnviados.html" />
 var app = angular.module('APIModule', [
     'ui.grid',
     'ui.grid.grouping',
@@ -26,7 +26,8 @@ var app = angular.module('APIModule', [
     'permission.ui',
     'multipleSelect',
     'checklist-model',
-    'ui.mask',
+		'ui.mask',
+		'ui.select',
     'ncy-angular-breadcrumb',
     'doubleScrollBars',
     'blockUI'
@@ -36,7 +37,7 @@ app.config(function ($stateProvider, $urlRouterProvider, uiGridConstants, $provi
     // For any unmatched url, send to /populations
     $urlRouterProvider.otherwise(function ($injector) {
         var $state = $injector.get("$state");
-        $state.go('home.login');
+				$state.go('home.login');
     });
 
     $stateProvider
@@ -52,7 +53,11 @@ app.config(function ($stateProvider, $urlRouterProvider, uiGridConstants, $provi
             url: "/login",
             templateUrl: "/app/views/home/Login.html",
             //El controlador para el login, recuperar contraseña y contáctenos esta en el html.
-            authenticate: false
+            authenticate: false,
+            ncyBreadcrumb: {
+                label: 'Rusicts',
+                parent: 'home'
+            }
         })
         .state('home.registro', {
             url: "/registro",
