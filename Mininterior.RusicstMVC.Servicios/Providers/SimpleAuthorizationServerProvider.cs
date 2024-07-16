@@ -108,10 +108,11 @@ namespace Mininterior.RusicstMVC.Servicios.Providers
                     return;
                 }
                 //Valida que la contraseña fue asignada o cambiada en los ultimos 90 dias 
-                if (await _repo.EsMayor90Dias(user.Id))
-                {
-                    pideCambio90Dias = true;
-                }
+                // TODO : Implementacion de la contraseña
+                //if (await _repo.EsMayor90Dias(user.Id))
+                //{
+                //    pideCambio90Dias = true;
+                //}
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
